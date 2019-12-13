@@ -1,0 +1,28 @@
+.Button {
+  border: none;
+  border-radius: 3px;
+  background: #F38630;
+  color: #FFF;
+  cursor: pointer;
+  margin: 0;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.Button:hover {
+  background: #62D2E7;
+}
+.Button:active {
+  position: relative;
+  top: 1px;
+}
+.exampleItem {
+  color: #F38630;
+  display: none;
+  padding: 20px;
+  border: 1px solid #62D2E7;
+  border-radius: 3px;
+  margin: 10px 0;
+  transition: opacity 0.4s ease-in-out;
+}
