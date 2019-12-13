@@ -13,7 +13,27 @@ class productosController extends Controller
      */
     public function index()
     {
-        return view ("productos");
+        return view ("productos/cheques");
+    }
+    public function pagares()
+    {
+        return view ("productos/pagares");
+    }
+    public function bancos()
+    {
+        return view ("productos/bancos");
+    }
+    public function obligaciones()
+    {
+        return view ("productos/obligaciones");
+    }
+    public function fideicomisos()
+    {
+        return view ("productos/fideicomisos");
+    }
+    public function garantias()
+    {
+        return view ("productos/garantias");
     }
 
     /**

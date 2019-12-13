@@ -5,7 +5,7 @@
             <div class="menu_logo">
                 <a href="/"><img src="img/logo.png" alt="" /></a>
             </div>
-            
+
             <div class="menu_nav">
                 <div class="menu_nav_in">
                     <div class="menu_nav_content scrollable">
@@ -24,12 +24,12 @@
                                 <a href="productos">Productos</a>
                                 <div class="inside_menu">
                                     <ul>
-                                        <li><a href="productos">Cheques</a></li>
-                                            <li><a href="productos">Pagarés</a></li>
-                                            <li><a href="productos">Bancos</a></li>
-                                            <li><a href="productos">Obligaciones Negociables Simples</a></li>
-                                            <li><a href="productos">Fideicomisos Financieros</a></li>
-                                            <li><a href="productos">Garantías Comerciales</a></li>
+                                        <li><a href="cheques">Cheques</a></li>
+                                            <li><a href="pagares">Pagarés</a></li>
+                                            <li><a href="bancos">Bancos</a></li>
+                                            <li><a href="obligaciones">Obligaciones Negociables Simples</a></li>
+                                            <li><a href="fideicomisos">Fideicomisos Financieros</a></li>
+                                            <li><a href="garantias">Garantías Comerciales</a></li>
                                         </ul>
                                 </div>
                             </li>

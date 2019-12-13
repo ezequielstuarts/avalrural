@@ -13,7 +13,15 @@ class pertenecerController extends Controller
      */
     public function index()
     {
-        return view ("pertenecer");
+        return view ("pertenecer/requisitos");
+    }
+    public function requisitos()
+    {
+        return view ("pertenecer/requisitos");
+    }
+    public function como_obtener()
+    {
+        return view ("pertenecer/como_obtener");
     }
 
     /**

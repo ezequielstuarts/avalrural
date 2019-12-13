@@ -13,7 +13,7 @@ class sobreavalController extends Controller
      */
     public function index()
     {
-        return view ("sobre_aval");
+        return view ("quienes_somos");
     }
 
     /**

@@ -3,7 +3,7 @@
 
 $(function() {
 	$.ajax({
-		url: 'partials/modal-popup.html',
+		url: 'inc/modal-popup.html',
 		method: 'get',
 		data: null,
 		datatype: 'html',
