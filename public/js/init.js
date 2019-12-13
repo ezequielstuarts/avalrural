@@ -390,21 +390,21 @@ function buildify_tm_animate_submenu(){
 
 	mainLi.on('mouseenter',function(){
 		var element = jQuery(this);
-		var submenu = element.find('.inside_menu').php();
+		var submenu = element.find('.inside_menu').html();
 		winScroll 	= jQuery(window).scrollTop();
 		offsetLi 	= element.offset().top;
 		box.css({top:offsetLi-winScroll-20});
 		if(element.hasClass('active1')){
 			box.removeClass('opened');
-			box.php("");
-			box.php(submenu);
+			box.html("");
+			box.html(submenu);
 			box.addClass('opened');
 		}else{
-			box.removeClass('opened').php("");
+			box.removeClass('opened').html("");
 		}
 	});
 	RightPart.on('mouseenter',function(){
-		box.removeClass('opened').php("");
+		box.removeClass('opened').html("");
 	});
 }
 
@@ -651,7 +651,7 @@ function buildify_tm_contact_form(){
 		}
 		else{
 			// Returns successful data submission message when the entered information is stored in database.
-			jQuery.post("modal/contact.php",{ ajax_name: name, ajax_email: email, ajax_message:message, ajax_subject: subject}, function(data) {
+			jQuery.post("modal/contact.html",{ ajax_name: name, ajax_email: email, ajax_message:message, ajax_subject: subject}, function(data) {
 				
 				jQuery(".contact_form .returnmessage").append(data);//Append returned message to message paragraph
 				

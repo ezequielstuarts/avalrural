@@ -4,7 +4,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/sobre_aval', "sobreavalController@index")->name('sobre_aval');
+Route::get('/quienes_somos', "sobreavalController@index")->name('quienes_somos');
 
 
 Route::get('/productos', "productosController@index")->name('productos');
