@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Noticia;
+use Carbon\Carbon;
 
 class noticiasController extends Controller
 {
@@ -13,7 +15,8 @@ class noticiasController extends Controller
      */
     public function index()
     {
-        return view ("noticias");
+        $noticias = Noticia::orderBy('id', 'DESC')->get();
+        return view ("noticias", ['noticias' => $noticias]);
     }
 
     /**
@@ -23,7 +26,7 @@ class noticiasController extends Controller
      */
     public function create()
     {
-        //
+        return view("backofice.nueva_noticia");
     }
 
     /**
@@ -34,7 +37,41 @@ class noticiasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $reglas = [
+            "title" => "required|string",
+            "subtitle" => "required|string",
+            //"img_noticia" => "file",
+            //"favorite_movie_id" => "required"
+        ];
+        $mensajes = [
+            "string" => "El campo :attribute debe ser un nombre.",
+            "required" => "El campo :attribute es necesario.",
+        ];
+
+        $this->validate($request, $reglas, $mensajes);
+
+        $now = Carbon::now();
+        
+        $rutaPreview = $request->file("img_preview")->store("public");
+        $nombrePreview = basename($rutaPreview);
+        
+        
+        $rutaImg = $request->file("img_noticia")->store("public");
+        $nombreImagen = basename($rutaImg);
+        
+        $newNoticia = new Noticia();
+        
+        $newNoticia->title = $request["title"];
+        $newNoticia->subtitle = $request["subtitle"];
+        $newNoticia->date = $request["fecha"];
+        
+        $newNoticia->img_preview = $nombrePreview;
+        $newNoticia->img_noticia = $nombreImagen;
+        
+        $newNoticia->save();
+        return redirect('nueva_noticia');
+    
     }
 
     /**

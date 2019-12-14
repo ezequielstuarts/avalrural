@@ -30,3 +30,14 @@ Route::get('/faq', "faqController@index")->name('faq');
 
 
 Route::get('/contacto', "contactoController@index")->name('contacto');
+
+
+Route::get('/nueva_noticia', "noticiasController@create")->name('nueva_noticia');
+
+Route::post('/nueva_noticia', "noticiasController@store")->name('nueva_noticia');
+
+
+// Route::get('/init', function () {
+//     Artisan::call('storage:link');
+//     return 'ready!';
+// });
