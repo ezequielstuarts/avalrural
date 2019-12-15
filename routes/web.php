@@ -32,10 +32,20 @@ Route::get('/faq', "faqController@index")->name('faq');
 Route::get('/contacto', "contactoController@index")->name('contacto');
 
 
-Route::get('/nueva_noticia', "noticiasController@create")->name('nueva_noticia');
 
-Route::post('/nueva_noticia', "noticiasController@store")->name('nueva_noticia');
+// ADMIN
 
+Route::get('admin/nueva_noticia', "adminController@create")->name('admin.nueva_noticia');
+
+Route::post('admin/nueva_noticia', "noticiasController@store")->name('admin.nueva_noticia');
+
+//Route::get('/admin', "adminController@index")->name('admin');
+
+Route::get('/admin', "noticiasController@listado")->name('admin');
+
+Route::post('/admin/destroy', "noticiasController@destroy")->name('admin.destroy');
+
+//Route::get('/noticia/editar/{id}', "noticiasController@edit")->name('edit');
 
 // Route::get('/init', function () {
 //     Artisan::call('storage:link');

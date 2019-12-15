@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
         <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
         <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
-    </head>
-    <body>
+   
         <div class="container text-right">
             <h4>{{ date('l jS \\of F Y') }}</h4>
         </div>
-        <div class="container mt-5">
-        <form action="{{route('nueva_noticia')}}" method="post" enctype="multipart/form-data">
+        <div class=" container mt-5">
+        <form action="{{route('admin.nueva_noticia')}}" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
             
             <div class="form-group">
@@ -43,10 +37,15 @@
             
             <div id="summernote">Hello Summernote</div>
             <div class="form-group">
-                <button id="enviar" class="btn btn-success" type="submit">Enviar</button>
-                <a class="btn btn-warning" href="/nueva_noticia">Limpiar</a>
+                <button id="enviar" class="btn btn-success" type="submit">Guardar</button>
+                <a class="btn btn-warning" href="{{ route('admin.nueva_noticia')}}">Limpiar</a>
             </div>
         </form>
+        <div class="container text-right">
+            <a href="{{ route('admin')}}">
+                <button class="btn btn-danger">Volver</button>
+            </a>
+        </div>
     </div>
     
     {{-- <form method="post">

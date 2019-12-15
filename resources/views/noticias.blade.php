@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <!-- <div class="buildify_tm_pagination_wrap">
-                            <div class="pagination_inner">
+                            <div class="pagination_inner">tecla
                                 <ul>
                                     <li><span>1</span></li>
                                     <li><a href="#">2</a></li>

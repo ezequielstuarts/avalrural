@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Noticia;
 use Carbon\Carbon;
 
@@ -18,6 +19,11 @@ class noticiasController extends Controller
         $noticias = Noticia::orderBy('id', 'DESC')->get();
         return view ("noticias", ['noticias' => $noticias]);
     }
+    public function listado()
+    {
+        $noticias = Noticia::orderBy('id', 'DESC')->get();
+        return view ("admin/admin", ['noticias' => $noticias]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -26,7 +32,7 @@ class noticiasController extends Controller
      */
     public function create()
     {
-        return view("backofice.nueva_noticia");
+        return view("nueva_noticia");
     }
 
     /**
@@ -70,7 +76,7 @@ class noticiasController extends Controller
         $newNoticia->img_noticia = $nombreImagen;
         
         $newNoticia->save();
-        return redirect('nueva_noticia');
+        return redirect('admin/nueva_noticia');
     
     }
 
@@ -114,8 +120,16 @@ class noticiasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $formulario)
     {
-        //
+        $id = $formulario['id'];
+        $noticia = Noticia::find($id);
+        $url = Storage::url($noticia['img_noticia']);
+        
+        $noticia->delete();
+        Storage::disk('s3')->delete($url);
+
+        dd('seborro');
+        return redirect('/admin');
     }
 }
