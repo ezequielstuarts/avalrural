@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title', 'Ver noticia')
 @section('content')
 <div class="buildify_tm_content_wrap">
     <div class="buildify_tm_content buildify_tm_content_gris">
@@ -38,7 +39,7 @@
                                                             <p>{{$noticia->subtitle}}</p>
                                                         </div>
                                                         <div class="buildify_tm_read_more">
-                                                            <p><a href="nuevos_limites_pyme.html">Leer Más</a><span>Diciembre 2019</span></p>
+                                                            <p><a href="noticia/{{$noticia->id}}">Leer Más</a><span>{{$noticia->date}} </span></p>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -25,6 +25,8 @@ Route::get('/como_obtener', "pertenecerController@como_obtener")->name('como_obt
 
 Route::get('/noticias', "noticiasController@index")->name('noticias');
 
+Route::get('/noticia/{id}', "noticiasController@verNoticia")->name('ver.noticia.{id}');
+
 
 Route::get('/faq', "faqController@index")->name('faq');
 

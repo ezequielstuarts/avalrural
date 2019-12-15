@@ -70,6 +70,7 @@ class noticiasController extends Controller
         
         $newNoticia->title = $request["title"];
         $newNoticia->subtitle = $request["subtitle"];
+        $newNoticia->content = $request["content"];
         $newNoticia->date = $request["fecha"];
         
         $newNoticia->img_preview = $nombrePreview;
@@ -86,9 +87,12 @@ class noticiasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function verNoticia($id)
     {
-        //
+        {
+            $noticia = noticia::find($id);
+            return view ("noticia", ['noticia' => $noticia]);
+        }
     }
 
     /**
@@ -124,7 +128,7 @@ class noticiasController extends Controller
     {
         $id = $formulario['id'];
         $noticia = Noticia::find($id);
-        
+
         $img_preview = $noticia['img_preview'];
         $img_noticia = $noticia['img_noticia'];
         

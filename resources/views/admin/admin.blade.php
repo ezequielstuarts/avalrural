@@ -24,6 +24,7 @@
                     <th scope="col">Fecha</th>
                     <th scope="col">Titulo</th>
                     <th scope="col">Subtitulo</th>
+                    <th scope="col">noticia</th>
                     <th scope="col">Imagen</th>
                 </tr>
             </thead>
@@ -36,6 +37,7 @@
                 <td>{{$noticia->date}}</td>
                 <td>{{$noticia->title}}</td>
                 <td>{{$noticia->subtitle}}</td>
+                <td>{{$noticia->content}}</td>
                 <td><img style="width:100px" src="/storage/{{$noticia->img_noticia}}"/></td>
                 <td>
                     {{-- <a href=" {{route('noticia.edit', $noticia->id)}} ">

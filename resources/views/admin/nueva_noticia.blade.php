@@ -35,7 +35,14 @@
                 <input type="file" class="form-control-file" id="img_noticia" name="img_noticia">
             </div>
             
-            <div id="summernote">Hello Summernote</div>
+            
+            <div class="form-group">
+                <label class="labels" for="content">Contenido</label>
+                <textarea id="summernote" required class="form-control" name="content"></textarea>
+            </div>
+
+
+
             <div class="form-group">
                 <button id="enviar" class="btn btn-success" type="submit">Guardar</button>
                 <a class="btn btn-warning" href="{{ route('admin.nueva_noticia')}}">Limpiar</a>
