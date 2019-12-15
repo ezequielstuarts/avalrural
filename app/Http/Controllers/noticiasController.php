@@ -124,12 +124,14 @@ class noticiasController extends Controller
     {
         $id = $formulario['id'];
         $noticia = Noticia::find($id);
-        $url = Storage::url($noticia['img_noticia']);
         
+        $img_preview = $noticia['img_preview'];
+        $img_noticia = $noticia['img_noticia'];
+        
+        Storage::delete('public/'.$img_preview);
+        Storage::delete('public/'.$img_noticia);
         $noticia->delete();
-        Storage::disk('s3')->delete($url);
 
-        dd('seborro');
         return redirect('/admin');
     }
 }
