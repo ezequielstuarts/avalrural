@@ -20,7 +20,7 @@
                                 </div>
 
                                 <ul class="buildify_list">
-                            @forelse ($noticias as $noticia)
+
                             <li>
                                 <div class="list_inner">
                                     <div class="tarjeta_noticia">
@@ -45,9 +45,7 @@
                                     </div>
                                 </div>
                             </li>
-                            @empty
-                            <h2>No hay Noticias</h2>
-                            @endforelse
+
                         </ul>
                     </div>
                 </div>

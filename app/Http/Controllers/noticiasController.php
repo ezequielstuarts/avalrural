@@ -43,7 +43,7 @@ class noticiasController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $reglas = [
             "title" => "required|string",
             "subtitle" => "required|string",
@@ -58,27 +58,27 @@ class noticiasController extends Controller
         $this->validate($request, $reglas, $mensajes);
 
         $now = Carbon::now();
-        
+
         $rutaPreview = $request->file("img_preview")->store("public");
         $nombrePreview = basename($rutaPreview);
-        
-        
+
+
         $rutaImg = $request->file("img_noticia")->store("public");
         $nombreImagen = basename($rutaImg);
-        
+
         $newNoticia = new Noticia();
-        
+
         $newNoticia->title = $request["title"];
         $newNoticia->subtitle = $request["subtitle"];
         $newNoticia->content = $request["content"];
         $newNoticia->date = $request["fecha"];
-        
+
         $newNoticia->img_preview = $nombrePreview;
         $newNoticia->img_noticia = $nombreImagen;
-        
+
         $newNoticia->save();
         return redirect('admin/nueva_noticia');
-    
+
     }
 
     /**
@@ -90,7 +90,7 @@ class noticiasController extends Controller
     public function verNoticia($id)
     {
             $noticia = noticia::find($id);
-            return view ("noticias/noticia", ['noticia' => $noticia]);
+            return view ("noticia", ['noticia' => $noticia]);
     }
 
     /**
@@ -129,7 +129,7 @@ class noticiasController extends Controller
 
         $img_preview = $noticia['img_preview'];
         $img_noticia = $noticia['img_noticia'];
-        
+
         Storage::delete('public/'.$img_preview);
         Storage::delete('public/'.$img_noticia);
         $noticia->delete();

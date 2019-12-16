@@ -1,4 +1,4 @@
 @extends('home')
 @section('content')
-    @yield('content')
+    @yield('noti')
 @endsection
