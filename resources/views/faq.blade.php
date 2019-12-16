@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('home')
 @section('content')
 <link rel="stylesheet" href="css/menuacordeon.css">
 <div class="buildify_tm_content_wrap">

@@ -1,12 +1,15 @@
-<!-- /SHORT SERVICES -->
-@include('partials.carousel')
-<!-- /SHORT SERVICES -->
+@extends('welcome')
 
-<!-- FEATURED WORKS -->
-@include('partials.nuestros-productos')
-<!-- /FEATURED WORKS -->
+@section('content')
+    <!-- /SHORT SERVICES -->
+    @include('partials.carousel')
+    <!-- /SHORT SERVICES -->
 
-<!-- NEWS -->
-@include('partials.ultimas-noticias')
-<!-- /NEWS -->
+    <!-- FEATURED WORKS -->
+    @include('partials.nuestros-productos')
+    <!-- /FEATURED WORKS -->
 
+    <!-- NEWS -->
+    @include('partials.ultimas-noticias')
+    <!-- /NEWS -->
+@endsection
