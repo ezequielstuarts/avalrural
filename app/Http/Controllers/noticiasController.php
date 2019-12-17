@@ -17,7 +17,7 @@ class noticiasController extends Controller
     public function index()
     {
         $noticias = Noticia::orderBy('id', 'DESC')->get();
-        return view ("noticias/todasLasNoticias", ['noticias' => $noticias]);
+        return view ("todasLasNoticias", ['noticias' => $noticias]);
     }
     public function listado()
     {
@@ -89,7 +89,7 @@ class noticiasController extends Controller
      */
     public function verNoticia($id)
     {
-            $noticia = noticia::find($id);
+            $noticia = Noticia::find($id);
             return view ("noticia", ['noticia' => $noticia]);
     }
 
