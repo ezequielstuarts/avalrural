@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('noticias')
 @section('content')
 <div class="buildify_tm_content_wrap">
     <div class="buildify_tm_content buildify_tm_content_gris">
@@ -38,10 +38,7 @@
                                                     <p>{{$noticia->subtitle}}</p>
                                                 </div>
                                                 <div class="buildify_tm_read_more">
-                                                    <p><a href="noticias/{{$noticia->id}}">Leer Más</a><span>
-                                                    {{date('F Y', strtotime($noticia->date))}}
-                                                     </span></p>
-
+                                                    <p><a href="noticias/{{$noticia->id}}">Leer Más</a><span>{{$noticia->date}} </span></p>
                                                 </div>
                                             </div>
                                         </div>

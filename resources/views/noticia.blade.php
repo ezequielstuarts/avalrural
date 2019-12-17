@@ -1,13 +1,12 @@
 @extends('welcome')
 @section('content')
-	
 <div class="buildify_tm_universal_title_holder">
     <div class="container">
         <div class="title_holder_inner">
             <h3>#Noticias</h3>
         </div>
     </div>
-</div>	
+</div>
 <div class="buildify_tm_section">
     <div class="container">
         <div class="buildify_tm_service_single_wrap">
@@ -37,30 +36,26 @@
                                 </div>
                             </div>
                             <div class="single_title">
-                                <h3>Nueva alternativa de financiación para las Pymes</h3>
+                                <h3>{{$noticia->title}}</h3>
                             </div>
                         <div class="blog_single_image">
-                            <img src="img/img_noticias/Aval4.jpg" alt="" />
+                            <img src="/storage/{{$noticia->img_noticia}}"/>
                         </div>
                         </div>
                         <div class="buildify_tm_top_section">
                             <div class="subtitle txt_noticias">
-                                
-                                <p>En noviembre Aval Rural SGR fue aprobada por la CNV como avalista en el régimen de Obligaciones Negociables Simples, sumando este producto a las propuestas de la SGR hacia las Pymes.</p>
-                                <p>Es una herramienta ágil y flexible que permite a las Pymes obtener financiación, a través del mercado de capitales, emitiendo deuda hasta 60 meses, en pesos o USD a tasas competitivas de mercado.</p>
-                                <p>Durante el 2017 asistimos a más de 400 Pymes, financiándolas con cheques, pagarés de pago diferido y bancos.</p>
-                                <p>Desde Aval Rural acompañamos a Pymes en todo el país y de todos los sectores de la economía con el objetivo de consolidar y potenciar su crecimiento.</p>
-                                <p class="hover_link">Si desea contactarse con Aval Rural, llamar al (011) 4468-8291 o enviar mail a <a href="info@avalrural.com.ar">info@avalrural.com.ar</a> y <a href="jsalate@avalrural.com.ar">jsalate@avalrural.com.ar</a></p>
+
+                                {!!$noticia->content!!}
 
 
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
-                
+
             </div>
-        
+
         </div>
 
     </div>

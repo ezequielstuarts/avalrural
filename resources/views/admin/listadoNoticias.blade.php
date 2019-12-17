@@ -1,6 +1,6 @@
 
 <div class="leftbox_inner">
-    <div class="buildify_tm_list_wrap" data-column="2" data-space="30">       
+    <div class="buildify_tm_list_wrap" data-column="2" data-space="30">
         <ul class="buildify_list">
             @forelse ($noticias as $noticia)
             <li>
@@ -14,7 +14,7 @@
                                 </div>
                                 <div class="blog_title">
                                     <h3><a href="nuevos_limites_pyme.html">{{$noticia->title}}</a></h3>
-                                    
+
                                 </div>
                                 <div class="blog_definition">
                                     <p>{{$noticia->subtitle}}</p>
@@ -32,4 +32,4 @@
             @endforelse
         </ul>
     </div>
-</div>    
+</div>

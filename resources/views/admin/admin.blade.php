@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <title>Panel de Administracion</title>
 </head>
@@ -15,7 +15,7 @@
             <button class="btn btn-danger">Cargar Noticia</button>
         </a>
     </div>
-    
+
     <div class="container">
         <table class="table">
             <thead>
@@ -34,7 +34,7 @@
                 <th scope="row">
                     {{$noticia->id}}
                 </th>
-                <td>{{$noticia->date}}</td>
+                <td>{{date('d-m-Y', strtotime($noticia->date))}}</td>
                 <td>{{$noticia->title}}</td>
                 <td>{{$noticia->subtitle}}</td>
                 <td>{{$noticia->content}}</td>
@@ -48,12 +48,18 @@
                     <form action="{{route('admin.destroy', $noticia->id)}}" method="post">
                         {{csrf_field()}}
                         <input type="hidden" name="id" value="{{$noticia->id}}">
+                        <input class="btn btn-warning mt-5" type="submit" value="Editar">
+                    </form>
+
+                    <form action="{{route('admin.destroy', $noticia->id)}}" method="post">
+                        {{csrf_field()}}
+                        <input type="hidden" name="id" value="{{$noticia->id}}">
                         <input class="btn btn-danger mt-5" type="submit" value="Eliminar">
                     </form>
                 </td>
               </tr>
-              
-    
+
+
             </tbody>
             @empty
             <h2>No hay Noticias</h2>
@@ -61,7 +67,7 @@
           </table>
     </div>
 
-    
+
 </body>
 </html>
 

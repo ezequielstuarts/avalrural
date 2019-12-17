@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class adminController extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class adminController extends Controller
     public function index()
     {
     }
-    
+
     /**
      * Show the form for creating a new resource.
      *

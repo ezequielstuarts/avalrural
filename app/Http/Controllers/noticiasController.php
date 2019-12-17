@@ -19,6 +19,7 @@ class noticiasController extends Controller
         $noticias = Noticia::orderBy('id', 'DESC')->get();
         return view ("todasLasNoticias", ['noticias' => $noticias]);
     }
+
     public function listado()
     {
         $noticias = Noticia::orderBy('id', 'DESC')->get();
@@ -47,7 +48,8 @@ class noticiasController extends Controller
         $reglas = [
             "title" => "required|string",
             "subtitle" => "required|string",
-            //"img_noticia" => "file",
+            "img_preview" => "required|file",
+            "img_noticia" => "required|file",
             //"favorite_movie_id" => "required"
         ];
         $mensajes = [
