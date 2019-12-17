@@ -20,21 +20,21 @@
                     <ul class="nav">
                         <li><a href="/">Home</a></li>
                         <li>
-                            <a href="quienes_somos">Sobre Aval Rural SGR</a>
+                            <a href="sobre_aval">Sobre Aval Rural SGR</a>
                             <ul class="sub_menu">
-                                <li><a href="quienes_somos">Quiénes Somos</a></li>
+                                <li><a href="sobre_aval">Quiénes Somos</a></li>
                                 <li><a href="noticias">Noticias</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="producto_cheque">Productos</a>
+                            <a href="cheques">Productos</a>
                             <ul class="sub_menu">
-                                <li><a href="producto_cheque">Cheques</a></li>
-                                <li><a href="producto_pagares">Pagarés</a></li>
-                                <li><a href="producto_bancos">Bancos</a></li>
-                                <li><a href="producto_obligaciones">Obligaciones Negociables Simples</a></li>
-                                <li><a href="producto_fideicomisos">Fideicomisos Financieros</a></li>
-                                <li><a href="producto_garantias">Garantías Comerciales</a></li>
+                                <li><a href="cheques">Cheques</a></li>
+                                <li><a href="pagares">Pagarés</a></li>
+                                <li><a href="bancos">Bancos</a></li>
+                                <li><a href="obligaciones">Obligaciones Negociables Simples</a></li>
+                                <li><a href="fideicomisos">Fideicomisos Financieros</a></li>
+                                <li><a href="garantias">Garantías Comerciales</a></li>
                                
                             </ul>
                         </li>
@@ -48,7 +48,7 @@
                         </li>
                         <li><a href="noticias">Noticias</a></li>
                         <li><a href="faq">Preguntas frecuentes</a></li>
-                        <li><a href="contact">Contacto</a></li>
+                        <li><a href="contacto">Contacto</a></li>
                     </ul>
                 </div>
             </div>

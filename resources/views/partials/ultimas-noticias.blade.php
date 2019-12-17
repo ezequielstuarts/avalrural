@@ -21,7 +21,7 @@
                                         <h3><a href="/noticias/{{$noticia->id}}">{{$noticia->title}}</a></h3>
                                     </div>
                                     <div class="definition">
-                                        <p>{{$noticia->subtitle}}</p>
+                                        <p>{{ str_limit($noticia->subtitle, 80) }}</p>
                                     </div>
                                     <div class="read_more_news">
                                         <p><a href="/noticias/{{$noticia->id}}">Ver más</a><span>{{date('F Y', strtotime($noticia->date))}}</span></p>
