@@ -54,15 +54,17 @@
                         </ul>
                     </div>
                 </div>
-                <!-- <div class="buildify_tm_pagination_wrap">
-                    <div class="pagination_inner">tecla
+
+                <div class="buildify_tm_pagination_wrap">
+                    <div class="pagination_inner">
                         <ul>
-                            <li><span>1</span></li>
-                            <li><a href="#">2</a></li>
+
+                            {{ $noticias->links() }}
+
 
                         </ul>
                     </div>
-                </div> -->
+                </div>
 
             </div>
             <div class="rightbox sticky_sidebar">
