@@ -1385,7 +1385,7 @@ strong{color: #777;}
 .buildify_tm_short_service_list li.trailer .list_inner{min-height:450px !important;}
 .buildify_tm_list_wrap{
 	width: 100%;
-	min-height: 470px;
+	min-height: 0px;
 	/* height: auto; */
 	clear: both;
 	float: left;

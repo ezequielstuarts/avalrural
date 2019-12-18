@@ -17,6 +17,16 @@
     </div>
 
     <div class="container">
+        @if (session('mensaje'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert" data-dismiss="alert">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4>{{ session('mensaje') }}</h4>
+        </div>
+    @endif
+    </div>
+
+
+    <div class="container">
         <table class="table">
             <thead>
                 <tr>
@@ -24,36 +34,26 @@
                     <th scope="col">Fecha</th>
                     <th scope="col">Titulo</th>
                     <th scope="col">Subtitulo</th>
-                    <th scope="col">noticia</th>
+                    <th scope="col">Noticia</th>
                     <th scope="col">Imagen</th>
+                    <th scope="col">Opciones</th>
                 </tr>
             </thead>
             @forelse ($noticias as $noticia)
             <tbody>
               <tr>
-                <th scope="row">
-                    {{$noticia->id}}
-                </th>
+                <th scope="row">{{$noticia->id}}</th>
                 <td>{{date('d-m-Y', strtotime($noticia->date))}}</td>
                 <td>{{$noticia->title}}</td>
                 <td>{{$noticia->subtitle}}</td>
                 <td>{{$noticia->content}}</td>
                 <td><img style="width:100px" src="/storage/{{$noticia->img_noticia}}"/></td>
                 <td>
-                    {{-- <a href=" {{route('noticia.edit', $noticia->id)}} ">
-                        <div class="btn btn-warning mt-5">Editar</div>
-                    </a> --}}
-                </td>
-                <td>
-                    
-                        {{csrf_field()}}
-                        <input type="hidden" name="id" value="{{$noticia->id}}">
-                        <a href="{{route('admin.edit', $noticia->id)}}
-                        ">
-                        <input class="btn btn-warning mt-5" type="submit" value="Editar">
-                        </a>
-                    
-
+                    <input type="hidden" name="id" value="{{$noticia->id}}">
+                    <a href="{{route('admin.edit', $noticia->id)}}
+                    ">
+                    <input class="btn btn-warning mt-5" type="submit" value="Editar">
+                    </a>
                     <form action="{{route('admin.destroy', $noticia->id)}}" method="post">
                         {{csrf_field()}}
                         <input type="hidden" name="id" value="{{$noticia->id}}">

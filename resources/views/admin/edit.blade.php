@@ -18,7 +18,7 @@
     {{csrf_field()}}
     <div class="form-group">
         <label for="date">Fecha de la noticia</label>
-    <input type="date" class="form-control" id="date" name="fecha" value="{{$noticia->date}}">
+    <input type="date" class="form-control" id="date" name="date" value="{{$noticia->date}}">
     </div>
 
     <div class="form-group">
@@ -26,10 +26,10 @@
         <input type="text" class="form-control" id="title" name="title" value="{{$noticia->title}}">
         <p class="text-danger pl-1 pt-1">{{ $errors->first('title') }}</p>
     </div>
+
     <div class="form-group">
         <label for="subtitle">Subtitulo</label>
         <textarea class="form-control" id="subtitle" rows="3" name="subtitle" value="">{{$noticia->subtitle}}</textarea>
-
     </div>
 
     <div class="form-group">
@@ -66,7 +66,7 @@
 
 
     <div class="form-group">
-        <button id="enviar" class="btn btn-success" type="submit">Guardar</button>
+        <button class="btn btn-success" type="submit">Guardar Cambios</button>
         <a class="btn btn-info" href="{{ route('admin')}}">Caneclar</a>
     </div>
 </form>

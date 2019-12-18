@@ -3,7 +3,7 @@
     <div class="buildify_tm_menubar_in">
         <div class="buildify_tm_menubar_content">
             <div class="menu_logo">
-                <a href="/"><img src="img/logo.png" alt="" /></a>
+                <a href="/"><img src=" {{ URL::asset('img/logo.png') }} " alt="" /></a>
             </div>
 
             <div class="menu_nav">

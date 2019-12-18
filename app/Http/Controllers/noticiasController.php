@@ -73,7 +73,7 @@ class noticiasController extends Controller
         $newNoticia->title = $request["title"];
         $newNoticia->subtitle = $request["subtitle"];
         $newNoticia->content = $request["content"];
-        $newNoticia->date = $request["fecha"];
+        $newNoticia->date = $request["date"];
 
         $newNoticia->img_preview = $nombrePreview;
         $newNoticia->img_noticia = $nombreImagen;
@@ -116,17 +116,22 @@ class noticiasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        {
-            dd('lknkjn');
-            $noticia = noticia::find($id);
+            $noticia = Noticia::find($id);
             $diff = array_diff($request->toArray(), $noticia->toArray());
-            $basename = basename($request->file("img_preview")->store("public"));
+
+            $basename_preview = basename($request->file("img_preview")->store("public"));
+            $basename_img = basename($request->file("img_preview")->store("public"));
+
+
             if ($request->has('img_preview')) {
-                $diff["img_preview"] = $basename;
+                $diff["img_preview"] = $basename_preview;
+            }
+            if ($request->has('img_noticia')) {
+                $diff["img_noticia"] = $basename_img;
             }
             $noticia->update($diff);
-            return redirect()->route('admin', ['noticia' => $noticia])->with('mensaje', 'noticia Actualizado');
-        }
+            return redirect()->route('admin', ['noticia' => $noticia])->with('mensaje', 'Noticia Actualizada');
+
     }
 
     /**

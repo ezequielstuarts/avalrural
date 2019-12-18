@@ -10,12 +10,13 @@
         <meta description="Aval Rural es una Sociedad de Garantía Recíproca autorizada por la Sepyme, miembro del grupo Cofco Intl e integrada por MiPyMEs de diferentes sectores.">
         <meta name="keywords" content="avales, aval, rural, aval rural, fideicomisos, préstamos, cheque, noticias agro, noticias campo, COFCO International Argentina S.A., avales COFCO, fideicomisos financieros, endeudamiento, préstamos, bonos.">
         <link rel="shortcut icon" href="img/logo/logo_aval_rural.ico">
-        <link rel="stylesheet" type="text/css" href="css/fontello.css" />
-        <link rel="stylesheet" type="text/css" href="css/skeleton.css" />
-        <link rel="stylesheet" type="text/css" href="css/plugins.css" />
-        <link rel="stylesheet" type="text/css" href="css/base.css" />
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <link rel="stylesheet" type="text/css" href="css/stylefaq.css" />
+
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/fontello.css') }} " />
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/skeleton.css') }} " />
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/plugins.css') }} " />
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/base.css') }} " />
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }} " />
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/stylefaq.css') }} " />
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700" rel="stylesheet">
     </head>
@@ -89,17 +90,14 @@
 	<!-- / WRAPPER ALL -->
 
 
-
-    <!-- SCRIPTS -->
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/plugins.js"></script>
+	<script type="text/javascript" src=" {{ URL::asset('js/jquery.js') }} "></script>
+	<script type="text/javascript" src=" {{ URL::asset('js/plugins.js') }} "></script>
 	<!--[if lt IE 10]> <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->
-	<script type="text/javascript" src="js/popup-init.js"></script>
-    <script type="text/javascript" src="js/init.js"></script>
+	<script type="text/javascript" src=" {{ URL::asset('js/popup-init.js') }} "></script>
+    <script type="text/javascript" src=" {{ URL::asset('js/init.js') }} "></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> --}}
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<!-- /SCRIPTS -->
+    {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> --}}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     </body>
 </html>

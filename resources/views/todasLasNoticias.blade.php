@@ -41,7 +41,6 @@
                                                     <p><a href="noticias/{{$noticia->id}}">Leer Más</a><span>
                                                     {{date('F Y', strtotime($noticia->date))}}
                                                      </span></p>
-
                                                 </div>
                                             </div>
                                         </div>

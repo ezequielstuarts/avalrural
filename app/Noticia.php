@@ -9,5 +9,7 @@ class Noticia extends Model
     public $table = "noticias";
     //public $primarykey = "id";
     //public $timestamps = "";
-    public $guarded = ['title', 'subtitle', 'content', 'date', 'img_preview', 'img_noticia'];
+    protected $fillable = ['title', 'subtitle', 'content', 'date', 'img_preview', 'img_noticia', 'created_at', 'updated_at'];
 }
+
+
