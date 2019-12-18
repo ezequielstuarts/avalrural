@@ -49,6 +49,10 @@ Route::get('/admin', "noticiasController@listado")->name('admin');
 
 Route::post('/admin/destroy', "noticiasController@destroy")->name('admin.destroy');
 
+Route::get('/admin/edit/{id}', "noticiasController@edit")->name('admin.edit');
+
+Route::patch('/admin/update/{id}', "noticiasController@update");
+
 //Route::get('/noticia/editar/{id}', "noticiasController@edit")->name('edit');
 
 // Route::get('/init', function () {

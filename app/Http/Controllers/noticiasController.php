@@ -103,7 +103,8 @@ class noticiasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $noticia = Noticia::find($id);
+            return view ("admin.edit", ['noticia' => $noticia]);
     }
 
     /**
@@ -115,7 +116,17 @@ class noticiasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        {
+            dd('lknkjn');
+            $noticia = noticia::find($id);
+            $diff = array_diff($request->toArray(), $noticia->toArray());
+            $basename = basename($request->file("img_preview")->store("public"));
+            if ($request->has('img_preview')) {
+                $diff["img_preview"] = $basename;
+            }
+            $noticia->update($diff);
+            return redirect()->route('admin', ['noticia' => $noticia])->with('mensaje', 'noticia Actualizado');
+        }
     }
 
     /**

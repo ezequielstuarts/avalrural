@@ -45,11 +45,14 @@
                     </a> --}}
                 </td>
                 <td>
-                    <form action="{{route('admin.destroy', $noticia->id)}}" method="post">
+                    
                         {{csrf_field()}}
                         <input type="hidden" name="id" value="{{$noticia->id}}">
+                        <a href="{{route('admin.edit', $noticia->id)}}
+                        ">
                         <input class="btn btn-warning mt-5" type="submit" value="Editar">
-                    </form>
+                        </a>
+                    
 
                     <form action="{{route('admin.destroy', $noticia->id)}}" method="post">
                         {{csrf_field()}}
