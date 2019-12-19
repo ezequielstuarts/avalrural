@@ -6,7 +6,7 @@
                     <li>
                         <div class="inner">
                             <div class="footer_section_title">
-                                <h3><a href="producto_garantias.html">¿Buscás una garantía?</a></h3>
+                                <h3><a href="garantias">¿Buscás una garantía?</a></h3>
                             </div>
                         </div>
                     </li>
@@ -20,7 +20,7 @@
                     <li>
                         <div class="inner">
                             <div class="footer_section_title">
-                                <h3><a href="que_es_una_sgr.html">¿Qué es una SGR?</a>
+                                <h3><a href="que_es_una_sgr">¿Qué es una SGR?</a>
                                 </h3>
                             </div>
                         </div>

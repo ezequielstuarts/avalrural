@@ -26,17 +26,23 @@
         <input type="text" class="form-control" id="title" name="title" value="{{$noticia->title}}">
         <p class="text-danger pl-1 pt-1">{{ $errors->first('title') }}</p>
     </div>
-
+    
     <div class="form-group">
         <label for="subtitle">Subtitulo</label>
         <textarea class="form-control" id="subtitle" rows="3" name="subtitle" value="">{{$noticia->subtitle}}</textarea>
     </div>
-
+    
+    <hr>
+    
+    
     <div class="form-group">
         <div class="row">
             <div class="col-8">
                 <label for="img_preview">Imagen Preview <span style="color:red;">800 x 600 px</span></label>
-            <input type="file" class="form-control-file" id="img_preview" name="img_preview">
+                <p>Nombre de la imagen actual:
+                <span class="badge badge-info"> {{$noticia->img_preview}}</span></p>
+                <input type="file" class="form-control-file" id="img_preview" name="img_preview">
+                <p class="text-danger pl-1 pt-1">{{ $errors->first('img_preview') }}</p>
             </div>
             <div class="col-4">
                 <img class="img-responsive" src="/storage/{{$noticia->img_preview}}" alt="">
@@ -47,6 +53,22 @@
     <div class="form-group">
         <div class="row">
             <div class="col-8">
+                <label for="img_noticia">Imagen Completa</label>
+                <p>Nombre de la imagen actual: 
+                    <span class="badge badge-info"> {{$noticia->img_noticia}}</span></p>
+                <input type="file" class="form-control-file" id="img_noticia" name="img_noticia">
+                <p class="text-danger pl-1 pt-1">{{ $errors->first('img_noticia') }}</p>
+            </div>
+            <div class="col-4">
+                <img class="img-responsive" src="/storage/{{$noticia->img_noticia}}" alt="">
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    {{-- <div class="form-group">
+        <div class="row">
+            <div class="col-8">
                 <label for="img_noticia">Imagen completa</label>
                 <input type="file" class="form-control-file" id="img_noticia" name="img_noticia">
             </div>
@@ -55,7 +77,7 @@
             </div>
             <hr>
         </div>
-    </div>
+    </div> --}}
 
 
     <div class="form-group">

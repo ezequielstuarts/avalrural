@@ -116,8 +116,24 @@ class noticiasController extends Controller
      */
     public function update(Request $request, $id)
     {
+            $reglas = [
+                "title" => "required|string",
+                "subtitle" => "required|string",
+                "img_preview" => "required|file",
+                "img_noticia" => "required|file",
+                //"favorite_movie_id" => "required"
+            ];
+            $mensajes = [
+                "string" => "El campo :attribute debe ser un nombre.",
+                "required" => "El campo :attribute es necesario.",
+            ];
+
+
+            $this->validate($request, $reglas, $mensajes);
+
             $noticia = Noticia::find($id);
             $diff = array_diff($request->toArray(), $noticia->toArray());
+
 
             $basename_preview = basename($request->file("img_preview")->store("public"));
             $basename_img = basename($request->file("img_preview")->store("public"));

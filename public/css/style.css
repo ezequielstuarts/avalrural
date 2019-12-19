@@ -492,7 +492,7 @@ body{
 	text-decoration: none!important;
 	-webkit-transition: all .3s ease;-moz-transition: all .3s ease;-ms-transition: all .3s ease;-o-transition: all .3s ease;transition: all .3s ease;
 }
-.hover_link a{
+.hover_link a, .txt_noticias a{
 	background-color: #f7f7f7!important;
 	text-decoration: underline!important;
 	color:#7dba57!important;
@@ -500,7 +500,7 @@ body{
 	text-transform: none!important;
 	-webkit-transition: all .3s ease;-moz-transition: all .3s ease;-ms-transition: all .3s ease;-o-transition: all .3s ease;transition: all .3s ease;
 }
-.hover_link a:hover{
+.hover_link a:hover, .txt_noticias a:hover{
 	color:#777!important;
 	background-color: none!important;
 	text-decoration: none!important;
