@@ -3,7 +3,7 @@
         <div class="container">
             <div class="header_inner">
                 <div class="logo">
-                    <a href="/"><img src="img/logo/buildify_mini.png" alt="" /></a>
+                    <a href="/"><img src="{{ URL::asset('img/logo/buildify_mini.png') }} " alt="" /></a>
                 </div>
                 <div class="buildify_tm_trigger">
                     <div class="hamburger hamburger--collapse-r">

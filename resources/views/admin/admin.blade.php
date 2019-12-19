@@ -57,7 +57,7 @@
                     <form action="{{route('admin.destroy', $noticia->id)}}" method="post">
                         {{csrf_field()}}
                         <input type="hidden" name="id" value="{{$noticia->id}}">
-                        <input class="btn btn-danger mt-5" type="submit" value="Eliminar">
+                        <input class="btn btn-danger mt-5" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
                     </form>
                 </td>
               </tr>

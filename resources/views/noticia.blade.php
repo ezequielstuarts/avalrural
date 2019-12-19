@@ -20,8 +20,8 @@
                         </div>
                         <div class="service_type_list">
                             <ul>
-                                <li><a href="quienes_somos.html">¿Quiénes somos?</a></li>
-                                <li class="activado"><a href="noticias.html"><p>Noticias</p></a></li>
+                                <li><a href="/quienes_somos">¿Quiénes somos?</a></li>
+                                <li class="activado"><a href="/noticias"><p>Noticias</p></a></li>
                             </ul>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                             <div class="category_date">
                                 <p><span><a href="noticias.html">Ver todas las noticias</a></span></p>
                                 <div class="fecha_noticia">
-                                    <p>Junio, 2018</p>
+                                    <p>{{date('F Y', strtotime($noticia->date))}}</p>
                                 </div>
                             </div>
                             <div class="single_title">
