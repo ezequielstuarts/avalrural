@@ -4,7 +4,7 @@
 //     return view('home');
 // });
 
-Route::get('/', "homeController@index")->name('home');
+Route::get('/', "indexController@index")->name('index');
 
 Route::get('/sobre_aval', "sobreavalController@index")->name('quienes_somos');
 

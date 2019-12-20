@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Noticia;
 
-class homeController extends Controller
+class indexController extends Controller
 {
 
     public function index()
     {
         $noticias = Noticia::orderBy('id', 'DESC')->take(3)->get();
-        return view ("home", ['noticias' => $noticias]);
+        return view ("index", ['noticias' => $noticias]);
     }
 
 
