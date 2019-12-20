@@ -1,5 +1,6 @@
-@include('home')
-
+@extends('home')
+@section('admin')
+    
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -75,3 +76,6 @@
         
     </body>
     </html>
+
+    
+    @endsection
