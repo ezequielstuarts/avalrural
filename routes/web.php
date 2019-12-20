@@ -36,6 +36,10 @@ Route::get('/faq', "faqController@index")->name('faq');
 Route::get('/contacto', "contactoController@index")->name('contacto');
 
 
+Auth::routes();
+
+Route::get('/admin', 'adminController@auth')->name('admin');
+
 
 // ADMIN
 
@@ -61,6 +65,3 @@ Route::patch('/admin/update/{id}', "noticiasController@update");
 //     return 'ready!';
 // });
 
-Auth::routes();
-
-Route::get('/admin', 'adminController@auth')->name('admin');
