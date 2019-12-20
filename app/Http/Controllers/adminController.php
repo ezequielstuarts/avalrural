@@ -16,6 +16,16 @@ class adminController extends Controller
     {
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function auth()
+    {
+        return view('home');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

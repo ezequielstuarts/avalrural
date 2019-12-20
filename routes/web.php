@@ -60,3 +60,7 @@ Route::patch('/admin/update/{id}', "noticiasController@update");
 //     Artisan::call('storage:link');
 //     return 'ready!';
 // });
+
+Auth::routes();
+
+Route::get('/admin', 'adminController@auth')->name('admin');
