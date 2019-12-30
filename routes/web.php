@@ -38,7 +38,7 @@ Route::get('/contacto', "contactoController@index")->name('contacto');
 
 Auth::routes();
 
-Route::get('/admin', 'adminController@auth')->name('admin');
+Route::get('/admin', 'adminController@auth')->name('home');
 
 
 // ADMIN
@@ -49,7 +49,7 @@ Route::post('admin/nueva_noticia', "noticiasController@store")->name('admin.nuev
 
 //Route::get('/admin', "adminController@index")->name('admin');
 
-Route::get('/admin', "noticiasController@listado")->name('admin');
+Route::get('/home', "noticiasController@listado")->name('admin');
 
 Route::post('/admin/destroy', "noticiasController@destroy")->name('admin.destroy');
 

@@ -1,6 +1,6 @@
-@extends('home')
+@extends('layouts.app')
 @section('admin')
-    
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -11,14 +11,14 @@
         <title>Panel de Administracion</title>
     </head>
     <body>
-        
-        
+
+
         <div class="container mt-5 mb-5">
             <a href="{{route('admin.nueva_noticia')}}">
                 <button class="btn btn-danger">Cargar Noticia</button>
             </a>
         </div>
-        
+
         <div class="container">
             @if (session('mensaje'))
             <div class="alert alert-success alert-dismissible fade show" role="alert" data-dismiss="alert">
@@ -27,8 +27,8 @@
             </div>
             @endif
         </div>
-        
-        
+
+
         <div class="container">
             <table class="table">
                 <thead>
@@ -64,18 +64,18 @@
                             </form>
                         </td>
                     </tr>
-                    
-                    
+
+
                 </tbody>
                 @empty
                 <h2>No hay Noticias</h2>
                 @endforelse
             </table>
         </div>
-        
-        
+
+
     </body>
     </html>
 
-    
+
     @endsection

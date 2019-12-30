@@ -23,7 +23,7 @@ class adminController extends Controller
 
     public function auth()
     {
-        return view('admin/admin');
+        return view('/home');
     }
 
     /**

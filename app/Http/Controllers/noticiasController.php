@@ -119,8 +119,8 @@ class noticiasController extends Controller
             $reglas = [
                 "title" => "required|string",
                 "subtitle" => "required|string",
-                "img_preview" => "required|file",
-                "img_noticia" => "required|file",
+                //"img_preview" => "required|file",
+                //"img_noticia" => "required|file",
                 //"favorite_movie_id" => "required"
             ];
             $mensajes = [
@@ -134,17 +134,19 @@ class noticiasController extends Controller
             $noticia = Noticia::find($id);
             $diff = array_diff($request->toArray(), $noticia->toArray());
 
-
-            $basename_preview = basename($request->file("img_preview")->store("public"));
-            $basename_img = basename($request->file("img_preview")->store("public"));
-
-
             if ($request->has('img_preview')) {
+                $basename_preview = basename($request->file("img_preview")->store("public"));
+                $img_preview = $noticia['img_preview'];
+                Storage::delete('public/'.$img_preview);
                 $diff["img_preview"] = $basename_preview;
             }
             if ($request->has('img_noticia')) {
+                $basename_img = basename($request->file("img_noticia")->store("public"));
+                $img_noticia = $noticia['img_noticia'];
+                Storage::delete('public/'.$img_noticia);
                 $diff["img_noticia"] = $basename_img;
             }
+
             $noticia->update($diff);
             return redirect()->route('admin', ['noticia' => $noticia])->with('mensaje', 'Noticia Actualizada');
 

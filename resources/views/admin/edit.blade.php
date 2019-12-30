@@ -26,15 +26,15 @@
         <input type="text" class="form-control" id="title" name="title" value="{{$noticia->title}}">
         <p class="text-danger pl-1 pt-1">{{ $errors->first('title') }}</p>
     </div>
-    
+
     <div class="form-group">
         <label for="subtitle">Subtitulo</label>
         <textarea class="form-control" id="subtitle" rows="3" name="subtitle" value="">{{$noticia->subtitle}}</textarea>
     </div>
-    
+
     <hr>
-    
-    
+
+
     <div class="form-group">
         <div class="row">
             <div class="col-8">
@@ -45,7 +45,7 @@
                 <p class="text-danger pl-1 pt-1">{{ $errors->first('img_preview') }}</p>
             </div>
             <div class="col-4">
-                <img class="img-responsive" src="/storage/{{$noticia->img_preview}}" alt="">
+                <img class="img-responsive" style="border:solid 1px;" src="/storage/{{$noticia->img_preview}}" alt="">
             </div>
         </div>
         <hr>
@@ -54,13 +54,13 @@
         <div class="row">
             <div class="col-8">
                 <label for="img_noticia">Imagen Completa</label>
-                <p>Nombre de la imagen actual: 
+                <p>Nombre de la imagen actual:
                     <span class="badge badge-info"> {{$noticia->img_noticia}}</span></p>
                 <input type="file" class="form-control-file" id="img_noticia" name="img_noticia">
                 <p class="text-danger pl-1 pt-1">{{ $errors->first('img_noticia') }}</p>
             </div>
             <div class="col-4">
-                <img class="img-responsive" src="/storage/{{$noticia->img_noticia}}" alt="">
+                <img class="img-responsive" style="border:solid 1px;" src="/storage/{{$noticia->img_noticia}}" alt="">
             </div>
         </div>
         <hr>
