@@ -38,21 +38,23 @@ Route::get('/contacto', "contactoController@index")->name('contacto');
 
 
 // ADMIN
-Route::get('/admin', 'noticiasController@listado')->name('admin');
+Auth::routes();
 
-Route::get('/admin/nueva_noticia', "noticiasController@create")->name('admin.nueva_noticia');
+Route::get('/home', 'homeController@auth')->name('home');
 
-Route::post('/admin/nueva_noticia', "noticiasController@store")->name('admin.nueva_noticia');
+Route::get('/admin', 'adminController@tablaDeNoticias')->name('admin');
 
-//Route::get('/admin', "adminController@index")->name('admin');
+Route::get('/admin/nueva_noticia', "adminController@create")->name('admin.nueva_noticia');
 
-Route::get('/home', "noticiasController@listado")->name('admin');
+Route::post('/admin/nueva_noticia', "adminController@store")->name('admin.nueva_noticia');
 
-Route::post('/admin/destroy', "noticiasController@destroy")->name('admin.destroy');
+//Route::get('/home', "noticiasController@listado")->name('admin');
 
-Route::get('/admin/edit/{id}', "noticiasController@edit")->name('admin.edit');
+Route::post('/admin/destroy', "adminController@destroy")->name('admin.destroy');
 
-Route::patch('/admin/update/{id}', "noticiasController@update");
+Route::get('/admin/edit/{id}', "adminController@edit")->name('admin.edit');
+
+Route::patch('/admin/update/{id}', "adminController@update");
 
 
 //Route::get('/noticia/editar/{id}', "noticiasController@edit")->name('edit');
@@ -62,6 +64,4 @@ Route::patch('/admin/update/{id}', "noticiasController@update");
 //     return 'ready!';
 // });
 
-Auth::routes();
 
-Route::get('/home', 'homeController@auth')->name('home');
