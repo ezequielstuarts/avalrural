@@ -34,7 +34,7 @@ class adminController extends Controller
     public function create()
     {
         //dd('dscdc');
-        return view('admin/nueva_noticia');
+        //return view('admin.nueva_noticia');
     }
 
     /**

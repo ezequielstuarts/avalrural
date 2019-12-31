@@ -24,28 +24,25 @@ Route::get('/pertenecer', "pertenecerController@requisitos")->name('pertenecer')
 Route::get('/requisitos', "pertenecerController@requisitos")->name('requisitos');
 Route::get('/como_obtener', "pertenecerController@como_obtener")->name('como_obtener');
 
-
 Route::get('/noticias', "noticiasController@index")->name('noticias');
 
 Route::get('/noticias/{id}', "noticiasController@verNoticia")->name('ver.noticia.{id}');
 
-
 Route::get('/faq', "faqController@index")->name('faq');
-
 
 Route::get('/contacto', "contactoController@index")->name('contacto');
 
 
-Auth::routes();
 
-Route::get('/admin', 'adminController@auth')->name('home');
+
 
 
 // ADMIN
+Route::get('/admin', 'noticiasController@listado')->name('admin');
 
-Route::get('admin/nueva_noticia', "adminController@create")->name('admin.nueva_noticia');
+Route::get('/admin/nueva_noticia', "noticiasController@create")->name('admin.nueva_noticia');
 
-Route::post('admin/nueva_noticia', "noticiasController@store")->name('admin.nueva_noticia');
+Route::post('/admin/nueva_noticia', "noticiasController@store")->name('admin.nueva_noticia');
 
 //Route::get('/admin', "adminController@index")->name('admin');
 
@@ -65,3 +62,6 @@ Route::patch('/admin/update/{id}', "noticiasController@update");
 //     return 'ready!';
 // });
 
+Auth::routes();
+
+Route::get('/home', 'homeController@auth')->name('home');

@@ -9,6 +9,11 @@ use Carbon\Carbon;
 
 class noticiasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +28,7 @@ class noticiasController extends Controller
     public function listado()
     {
         $noticias = Noticia::orderBy('id', 'DESC')->get();
-        return view ("admin/admin", ['noticias' => $noticias]);
+        return view ("admin.admin", ['noticias' => $noticias]);
     }
 
     /**
@@ -33,7 +38,7 @@ class noticiasController extends Controller
      */
     public function create()
     {
-        return view("nueva_noticia");
+        return view('admin.nueva_noticia');
     }
 
     /**
