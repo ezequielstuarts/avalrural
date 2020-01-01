@@ -69,7 +69,7 @@ class adminController extends Controller
         $newNoticia->img_noticia = $nombreImagen;
 
         $newNoticia->save();
-        return redirect('admin/nueva_noticia');
+        return redirect('/admin');
 
     }
 
