@@ -59,9 +59,9 @@ Route::patch('/admin/update/{id}', "adminController@update");
 
 //Route::get('/noticia/editar/{id}', "noticiasController@edit")->name('edit');
 
-// Route::get('/init', function () {
-//     Artisan::call('storage:link');
-//     return 'ready!';
-// });
+Route::get('/init', function () {
+    Artisan::call('storage:link');
+    return 'ready!';
+});
 
 
