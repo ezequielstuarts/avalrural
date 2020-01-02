@@ -3,7 +3,7 @@
 
 $(function() {
     $.ajax({
-        url: "partials/pop-precalificate",
+        url: "partials/pop-precalificate.blade.php",
         method: "get",
         data: null,
         datatype: "html",

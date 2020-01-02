@@ -1,3 +1,10 @@
+<!-- INICIO DE VENTANA MODAL -->
+<div class="modal-wrapper" id="popup">
+
+</div>
+<!-- FIN DE VENTANA MODAL -->
+
+</div>
 <div class="buildify_tm_section">
     <div class="about_list">
         <div class="buildify_tm_short_services_wrap">
