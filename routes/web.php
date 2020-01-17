@@ -35,26 +35,28 @@ Route::get('/contacto', "contactoController@index")->name('contacto');
 
 
 
-
-
 // ADMIN
 Auth::routes();
+Route::group(['middleware' => 'auth'], function ()
+{
+
+    Route::get('/admin', 'adminController@tablaDeNoticias')->name('admin');
+
+    Route::get('/admin/nueva_noticia', "adminController@create")->name('admin.nueva_noticia');
+
+    Route::post('/admin/nueva_noticia', "adminController@store")->name('admin.nueva_noticia');
+
+    //Route::get('/home', "noticiasController@listado")->name('admin');
+
+    Route::post('/admin/destroy', "adminController@destroy")->name('admin.destroy');
+
+    Route::get('/admin/edit/{id}', "adminController@edit")->name('admin.edit');
+
+    Route::patch('/admin/update/{id}', "adminController@update");
+});
 
 Route::get('/home', 'homeController@auth')->name('home');
 
-Route::get('/admin', 'adminController@tablaDeNoticias')->name('admin');
-
-Route::get('/admin/nueva_noticia', "adminController@create")->name('admin.nueva_noticia');
-
-Route::post('/admin/nueva_noticia', "adminController@store")->name('admin.nueva_noticia');
-
-//Route::get('/home', "noticiasController@listado")->name('admin');
-
-Route::post('/admin/destroy', "adminController@destroy")->name('admin.destroy');
-
-Route::get('/admin/edit/{id}', "adminController@edit")->name('admin.edit');
-
-Route::patch('/admin/update/{id}', "adminController@update");
 
 
 //Route::get('/noticia/editar/{id}', "noticiasController@edit")->name('edit');
