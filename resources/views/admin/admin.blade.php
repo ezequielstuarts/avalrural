@@ -2,7 +2,7 @@
 @section('admin')
 
         <div class="container mt-5 mb-5">
-            <a href="{{route('admin.nueva_noticia')}}">
+            <a href="{{route('noticias.nueva_noticia')}}">
                 <button class="btn btn-danger">Cargar Noticia</button>
             </a>
         </div>
@@ -15,7 +15,6 @@
             </div>
             @endif
         </div>
-
 
         <div class="container">
             <table class="table">
@@ -37,18 +36,18 @@
                         <td>{{date('d-m-Y', strtotime($noticia->date))}}</td>
                         <td>{{$noticia->title}}</td>
                         <td>{{$noticia->subtitle}}</td>
-                        <td>{{$noticia->content}}</td>
+                        <td>{{str_limit($noticia->content, 150)}}</td>
                         <td><img style="width:100px" src="/storage/{{$noticia->img_noticia}}"/></td>
                         <td>
                             <input type="hidden" name="id" value="{{$noticia->id}}">
-                            <a href="{{route('admin.edit', $noticia->id)}}
+                            <a href="{{route('noticias.edit', $noticia->id)}}
                                 ">
-                                <input class="btn btn-warning mt-5" type="submit" value="Editar">
+                                <input class="btn btn-warning" type="submit" value="Editar">
                             </a>
-                            <form action="{{route('admin.destroy', $noticia->id)}}" method="post">
+                            <form action="{{route('noticias.destroy', $noticia->id)}}" method="post">
                                 {{csrf_field()}}
                                 <input type="hidden" name="id" value="{{$noticia->id}}">
-                                <input class="btn btn-danger mt-5" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
+                                <input class="btn btn-danger mt-2" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
                             </form>
                         </td>
                     </tr>

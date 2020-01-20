@@ -40,19 +40,17 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function ()
 {
 
-    Route::get('/admin', 'adminController@tablaDeNoticias')->name('admin');
+    Route::get('/admin', 'noticiasController@tablaDeNoticias')->name('admin');
 
-    Route::get('/admin/nueva_noticia', "adminController@create")->name('admin.nueva_noticia');
+    Route::get('/admin/nueva_noticia', "noticiasController@create")->name('admin.nueva_noticia');
 
-    Route::post('/admin/nueva_noticia', "adminController@store")->name('admin.nueva_noticia');
+    Route::post('/admin/nueva_noticia', "noticiasController@store")->name('noticias.nueva_noticia');
 
-    //Route::get('/home', "noticiasController@listado")->name('admin');
+    Route::post('/admin/destroy', "noticiasController@destroy")->name('noticias.destroy');
 
-    Route::post('/admin/destroy', "adminController@destroy")->name('admin.destroy');
+    Route::get('/admin/edit/{id}', "noticiasController@edit")->name('noticias.edit');
 
-    Route::get('/admin/edit/{id}', "adminController@edit")->name('admin.edit');
-
-    Route::patch('/admin/update/{id}', "adminController@update");
+    Route::patch('/admin/update/{id}', "noticiasController@update");
 });
 
 Route::get('/home', 'homeController@auth')->name('home');

@@ -32,7 +32,7 @@
                     <div class="leftbox_inner">
                         <div class="buildify_tm_top_section">
                             <div class="category_date">
-                                <p><span><a href="noticias.html">Ver todas las noticias</a></span></p>
+                                <p><span><a href="/noticias">Ver todas las noticias</a></span></p>
                                 <div class="fecha_noticia">
                                     <p>{{date('F Y', strtotime($noticia->date))}}</p>
                                 </div>

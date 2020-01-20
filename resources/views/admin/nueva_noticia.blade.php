@@ -10,35 +10,39 @@
         <form action="{{route('admin.nueva_noticia')}}" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
 
+
             <div class="form-group">
                 <label for="date">Fecha de la noticia</label>
-                <input type="date" class="form-control" id="date" name="fecha" value="">
+                <input type="date" class="form-control" id="date" name="date" value="{{old("date")}}">
+                <p class="text-danger pl-1 pt-1">{{ $errors->first('date') }}</p>
             </div>
 
             <div class="form-group">
                 <label for="title">Titulo</label>
-                <input type="text" class="form-control" id="title" name="title">
+                <input type="text" class="form-control" id="title" name="title" value="{{old("title")}}">
                 <p class="text-danger pl-1 pt-1">{{ $errors->first('title') }}</p>
             </div>
             <div class="form-group">
                 <label for="subtitle">Subtitulo</label>
-                <textarea class="form-control" id="subtitle" rows="3" name="subtitle"></textarea>
+                <textarea class="form-control" id="subtitle" rows="3" name="subtitle" value="{{old("subtitle")}}"></textarea>
 
             </div>
 
             <div class="form-group">
                 <label for="img_preview">Imagen Preview <span style="color:red;">800 x 600 px</span></label>
                 <input type="file" class="form-control-file" id="img_preview" name="img_preview">
+                <p class="text-danger pl-1 pt-1">{{ $errors->first('img_preview') }}</p>
             </div>
             <div class="form-group">
                 <label for="img_noticia">Imagen completa</label>
                 <input type="file" class="form-control-file" id="img_noticia" name="img_noticia">
+                <p class="text-danger pl-1 pt-1">{{ $errors->first('img_noticia') }}</p>
             </div>
 
 
             <div class="form-group">
                 <label class="labels" for="content">Contenido</label>
-                <textarea id="summernote" required class="form-control" name="content"></textarea>
+                <textarea id="summernote" class="form-control" name="content"></textarea>
             </div>
 
 
@@ -50,7 +54,7 @@
         </form>
         <div class="container text-right">
             <a href="{{ route('admin')}}">
-                <button class="btn btn-danger">Volver</button>
+                <button class="btn btn-danger">Cancelar</button>
             </a>
         </div>
     </div>

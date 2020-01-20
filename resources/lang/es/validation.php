@@ -146,6 +146,13 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'first_name' => 'nombre',
+        'last_name' => 'apellido',
+        'date' => 'fecha',
+        "title" => 'titulo',
+        "img_preview" => 'imagen preview',
+        "img_noticia" => 'imagen completa'
+    ],
 
 ];
