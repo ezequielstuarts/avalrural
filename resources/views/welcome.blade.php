@@ -67,7 +67,6 @@
 							@include('partials.top-bar-nav')
 							<!-- /TOPBAR -->
 
-
                             @yield('content')
 
 

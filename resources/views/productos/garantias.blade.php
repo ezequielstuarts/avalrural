@@ -18,16 +18,7 @@
                                 <div class="service_type_title">
                                     <h3>Productos</h3>
                                 </div>
-                                <div class="service_type_list">
-                                    <ul>
-                                        <li class="active"><a href="cheques">Cheque</a></li>
-                                        <li><a href="pagares">Pagarés</a></li>
-                                        <li><a href="bancos">Bancos</a></li>
-                                        <li><a href="obligaciones">Obligaciones Negociables Simples</a></li>
-                                        <li><a href="fideicomisos">Fideicomisos Financieros</a></li>
-                                        <li class="activado"><a href="garantias">Garantías Comerciales</a></li>
-                                    </ul>
-                                </div>
+                                @include('partials.nav.productos')
                             </div>
                         </div>
                     </div>

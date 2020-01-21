@@ -12,7 +12,9 @@
         <div class="buildify_tm_section">
             <div class="container">
                 <div class="buildify_tm_service_single_wrap">
-                    @include('sidebars/sobre_aval')
+                    <div class="in">
+                        @include('partials.nav.sobreaval')
+                    </div>
                     <div class="leftbox sticky_sidebar">
                         <div class="buildify_tm_list_wrap" data-column="1" data-space="60">
                             <ul class="buildify_list">

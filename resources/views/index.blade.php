@@ -1,8 +1,10 @@
 @extends('welcome')
 
 {{-- ESTA SECCION SOLO CONTIENE EL CARROUCEL, EL SLIDER DE PRODUCTOS Y LAS ULTIMAS NOTICIAS --}}
+
 @section('content')
     <!-- /SHORT SERVICES -->
+
     @include('partials.carousel')
     <!-- /SHORT SERVICES -->
 
