@@ -4,6 +4,7 @@
         <ul class="buildify_list">
             @forelse ($noticias as $noticia)
             <li>
+                aaaaaaaaaaaaaaaaaaaaa
                 <div class="list_inner">
                     <div class="tarjeta_noticia">
                         <div class="overlay_color"></div>
@@ -13,14 +14,14 @@
                                     <img class="img_noticia" src="/storage/{{$noticia->img_preview}}" alt="" />
                                 </div>
                                 <div class="blog_title">
-                                    <h3><a href="nuevos_limites_pyme.html">{{$noticia->title}}</a></h3>
+                                    <h3><a href="nuevos_limites_pyme">{{$noticia->title}}</a></h3>
 
                                 </div>
                                 <div class="blog_definition">
                                     <p>{{$noticia->subtitle}}</p>
                                 </div>
                                 <div class="buildify_tm_read_more">
-                                    <p><a href="nuevos_limites_pyme.html">Leer Más</a><span>Diciembre 2019</span></p>
+                                    <p><a href="nuevos_limites_pyme">Leer Más</a><span>Diciembre 2019</span></p>
                                 </div>
                             </div>
                         </div>

@@ -11,7 +11,7 @@ class productosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function cheques()
     {
         return view ("productos/cheques");
     }

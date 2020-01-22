@@ -18,12 +18,7 @@
                                 <div class="service_type_title">
                                     <h3>Pertenecer</h3>
                         </div>
-                        <div class="service_type_list">
-                            <ul>
-                                <li class="activado"><a href="requisitos.html"><p>Requisitos para asociarse</p></a></li>
-                                <li><a href="como_obtener.html">¿Cómo obtener un aval?</a></li>
-                            </ul>
-                        </div>
+                        @include('partials.nav.pertenecer')
                     </div>
                 </div>
             </div>

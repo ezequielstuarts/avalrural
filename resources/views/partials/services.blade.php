@@ -10,13 +10,13 @@
                         </div>
                         <div class="titles_holder">
                             <div class="title">
-                                <h3><a href="producto_garantias.html">¿Buscás una garantía?</a></h3>
+                                <h3><a href="garantias">¿Buscás una garantía?</a></h3>
                             </div>
                             <div class="definition">
                                 <p>En Aval SGR contamos con las mejores condiciones de financiamiento para tu pyme.</p>
                             </div>
                             <div class="read_more">
-                                <a href="producto_garantias.html">Ver más</a>
+                                <a href="garantias">Ver más</a>
                             </div>
                         </div>
                     </div>
@@ -48,13 +48,13 @@
                         </div>
                         <div class="titles_holder">
                             <div class="title">
-                                <h3><a href="que_es_una_sgr.html">¿Qué es una SGR?</a></h3>
+                                <h3><a href="que_es_una_sgr">¿Qué es una SGR?</a></h3>
                             </div>
                             <div class="definition">
                                 <p>Conocé todo lo que podés hacer con nuestro AVAL.</p>
                             </div>
                             <div class="read_more">
-                                <a href="que_es_una_sgr.html">Ver más</a>
+                                <a href="que_es_una_sgr">Ver más</a>
                             </div>
                         </div>
                     </div>

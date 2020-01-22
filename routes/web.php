@@ -8,8 +8,8 @@ Route::get('/', "indexController@index")->name('index');
 
 Route::get('/sobre_aval', "sobreavalController@index")->name('quienes_somos');
 
-Route::get('/productos', "productosController@index")->name('cheques');
-Route::get('/cheques', "productosController@index")->name('productos');
+Route::get('/productos', "productosController@cheques")->name('cheques');
+Route::get('/cheques', "productosController@cheques")->name('cheques');
 Route::get('/pagares', "productosController@pagares")->name('pagares');
 Route::get('/bancos', "productosController@bancos")->name('bancos');
 Route::get('/obligaciones', "productosController@obligaciones")->name('obligaciones');
@@ -40,24 +40,31 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function ()
 {
 
-    Route::get('/admin', 'noticiasController@tablaDeNoticias')->name('admin');
+    Route::get('/admin', 'adminController@tablaDeNoticias')->name('admin');
 
-    Route::get('/admin/nueva_noticia', "noticiasController@create")->name('admin.nueva_noticia');
+    Route::get('/admin/nueva_noticia', "adminController@create")->name('admin.nueva_noticia');
 
-    Route::post('/admin/nueva_noticia', "noticiasController@store")->name('noticias.nueva_noticia');
+    Route::post('/admin/nueva_noticia', "adminController@store")->name('noticias.nueva_noticia');
 
-    Route::post('/admin/destroy', "noticiasController@destroy")->name('noticias.destroy');
+    Route::post('/admin/destroy', "adminController@destroy")->name('noticias.destroy');
 
-    Route::get('/admin/edit/{id}', "noticiasController@edit")->name('noticias.edit');
+    Route::get('/admin/edit/{id}', "adminController@edit")->name('noticias.edit');
 
-    Route::patch('/admin/update/{id}', "noticiasController@update");
+    Route::patch('/admin/update/{id}', "adminController@update");
 });
 
 Route::get('/home', 'homeController@auth')->name('home');
 
-
-
-//Route::get('/noticia/editar/{id}', "noticiasController@edit")->name('edit');
+Route::post('sendmail', function () {
+    $data = array (
+        'name' => "curso laravel",
+    );
+    Mail::send('email.welcome', $data, function ($message) {
+        $message->from('e.stuarts@mas54.com', 'Curso laravel');
+        $message->to('e.stuarts@mas54.com')->subject('test de envio de email desde aval');
+    });
+    return redirect()->route('index')->with('mensaje', 'Hemos enviado su email');
+});
 
 Route::get('/init', function () {
     Artisan::call('storage:link');

@@ -73,12 +73,7 @@
                             <div class="service_type_title">
                                 <h3>Noticias</h3>
                             </div>
-                            <div class="service_type_list">
-                                <ul>
-                                    <li><a href="quienes_somos.html">¿Quiénes somos?</a></li>
-                                    <li class="activado"><a href="noticias.html"><p>Noticias</p></a></li>
-                                </ul>
-                            </div>
+                            @include('partials.nav.sobreaval')
                         </div>
                     </div>
                 </div>

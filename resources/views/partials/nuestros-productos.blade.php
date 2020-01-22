@@ -21,7 +21,7 @@
                                 <div class="main_image third"></div>
                                 <div class="overlay_color">
                                     <div class="overlay_title">
-                                        <span><a href="producto_cheque.html">Cheques</a></span>
+                                        <span><a href="cheques">Cheques</a></span>
                                     </div>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@
                                 <div class="main_image fourth"></div>
                                 <div class="overlay_color">
                                     <div class="overlay_title">
-                                        <span><a href="producto_pagares.html">Pagarés</a></span>
+                                        <span><a href="pagares">Pagarés</a></span>
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                                 <div class="main_image fifth"></div>
                                 <div class="overlay_color">
                                     <div class="overlay_title">
-                                        <span><a href="producto_bancos.html">Bancos</a></span>
+                                        <span><a href="bancos">Bancos</a></span>
                                     </div>
                                 </div>
                             </div>
@@ -54,7 +54,7 @@
                                 <div class="main_image sixth"></div>
                                 <div class="overlay_color">
                                     <div class="overlay_title">
-                                        <span><a href="producto_obligaciones.html">Obligaciones Negociables Simples</a></span>
+                                        <span><a href="obligaciones">Obligaciones Negociables Simples</a></span>
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                                 <div class="main_image second"></div>
                                 <div class="overlay_color">
                                     <div class="overlay_title">
-                                        <span><a href="producto_fideicomisos.html">Fideicomisos Financieros</a></span>
+                                        <span><a href="fideicomisos">Fideicomisos Financieros</a></span>
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                                 <div class="main_image first "></div>
                                 <div class="overlay_color">
                                     <div class="overlay_title">
-                                        <span><a href="producto_garantias.html">Garantías Comerciales</a></span>
+                                        <span><a href="garantias">Garantías Comerciales</a></span>
                                     </div>
                                 </div>
                             </div>

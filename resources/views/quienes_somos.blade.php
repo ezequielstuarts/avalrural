@@ -12,8 +12,15 @@
         <div class="buildify_tm_section">
             <div class="container">
                 <div class="buildify_tm_service_single_wrap">
-                    <div class="in">
-                        @include('partials.nav.sobreaval')
+                    <div class="rightbox sticky_sidebar">
+                        <div class="rightbox_inner">
+                            <div class="in">
+                                <div class="service_type_title">
+                                    <h3>Quiénes somos</h3>
+                                </div>
+                                @include('partials.nav.sobreaval')
+                            </div>
+                        </div>
                     </div>
                     <div class="leftbox sticky_sidebar">
                         <div class="buildify_tm_list_wrap" data-column="1" data-space="60">

@@ -30,7 +30,7 @@
                     </div>
                     <div class="leftbox sticky_sidebar">
                         <div class="buildify_tm_list_wrap" data-column="1" data-space="60">
-                            <form class="contact_form" id="contact_form2">
+                            <form class="contact_form" id="contact_form2" method="post">
                             <ul class="buildify_list">
                                 <li>
                                     <div class="list_inner">
@@ -82,14 +82,15 @@
                                                     </div>
                                                     <div class="row">
                                                         <input type="submit" id="envio_contacto" value="Enviar" style="background-color: #7dba57" />
-                                                        <div style="color: red; margin-top: 10px;" id="contacto_mensaje"></div>
+                                                        <div style="color: red; margin-top: 10px;" id=""></div>
+                                                        <button>ENVIAR</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <label><input id="Acepta" name="Acepta" type="checkbox" value="SI" required >Acepto condiciones legales. </label>
+                                        <label><input id="Acepta" name="Acepta" type="checkbox" value="SI" >Acepto condiciones legales. </label>
                                         <a href="#popup-legales-contacto" class="popuplegal-link-contacto">Reservas Legales</a>
                                     </div>
                                 </li>
