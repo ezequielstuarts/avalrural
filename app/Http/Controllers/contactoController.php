@@ -6,79 +6,53 @@ use Illuminate\Http\Request;
 
 class contactoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         return view ("contacto");
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function enviar(Request $request)
     {
-        //
+
+        $reglas = [
+            "Apellido" => "required|string",
+            "Nombre" => "required|string",
+            "Empresa" => "required|string",
+            "CUIT" => "required|numeric",
+            "Localidad" => "required|string",
+            "Telefono" => "required|numeric",
+            "Email" => "required",
+            "Acepta" => "required",
+        ];
+
+        $mensajes = [
+            "string" => "El campo :attribute debe ser un nombre.",
+            "required" => "El campo :attribute es necesario.",
+            "numeric" => "El :attribute dene ser numerico."
+        ];
+
+        $this->validate($request, $reglas, $mensajes);
+
+
+
+        return redirect()->route('contacto')->with('mensaje', 'El formulario ha sido enviado');;
+        // Apellido
+        // Nombre
+        // Empresa
+        // CUIT
+        // Localidad
+        // Telefono
+        // Email
+        // Consulta
+
+
+
+
+
+
+
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

@@ -31,6 +31,7 @@ Route::get('/noticias/{id}', "noticiasController@verNoticia")->name('ver.noticia
 Route::get('/faq', "faqController@index")->name('faq');
 
 Route::get('/contacto', "contactoController@index")->name('contacto');
+Route::post('/enviar', "contactoController@enviar")->name('contacto.enviar');
 
 
 
