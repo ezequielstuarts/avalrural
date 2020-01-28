@@ -62,7 +62,7 @@ class adminController extends Controller
         $newNoticia->img_noticia = $nombreImagen;
 
 
-
+            // dd($newNoticia);
         $newNoticia->save();
         return redirect('/admin');
 
@@ -78,7 +78,7 @@ class adminController extends Controller
     {
             $reglas = [
                 "title" => "required|string",
-                "subtitle" => "required|string",
+                // "subtitle" => "required|string",
                 //"img_preview" => "required|file",
                 //"img_noticia" => "required|file",
                 //"favorite_movie_id" => "required"
@@ -127,3 +127,5 @@ class adminController extends Controller
         return redirect('/admin');
     }
 }
+
+
