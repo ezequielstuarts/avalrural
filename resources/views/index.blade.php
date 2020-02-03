@@ -4,7 +4,6 @@
 
 @section('content')
     <!-- /SHORT SERVICES -->
-
     @include('partials.carousel')
     <!-- /SHORT SERVICES -->
 

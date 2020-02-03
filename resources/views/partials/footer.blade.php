@@ -13,7 +13,8 @@
                     <li>
                         <div class="inner">
                             <div class="footer_section_title">
-                                <h3><a href="#popup" class="popup-link">Precalificate</a></h3>
+                                <h3>
+                                    <a href="#" id="precalificate" class="precalificate">Precalificate</a></h3>
                             </div>
                         </div>
                     </li>
@@ -44,7 +45,7 @@
                             Desarrollo de
                             <img src="img/pie_agencia.png" alt="">
                             </a>
-                        </div>		
+                        </div>
                     </ul>
                 <!-- <div class="qwe"> -->
                     <ul class="li-footer">

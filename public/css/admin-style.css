@@ -1,0 +1,16 @@
+i {
+    font-size: 20px;
+    float: left;
+    padding-right: 10px;
+    color: rgb(46, 43, 226);
+}
+.fa-edit {
+    color: rgb(247, 148, 0);
+}
+.fa-trash-alt {
+    color: crimson;
+    cursor: pointer;
+}
+.fa-sign-out-alt {
+    color: rgb(65, 65, 65);
+}

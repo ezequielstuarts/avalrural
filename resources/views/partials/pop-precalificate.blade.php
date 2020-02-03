@@ -5,7 +5,10 @@
 			<div class="inner_wrap">
 				<form class="contact_form" id="precalif_form" enctype="multipart/form-data">
 					<div class="empty_notice"><span>Por favor, complete los datos obligatorios.</span></div>
-					<div class="row"><!-- <label><span></span></label> --><input id="NombreYApellido" name="NombreYApellido" type="text" placeholder="Nombre y Apellido" /></div>
+                    <div class="row"><!-- <label><span></span></label> -->
+                        <input id="NombreYApellido" name="NombreYApellido" type="text" placeholder="Nombre y Apellido" />
+                    </div>
+                    <p class="p-error"></p>
 					<div class="row"><!-- <label><span></span></label> --><input id="Email" name="Email" type="email" placeholder="E-mail" required /></div>
 					<div class="row"><!-- <label><span></span></label> --><input id="Telefono" name="Telefono" type="number" placeholder="Teléfono" required /></div>
 					<div class="row"><!-- <label><span></span></label> --><input id="Celular" name="Celular" type="number" placeholder="Celular" required /></div>
@@ -61,5 +64,7 @@
 			<hr>
 		</div>
 	</div>
-	<a class="popup-cerrar" href="#">X</a>
+	<a class="popup-cerrar" href="#" id="cerrar-pop">X</a>
 </div>
+</div>
+

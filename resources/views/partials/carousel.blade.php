@@ -1,16 +1,9 @@
-<!-- INICIO DE VENTANA MODAL -->
-<div class="modal-wrapper" id="popup">
-
-</div>
-<!-- FIN DE VENTANA MODAL -->
-
-</div>
 <div class="buildify_tm_section">
     <div class="about_list">
         <div class="buildify_tm_short_services_wrap">
             <div class="container">
                 <div class="badge">
-                    <a href="#popup" class="popup-link"><span>Precalificate aquí</span></a>
+                    <a href="#" id="precalificate" class="precalificate"><span>Precalificate aquí</span></a>
                 </div>
             </div>
             <div class="container">
@@ -52,3 +45,6 @@
         @include('partials.services')
     </div>
 </div>
+
+
+

@@ -239,17 +239,18 @@ ol {margin-left: 15px;}
 /*MODAL
 /*------------------------------------------------------------------*/
 
-#popup {
+.nuevo-precalif {
 	position: absolute;
 	visibility: hidden;
 	opacity: 0;
 	margin-top: -300px;
+    transition:all 5s;
 }
-#popup:target {
+.nuevo-precalif:target {
 	display: block;
 	visibility:visible;
 	opacity: 1;
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgba(16, 240, 203, 0.8);
 	position: fixed;
 	top:0;
 	left:0;
@@ -257,7 +258,7 @@ ol {margin-left: 15px;}
 	bottom:0;
 	margin:0;
 	z-index:999;
-	transition:all 1s;
+	transition:all 5s;
 }
 .popup-contenedor .over a{
 	text-decoration: underline!important;
@@ -315,8 +316,7 @@ select{width: 100%;margin-top: 10px!important;outline: none; color: }
 	background-color: #f7f7f7!important;
 	border: none!important;
 }
-.adjunto .achicado{
-}
+
 #adjunto {
 
 	width: 16px!important;
@@ -339,7 +339,17 @@ select{width: 100%;margin-top: 10px!important;outline: none; color: }
 /*------------------------------------------------------------------*/
 /* FIN MODAL
 /*------------------------------------------------------------------*/
-
+#nuevo-precalif {
+    background-color: rgba(0, 0, 0, 0.699);
+    height: 300%;
+    position: absolute!important;
+    z-index: 1000000;
+    padding-top: 50px;
+    transition:all 1s;
+}
+.ocultar {
+    display: none;
+}
 
 /*------------------------------------------------------------------*/
 /* MODAL RESERVAS LEGALES */
@@ -438,9 +448,6 @@ a.popup-cerrar:hover{
 /*------------------------------------------------------------------*/
 /* FIN MODAL RESERVAS LEGALES */
 /* ------------------------------------------------------------------ */
-
-
-
 
 .list_inner h3{
 	padding-top:20px;

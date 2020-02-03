@@ -11,6 +11,7 @@
         <meta name="keywords" content="avales, aval, rural, aval rural, fideicomisos, préstamos, cheque, noticias agro, noticias campo, COFCO International Argentina S.A., avales COFCO, fideicomisos financieros, endeudamiento, préstamos, bonos.">
         <link rel="shortcut icon" href="img/logo/logo_aval_rural.ico">
 
+
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/fontello.css') }} " />
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/skeleton.css') }} " />
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/plugins.css') }} " />
@@ -18,34 +19,41 @@
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }} " />
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/stylefaq.css') }} " />
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     </head>
 
 
-<body>
-	<!-- MODAL RESERVAS LEGALES -->
+    <body>
+        <!-- MODAL RESERVAS LEGALES -->
 	@include('partials.pop-reservas-legales')
 	<!-- FIN MODAL RESERVAS LEGALES -->
+    <div class="ocultar modal-rapper" id="nuevo-precalif">
+        @include('partials.pop-precalificate')
+    </div>
+
 
 	<!-- INICIO DE VENTANA MODAL -->
-	<div id="popup" class="modal-wrapper"></div>
+
+
+
 	<!-- FIN DE VENTANA MODAL -->
 
 	<!-- MAIN BACKGROUND -->
-	<div class="buildify_tm_mainbg">
-		<!-- PATTERN -->
+	{{-- <div class="buildify_tm_mainbg">
+        <!-- PATTERN -->
 		<div class="marketify_pattern_overlay"></div>
 		<!-- /PATTERN -->
-	</div>
+	</div> --}}
 	<!-- /MAIN BACKGROUND -->
 
 	<!-- WRAPPER ALL -->
 	<div class="buildify_tm_wrapper_all">
-		<div class="buildify_tm_wrapper">
-			<div class="buildify_tm_animate_submenu"></div>
+        <div class="buildify_tm_wrapper">
+            <div class="buildify_tm_animate_submenu"></div>
 			<!-- LEFTPART -->
 			<div class="buildify_tm_leftpart_wrap">
-				<!-- LEFT PATTERN -->
+                <!-- LEFT PATTERN -->
 				<div class="buildify_tm_build_pattern"></div>
 				<!-- /LEFT PATTERN -->
 
@@ -57,13 +65,13 @@
 
 			<!-- RIGHTPART -->
 			<div class="buildify_tm_rightpart_wrap">
-				<div class="buildify_tm_rightpart">
+                <div class="buildify_tm_rightpart">
 
-					<!-- CONTENT -->
+                    <!-- CONTENT -->
 					<div class="buildify_tm_content_wrap">
-						<div class="buildify_tm_content">
+                        <div class="buildify_tm_content">
 
-							<!-- TOPBAR -->
+                            <!-- TOPBAR -->
 							@include('partials.top-bar-nav')
 							<!-- /TOPBAR -->
 
@@ -85,15 +93,16 @@
 			</div>
 			<!-- /RIGHTPART -->
 		</div>
-	</div>
+    </div>
+
 	<!-- / WRAPPER ALL -->
 
 
 	<script type="text/javascript" src=" {{ URL::asset('js/jquery.js') }} "></script>
 	<script type="text/javascript" src=" {{ URL::asset('js/plugins.js') }} "></script>
 	<!--[if lt IE 10]> <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->
-	<script type="text/javascript" src=" {{ URL::asset('js/popup-init.js') }} "></script>
     <script type="text/javascript" src=" {{ URL::asset('js/init.js') }} "></script>
+	<script type="text/javascript" src=" {{ URL::asset('js/popup-init.js') }} "></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> --}}
