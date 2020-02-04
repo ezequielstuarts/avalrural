@@ -7,10 +7,11 @@
 </div>
 <div class="">
     <div class="container">
-        <h5>{{$noticia->title}} | <b>Ultima Actualizacion:</b> 
+        <h5>{{$noticia->title}} | <b>Ultima Actualizacion:</b>
             @if ($noticia->updated_at)
             {{$noticia->updated_at->format('d-m-Y')}}
             @endif
+            | <b>Por:</b> {{$noticia->modified_by}}
         </h5>
         <hr>
     </div>

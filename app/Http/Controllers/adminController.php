@@ -60,6 +60,7 @@ class adminController extends Controller
 
         $newNoticia->img_preview = $nombrePreview;
         $newNoticia->img_noticia = $nombreImagen;
+        $newNoticia->modified_by = (auth()->user()->name);
 
 
             // dd($newNoticia);
@@ -91,6 +92,7 @@ class adminController extends Controller
 
             $this->validate($request, $reglas, $mensajes);
 
+
             $noticia = Noticia::find($id);
             $diff = array_diff($request->toArray(), $noticia->toArray());
 
@@ -107,6 +109,7 @@ class adminController extends Controller
                 $diff["img_noticia"] = $basename_img;
             }
 
+            $noticia->modified_by = (auth()->user()->name);
             $noticia->update($diff);
             return redirect()->route('admin')->with('mensaje', 'Noticia Actualizada');
 
