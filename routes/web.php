@@ -52,6 +52,8 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('/admin/edit/{id}', "adminController@edit")->name('noticias.edit');
 
     Route::patch('/admin/update/{id}', "adminController@update");
+
+    Route::get('/users', "usersController@index")->name('users');
 });
 
 Route::get('/home', 'homeController@auth')->name('home');

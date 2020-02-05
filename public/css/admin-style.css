@@ -11,6 +11,6 @@ i {
     color: crimson;
     cursor: pointer;
 }
-.fa-sign-out-alt {
+.fa-sign-out-alt, .fa-users {
     color: rgb(65, 65, 65);
 }
