@@ -16,36 +16,36 @@
 </div>
 
 <div class="container">
-    <table class="table">
+    <table class="table table-hover table-sprite">
         <thead>
             <tr>
                 <th scope="col">Fecha</th>
                 <th scope="col">Titulo</th>
                 <th scope="col">Imagen</th>
-                <th scope="col">Opciones</th>
+                <th colspan="2">&nbsp;</th>
             </tr>
         </thead>
         @forelse ($noticias as $noticia)
         <tbody>
             <tr>
-                <td>{{date('d-m-Y', strtotime($noticia->date))}}</td>
+                <td width="130px">{{date('d-m-Y', strtotime($noticia->date))}}</td>
                 <td>{{$noticia->title}}</td>
                 <td><img style="width:100px" src="/storage/{{$noticia->img_noticia}}"/></td>
                 <td>
                     <input type="hidden" name="id" value="{{$noticia->id}}">
                     <a href="{{route('noticias.edit', $noticia->id)}}
                         ">
-                        <i class="far fa-edit"></i>
+                        <i class="far fa-edit" title="Editar"></i>
                     </a>
+                </td>
+                <td>
                     <form action="{{route('noticias.destroy', $noticia->id)}}" method="post">
                         {{csrf_field()}}
                         <input type="hidden" name="id" value="{{$noticia->id}}">
-                        <i class="far fa-trash-alt" onclick="return confirm('Seguro queres eliminar?')"></i>
+                        <i class="far fa-trash-alt" title="Eliminar" onclick="return confirm('Seguro queres eliminar?')"></i>
                     </form>
                 </td>
             </tr>
-
-
         </tbody>
         @empty
         <h2>No hay Noticias</h2>
