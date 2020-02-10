@@ -48,7 +48,7 @@ class adminController extends Controller
         $nombrePreview = basename($rutaPreview);
 
 
-        $rutaImg = $request->file("img_noticia")->store("public");
+        $rutaImg = $request->file("img_noticia")->store("public/img/img_noticias");
         $nombreImagen = basename($rutaImg);
 
         $newNoticia = new Noticia();
