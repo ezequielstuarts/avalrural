@@ -42,6 +42,7 @@ Route::group(['middleware' => 'auth'], function ()
 {
 
     Route::get('/admin', 'adminController@tablaDeNoticias')->name('admin');
+    Route::get('/home', 'adminController@tablaDeNoticias')->name('home');
 
     Route::get('/admin/nueva_noticia', "adminController@create")->name('admin.nueva_noticia');
 

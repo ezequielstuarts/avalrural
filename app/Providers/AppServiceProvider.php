@@ -26,5 +26,6 @@ class AppServiceProvider extends ServiceProvider
     {
         // Carbon::setLocale('es');
         // SetLocale(LC_TIME, 'es_ES');
+        Carbon::setLocale(config('app.locale'));
     }
 }

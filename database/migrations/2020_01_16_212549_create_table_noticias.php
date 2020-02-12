@@ -14,12 +14,13 @@ class CreateTableNoticias extends Migration
     public function up()
     {
         Schema::create('noticias', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->unique();
             $table->timestamps();
-            $table->date('date');
+            $table->datetime('date');
             $table->char('title', 255);
             $table->char('subtitle', 255);
             $table->text('content');
+            $table->string('modified_by')->nullable();
             $table->char('img_preview', 255);
             $table->char('img_noticia', 255);
         });
