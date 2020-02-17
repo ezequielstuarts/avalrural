@@ -110,7 +110,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Ezequiel', 'elzeke55@gmail.com', NULL, '$2y$10$Qay0e0UX1HMdNOOdFvNdGer6XrG7KWf5Qdhv1u8qViKkwpK0iSC3i', NULL, '2019-12-30 03:21:01', '2019-12-30 03:21:01'),
+(1, 'Ezequiel', 'e.stuarts@gmail.com', NULL, '$2y$10$Qay0e0UX1HMdNOOdFvNdGer6XrG7KWf5Qdhv1u8qViKkwpK0iSC3i', NULL, '2019-12-30 03:21:01', '2019-12-30 03:21:01'),
 (2, 'Ezequiel', 'e.stuarts@mas54.com', NULL, '$2y$10$qBH/ULBH.U78PmpjbQt4.uSjv6r1vmaThHEJ0TgJ8P.5MHq/qohJe', NULL, '2020-01-01 05:27:16', '2020-01-01 05:27:16');
 
 --

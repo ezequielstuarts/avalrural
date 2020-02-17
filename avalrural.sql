@@ -108,7 +108,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Ezequiel', 'elzeke55@gmail.com', NULL, '$2y$10$woig5QAM57sZ2pptqCGbLObsir7nJRmg.jRJUb71gikQWKokDsYbO', NULL, '2019-12-20 01:51:38', '2019-12-20 01:51:38');
+(1, 'Ezequiel', 'e.stuarts@gmail.com', NULL, '$2y$10$woig5QAM57sZ2pptqCGbLObsir7nJRmg.jRJUb71gikQWKokDsYbO', NULL, '2019-12-20 01:51:38', '2019-12-20 01:51:38');
 
 --
 -- Índices para tablas volcadas

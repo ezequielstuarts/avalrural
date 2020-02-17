@@ -15,7 +15,9 @@
                     <div class="rightbox sticky_sidebar">
                         <div class="rightbox_inner">
                             <div class="in">
-
+                                <div class="service_type_title">
+                                    <h3>Productos</h3>
+                                </div>
                                 @include('partials.nav.productos')
                             </div>
                         </div>

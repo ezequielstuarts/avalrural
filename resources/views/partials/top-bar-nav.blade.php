@@ -3,7 +3,7 @@
         <div class="container">
             <div class="header_inner">
                 <div class="logo">
-                    <a href="/"><img src="{{ URL::asset('img/logo/buildify_mini.png') }} " alt="" /></a>
+                    <a href="{{ route( 'index') }}"><img src="{{ URL::asset('img/logo/buildify_mini.png') }} " alt="" /></a>
                 </div>
                 <div class="buildify_tm_trigger">
                     <div class="hamburger hamburger--collapse-r">
@@ -18,7 +18,7 @@
             <div class="container">
                 <div class="inner_navigation">
                     <ul class="nav">
-                        <li><a href="/">Home</a></li>
+                        <li><a href=" {{ route( 'index') }} ">Home</a></li>
                         <li>
                             <a href="sobre_aval">Sobre Aval Rural SGR</a>
                             <ul class="sub_menu">
@@ -35,7 +35,7 @@
                                 <li><a href="obligaciones">Obligaciones Negociables Simples</a></li>
                                 <li><a href="fideicomisos">Fideicomisos Financieros</a></li>
                                 <li><a href="garantias">Garantías Comerciales</a></li>
-                               
+
                             </ul>
                         </li>
                         <li><a href="que_es_una_sgr">¿Qué es una SGR?</a></li>

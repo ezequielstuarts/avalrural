@@ -66,8 +66,8 @@ class precalificateController extends Controller
         "Acepta" => $request['Acepta'],
         );
         Mail::send('email.welcome', $data, function ($message) {
-            $message->from('e.stuarts@mas54.com', 'Desde Aval Formulario de Precalificate');
-            $message->to('e.stuarts@mas54.com')->subject('test de envio de email desde aval');
+            $message->from('e.stuarts@gmail.com', 'Desde Aval Formulario de Precalificate');
+            $message->to('e.stuarts@gmail.com')->subject('test de envio de email desde aval');
         });
 
         dd($data);

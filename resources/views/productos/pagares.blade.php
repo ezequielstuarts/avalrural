@@ -28,7 +28,7 @@
                                 <li>
                                     <div class="list_inner">
                                         <div class="service_image_first">
-                                            <img src="img/productos/Pagare.jpg" alt="" />
+                                            <img src="img/productos/pagare.jpg" alt="" />
                                         </div>
                                         <div class="service_definition_first">
                                             <p> <strong>Los socios partícipes de AVAL RURAL SGR también pueden financiarse en el mercado de capitales descontando Pagaré Bursátil avalados por AVAL RURAL SGR, obteniendo agilidad y costos competitivos.</strong></p>

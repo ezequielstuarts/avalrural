@@ -67,8 +67,8 @@ Route::post('sendmail', function () {
         'name' => "curso laravel",
     );
     Mail::send('email.welcome', $data, function ($message) {
-        $message->from('e.stuarts@mas54.com', 'Curso laravel');
-        $message->to('e.stuarts@mas54.com')->subject('test de envio de email desde aval');
+        $message->from('e.stuarts@gmail.com', 'Curso laravel');
+        $message->to('e.stuarts@gmail.com')->subject('test de envio de email desde aval');
     });
     return redirect()->route('index')->with('mensaje', 'Hemos enviado su email');
 });
@@ -77,5 +77,7 @@ Route::get('/init', function () {
     Artisan::call('storage:link');
     return 'ready!';
 });
+
+
 
 
