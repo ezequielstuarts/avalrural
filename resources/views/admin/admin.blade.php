@@ -33,16 +33,17 @@
                 <td><img style="width:100px" src="/storage/{{$noticia->img_noticia}}"/></td>
                 <td>
                     <input type="hidden" name="id" value="{{$noticia->id}}">
-                    <a href="{{route('noticias.edit', $noticia->id)}}
+                    <a href="{{route('noticia.edit', $noticia->id)}}
                         ">
                         <i class="far fa-edit" title="Editar"></i>
                     </a>
                 </td>
                 <td>
-                    <form action="{{route('noticias.destroy', $noticia->id)}}" method="post">
+                    <form action="{{route('noticia.destroy', $noticia->id)}}" method="post">
                         {{csrf_field()}}
-                        <input type="hidden" name="id" value="{{$noticia->id}}">
-                        <i class="far fa-trash-alt" title="Eliminar" onclick="return confirm('Seguro queres eliminar?')"></i>
+                        {{-- <input type="hidden" name="id" value="{{$noticia->id}}"> --}}
+                        <input class="btn btn-danger mt-5" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
+
                     </form>
                 </td>
             </tr>

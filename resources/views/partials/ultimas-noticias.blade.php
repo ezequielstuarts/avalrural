@@ -18,10 +18,10 @@
                                 </div>
                                 <div class="main_part">
                                     <div class="title_holder_news">
-                                        <h3><a href="/noticias/{{$noticia->id}}">{{$noticia->title}}</a></h3>
+                                        <h3><a href="/noticias/{{$noticia->id}}">{{ str_limit($noticia->title, 40) }}</a></h3>
                                     </div>
                                     <div class="definition">
-                                        <p>{{ str_limit($noticia->subtitle, 80) }}</p>
+                                        <p>{{ str_limit($noticia->subtitle, 60) }}</p>
                                     </div>
                                     <div class="read_more_news">
                                         <p><a href="/noticias/{{$noticia->id}}">Ver más</a><span>{{ $noticia->date }}</span></p>

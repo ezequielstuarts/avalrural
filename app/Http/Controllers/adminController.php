@@ -119,7 +119,6 @@ class adminController extends Controller
     {
         $id = $formulario['id'];
         $noticia = Noticia::find($id);
-
         $img_preview = $noticia['img_preview'];
         $img_noticia = $noticia['img_noticia'];
 

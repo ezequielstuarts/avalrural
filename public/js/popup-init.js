@@ -16,20 +16,20 @@ window.onload = function() {
     }
 }
 
-var theform = document.querySelector(".contact_form");
-var elementsofForm = theform.elements;
-console.log(elementsofForm, 'the');
+// var theform = document.querySelector(".contact_form");
+// var elementsofForm = theform.elements;
+// console.log(elementsofForm, 'the');
 
 
-var campoNombre = document.querySelector('input[name=NombreYApellido]');
-campoNombre.onblur = function() {
-    if(this.value.trim() == '') {
-        var error = document.querySelector('.p-error');
-        error.append("Hola Mundo!");
-    }
-    if(this.value.trim() != '') {
-        var error = document.querySelector('.p-error');
-        error.remove("Hola Mundo!");
-    }
+// var campoNombre = document.querySelector('input[name=NombreYApellido]');
+// campoNombre.onblur = function() {
+//     if(this.value.trim() == '') {
+//         var error = document.querySelector('.p-error');
+//         error.append("Hola Mundo!");
+//     }
+//     if(this.value.trim() != '') {
+//         var error = document.querySelector('.p-error');
+//         error.remove("Hola Mundo!");
+//     }
 
-}
+// }

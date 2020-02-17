@@ -3,19 +3,20 @@
 	<div class="buildify_tm_contact_wrap sin_margen_bottom">
 		<div class="get_in_touch_wrap">
 			<div class="inner_wrap">
-				<form class="contact_form" id="precalif_form" enctype="multipart/form-data">
+                <form class="contact_form" id="precalif_form" enctype="multipart/form-data" method="post" action=" {{ route('precalificate-form') }} ">
+                    @csrf
 					<div class="empty_notice"><span>Por favor, complete los datos obligatorios.</span></div>
                     <div class="row"><!-- <label><span></span></label> -->
                         <input id="NombreYApellido" name="NombreYApellido" type="text" placeholder="Nombre y Apellido" />
                     </div>
                     <p class="p-error"></p>
-					<div class="row"><!-- <label><span></span></label> --><input id="Email" name="Email" type="email" placeholder="E-mail" required /></div>
-					<div class="row"><!-- <label><span></span></label> --><input id="Telefono" name="Telefono" type="number" placeholder="Teléfono" required /></div>
-					<div class="row"><!-- <label><span></span></label> --><input id="Celular" name="Celular" type="number" placeholder="Celular" required /></div>
-					<div class="row"><!-- <label><span></span></label> --><input id="Empresa" name="Empresa" type="text" placeholder="Empresa" required /></div>
-					<div class="row"><!-- <label><span></span></label> --><input id="CUIT" name="CUIT" type="number" placeholder="CUIT" required /></div>
+					<div class="row"><!-- <label><span></span></label> --><input id="Email" name="Email" type="email" placeholder="E-mail"  /></div>
+					<div class="row"><!-- <label><span></span></label> --><input id="Telefono" name="Telefono" type="number" placeholder="Teléfono"  /></div>
+					<div class="row"><!-- <label><span></span></label> --><input id="Celular" name="Celular" type="number" placeholder="Celular"  /></div>
+					<div class="row"><!-- <label><span></span></label> --><input id="Empresa" name="Empresa" type="text" placeholder="Empresa"  /></div>
+					<div class="row"><!-- <label><span></span></label> --><input id="CUIT" name="CUIT" type="number" placeholder="CUIT"  /></div>
 					<div class="row">
-						<select id="Rubro" name="Rubro" required >
+						<select id="Rubro" name="Rubro"  >
 							<option value="">Seleccione</option>
 							<option value="Agro">Agro</option>
 							<option value="Comercio">Comercio</option>
@@ -26,7 +27,7 @@
 						</select>
 					</div>
 
-					<div class="row"><!-- <label><span></span></label> --><input id="AFIP" name="AFIP" type="text" placeholder="Código de Afip - Pega aquí el link" required />
+					<div class="row"><!-- <label><span></span></label> --><input id="AFIP" name="AFIP" type="text" placeholder="Código de Afip - Pega aquí el link"  />
 					</div>
 					<div class="row row2">
 						<a href="https://servicios1.afip.gov.ar/genericos/nomencladorActividades/index.aspx" target="_blank">Ver codigos de Afip</a>
@@ -39,7 +40,7 @@
 						<input type="file" name="Nomina" />
 					</div>
 					<div class="row">
-						<textarea id="Actividad" name="Actividad" placeholder="Describí brevemente tu actividad." required ></textarea>
+						<textarea id="Actividad" name="Actividad" placeholder="Describí brevemente tu actividad."  ></textarea>
 					</div>
 					<div class="row margen">
 						<div class="row">
@@ -52,7 +53,7 @@
 							<div style="color: red; margin-top: 10px;" id="precalif_mensaje"></div>
 						</div>
 						<div class="row50-terminos">
-							<label><input id="Acepta" name="Acepta" type="checkbox" value="SI" required style="width: 12px !important; height: 12px !important;" /> Acepto Políticas de privacidad</label>
+							<label><input id="Acepta" name="Acepta" type="checkbox" value="SI"  style="width: 12px !important; height: 12px !important;" /> Acepto Políticas de privacidad</label>
 						</div>
 					</div>
 				</form>

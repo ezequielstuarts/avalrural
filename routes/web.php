@@ -34,6 +34,7 @@ Route::get('/contacto', "contactoController@index")->name('contacto');
 Route::post('/enviar', "contactoController@enviar")->name('contacto.enviar');
 
 
+Route::post('/precalificate-form', "precalificateController@store")->name('precalificate-form');
 
 
 // ADMIN
@@ -48,16 +49,18 @@ Route::group(['middleware' => 'auth'], function ()
 
     Route::post('/admin/nueva_noticia', "adminController@store")->name('noticias.nueva_noticia');
 
-    Route::post('/admin/destroy', "adminController@destroy")->name('noticias.destroy');
+    Route::post('/admin/destroy', "adminController@destroy")->name('noticia.destroy');
 
-    Route::get('/admin/edit/{id}', "adminController@edit")->name('noticias.edit');
+    Route::get('/admin/edit/{id}', "adminController@edit")->name('noticia.edit');
 
     Route::patch('/admin/update/{id}', "adminController@update");
 
     Route::get('/users', "usersController@index")->name('users');
+
 });
 
-Route::get('/home', 'homeController@auth')->name('home');
+//Route::get('/home', 'homeController@auth')->name('home'); esto esra antes
+Route::get('/home', 'homeController@index')->name('home');
 
 Route::post('sendmail', function () {
     $data = array (

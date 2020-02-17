@@ -24,7 +24,7 @@
     {{-- Datepicker --}}
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-datepicker.css') }}" >
-    {{-- EndDatepicker --}}
+{{-- EndDatepicker --}}
 
 
 </head>
@@ -92,14 +92,11 @@
     </div>
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
-<script src="js/summernote.js"></script>
-
-<script>
-$(document).ready(function() {
-$('#summernote').summernote();});
-</script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+    <script src="js/summernote.js"></script>
+    <script src="js/envio-form.js"></script>
+    <script>$(document).ready(function() {$('#summernote').summernote();});</script>
 
 </body>
 </html>
