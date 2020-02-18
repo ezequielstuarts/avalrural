@@ -11,7 +11,9 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
     use AuthenticatesUsers;
 
-    protected $redirectTo = '/';
+    protected $redirectTo = 'admin';
 }

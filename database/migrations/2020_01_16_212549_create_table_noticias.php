@@ -19,7 +19,7 @@ class CreateTableNoticias extends Migration
             $table->datetime('date');
             $table->char('title', 255);
             $table->char('subtitle', 255);
-            $table->text('content');
+            $table->text('content')->nullable();
             $table->string('modified_by')->nullable();
             $table->char('img_preview', 255);
             $table->char('img_noticia', 255);
