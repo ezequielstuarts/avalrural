@@ -86,7 +86,7 @@
 
     <div class="form-group">
         <label class="labels" for="content">Contenido</label>
-        <textarea id="summernote" required class="form-control" name="content">{{$noticia->content}}</textarea>
+        <textarea id="summernote" class="form-control" name="content">{{$noticia->content}}</textarea>
     </div>
 
 

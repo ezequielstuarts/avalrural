@@ -17,8 +17,12 @@ class adminController extends Controller
 
     public function tablaDeNoticias()
     {
+        $totalNoticias = count(Noticia::get());
+
+
         $noticias = Noticia::orderBy('id', 'DESC')->get();
-        return view ("admin.admin", ['noticias' => $noticias]);
+        $ultima_modificacion = $noticias->last();
+        return view ("admin.admin", ['noticias' => $noticias, 'totalNoticias' => $totalNoticias, 'ultima_modificacion' => $ultima_modificacion]);
     }
 
     public function create()
@@ -89,9 +93,7 @@ class adminController extends Controller
                 "required" => "El campo :attribute es necesario.",
             ];
 
-
             $this->validate($request, $reglas, $mensajes);
-
 
             $noticia = Noticia::find($id);
             $diff = array_diff($request->toArray(), $noticia->toArray());
