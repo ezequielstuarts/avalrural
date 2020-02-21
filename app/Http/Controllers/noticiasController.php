@@ -9,9 +9,14 @@ use Carbon\Carbon;
 
 class noticiasController extends Controller
 {
+    public function __construct()
+    {
+        Carbon::setlocale('es');
+    }
+
     public function index()
     {
-        $noticias = Noticia::orderBy('id', 'DESC')->paginate(4);
+        $noticias = Noticia::orderBy('date', 'DESC')->paginate(4);
         return view ("todasLasNoticias", ['noticias' => $noticias]);
     }
 

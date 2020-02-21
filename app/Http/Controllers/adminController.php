@@ -62,6 +62,9 @@ class adminController extends Controller
         $newNoticia->content = $request["content"];
         $newNoticia->date = $request["date"];
 
+        $newNoticia->created_at = Carbon::now();
+
+
         $newNoticia->img_preview = $nombrePreview;
         $newNoticia->img_noticia = $nombreImagen;
         $newNoticia->modified_by = (auth()->user()->name);

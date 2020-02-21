@@ -34,7 +34,7 @@
                             <div class="category_date">
                                 <p><span><a href="/noticias">Ver todas las noticias</a></span></p>
                                 <div class="fecha_noticia">
-                                    <p>{{date('F Y', strtotime($noticia->date))}}</p>
+                                    <p>{{ $noticia->created_at->isoFormat('MMMM YYYY', 'Do MMMM')  }}</p>
                                 </div>
                             </div>
                             <div class="single_title">

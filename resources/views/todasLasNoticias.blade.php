@@ -39,7 +39,7 @@
                                                 </div>
                                                 <div class="buildify_tm_read_more">
                                                     <p><a href="noticias/{{$noticia->id}}">Leer Más</a><span>
-                                                    {{date('F Y', strtotime($noticia->date))}}
+                                                        {{ $noticia->created_at->isoFormat('MMMM YYYY', 'Do MMMM')  }}
                                                      </span></p>
                                                 </div>
                                             </div>
