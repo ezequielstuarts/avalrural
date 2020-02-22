@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ContactEmail;
 
 class contactoController extends Controller
 {
@@ -32,25 +33,23 @@ class contactoController extends Controller
             "numeric" => "El :attribute dene ser numerico."
         ];
 
-        $this->validate($request, $reglas, $mensajes);
+        //$this->validate($request, $reglas, $mensajes);
 
+        $newMail = new ContactEmail();
 
+        $newMail->apellido = $request["apellido"];
+        $newMail->nombre = $request["nombre"];
+        $newMail->empresa = $request["empresa"];
+        $newMail->cuit = $request["cuit"];
+        $newMail->localidad = $request["localidad"];
+        $newMail->telefono = $request["telefono"];
+        $newMail->email = $request["email"];
+        $newMail->consulta = $request["consulta"];
 
-        return redirect()->route('contacto')->with('mensaje', 'El formulario ha sido enviado');;
-        // Apellido
-        // Nombre
-        // Empresa
-        // CUIT
-        // Localidad
-        // Telefono
-        // Email
-        // Consulta
+        //dd($newMail);
+        $newMail->save();
 
-
-
-
-
-
+        return view('enviado');
 
 
     }

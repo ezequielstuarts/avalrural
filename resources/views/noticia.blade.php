@@ -41,7 +41,11 @@
                                 <h3>{{$noticia->title}}</h3>
                             </div>
                         <div class="blog_single_image">
-                            <img src="/storage/{{$noticia->img_noticia}}"/>
+                            @if (!empty($noticia->img_noticia))
+                                <img src="/storage/{{$noticia->img_noticia}}"/>
+                            @else
+                                <img src="/img/noimg.png" class="card-img-top">
+                            @endif
                         </div>
                         </div>
                         <div class="buildify_tm_top_section">

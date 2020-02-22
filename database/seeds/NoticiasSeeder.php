@@ -21,6 +21,8 @@ class NoticiasSeeder extends Seeder
             'img_preview' => '',
             'img_noticia' => '',
             'modified_by' => '',
+            'created_at' => '2018-06-01 00:00:00',
+            'updated_at' => '2018-06-01 00:00:00'
         ]);
         DB::table('noticias')->insert([
             'date' => '2018-06-01 00:00:00',
@@ -30,6 +32,8 @@ class NoticiasSeeder extends Seeder
             'img_preview' => '',
             'img_noticia' => '',
             'modified_by' => '',
+            'created_at' => '2018-06-01 00:00:00',
+            'updated_at' => '2018-06-01 00:00:00'
         ]);
         DB::table('noticias')->insert([
             'date' => '2018-06-01 00:00:00',
@@ -39,6 +43,8 @@ class NoticiasSeeder extends Seeder
             'img_preview' => '',
             'img_noticia' => '',
             'modified_by' => '',
+            'created_at' => '2018-06-01 00:00:00',
+            'updated_at' => '2018-06-01 00:00:00'
         ]);
         DB::table('noticias')->insert([
             'date' => '2018-06-01 00:00:00',
@@ -48,6 +54,8 @@ class NoticiasSeeder extends Seeder
             'img_preview' => '',
             'img_noticia' => '',
             'modified_by' => '',
+            'created_at' => '2018-06-01 00:00:00',
+            'updated_at' => '2018-06-01 00:00:00'
         ]);
         DB::table('noticias')->insert([
             'date' => '2019-05-01 00:00:00',
@@ -57,6 +65,8 @@ class NoticiasSeeder extends Seeder
             'img_preview' => '',
             'img_noticia' => '',
             'modified_by' => '',
+            'created_at' => '2019-05-01 00:00:00',
+            'updated_at' => '2019-05-01 00:00:00'
         ]);
         DB::table('noticias')->insert([
             'date' => '2019-06-03 00:00:00',
@@ -66,6 +76,8 @@ class NoticiasSeeder extends Seeder
             'img_preview' => '',
             'img_noticia' => '',
             'modified_by' => '',
+            'created_at' => '2019-06-03 00:00:00',
+            'updated_at' => '2019-06-03 00:00:00'
         ]);
         DB::table('noticias')->insert([
             'date' => '2019-12-02 00:00:00',
@@ -75,6 +87,8 @@ class NoticiasSeeder extends Seeder
             'img_preview' => '',
             'img_noticia' => '',
             'modified_by' => '',
+            'created_at' => '2019-12-02 00:00:00',
+            'updated_at' => '2019-12-02 00:00:00'
         ]);
         DB::table('noticias')->insert([
             'date' => '2019-12-02 00:00:00',
@@ -84,6 +98,8 @@ class NoticiasSeeder extends Seeder
             'img_preview' => '',
             'img_noticia' => '',
             'modified_by' => '',
+            'created_at' => '2019-12-02 00:00:00',
+            'updated_at' => '2019-12-02 00:00:00'
         ]);
 
     }

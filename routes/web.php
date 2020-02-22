@@ -5,6 +5,7 @@
 // });
 
 Route::get('/', "indexController@index")->name('index');
+Route::post('/', "indexController@index")->name('index');
 
 Route::get('/sobre_aval', "sobreavalController@index")->name('quienes_somos');
 
@@ -31,7 +32,8 @@ Route::get('/noticias/{id}', "noticiasController@verNoticia")->name('ver.noticia
 Route::get('/faq', "faqController@index")->name('faq');
 
 Route::get('/contacto', "contactoController@index")->name('contacto');
-Route::post('/enviar', "contactoController@enviar")->name('contacto.enviar');
+
+Route::post('enviar', "contactoController@enviar")->name('enviar');
 
 
 Route::post('/precalificate-form', "precalificateController@store")->name('precalificate-form');
@@ -62,16 +64,6 @@ Route::group(['middleware' => 'auth'], function ()
 //Route::get('/home', 'homeController@auth')->name('home'); esto esra antes
 Route::get('/home', 'homeController@index')->name('home');
 
-Route::post('sendmail', function () {
-    $data = array (
-        'name' => "curso laravel",
-    );
-    Mail::send('email.welcome', $data, function ($message) {
-        $message->from('e.stuarts@gmail.com', 'Curso laravel');
-        $message->to('e.stuarts@gmail.com')->subject('test de envio de email desde aval');
-    });
-    return redirect()->route('index')->with('mensaje', 'Hemos enviado su email');
-});
 
 Route::get('/init', function () {
     Artisan::call('storage:link');

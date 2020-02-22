@@ -39,7 +39,8 @@
                     <div class="leftbox sticky_sidebar">
                         <div class="buildify_tm_list_wrap" data-column="1" data-space="60">
 
-                            <form action="enviar" class="contact_form" id="contact_form2" method="post" enctype="multipart/form-data">
+
+                            <form action={{route('enviar')}} class="contact_form" id="contact_form2" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <ul class="buildify_list">
                                 <li>
@@ -54,44 +55,44 @@
 
                                                     <div class="row">
                                                         <label>Apellido<span></span></label>
-                                                        <input id="Apellido" name="Apellido" type="text" value="{{old("Apellido")}}">
-                                                        <p style="color: red;">{{ $errors->first('Apellido') }}</p>
+                                                        <input id="Apellido" name="apellido" type="text" value="{{old("apellido")}}">
+                                                        <p style="color: red;">{{ $errors->first('apellido') }}</p>
                                                     </div>
                                                     <div class="row">
                                                         <label>Nombre<span></span></label>
-                                                        <input id="Nombre" name="Nombre" type="text" value="{{old("Nombre")}}">
-                                                        <p style="color: red;">{{ $errors->first('Nombre') }}</p>
+                                                        <input id="Nombre" name="nombre" type="text" value="{{old("nombre")}}">
+                                                        <p style="color: red;">{{ $errors->first('nombre') }}</p>
                                                     </div>
                                                     <div class="row">
                                                         <label>Empresa<span></span></label>
-                                                        <input id="Empresa" name="Empresa" type="text" value="{{old("Empresa")}}">
-                                                        <p style="color: red;">{{ $errors->first('Empresa') }}</p>
+                                                        <input id="Empresa" name="empresa" type="text" value="{{old("empresa")}}">
+                                                        <p style="color: red;">{{ $errors->first('empresa') }}</p>
                                                     </div>
                                                     <div class="row">
                                                         <label>CUIT (empresa)<span></span></label>
-                                                        <input id="CUIT" name="CUIT" type="number" value="{{old("CUIT")}}">
-                                                        <p style="color: red;">{{ $errors->first('CUIT') }}</p>
+                                                        <input id="CUIT" name="cuit" type="number" value="{{old("cuit")}}">
+                                                        <p style="color: red;">{{ $errors->first('cuit') }}</p>
                                                     </div>
                                                     <div class="row">
                                                         <label>Localidad<span></span></label>
-                                                        <input id="Localidad" name="Localidad" type="text" value="{{old("Localidad")}}">
-                                                        <p style="color: red;">{{ $errors->first('Localidad') }}</p>
+                                                        <input id="Localidad" name="localidad" type="text" value="{{old("localidad")}}">
+                                                        <p style="color: red;">{{ $errors->first('localidad') }}</p>
                                                     </div>
                                                     <div class="row">
                                                         <label>Teléfono<span></span></label>
-                                                        <input id="Telefono" name="Telefono" type="number" value="{{old("Telefono")}}">
-                                                        <p style="color: red;">{{ $errors->first('Telefono') }}</p>
+                                                        <input id="Telefono" name="telefono" type="number" value="{{old("telefono")}}">
+                                                        <p style="color: red;">{{ $errors->first('telefono') }}</p>
                                                     </div>
                                                     <div class="row">
                                                         <label>E-mail<span></span></label>
-                                                        <input id="Email" name="Email" type="email" value="{{old("Email")}}">
-                                                        <p style="color: red;">{{ $errors->first('Email') }}</p>
+                                                        <input id="Email" name="email" type="email" value="{{old("email")}}">
+                                                        <p style="color: red;">{{ $errors->first('email') }}</p>
                                                     </div>
                                                     <div class="row">
                                                         <label>Consulta<span></span></label>
-                                                        <textarea id="Consulta" name="Consulta"  ></textarea>
-                                                        <p style="color: red;">{{ $errors->first('Consulta') }}</p>
+                                                        <textarea id="Consulta" name="consulta"  ></textarea>
                                                     </div>
+
                                                     <div class="row">
                                                         <div class="g-recaptcha" data-sitekey="6LcaxWgUAAAAAC21W4A7zOpBpyhXoMpP8K11t82v"></div>
 

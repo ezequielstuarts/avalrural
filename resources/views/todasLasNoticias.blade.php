@@ -28,7 +28,11 @@
                                         <div class="content">
                                             <div class="content_inner">
                                                 <div class="foto_noticia">
-                                                    <img class="img_noticia" src="/storage/{{$noticia->img_preview}}" alt="" />
+                                                    @if (!empty($noticia->img_noticia))
+                                                        <img src="/storage/{{$noticia->img_noticia}}"/>
+                                                    @else
+                                                        <img src="../img/noimg.png" class="card-img-top">
+                                                    @endif
                                                 </div>
                                                 <div class="blog_title">
                                                     <h3><a href="noticias/{{$noticia->id}}">{{$noticia->title}}</a></h3>
