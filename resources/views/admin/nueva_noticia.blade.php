@@ -4,8 +4,19 @@
         <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
         <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
 
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <!-- Datepicker Files -->
+        <link rel="stylesheet" href="../../css/css-date/bootstrap-datepicker3.css">
+        <link rel="stylesheet" href="../../css/css-date/bootstrap-datepicker.standalone.css">
+        <script src="../../js/js-date/bootstrap-datepicker.min.js"></script>
+        <!-- Languaje -->
+        <script src="../../js/locales-date/bootstrap-datepicker.es.min.js"></script>
+
+
+
         <div class="container text-right">
-            <h4>{{ date('l jS \\of F Y') }}</h4>
+            <h4>{{ $date->isoFormat('dddd, Do MMMM YYYY') }}</h4>
         </div>
         <div class=" container mt-5">
         <form action="{{route('admin.nueva_noticia')}}" method="post" enctype="multipart/form-data">
@@ -13,10 +24,24 @@
 
 
             <div class="form-group">
+                <label for="date">Fecha</label>
+                <div class="input-group">
+                    <input type="text" class="form-control datepicker" name="date">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                </div>
+                <p class="text-danger pl-1 pt-1">{{ $errors->first('date') }}</p>
+            </div>
+
+
+
+
+            {{-- <div class="form-group">
                 <label for="date">Fecha de la noticia</label>
                 <input type="date" class="form-control" id="date" name="date" value="{{old("date")}}">
                 <p class="text-danger pl-1 pt-1">{{ $errors->first('date') }}</p>
-            </div>
+            </div> --}}
 
             <div class="form-group">
                 <label for="title">Titulo</label>
@@ -64,7 +89,14 @@
         <textarea id="summernote" name="editordata"></textarea>
     </form> --}}
 
-
+<script>
+    $('.datepicker').datepicker({
+        format: "yyyy-mm-dd",
+        language: "es",
+        todayBtn: "linked",
+        autoclose: true
+    });
+</script>
 
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>

@@ -3,7 +3,7 @@
 <div class="container mt-3 mb-3">
     <div class="row">
         <div class="col-md-8 ">
-            <h5 class="text-secondary"> <b>{{$totalNoticias}}</b> Noticias en la base de datos, <b>última modificacion el: </b> {{$ultima_modificacion->updated_at->isoFormat('d MMMM ', 'Do MMMM')}} </h5></div>
+            <h5 class="text-secondary"> <b>{{$totalNoticias}}</b> Noticias en la base de datos.</h5></div>
         <div class="col-md-4">
             <a class="float-right" href="{{route('noticias.nueva_noticia')}}">
                 <button class="btn btn-info">Nueva Noticia</button>

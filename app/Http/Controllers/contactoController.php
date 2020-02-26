@@ -13,27 +13,26 @@ class contactoController extends Controller
         return view ("contacto");
     }
 
-    public function enviar(Request $request)
+    public function enviar_contacto(Request $request)
     {
 
         $reglas = [
-            "Apellido" => "required|string",
-            "Nombre" => "required|string",
-            "Empresa" => "required|string",
-            "CUIT" => "required|numeric",
-            "Localidad" => "required|string",
-            "Telefono" => "required|numeric",
-            "Email" => "required",
-            "Acepta" => "required",
+            "apellido" => "required|string",
+            "nombre" => "required|string",
+            "empresa" => "required|string",
+            "cuit" => "required|numeric",
+            "localidad" => "required|string",
+            "telefono" => "required",
+            "email" => "required"
         ];
 
         $mensajes = [
             "string" => "El campo :attribute debe ser un nombre.",
             "required" => "El campo :attribute es necesario.",
-            "numeric" => "El :attribute dene ser numerico."
+            "numeric" => "El :attribute debe ser numerico.",
         ];
 
-        //$this->validate($request, $reglas, $mensajes);
+        $this->validate($request, $reglas, $mensajes);
 
         $newMail = new ContactEmail();
 
@@ -46,12 +45,52 @@ class contactoController extends Controller
         $newMail->email = $request["email"];
         $newMail->consulta = $request["consulta"];
 
-        //dd($newMail);
         $newMail->save();
-
         return view('enviado');
+    }
 
 
+    public function precalificacion(Request $request)
+    {
+
+        $reglas = [
+            "apellido" => "required|string",
+            "nombre" => "required|string",
+            "empresa" => "required|string",
+            "cuit" => "required|numeric",
+            "localidad" => "required|string",
+            "telefono" => "required",
+            "email" => "required"
+        ];
+
+        $mensajes = [
+            "string" => "El campo :attribute debe ser un nombre.",
+            "required" => "El campo :attribute es necesario.",
+            "numeric" => "El :attribute debe ser numerico.",
+        ];
+
+        $this->validate($request, $reglas, $mensajes);
+
+        // $newPrecalificacion = new ContactEmail();
+
+        // $newPrecalificacion->bigIncrements('id')->unique();
+        // $newPrecalificacion->char('nombre_y_apellido', 255)->nullable();
+        // $newPrecalificacion->char('email', 255)->nullable();
+        // $newPrecalificacion->char('telefono', 255)->nullable();
+        // $newPrecalificacion->char('celular', 40)->nullable();
+        // $newPrecalificacion->char('empresa', 255)->nullable();
+        // $newPrecalificacion->char('cuit', 40)->nullable();
+        // $newPrecalificacion->char('rubro', 255)->nullable();
+        // $newPrecalificacion->char('codigo_afip', 255)->nullable();
+        // $newPrecalificacion->char('balance', 255)->nullable();
+        // $newPrecalificacion->char('nomina', 255)->nullable();
+        // $newPrecalificacion->char('actividad', 255)->nullable();
+        // $newPrecalificacion->timestamps();
+
+
+        // $newPrecalificadion->save();
+        dd('in');
+        return view('enviado');
     }
 
 }

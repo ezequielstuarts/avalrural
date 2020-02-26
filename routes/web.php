@@ -5,7 +5,6 @@
 // });
 
 Route::get('/', "indexController@index")->name('index');
-Route::post('/', "indexController@index")->name('index');
 
 Route::get('/sobre_aval', "sobreavalController@index")->name('quienes_somos');
 
@@ -33,19 +32,27 @@ Route::get('/faq', "faqController@index")->name('faq');
 
 Route::get('/contacto', "contactoController@index")->name('contacto');
 
-Route::post('enviar', "contactoController@enviar")->name('enviar');
+Route::post('enviar_contacto', "contactoController@enviar_contacto")->name('enviar_contacto');
 
-
-Route::post('/precalificate-form', "precalificateController@store")->name('precalificate-form');
+Route::post('precalificacion', "contactoController@precalificacion")->name('precalificacion');
 
 
 // ADMIN
-Auth::routes();
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+// Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+// Route::post('register', 'Auth\RegisterController@register');
+// Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+// Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+// Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+// Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+
 Route::group(['middleware' => 'auth'], function ()
 {
 
     Route::get('/admin', 'adminController@tablaDeNoticias')->name('admin');
-    Route::get('/home', 'adminController@tablaDeNoticias')->name('home');
+    // Route::get('/home', 'adminController@tablaDeNoticias')->name('home');
 
     Route::get('/admin/nueva_noticia', "adminController@create")->name('admin.nueva_noticia');
 
@@ -58,6 +65,8 @@ Route::group(['middleware' => 'auth'], function ()
     Route::patch('/admin/update/{id}', "adminController@update");
 
     Route::get('/users', "usersController@index")->name('users');
+
+    // Route::post('register', "RegisterController@create")->name('register');
 
 });
 

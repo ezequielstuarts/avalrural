@@ -19,15 +19,14 @@ class adminController extends Controller
     {
         $totalNoticias = count(Noticia::get());
 
-
-        $noticias = Noticia::orderBy('id', 'DESC')->get();
-        $ultima_modificacion = $noticias->last();
-        return view ("admin.admin", ['noticias' => $noticias, 'totalNoticias' => $totalNoticias, 'ultima_modificacion' => $ultima_modificacion]);
+        $noticias = Noticia::orderBy('date', 'DESC')->get();
+        return view ("admin.admin", ['noticias' => $noticias, 'totalNoticias' => $totalNoticias]);
     }
 
     public function create()
     {
-        return view('admin.nueva_noticia');
+        $date = Carbon::now();
+        return view('admin.nueva_noticia', ['date' => $date]);
     }
 
 
@@ -41,10 +40,12 @@ class adminController extends Controller
             "img_noticia" => "required|file",
         ];
         $mensajes = [
-            "required" => "Debe ingresar la :attribute de la noticia.",
+            "required" => "Debe ingresar :attribute de la noticia.",
         ];
 
         $this->validate($request, $reglas, $mensajes);
+
+
 
         //$now = Carbon::now();
 

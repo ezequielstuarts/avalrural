@@ -7,7 +7,7 @@ var markupStr = $('#summernote').summernote('code');
 //     })
 // })
 
-console.log(markupStr);
+// console.log(markupStr);
 
 
 

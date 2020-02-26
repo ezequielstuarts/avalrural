@@ -3,7 +3,7 @@
 	<div class="buildify_tm_contact_wrap sin_margen_bottom">
 		<div class="get_in_touch_wrap">
 			<div class="inner_wrap">
-                <form class="contact_form" id="precalif_form" enctype="multipart/form-data" method="post" action=" {{ route('precalificate-form') }} ">
+                <form class="contact_form" id="precalif_form" enctype="multipart/form-data" method="post" action="{{ route('precalificacion') }}">
                     @csrf
 					<div class="empty_notice"><span>Por favor, complete los datos obligatorios.</span></div>
                     <div class="row"><!-- <label><span></span></label> -->
@@ -49,8 +49,8 @@
 						</div>
 						<div class="row50-enviar">
 							<!--a id="send_message" href="#">Enviar</a-->
-							<input type="submit" id="envio_precalif" value="Enviar" style="background-color: #7dba57" />
-							<div style="color: red; margin-top: 10px;" id="precalif_mensaje"></div>
+							<input type="submit" value="Enviar" style="background-color: #7dba57" />
+							<div style="color: red; margin-top: 10px;"></div>
 						</div>
 						<div class="row50-terminos">
 							<label><input id="Acepta" name="Acepta" type="checkbox" value="SI"  style="width: 12px !important; height: 12px !important;" /> Acepto Políticas de privacidad</label>

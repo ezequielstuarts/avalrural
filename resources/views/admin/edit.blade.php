@@ -2,6 +2,14 @@
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
 <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
 
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Datepicker Files -->
+<link rel="stylesheet" href="../../css/css-date/bootstrap-datepicker3.css">
+<link rel="stylesheet" href="../../css/css-date/bootstrap-datepicker.standalone.css">
+<script src="../../js/js-date/bootstrap-datepicker.min.js"></script>
+<!-- Languaje -->
+<script src="../../js/locales-date/bootstrap-datepicker.es.min.js"></script>
+
 <div class="container text-right">
     <h4>{{ date('l jS \\of F Y') }}</h4>
 </div>
@@ -21,9 +29,19 @@
     @method("patch")
     {{csrf_field()}}
     <div class="form-group">
-        <label for="date">Fecha de la noticia</label>
-    <input type="date" class="form-control" id="date" name="date" value="{{$noticia->date}}">
+        <label for="date">Fecha</label>
+        <div class="input-group">
+            <input type="text" class="form-control datepicker" name="date" value=" {{$noticia->date}} ">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+            </div>
+        </div>
+        <p class="text-danger pl-1 pt-1">{{ $errors->first('date') }}</p>
     </div>
+    {{-- <div class="form-group">
+        <label for="date">Fecha de la noticia</label>
+    <input type="text" class="form-control" id="date" name="date" value="{{$noticia->date}}">
+    </div> --}}
 
     <div class="form-group">
         <label for="title">Titulo</label>
@@ -49,7 +67,12 @@
                 <p class="text-danger pl-1 pt-1">{{ $errors->first('img_preview') }}</p>
             </div>
             <div class="col-4">
-                <img class="img-responsive" style="border:solid 1px;" src="/storage/{{$noticia->img_preview}}" alt="">
+                @if (!empty($noticia->img_noticia))
+                    <img class="img-responsive" style="border:solid 1px;" src="/storage/{{$noticia->img_preview}}" alt="">
+
+                @else
+                    <img style="width:200px" src="/img/noimg.png" class="card-img-top">
+                @endif
             </div>
         </div>
         <hr>
@@ -64,7 +87,12 @@
                 <p class="text-danger pl-1 pt-1">{{ $errors->first('img_noticia') }}</p>
             </div>
             <div class="col-4">
-                <img class="img-responsive" style="border:solid 1px;" src="/storage/{{$noticia->img_noticia}}" alt="">
+                @if (!empty($noticia->img_noticia))
+                    <img class="img-responsive" style="border:solid 1px;" src="/storage/{{$noticia->img_noticia}}" alt="">
+
+                @else
+                    <img style="width:200px" src="/img/noimg.png" class="card-img-top">
+                @endif
             </div>
         </div>
         <hr>
@@ -109,6 +137,14 @@
 
 
 
+<script>
+    $('.datepicker').datepicker({
+        format: "yyyy-mm-dd",
+        language: "es",
+        todayBtn: "linked",
+        autoclose: true
+    });
+</script>
 
 
 
@@ -125,3 +161,4 @@ $('#summernote').summernote();});
 
 </body>
 </html>
+

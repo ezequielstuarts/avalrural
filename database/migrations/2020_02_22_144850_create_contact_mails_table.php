@@ -18,9 +18,9 @@ class CreateContactMailsTable extends Migration
             $table->char('apellido', 255)->nullable();
             $table->char('nombre', 255)->nullable();
             $table->char('empresa', 255)->nullable();
-            $table->bigInteger('cuit')->nullable();
+            $table->char('cuit', 40)->nullable();
             $table->char('localidad', 255)->nullable();
-            $table->bigInteger('telefono')->nullable();
+            $table->char('telefono', 40)->nullable();
             $table->char('email', 255)->nullable();
             $table->char('consulta', 255)->nullable();
             $table->timestamps();

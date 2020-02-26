@@ -1,7 +1,7 @@
 @extends('home')
 @section('admin')
 <div class="container mt-5 mb-5">
-    <a  href="{{ route('register') }}">
+    <a  href="">
         <button class="btn btn-danger">Nuevo Usuario</button>
     </a>
 </div>
