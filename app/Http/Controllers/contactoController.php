@@ -53,23 +53,23 @@ class contactoController extends Controller
     public function precalificacion(Request $request)
     {
 
-        $reglas = [
-            "apellido" => "required|string",
-            "nombre" => "required|string",
-            "empresa" => "required|string",
-            "cuit" => "required|numeric",
-            "localidad" => "required|string",
-            "telefono" => "required",
-            "email" => "required"
-        ];
+        // $reglas = [
+        //     "apellido" => "required|string",
+        //     "nombre" => "required|string",
+        //     "empresa" => "required|string",
+        //     "cuit" => "required|numeric",
+        //     "localidad" => "required|string",
+        //     "telefono" => "required",
+        //     "email" => "required"
+        // ];
 
-        $mensajes = [
-            "string" => "El campo :attribute debe ser un nombre.",
-            "required" => "El campo :attribute es necesario.",
-            "numeric" => "El :attribute debe ser numerico.",
-        ];
+        // $mensajes = [
+        //     "string" => "El campo :attribute debe ser un nombre.",
+        //     "required" => "El campo :attribute es necesario.",
+        //     "numeric" => "El :attribute debe ser numerico.",
+        // ];
 
-        $this->validate($request, $reglas, $mensajes);
+        // $this->validate($request, $reglas, $mensajes);
 
         // $newPrecalificacion = new ContactEmail();
 
@@ -89,7 +89,14 @@ class contactoController extends Controller
 
 
         // $newPrecalificadion->save();
-        dd('in');
+        \Mail::send('emails.contacto', [
+            'name' => $request->get("nombre_y_apellido"),
+            'mail' => $request->get("email"),
+            'mensaje' => $request->get("message")
+        ], function ($message) {
+            $message->to('elzeke55@gmail.com', "The Music Company")->subject('Solicitud de contacto');
+        });
+        // return redirect("/")->with("status", "success");
         return view('enviado');
     }
 

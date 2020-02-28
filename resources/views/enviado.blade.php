@@ -34,6 +34,11 @@
                             <h4>Hemos enviado su mensaje</h4>
                         </div>
                     </div>
+                    <div class="row" style="margin-top:50px;">
+                        <a href="/">
+                            <input type="submit" id="" value="Volver" style="background-color: #7dba57" /></a>
+                        <div style="color: red; margin-top: 10px;" id=""></div>
+                    </div>
                 </div>
             </div>
         </div>
