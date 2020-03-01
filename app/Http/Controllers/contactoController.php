@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ContactEmail;
+use App\ContactPrecalificate;
 
 class contactoController extends Controller
 {
@@ -53,50 +54,52 @@ class contactoController extends Controller
     public function precalificacion(Request $request)
     {
 
-        // $reglas = [
-        //     "apellido" => "required|string",
-        //     "nombre" => "required|string",
-        //     "empresa" => "required|string",
-        //     "cuit" => "required|numeric",
-        //     "localidad" => "required|string",
-        //     "telefono" => "required",
-        //     "email" => "required"
-        // ];
+        $reglas = [
+            "NombreYApellido" => "required|string",
+            "Email" => "required",
+            "Telefono" => "required|numeric",
+            "Celular" => "required|numeric",
+            "Empresa" => "required|string",
+            "CUIT" => "required|numeric",
+            "Rubro" => "required|string",
+            "AFIP" => "required|string",
+            "Actividad" => "required|string",
+        ];
 
-        // $mensajes = [
-        //     "string" => "El campo :attribute debe ser un nombre.",
-        //     "required" => "El campo :attribute es necesario.",
-        //     "numeric" => "El :attribute debe ser numerico.",
-        // ];
+        $mensajes = [
+            "string" => "El campo :attribute debe ser un nombre.",
+            "required" => "El campo :attribute es necesario.",
+            "numeric" => "El :attribute debe ser numerico.",
+        ];
 
-        // $this->validate($request, $reglas, $mensajes);
-
-        // $newPrecalificacion = new ContactEmail();
-
-        // $newPrecalificacion->bigIncrements('id')->unique();
-        // $newPrecalificacion->char('nombre_y_apellido', 255)->nullable();
-        // $newPrecalificacion->char('email', 255)->nullable();
-        // $newPrecalificacion->char('telefono', 255)->nullable();
-        // $newPrecalificacion->char('celular', 40)->nullable();
-        // $newPrecalificacion->char('empresa', 255)->nullable();
-        // $newPrecalificacion->char('cuit', 40)->nullable();
-        // $newPrecalificacion->char('rubro', 255)->nullable();
-        // $newPrecalificacion->char('codigo_afip', 255)->nullable();
-        // $newPrecalificacion->char('balance', 255)->nullable();
-        // $newPrecalificacion->char('nomina', 255)->nullable();
-        // $newPrecalificacion->char('actividad', 255)->nullable();
-        // $newPrecalificacion->timestamps();
+        $this->validate($request, $reglas, $mensajes);
 
 
-        // $newPrecalificadion->save();
-        \Mail::send('emails.contacto', [
-            'name' => $request->get("nombre_y_apellido"),
-            'mail' => $request->get("email"),
-            'mensaje' => $request->get("message")
-        ], function ($message) {
-            $message->to('elzeke55@gmail.com', "The Music Company")->subject('Solicitud de contacto');
-        });
-        // return redirect("/")->with("status", "success");
+        $newPrecalificacion = new ContactPrecalificate();
+
+        $newPrecalificacion->nombre_y_apellido = $request["NombreYApellido"];
+        $newPrecalificacion->email = $request["Email"];
+        $newPrecalificacion->telefono = $request["Telefono"];
+        $newPrecalificacion->celular = $request["Celular"];
+        $newPrecalificacion->empresa = $request["Empresa"];
+        $newPrecalificacion->cuit = $request["CUIT"];
+        $newPrecalificacion->rubro = $request["Rubro"];
+        $newPrecalificacion->codigo_afip = $request["AFIP"];
+        $newPrecalificacion->actividad = $request["Actividad"];
+
+        $carpeta = 'balancesynominas';
+
+        $rutabalance = $request->file("Balance")->store('imagenes/'.$carpeta, 'public');
+        $nombrebalance = basename($rutabalance);
+
+        $rutanomina = $request->file("Nomina")->store('imagenes/'.$carpeta, 'public');
+        $nombrenomina = basename($rutanomina);
+
+        $newPrecalificacion->balance = $nombrebalance;
+        $newPrecalificacion->nomina = $nombrenomina;
+
+        $newPrecalificacion->save();
+
         return view('enviado');
     }
 

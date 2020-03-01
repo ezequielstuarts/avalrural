@@ -25,6 +25,17 @@
 /*------------------------------------------------------------------*/
 /*	01) BUILDIFY BASE
 /*------------------------------------------------------------------*/
+
+.error_disable, .error_disable2 {
+    display: none
+}
+.error p{
+    font-size: 12px;
+    color: red;
+    padding-top: 5px;
+}
+
+
 .desarrollado{
 	font-family: 'Lato', sans-serif;
 	cursor: pointer;

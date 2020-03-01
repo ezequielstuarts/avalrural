@@ -6,15 +6,45 @@
                 <form class="contact_form" id="precalif_form" enctype="multipart/form-data" method="post" action="{{ route('precalificacion') }}">
                     @csrf
 					<div class="empty_notice"><span>Por favor, complete los datos obligatorios.</span></div>
+
                     <div class="row"><!-- <label><span></span></label> -->
                         <input id="NombreYApellido" name="NombreYApellido" type="text" placeholder="Nombre y Apellido" />
+                        <div id="error_nombreyapellido" class="error_disable error">
+                            <p>Debe introducir un Nombre y Apellido</p>
+                        </div>
                     </div>
                     <p class="p-error"></p>
-					<div class="row"><!-- <label><span></span></label> --><input id="Email" name="Email" type="email" placeholder="E-mail"  /></div>
-					<div class="row"><!-- <label><span></span></label> --><input id="Telefono" name="Telefono" type="number" placeholder="Teléfono"  /></div>
-					<div class="row"><!-- <label><span></span></label> --><input id="Celular" name="Celular" type="number" placeholder="Celular"  /></div>
-					<div class="row"><!-- <label><span></span></label> --><input id="Empresa" name="Empresa" type="text" placeholder="Empresa"  /></div>
-					<div class="row"><!-- <label><span></span></label> --><input id="CUIT" name="CUIT" type="number" placeholder="CUIT"  /></div>
+
+                    <div class="row">
+                        <input id="Email" name="Email" type="email" placeholder="E-mail"  />
+                        <div id="error_email" class="error_disable error">
+                            <p>Debe introducir un Email</p>
+                        </div>
+                    </div>
+					<div class="row">
+                        <input id="Telefono" name="Telefono" type="number" placeholder="Teléfono"  />
+                        <div id="error_telefono" class="error_disable error">
+                            <p>Debe introducir un Telefono</p>
+                        </div>
+                    </div>
+					<div class="row">
+                        <input id="Celular" name="Celular" type="number" placeholder="Celular"  />
+                        <div id="error_celular" class="error_disable error">
+                            <p>Debe introducir un Celular</p>
+                        </div>
+                    </div>
+					<div class="row">
+                        <input id="Empresa" name="Empresa" type="text" placeholder="Empresa"  />
+                        <div id="error_empresa" class="error_disable error">
+                            <p>Debe introducir su empresa</p>
+                        </div>
+                    </div>
+					<div class="row">
+                        <input id="CUIT" name="CUIT" type="number" placeholder="CUIT"  />
+                        <div id="error_cuit" class="error_disable error">
+                            <p>Debe introducir un CUIT</p>
+                        </div>
+                    </div>
 					<div class="row">
 						<select id="Rubro" name="Rubro"  >
 							<option value="">Seleccione</option>
@@ -24,10 +54,17 @@
 							<option value="Servicios">Servicios</option>
 							<option value="Construcción">Construcción</option>
 							<option value="Otros">Otros</option>
-						</select>
+                        </select>
+                        <div id="error_rubro" class="error_disable error">
+                            <p>Debe elegir un Rubro</p>
+                        </div>
 					</div>
 
-					<div class="row"><!-- <label><span></span></label> --><input id="AFIP" name="AFIP" type="text" placeholder="Código de Afip - Pega aquí el link"  />
+					<div class="row">
+                        <input id="AFIP" name="AFIP" type="text" placeholder="Código de Afip - Pega aquí el link"  />
+                        <div id="error_afip" class="error_disable error">
+                            <p>Debe introducir un codigo AFIP</p>
+                        </div>
 					</div>
 					<div class="row row2">
 						<a href="https://servicios1.afip.gov.ar/genericos/nomencladorActividades/index.aspx" target="_blank">Ver codigos de Afip</a>
@@ -40,7 +77,10 @@
 						<input type="file" name="Nomina" />
 					</div>
 					<div class="row">
-						<textarea id="Actividad" name="Actividad" placeholder="Describí brevemente tu actividad."  ></textarea>
+                        <textarea id="Actividad" name="Actividad" placeholder="Describí brevemente tu actividad."  ></textarea>
+                        <div id="error_actividad" class="error_disable error">
+                            <p>Debe introducir un Actividad</p>
+                        </div>
 					</div>
 					<div class="row margen">
 						<div class="row">

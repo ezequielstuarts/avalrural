@@ -40,7 +40,7 @@
                         <div class="buildify_tm_list_wrap" data-column="1" data-space="60">
 
 
-                            <form action={{route('enviar_contacto')}} class="contact_form" id="contact_form2" method="post" enctype="multipart/form-data">
+                            <form action={{route('enviar_contacto')}} class="contact_form" id="contact_form" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <ul class="buildify_list">
                                 <li>
@@ -55,42 +55,66 @@
 
                                                     <div class="row">
                                                         <label>Apellido<span></span></label>
-                                                        <input id="Apellido" name="apellido" type="text" value="{{old("apellido")}}" required>
+                                                        <input id="apellido" name="apellido" type="text" value="{{old("apellido")}}" required>
                                                         <p style="color: red;">{{ $errors->first('apellido') }}</p>
+                                                        <div id="error_apellidoo" class="error_disable error">
+                                                            <p>Debe introducir un Apellido</p>
+                                                        </div>
                                                     </div>
                                                     <div class="row">
                                                         <label>Nombre<span></span></label>
-                                                        <input id="Nombre" name="nombre" type="text" value="{{old("nombre")}}" required>
+                                                        <input id="nombre" name="nombre" type="text" value="{{old("nombre")}}" required>
+                                                        <div id="error_nombree" class="error_disable error">
+                                                            <p>Debe introducir un nombre</p>
+                                                        </div>
                                                         <p style="color: red;">{{ $errors->first('nombre') }}</p>
                                                     </div>
                                                     <div class="row">
                                                         <label>Empresa<span></span></label>
-                                                        <input id="Empresa" name="empresa" type="text" value="{{old("empresa")}}" required>
+                                                        <input id="empresa" name="empresa" type="text" value="{{old("empresa")}}" required>
                                                         <p style="color: red;">{{ $errors->first('empresa') }}</p>
+                                                        <div id="error_empresaa" class="error_disable error">
+                                                            <p>Debe introducir el nombre de su empresa</p>
+                                                        </div>
                                                     </div>
                                                     <div class="row">
                                                         <label>CUIT (empresa)<span></span></label>
-                                                        <input id="CUIT" name="cuit" type="number" value="{{old("cuit")}}" required>
+                                                        <input id="cuit" name="cuit" type="number" value="{{old("cuit")}}" required>
                                                         <p style="color: red;">{{ $errors->first('cuit') }}</p>
+                                                        <div id="error_cuitt" class="error_disable error">
+                                                            <p>Debe introducir un cuit</p>
+                                                        </div>
                                                     </div>
                                                     <div class="row">
                                                         <label>Localidad<span></span></label>
-                                                        <input id="Localidad" name="localidad" type="text" value="{{old("localidad")}}" required>
+                                                        <input id="localidad" name="localidad" type="text" value="{{old("localidad")}}" required>
                                                         <p style="color: red;">{{ $errors->first('localidad') }}</p>
+                                                        <div id="error_localidadd" class="error_disable error">
+                                                            <p>Debe introducir una localidad</p>
+                                                        </div>
                                                     </div>
                                                     <div class="row">
                                                         <label>Teléfono<span></span></label>
-                                                        <input id="Telefono" name="telefono" type="number" value="{{old("telefono")}}" required>
+                                                        <input id="telefono" name="telefono" type="number" value="{{old("telefono")}}" required>
                                                         <p style="color: red;">{{ $errors->first('telefono') }}</p>
+                                                        <div id="error_telefonoo" class="error_disable error">
+                                                            <p>Debe introducir un teléfono</p>
+                                                        </div>
                                                     </div>
                                                     <div class="row">
                                                         <label>E-mail<span></span></label>
-                                                        <input id="Email" name="email" type="email" value="{{old("email")}}" required>
+                                                        <input id="email" name="email" type="email" value="{{old("email")}}" required>
                                                         <p style="color: red;">{{ $errors->first('email') }}</p>
+                                                        <div id="error_emaill" class="error_disable error">
+                                                            <p>Debe introducir un email</p>
+                                                        </div>
                                                     </div>
                                                     <div class="row">
                                                         <label>Consulta<span></span></label>
-                                                        <textarea id="Consulta" name="consulta" value="{{old("consulta")}}" required></textarea>
+                                                        <textarea id="consulta" name="consulta" value="{{old("consulta")}}" required></textarea>
+                                                        <div id="error_consultaa" class="error_disable error">
+                                                            <p>Debe introducir un Apellido</p>
+                                                        </div>
                                                     </div>
 
                                                     <div class="row">

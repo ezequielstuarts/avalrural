@@ -43,6 +43,7 @@ return [
     */
 
     'port' => env('MAIL_PORT', 587),
+    // 'port' => env('MAIL_PORT', 465),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,7 +57,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'e.stuarts@gmail.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'elzeke55@gmail.com'),
         'name' => env('MAIL_FROM_NAME', 'Desde Aval Rural'),
     ],
 
