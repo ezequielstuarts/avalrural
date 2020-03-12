@@ -9,6 +9,7 @@ i {
     color: crimson;
     cursor: pointer;
 }
-.fa-sign-out-alt, .fa-users {
+.fa-sign-out-alt, .fa-users, .fa-envelope {
     color: rgb(65, 65, 65);
+    padding-right: 10px;
 }

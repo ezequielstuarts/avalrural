@@ -66,6 +66,10 @@ Route::group(['middleware' => 'auth'], function ()
 
     Route::get('/users', "usersController@index")->name('users');
 
+    Route::get('/mensajes', "MensajesController@index")->name('mensajes');
+
+    Route::post('/mensajes/destroy', "MensajesController@destroy")->name('mensajes.destroy');
+
     // Route::post('register', "RegisterController@create")->name('register');
 
 });
