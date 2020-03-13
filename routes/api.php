@@ -18,6 +18,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::post('/mensajes', 'ApiController@show');
+Route::post('/mensajes', 'ApiController@show_mensajes');
+Route::post('/mensajes/{id}', 'ApiController@show_mensajes_byid');
 
-Route::post('/mensajes/{id}', 'ApiController@showbyid');
+Route::post('/precalificacion', 'ApiController@show_precalificacion');
+Route::post('/precalificacion/{id}', 'ApiController@show_precalificacion_byid');
+
+Route::get('/noticias', 'ApiController@show_noticias');
+Route::get('/noticias/{id}', 'ApiController@show_noticias_byid');
