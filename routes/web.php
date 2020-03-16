@@ -70,6 +70,7 @@ Route::group(['middleware' => 'auth'], function ()
 
     Route::post('/mensajes/destroy', "MensajesController@destroy")->name('mensajes.destroy');
 
+
     // Route::post('register', "RegisterController@create")->name('register');
 
 });
@@ -77,6 +78,10 @@ Route::group(['middleware' => 'auth'], function ()
 //Route::get('/home', 'homeController@auth')->name('home'); esto esra antes
 Route::get('/home', 'homeController@index')->name('home');
 
+Route::get('/datatable', function() {
+
+    return view('admin.datatable');
+});
 
 Route::get('/init', function () {
     Artisan::call('storage:link');

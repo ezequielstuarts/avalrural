@@ -20,7 +20,7 @@ class adminController extends Controller
         $totalNoticias = count(Noticia::get());
 
         $noticias = Noticia::orderBy('date', 'DESC')->get();
-        return view ("admin.admin", ['noticias' => $noticias, 'totalNoticias' => $totalNoticias]);
+        return view ("admin.listadoNoticias", ['noticias' => $noticias, 'totalNoticias' => $totalNoticias]);
     }
 
     public function create()
@@ -79,8 +79,9 @@ class adminController extends Controller
 
     public function edit($id)
     {
+        $date = Carbon::now();
         $noticia = Noticia::find($id);
-            return view ("admin.edit", ['noticia' => $noticia]);
+        return view ("admin.edit", ['noticia' => $noticia, 'date' => $date]);
     }
 
     public function update(Request $request, $id)

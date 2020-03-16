@@ -9,7 +9,19 @@ i {
     color: crimson;
     cursor: pointer;
 }
-.fa-sign-out-alt, .fa-users, .fa-envelope {
+.fa-sign-out-alt, .fa-users, .fa-envelope, .fa-newspaper {
     color: rgb(65, 65, 65);
     padding-right: 10px;
+}
+td.details-control {
+    background: url('/img/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('/img/details_close.png') no-repeat center center;
+}
+
+.note-toolbar .note-btn-group i {
+    color: rgb(61, 61, 61)!important;
+    font-size: 16px;
 }

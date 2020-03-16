@@ -1,16 +1,23 @@
-@extends('admin.admin')
-@section('admin')
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Aval Rural SGR – Sociedad de Garantía Recíproca</title>
+        <!-- Fonts -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
-
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
-
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
-
         <link href="{{ asset('css/admin-style.css') }}" rel="stylesheet">
 
 
-        <div class="container mt-5">
+    </head>
+    <body>
+
+        <div class="container">
             <table id="mensajes" class="display" style="width:100%">
                 <thead>
                     <tr>
@@ -22,6 +29,7 @@
                     </tr>
                 </thead>
             </table>
+
         </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -80,7 +88,13 @@
                             {"data": 'email'},
                     ],
                     "order": [[1, 'asc']],
-                    "language": { "url" : 'https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json'}
+                    "language": {
+                        "lengthMenu": "Ver _MENU_ mensajes por pagina",
+                        "zeroRecords": "No hay registros",
+                        "info": "Mostrando página _PAGE_ de _PAGES_",
+                        "infoEmpty": "No hay Registros con esa búsqueda",
+                        "infoFiltered": "(filtrado entre _MAX_ total de registros)"
+                    }
                 } );
 
             // Add event listener for opening and closing details
@@ -102,47 +116,14 @@
             } );
         </script>
 
+</body>
+</html>
 
-@endsection
 
-{{-- <div class="container mt-3 mb-3">
-    <div class="row">
-        <div class="col-md-8 ">
-            <h5 class="text-secondary"> <b></b>Mensajes en la base de datos.</h5></div>
-    </div>
-</div>
 
-<div class="container">
-    <table class="table table-hover table-sprite">
-        <thead>
-            <tr>
-                <th scope="col">Recibido el</th>
-                <th scope="col">De</th>
-                <th scope="col">Asunto</th>
-                <th colspan="2">&nbsp;</th>
-            </tr>
-        </thead>
-        @forelse ($mensajes as $mensaje)
-        <tbody>
-            <tr>
-                <td width="130px">{{date('d-m-Y', strtotime($mensaje->created_at))}}</td>
-                <td>{{$mensaje->nombre}} {{$mensaje->apellido}} </td>
-                <td><a href="">{{ str_limit($mensaje->consulta, 80)}}</a></td>
 
-                <td>
-                    <form action="{{route('mensajes.destroy', $mensaje->nombre)}}" method="post">
-                        {{csrf_field()}}
-                        <input type="hidden" name="id" value="{{$mensaje->nombre}}">
-                        <input class="btn-sm btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
 
-                    </form>
-                </td>
-            </tr>
-        </tbody>
-        @empty
-        <div class="alert alert-info" role="alert">
-            <h3>No hay mensajes cargadas en la base de datos</h3>
-        </div>
-        @endforelse
-    </table>
-</div> --}}
+
+
+
+

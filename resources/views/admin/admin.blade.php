@@ -1,72 +1,47 @@
-@extends('home')
-@section('admin')
-<div class="container mt-3 mb-3">
-    <div class="row">
-        <div class="col-md-8 ">
-            <h5 class="text-secondary"> <b>{{$totalNoticias}}</b> Noticias en la base de datos.</h5></div>
-        <div class="col-md-4">
-            <a class="float-right" href="{{route('noticias.nueva_noticia')}}">
-                <button class="btn btn-info">Nueva Noticia</button>
-            </a>
-        </div>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<div class="container">
-    @if (session('mensaje'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert" data-dismiss="alert">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <h4>{{ session('mensaje') }}</h4>
-    </div>
-    @endif
-</div>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<div class="container">
-    <table class="table table-hover table-sprite">
-        <thead>
-            <tr>
-                <th scope="col">Fecha</th>
-                <th scope="col">Titulo</th>
-                <th scope="col">Imagen</th>
-                <th colspan="2">&nbsp;</th>
-            </tr>
-        </thead>
-        @forelse ($noticias as $noticia)
-        <tbody>
-            <tr>
-                <td width="130px">{{date('d-m-Y', strtotime($noticia->date))}}</td>
-                <td>{{$noticia->title}}</td>
-                <td>
-                    @if (!empty($noticia->img_noticia))
-                        <img style="width:100px" src="/storage/{{$noticia->img_noticia}}"/>
-                    @else
-                        <img style="width:100px" src="/img/noimg.png" class="card-img-top">
-                    @endif
-                </td>
-                <td>
-                    <input type="hidden" name="id" value="{{$noticia->id}}">
-                    <a href="{{route('noticia.edit', $noticia->id)}}
-                        ">
-                        <i class="far fa-edit mt-1" title="Editar"></i>
-                    </a>
-                </td>
-                <td>
-                    <form action="{{route('noticia.destroy', $noticia->id)}}" method="post">
-                        {{csrf_field()}}
-                        <input type="hidden" name="id" value="{{$noticia->id}}">
-                        <input class="btn-sm btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
+    <title>{{ config('', 'Panel de Administracion') }}</title>
 
-                    </form>
-                </td>
-            </tr>
-        </tbody>
-        @empty
-        <div class="alert alert-info" role="alert">
-            <h3>No hay Noticias cargadas en la base de datos</h3>
-        </div>
-        @endforelse
-    </table>
-</div>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
 
-@endsection
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin-style.css') }}" rel="stylesheet">
+
+</head>
+<body>
+   @include('admin.nav-bar')
+
+   <div class="mt-5">
+        @yield('admin')
+   </div>
+
+
+
+
+    {{-- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> --}}
+    {{-- <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> --}}
+    {{-- <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script> --}}
+    {{-- <script src="js/summernote.js"></script> --}}
+
+
+</body>
+</html>
+
+
