@@ -8,8 +8,8 @@ $('#summernote').summernote({
     focus: false,
     styleTags: [
     'p',
-        { title: 'Blockquote', tag: 'blockquote', className: 'blockquote', value: 'blockquote' },
-        'pre', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+        {  },
+        'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
     ],
     toolbar: [
         ['style', ['style']],

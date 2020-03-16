@@ -21,22 +21,22 @@
         <h5>{{ $date->isoFormat('dddd, Do MMMM YYYY') }}</h5>
     </div>
     <div class="">
-        <div class="container">
-            <h5>{{$noticia->title}} | <b>Ultima Actualizacion:</b>
-                @if ($noticia->updated_at)
-                {{$noticia->updated_at->format('d-m-Y')}}
-                @endif
-                | <b>Por:</b> {{$noticia->modified_by}}
-            </h5>
-            <hr>
+        <div class="container mt-5">
+            <div class="alert alert-secondary" role="alert">
+                {{$noticia->title}} | <b>Ultima Actualizacion:</b>
+                    @if ($noticia->updated_at)
+                    {{$noticia->updated_at->format('d-m-Y')}}
+                    @endif
+                    | <b>Por:</b> {{$noticia->modified_by}}
+              </div>
         </div>
     </div>
-    <div class=" container mt-5">
+    <div class=" container mt-4">
     <form action="/admin/update/{{$noticia->id}}" method="post" enctype="multipart/form-data">
         @method("patch")
         {{csrf_field()}}
         <div class="form-group">
-            <label for="date">Fecha</label>
+            <label for="date"><b>Fecha</b></label>
             <div class="input-group">
                 <input type="text" class="form-control datepicker" name="date" value=" {{$noticia->date}} ">
                 <div class="input-group-addon">
@@ -51,14 +51,14 @@
         </div> --}}
 
         <div class="form-group">
-            <label for="title">Titulo</label>
+            <label for="title"><b>Titulo</b></label>
             <input type="text" class="form-control" id="title" name="title" value="{{$noticia->title}}">
             <p class="text-danger pl-1 pt-1">{{ $errors->first('title') }}</p>
         </div>
 
         <div class="form-group">
-            <label for="subtitle">Subtitulo</label>
-            <inupt class="form-control" id="subtitle" rows="3" name="subtitle" value="">{{$noticia->subtitle}}</inupt>
+            <label for="subtitle"><b>Subtitulo</b></label>
+            <input type="text" class="form-control" id="subtitle" name="subtitle" value="{{$noticia->subtitle}}">
         </div>
 
         <hr>
@@ -67,7 +67,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-7">
-                    <label for="img_preview">Imagen Preview <span style="color:red;">800 x 600 px</span></label>
+                    <label for="img_preview"><b>Imagen Preview</b> <span style="color:red;">800 x 600 px</span></label>
                     <p>Nombre de la imagen actual:
                     <span class="badge badge-info"> {{$noticia->img_preview}}</span></p>
                     <input type="file" class="form-control-file" id="img_preview" name="img_preview">
@@ -87,7 +87,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-7">
-                    <label for="img_noticia">Imagen Completa</label>
+                    <label for="img_noticia"><b>Imagen Completa</b></label>
                     <p>Nombre de la imagen actual:
                         <span class="badge badge-info"> {{$noticia->img_noticia}}</span></p>
                     <input type="file" class="form-control-file" id="img_noticia" name="img_noticia">

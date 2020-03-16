@@ -12,7 +12,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
@@ -27,7 +26,6 @@
 </head>
 <body>
    @include('admin.nav-bar')
-
    <div class="mt-5">
         @yield('admin')
    </div>

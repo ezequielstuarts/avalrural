@@ -1,5 +1,5 @@
-@extends('admin.admin')
-@section('admin')
+
+        {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
 
@@ -9,6 +9,12 @@
 
         <link href="{{ asset('css/admin-style.css') }}" rel="stylesheet">
 
+
+        <div class="container text-right mt-5">
+            <a href="{{ route('admin')}}">
+                <button class="btn btn-danger">Volver</button>
+            </a>
+        </div>
 
         <div class="container mt-5">
             <table id="mensajes" class="display" style="width:100%">
@@ -26,43 +32,39 @@
 
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-        <script src=""></script>
-
-
 
         <script>
-            function format ( d ) {
+            function format ( data ) {
             // `d` is the original data object for the row
                 return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
 
                     '<tr>'+
-                        '<td>Empresa</td>'+
-                        '<td>'+d.empresa+'</td>'+
+                        '<td><b>Empresa</b></td>'+
+                        '<td>'+data.empresa+'</td>'+
                     '</tr>'+
 
                     '<tr>'+
-                        '<td>CUIT:</td>'+
-                        '<td>'+d.cuit+'</td>'+
+                        '<td><b>CUIT:</b></td>'+
+                        '<td>'+data.cuit+'</td>'+
                     '</tr>'+
 
                     '<tr>'+
-                        '<td>Localidad:</td>'+
-                        '<td>'+d.localidad+'</td>'+
+                        '<td><b>Localidad:</b></td>'+
+                        '<td>'+data.localidad+'</td>'+
                     '</tr>'+
 
                     '<tr>'+
-                        '<td>Teléfono:</td>'+
-                        '<td>'+d.telefono+'</td>'+
+                        '<td><b>Teléfono:</b></td>'+
+                        '<td>'+data.telefono+'</td>'+
                     '</tr>'+
 
                     '<tr>'+
-                        '<td>Consulta:</td>'+
-                        '<td>'+d.consulta+'</td>'+
+                        '<td><b>Consulta:</b></td>'+
+                        '<td>'+data.consulta+'</td>'+
                     '</tr>'+
                 '</table>';
             }
-        </script>
-        <script>
+
             $(document).ready(function() {
                 var table = $('#mensajes').DataTable( {
                     "serveSide": true,
@@ -103,7 +105,6 @@
         </script>
 
 
-@endsection
 
 {{-- <div class="container mt-3 mb-3">
     <div class="row">

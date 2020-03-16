@@ -26,7 +26,7 @@
     <form action="{{route('admin.nueva_noticia')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="form-group">
-            <label for="date">Fecha</label>
+            <label for="date"><b>Fecha</b></label>
             <div class="input-group">
                 <input type="text" class="form-control datepicker" name="date">
                 <div class="input-group-addon">
@@ -37,30 +37,30 @@
         </div>
 
         <div class="form-group">
-            <label for="title">Titulo</label>
+            <label for="title"><b>Titulo</b></label>
             <input type="text" class="form-control" id="title" name="title" value="{{old("title")}}">
             <p class="text-danger pl-1 pt-1">{{ $errors->first('title') }}</p>
         </div>
         <div class="form-group">
-            <label for="subtitle">Subtitulo</label>
+            <label for="subtitle"><b>Subtitulo</b></label>
             <input class="form-control" id="subtitle" rows="3" name="subtitle" value="{{old("subtitle")}}"></input>
 
         </div>
 
         <div class="form-group">
-            <label for="img_preview">Imagen Preview <span style="color:red;">800 x 600 px</span></label>
+            <label for="img_preview"><b>Imagen Preview</b> <span style="color:red;">800 x 600 px</span></label>
             <input type="file" class="form-control-file" id="img_preview" name="img_preview">
             <p class="text-danger pl-1 pt-1">{{ $errors->first('img_preview') }}</p>
         </div>
         <div class="form-group">
-            <label for="img_noticia">Imagen completa</label>
+            <label for="img_noticia"><b>Imagen completa</b></label>
             <input type="file" class="form-control-file" id="img_noticia" name="img_noticia">
             <p class="text-danger pl-1 pt-1">{{ $errors->first('img_noticia') }}</p>
         </div>
 
 
         <div class="form-group">
-            <label class="labels" for="content">Contenido</label>
+            <label class="labels" for="content"><b>Contenido</b></label>
             <textarea id="summernote" class="form-control" name="content"></textarea>
         </div>
 
