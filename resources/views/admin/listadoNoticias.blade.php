@@ -38,7 +38,7 @@
                 <td>{{$noticia->title}}</td>
                 <td>
                     @if (!empty($noticia->img_noticia))
-                        <img style="width:100px" src="/storage/{{$noticia->img_noticia}}"/>
+                        <img style="width:100px" src="/storage/imagenes/img_noticias/{{$noticia->img_noticia}}"/>
                     @else
                         <img style="width:100px" src="/img/noimg.png" class="card-img-top">
                     @endif

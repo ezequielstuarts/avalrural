@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Mensaje;
+use App\ContactEmail;
 use App\Noticia;
 use App\ContactPrecalificate;
-use App\Http\resources\Mensajes as MensajesResource;
+use App\Http\resources\ContactEmail as MensajesResource;
 use App\Http\resources\Noticias as NoticiasResource;
 use App\Http\resources\Precalificacion as PrecalificacionResource;
 
@@ -15,13 +15,13 @@ class ApiController extends Controller
 {
     public function show_mensajes()
     {
-        $mensajes = Mensaje::all();
+        $mensajes = ContactEmail::all();
         return MensajesResource::collection($mensajes);
     }
 
     public function show_mensajes_byid($id)
     {
-        $mensajes = Mensaje::find($id);
+        $mensajes = ContactEmail::find($id);
         return new MensajesResource($mensajes);
     }
 
@@ -44,10 +44,10 @@ class ApiController extends Controller
         }
     }
 
-    public function show_precalificacion()
+    public function show_precalificaciones()
     {
-        $precalificacion = ContactPrecalificate::all();
-        return PrecalificacionResource::collection($precalificacion);
+        $precalificaciones = ContactPrecalificate::all();
+        return PrecalificacionesResource::collection($precalificaciones);
     }
 
     public function show_precalificacion_byid($id)

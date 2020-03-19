@@ -15,7 +15,7 @@
                             <div class="inner">
                                 <div class="image_news">
                                     @if (!empty($noticia->img_preview))
-                                        <img src="/storage/{{$noticia->img_preview}}"/>
+                                        <img src="storage/imagenes/img_noticias/{{$noticia->img_preview}}"/>
                                     @else
                                         <img src="/img/noimg.png" class="card-img-top">
                                     @endif

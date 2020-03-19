@@ -22,8 +22,7 @@
                     <tr>
                         <th></th>
                         <th>Fecha</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
+                        <th>Nombre y Apellido</th>
                         <th>Email</th>
                     </tr>
                 </thead>
@@ -33,34 +32,59 @@
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 
-        <script>
+        {<script>
             function format ( data ) {
             // `d` is the original data object for the row
                 return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
 
                     '<tr>'+
-                        '<span><b>Empresa: </b></span>'+
-                        '<span>'+data.empresa+'</span>'+
-
-                        '<span><b> CUIT: </b></span>'+
-                        '<span>'+data.cuit+'</span>'+
-
-                        '<span><b> Localidad: </b></span>'+
-                        '<span>'+data.localidad+'</span>'+
-
-                        '<span><b> Teléfono: </b></span>'+
-                        '<span>'+data.telefono+'</span>'+
-
-                        '<p><b>Consulta: </b>'+data.consulta+'</p>'+
+                        '<td><b>Teléfono:</b></td>'+
+                        '<td>'+data.telefono+'</td>'+
                     '</tr>'+
 
+                    '<tr>'+
+                        '<td><b>Celular:</b></td>'+
+                        '<td>'+data.celular+'</td>'+
+                    '</tr>'+
+
+                    '<tr>'+
+                        '<td><b>Empresa:</b></td>'+
+                        '<td>'+data.empresa+'</td>'+
+                    '</tr>'+
+
+                    '<tr>'+
+                        '<td><b>Rubro:</b></td>'+
+                        '<td>'+data.rubro+'</td>'+
+                    '</tr>'+
+
+                    '<tr>'+
+                        '<td><b>CUIT:</b></td>'+
+                        '<td>'+data.cuit+'</td>'+
+                    '</tr>'+
+
+                    '<tr>'+
+                        '<td><b>Codigo AFIP:</b></td>'+
+                        '<td>'+data.codigo_afip+'</td>'+
+                    '</tr>'+
+                    '<tr>'+
+                        '<td><b>Actividad:</b></td>'+
+                        '<td>'+data.actividad+'</td>'+
+                    '</tr>'+
+                    '<tr>'+
+                        '<td><b>Balance:</b></td>'+
+                        '<td><a href="storage/precalificaciones/balancesynominas/'+data.balance+'" target="blanck"><button type="button" class="btn btn-outline-info btn-sm">Ver</button></a></td>'+
+                    '</tr>'+
+                    '<tr>'+
+                        '<td><b>Nómina:</b></td>'+
+                        '<td><a href="storage/precalificaciones/balancesynominas/'+data.nomina+'" target="blanck"><button type="button" class="btn btn-outline-info btn-sm">Ver</button></a></td>'+
+                    '</tr>'+
                 '</table>';
             }
 
             $(document).ready(function() {
                 var table = $('#mensajes').DataTable( {
                     "serveSide": true,
-                    "ajax":"{{ url('api/mensajes')}}",
+                    "ajax":"{{ url('api/precalificaciones')}}",
                     "columns": [
                         {
                             "className":      'details-control',
@@ -69,9 +93,8 @@
                             "defaultContent": ''
                         },
                             {"data": 'created_at'},
-                            {"data": 'nombre'},
-                            {"data": 'apellido'},
-                            {"data": 'email'},
+                            {"data": 'nombre_y_apellido'},
+                            {"data": 'email'}
                     ],
                     "order": [[1, 'dsc']],
                     "language": { "url" : 'https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json'}

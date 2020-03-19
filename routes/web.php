@@ -41,9 +41,7 @@ Route::post('precalificacion', "contactoController@precalificacion")->name('prec
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
-// Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-// Route::post('register', 'Auth\RegisterController@register');
-// Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+
 // Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 // Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 // Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
@@ -64,24 +62,35 @@ Route::group(['middleware' => 'auth'], function ()
 
     Route::patch('/admin/update/{id}', "adminController@update");
 
-    Route::get('/users', "usersController@index")->name('users');
+
 
     Route::get('/mensajes', "MensajesController@index")->name('mensajes');
+
+    Route::get('/precalificaciones', "MensajesController@precalificaciones")->name('precalificaciones');
 
     Route::post('/mensajes/destroy', "MensajesController@destroy")->name('mensajes.destroy');
 
 
-    // Route::post('register', "RegisterController@create")->name('register');
+    Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 
+    Route::get('/users', "usersController@index")->name('users');
+
+    Route::post('/users', "usersController@index")->name('users');
+
+    Route::get('nuevo_usuario', 'UsersController@create')->name('auth.nuevo_usuario');
+
+    Route::post('user/destroy', "usersController@destroy")->name('user.destroy');
+
+    Route::post('nuevo_usuario', 'UsersController@store')->name('nuevo_usuario');
+
+    //ok
+    // Route::post('register', 'Auth\RegisterController@register');
+    // Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 });
 
 //Route::get('/home', 'homeController@auth')->name('home'); esto esra antes
 Route::get('/home', 'homeController@index')->name('home');
 
-Route::get('/datatable', function() {
-
-    return view('admin.datatable');
-});
 
 Route::get('/init', function () {
     Artisan::call('storage:link');

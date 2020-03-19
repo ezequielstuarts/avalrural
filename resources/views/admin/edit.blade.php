@@ -25,7 +25,7 @@
             <div class="alert alert-secondary" role="alert">
                 {{$noticia->title}} | <b>Ultima Actualizacion:</b>
                     @if ($noticia->updated_at)
-                    {{$noticia->updated_at->format('d-m-Y')}}
+                    {{$noticia->updated_at->isoFormat('DD MMMM YYYY', 'Do MMMM')}}
                     @endif
                     | <b>Por:</b> {{$noticia->modified_by}}
               </div>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="col-5">
                     @if (!empty($noticia->img_noticia))
-                        <img class="img-responsive" style="border:solid 1px; width:100%" src="/storage/{{$noticia->img_preview}}" alt="">
+                        <img class="img-responsive" style="border:solid 1px; width:100%" src="/storage/imagenes/img_noticias/{{$noticia->img_preview}}" alt="">
 
                     @else
                         <img style="width:200px" src="/img/noimg.png" class="card-img-top">
@@ -95,7 +95,7 @@
                 </div>
                 <div class="col-5">
                     @if (!empty($noticia->img_noticia))
-                        <img class="img-responsive" style="border:solid 1px; width:100%" src="/storage/{{$noticia->img_noticia}}" alt="">
+                        <img class="img-responsive" style="border:solid 1px; width:100%" src="/storage/imagenes/img_noticias/{{$noticia->img_noticia}}" alt="">
 
                     @else
                         <img style="width:200px" src="/img/noimg.png" class="card-img-top">
@@ -107,7 +107,7 @@
 
 
         <div class="form-group">
-            <label class="labels" for="content">Contenido</label>
+            <label class="labels" for="content"><b>Contenido</b></label>
             <textarea id="summernote" class="form-control" name="content">{{$noticia->content}}</textarea>
         </div>
         <script src="{{ asset('js/summernote.js') }}"></script>

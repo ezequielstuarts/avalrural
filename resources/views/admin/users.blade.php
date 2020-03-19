@@ -1,7 +1,7 @@
-@extends('home')
+@extends('admin.admin')
 @section('admin')
 <div class="container mt-5 mb-5">
-    <a  href="">
+    <a  href="nuevo_usuario">
         <button class="btn btn-danger">Nuevo Usuario</button>
     </a>
 </div>
@@ -21,22 +21,19 @@
         <tbody>
             <tr>
                 <td width="130px">{{ $user->name }}</td>
+                <td width="130px">{{ $user->id }}</td>
                 <td width="130px">{{ $user->email }}</td>
                 <td>
                     <input type="hidden" name="id">
-                    <a href="
-                    {{-- {{route('noticias.edit', $noticia->id)}} --}}
-                        ">
+                    <a href="">
                         <i class="far fa-edit" title="Editar"></i>
                     </a>
                 </td>
                 <td>
-                    <form
-                    {{-- action="{{route('noticias.destroy', $noticia->id)}}" --}}
-                     method="post">
+                    <form action="{{route('user.destroy', $user->id)}}" method="post">
                         {{csrf_field()}}
-                        <input type="hidden" name="id">
-                        <i class="far fa-trash-alt" title="Eliminar" onclick="return confirm('Seguro queres eliminar?')"></i>
+                        <input type="hidden" name="id" value="{{$user->id}}">
+                        <input class="btn-sm btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
                     </form>
                 </td>
             </tr>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Users;
+use App\User;
 
 class Userscontroller extends Controller
 {
@@ -14,7 +16,7 @@ class Userscontroller extends Controller
      */
     public function index()
     {
-        $usuarios = Users::all();
+        $usuarios = User::all();
         return view ("admin.users", ['usuarios' => $usuarios]);
 
     }
@@ -26,7 +28,7 @@ class Userscontroller extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.nuevo_usuario');
     }
 
     /**
@@ -37,7 +39,27 @@ class Userscontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reglas = [
+            "name" => "required | string | max:255",
+            "email" => "required | string | email | max:255 | unique:users",
+            "password" => "required | string | min:8 | confirmed",
+
+        ];
+        $mensajes = [
+            "required" => "Debe ingresar :attribute de la noticia.",
+        ];
+
+        $this->validate($request, $reglas, $mensajes);
+
+        $user = new Users();
+
+        $user->name = $request["name"];
+        $user->email = $request["email"];
+        $user->password =  Hash::make($request['password']);
+
+        $user->save();
+        return redirect('/users');
+
     }
 
     /**
@@ -80,8 +102,11 @@ class Userscontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $formulario)
     {
-        //
+        $id = $formulario['id'];
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/users');
     }
 }

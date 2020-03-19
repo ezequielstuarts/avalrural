@@ -87,12 +87,10 @@ class contactoController extends Controller
         $newPrecalificacion->codigo_afip = $request["AFIP"];
         $newPrecalificacion->actividad = $request["Actividad"];
 
-        $carpeta = 'balancesynominas';
-
-        $rutabalance = $request->file("Balance")->store('imagenes/'.$carpeta, 'public');
+        $rutabalance = $request->file("Balance")->store('precalificaciones/balancesynominas/', 'public');
         $nombrebalance = basename($rutabalance);
 
-        $rutanomina = $request->file("Nomina")->store('imagenes/'.$carpeta, 'public');
+        $rutanomina = $request->file("Nomina")->store('precalificaciones/balancesynominas/', 'public');
         $nombrenomina = basename($rutanomina);
 
         $newPrecalificacion->balance = $nombrebalance;

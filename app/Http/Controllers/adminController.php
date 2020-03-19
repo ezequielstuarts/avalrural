@@ -45,15 +45,13 @@ class adminController extends Controller
 
         $this->validate($request, $reglas, $mensajes);
 
+        $carpeta = 'img_noticias';
 
-
-        //$now = Carbon::now();
-
-        $rutaPreview = $request->file("img_preview")->store("public");
+        $rutaPreview = $request->file("img_preview")->store('imagenes/'.$carpeta, 'public');
         $nombrePreview = basename($rutaPreview);
 
 
-        $rutaImg = $request->file("img_noticia")->store("public");
+        $rutaImg = $request->file("img_noticia")->store('imagenes/'.$carpeta, 'public');
         $nombreImagen = basename($rutaImg);
 
         $newNoticia = new Noticia();
@@ -64,7 +62,6 @@ class adminController extends Controller
         $newNoticia->date = $request["date"];
 
         $newNoticia->created_at = Carbon::now();
-
 
         $newNoticia->img_preview = $nombrePreview;
         $newNoticia->img_noticia = $nombreImagen;
@@ -104,15 +101,15 @@ class adminController extends Controller
             $diff = array_diff($request->toArray(), $noticia->toArray());
 
             if ($request->has('img_preview')) {
-                $basename_preview = basename($request->file("img_preview")->store("public"));
+                $basename_preview = basename($request->file("img_preview")->store('public/imagenes/img_noticias/'));
                 $img_preview = $noticia['img_preview'];
-                Storage::delete('public/'.$img_preview);
+                Storage::delete('public/imagenes/img_noticias/'.$img_preview);
                 $diff["img_preview"] = $basename_preview;
             }
             if ($request->has('img_noticia')) {
-                $basename_img = basename($request->file("img_noticia")->store("public"));
+                $basename_img = basename($request->file("img_noticia")->store('public/imagenes/img_noticias'));
                 $img_noticia = $noticia['img_noticia'];
-                Storage::delete('public/'.$img_noticia);
+                Storage::delete('public/imagenes/img_noticias/'.$img_noticia);
                 $diff["img_noticia"] = $basename_img;
             }
 
@@ -129,8 +126,8 @@ class adminController extends Controller
         $img_preview = $noticia['img_preview'];
         $img_noticia = $noticia['img_noticia'];
 
-        Storage::delete('public/'.$img_preview);
-        Storage::delete('public/'.$img_noticia);
+        Storage::delete('public/imagenes/img_noticias/'.$img_preview);
+        Storage::delete('public/imagenes/img_noticias/'.$img_noticia);
         $noticia->delete();
 
         return redirect('/admin');
