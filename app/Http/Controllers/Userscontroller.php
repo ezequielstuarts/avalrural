@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 use App\Users;
 use App\User;
 
@@ -46,7 +47,7 @@ class Userscontroller extends Controller
 
         ];
         $mensajes = [
-            "required" => "Debe ingresar :attribute de la noticia.",
+            "required" => "Debe ingresar :attribute.",
         ];
 
         $this->validate($request, $reglas, $mensajes);
@@ -81,7 +82,9 @@ class Userscontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $date = Carbon::now();
+        $usuario = User::find($id);
+        return view ("auth.edit_user", ['user' => $usuario, 'date' => $date]);
     }
 
     /**
@@ -93,7 +96,10 @@ class Userscontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $usuario = User::find($id);
+        $diff = array_diff($request->toArray(), $usuario->toArray());
+        $usuario->update($diff);
+        return redirect()->route('users')->with('mensaje', 'Usuario ' .$usuario->name. ' actualizado');
     }
 
     /**

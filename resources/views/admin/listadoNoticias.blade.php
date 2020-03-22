@@ -45,16 +45,13 @@
                 </td>
                 <td>
                     <input type="hidden" name="id" value="{{$noticia->id}}">
-                    <a href="{{route('noticia.edit', $noticia->id)}}
-                        ">
-                        <i class="far fa-edit mt-1" title="Editar"></i>
-                    </a>
+                    <a href="{{route('noticia.edit', $noticia->id)}}" class="btn btn-warning">Editar</a>
                 </td>
                 <td>
                     <form action="{{route('noticia.destroy', $noticia->id)}}" method="post">
                         {{csrf_field()}}
                         <input type="hidden" name="id" value="{{$noticia->id}}">
-                        <input class="btn-sm btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
+                        <input class="btn btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
 
                     </form>
                 </td>
