@@ -96,6 +96,17 @@ class Userscontroller extends Controller
      */
     public function update(Request $request, $id)
     {
+        $reglas = [
+            "name" => "required | string | max:255",
+            "password" => "confirmed",
+
+        ];
+        $mensajes = [
+            "required" => "Debe ingresar :attribute.",
+            "confirmed" => "El :attribute debe coincidir.",
+        ];
+        $this->validate($request, $reglas, $mensajes);
+
         $usuario = User::find($id);
         $diff = array_diff($request->toArray(), $usuario->toArray());
         $usuario->update($diff);

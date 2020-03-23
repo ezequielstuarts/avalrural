@@ -25,7 +25,7 @@ class UsersSeeder extends Seeder
             'rol' => 1,
         ]);
         DB::table('users')->insert([
-            'name' => 'Ezequiel',
+            'name' => 'Eze Guest',
             'email' => 'ezequiel@gmail.com',
             'password' => $hashed,
             'rol' => 2,

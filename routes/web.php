@@ -62,14 +62,11 @@ Route::group(['middleware' => 'auth'], function ()
 
     Route::patch('/admin/update/{id}', "adminController@update");
 
-
-
     Route::get('/mensajes', "MensajesController@index")->name('mensajes');
 
     Route::get('/precalificaciones', "MensajesController@precalificaciones")->name('precalificaciones');
 
     Route::post('/mensajes/destroy', "MensajesController@destroy")->name('mensajes.destroy');
-
 
     Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 

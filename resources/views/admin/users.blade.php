@@ -1,9 +1,12 @@
 @extends('admin.admin')
 @section('admin')
 
+<div class="container">
+    <h5 class="text-secondary">Gestión de usuarios</h5>
+</div>
 
 @if ( (Auth::user()->rol) === 1 )
-    <div class="container mt-5 mb-5">
+    <div class="container mt-3 mb-5">
         <a  href="{{route('users.nuevo_usuario')}}">
             <button class="btn btn-info">Nuevo Usuario</button>
         </a>

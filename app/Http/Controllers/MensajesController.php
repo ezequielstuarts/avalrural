@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\ContactEmail;
+use App\Mensaje;
+use App\ContactPrecalificate;
 
 class MensajesController extends Controller
 {
@@ -15,14 +16,16 @@ class MensajesController extends Controller
      */
     public function index()
     {
-        $mensajes = ContactEmail::all();
-        return view ("email.mensajes", ['mensajes' => $mensajes]);
+        $mensajes = Mensaje::paginate(20);
+        $totalMensajes = count(Mensaje::get());
+        return view ("email.mensajes", ['mensajes' => $mensajes, 'totalMensajes' => $totalMensajes]);
     }
 
     public function precalificaciones()
     {
-        $mensajes = ContactEmail::all();
-        return view ("email.precalificaciones", ['mensajes' => $mensajes]);
+        $mensajes = ContactPrecalificate::paginate(20);
+        $totalMensajes = count(ContactPrecalificate::get());
+        return view ("email.precalificaciones", ['mensajes' => $mensajes, 'totalMensajes' => $totalMensajes]);
     }
 
     /**

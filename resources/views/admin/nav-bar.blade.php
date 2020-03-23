@@ -12,20 +12,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" >
           <ul class="navbar-nav mr-auto" >
 
-            <li class="nav-item active">
-              <a class="nav-link" href="{{ route('admin') }}"><i class="fas fa-newspaper"></i>Listado de noticias</a>
+            <li class="nav-item {{ Request::is( 'admin') ? 'activado' : '' }}">
+              <a class="nav-link" href="{{ URL::to('admin') }}"><i class="fas fa-newspaper"></i>Listado de noticias</a>
             </li>
 
-            <li class="nav-item">
+        </li>
 
+
+            <li class="nav-item {{ Request::is( 'mensajes') ? 'activado' : '' }}">
+              <a class="nav-link" href="{{ URL::to('mensajes') }}"><i class="fas fa-envelope"></i>Mensajes</a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('mensajes') }}"><i class="fas fa-envelope"></i>Mensajes</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('precalificaciones') }}"><i class="fas fa-clipboard-check"></i>Precalificaciones</a>
+            <li class="nav-item {{ Request::is( 'precalificaciones') ? 'activado' : '' }}">
+              <a class="nav-link" href="{{ URL::to('precalificaciones') }}"><i class="fas fa-clipboard-check"></i>Precalificaciones</a>
             </li>
 
             <li class="nav-item">
@@ -38,7 +37,8 @@
                 {{ Auth::user()->name }} <span class="caret"></span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('users') }}"><i class="fas fa-users"></i>Usuarios</a>
+                <a class="dropdown-item" href="{{ route('users') }}">
+                  <i class="fas fa-users"></i>Usuarios</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
