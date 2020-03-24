@@ -4,33 +4,33 @@
 //     return view('home');
 // });
 
-Route::get('/', "indexController@index")->name('index');
+Route::get('', "indexController@index")->name('index');
 
-Route::get('/sobre_aval', "sobreavalController@index")->name('quienes_somos');
+Route::get('sobre_aval', "sobreavalController@index")->name('quienes_somos');
 
-Route::get('/productos', "productosController@cheques")->name('cheques');
-Route::get('/cheques', "productosController@cheques")->name('cheques');
-Route::get('/pagares', "productosController@pagares")->name('pagares');
-Route::get('/bancos', "productosController@bancos")->name('bancos');
-Route::get('/obligaciones', "productosController@obligaciones")->name('obligaciones');
-Route::get('/fideicomisos', "productosController@fideicomisos")->name('fideicomisos');
-Route::get('/garantias', "productosController@garantias")->name('garantias');
-
-
-Route::get('/que_es_una_sgr', "queesController@index")->name('que_es_una_sgr');
+Route::get('productos', "productosController@cheques")->name('cheques');
+Route::get('cheques', "productosController@cheques")->name('cheques');
+Route::get('pagares', "productosController@pagares")->name('pagares');
+Route::get('bancos', "productosController@bancos")->name('bancos');
+Route::get('obligaciones', "productosController@obligaciones")->name('obligaciones');
+Route::get('fideicomisos', "productosController@fideicomisos")->name('fideicomisos');
+Route::get('garantias', "productosController@garantias")->name('garantias');
 
 
-Route::get('/pertenecer', "pertenecerController@requisitos")->name('pertenecer');
-Route::get('/requisitos', "pertenecerController@requisitos")->name('requisitos');
-Route::get('/como_obtener', "pertenecerController@como_obtener")->name('como_obtener');
+Route::get('que_es_una_sgr', "queesController@index")->name('que_es_una_sgr');
 
-Route::get('/noticias', "noticiasController@index")->name('noticias');
 
-Route::get('/noticias/{id}', "noticiasController@verNoticia")->name('ver.noticia.{id}');
+Route::get('pertenecer', "pertenecerController@requisitos")->name('pertenecer');
+Route::get('requisitos', "pertenecerController@requisitos")->name('requisitos');
+Route::get('como_obtener', "pertenecerController@como_obtener")->name('como_obtener');
 
-Route::get('/faq', "faqController@index")->name('faq');
+Route::get('noticias', "noticiasController@index")->name('noticias');
 
-Route::get('/contacto', "contactoController@index")->name('contacto');
+Route::get('noticias/{id}', "noticiasController@verNoticia")->name('ver.noticia.{id}');
+
+Route::get('faq', "faqController@index")->name('faq');
+
+Route::get('contacto', "contactoController@index")->name('contacto');
 
 Route::post('enviar_contacto', "contactoController@enviar_contacto")->name('enviar_contacto');
 
@@ -49,24 +49,25 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::group(['middleware' => 'auth'], function ()
 {
 
-    Route::get('/admin', 'adminController@tablaDeNoticias')->name('admin');
-    // Route::get('/home', 'adminController@tablaDeNoticias')->name('home');
+    Route::get('admin', 'adminController@tablaDeNoticias')->name('admin');
+    Route::get('home', 'adminController@tablaDeNoticias')->name('home');
 
-    Route::get('/admin/nueva_noticia', "adminController@create")->name('admin.nueva_noticia');
+    Route::get('admin/nueva_noticia', "adminController@create")->name('admin.nueva_noticia');
 
-    Route::post('/admin/nueva_noticia', "adminController@store")->name('noticias.nueva_noticia');
+    Route::post('admin/nueva_noticia', "adminController@store")->name('noticias.nueva_noticia');
 
-    Route::post('/admin/destroy', "adminController@destroy")->name('noticia.destroy');
+    Route::post('admin/destroy', "adminController@destroy")->name('noticia.destroy');
 
-    Route::get('/admin/edit/{id}', "adminController@edit")->name('noticia.edit');
+    Route::get('admin/edit/{id}', "adminController@edit")->name('noticia.edit');
 
-    Route::patch('/admin/update/{id}', "adminController@update");
+    Route::patch('admin/update/{id}', "adminController@update");
 
-    Route::get('/mensajes', "MensajesController@index")->name('mensajes');
+    Route::get('mensajes', "MensajesController@index")->name('admin.mensajes');
 
-    Route::get('/precalificaciones', "MensajesController@precalificaciones")->name('precalificaciones');
+    Route::get('precalificaciones', "MensajesController@precalificaciones")->name('admin.precalificaciones');
 
-    Route::post('/mensajes/destroy', "MensajesController@destroy")->name('mensajes.destroy');
+    Route::post('mensajes/destroy', "MensajesController@destroy_mensaje")->name('admin.mensajes.destroy');
+    Route::post('mensajes/destroy_precalificate', "MensajesController@destroy_precalificate")->name('admin.mensajes.destroy_precalificate');
 
     Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 
@@ -74,9 +75,9 @@ Route::group(['middleware' => 'auth'], function ()
 
     Route::post('users', "usersController@index")->name('users');
 
-    Route::get('users/nuevo_usuario', 'UsersController@create')->name('users.nuevo_usuario');
+    Route::get('nuevo_usuario', 'UsersController@create')->name('users.nuevo_usuario');
 
-    Route::post('user/destroy', "usersController@destroy")->name('user.destroy');
+    Route::post('destroy', "usersController@destroy")->name('user.destroy');
 
     Route::post('nuevo_usuario', 'UsersController@store')->name('nuevo_usuario');
 
@@ -89,7 +90,8 @@ Route::group(['middleware' => 'auth'], function ()
 });
 
 //Route::get('/home', 'homeController@auth')->name('home'); esto esra antes
-Route::get('/home', 'homeController@index')->name('home');
+// Route::get('/home', 'homeController@index')->name('home');
+// Route::get('/home', 'adminController@tablaDeNoticias')->name('home');
 
 
 Route::get('/init', function () {

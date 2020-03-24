@@ -79,11 +79,20 @@
                             </div>
                         </div>
 
-                        <div class="form-group mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-success">
-                                    Guardar
-                                </button>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md offset-3">
+                                    <button type="submit" class="btn btn-success">
+                                        Guardar
+                                    </button>
+                                </div>
+                                <div class="col-md">
+                                    <a href="{{ url('users') }}">
+                                        <button class="btn btn-primary">
+                                            Cancelar
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         
@@ -94,13 +103,4 @@
         </div>
     </div>
 </div>
-    <div class="container">
-        <div class="row float-right">
-        <a href="{{ url('users') }}">
-            <button class="btn btn-primary float-right">
-                Cancelar
-            </button>
-        </a>
-        </div>
-    </div>
 @endsection

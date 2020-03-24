@@ -59,23 +59,25 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
+                        <div class="container mt-5">
+                            <div class="row">
+                                <div class="col-md offset-3">
+                                    <button type="submit" class="btn btn-success">
+                                        Guardar
+                                    </button>
+                                </div>
+                                <div class="col-md">
+                                    <a href="{{ url('users') }}">
+                                        <button class="btn btn-primary">
+                                            Cancelar
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="col-md-6 offset-md-4">
-                    <a href="{{ url('users') }}">
-                        <button class="btn btn-primary">
-                            Cancelar
-                        </button>
-                    </a>
-                </div>
+                
             </div>
         </div>
     </div>

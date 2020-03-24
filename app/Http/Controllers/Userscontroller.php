@@ -59,20 +59,10 @@ class Userscontroller extends Controller
         $user->password =  Hash::make($request['password']);
 
         $user->save();
-        return redirect('/users');
+        return redirect('users');
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -109,6 +99,13 @@ class Userscontroller extends Controller
 
         $usuario = User::find($id);
         $diff = array_diff($request->toArray(), $usuario->toArray());
+
+        if ($request->has('password')) {
+            $password =  Hash::make($request['password']);
+            $diff["password"] = $password;
+        }
+
+
         $usuario->update($diff);
         return redirect()->route('users')->with('mensaje', 'Usuario ' .$usuario->name. ' actualizado');
     }
@@ -124,6 +121,6 @@ class Userscontroller extends Controller
         $id = $formulario['id'];
         $user = User::find($id);
         $user->delete();
-        return redirect('/users');
+        return redirect('users');
     }
 }

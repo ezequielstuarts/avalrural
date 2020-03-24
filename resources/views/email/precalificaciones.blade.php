@@ -6,6 +6,15 @@
         </div>
 
         <div class="container">
+            @if (session('mensaje'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert" data-dismiss="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <h4>{{ session('mensaje') }}</h4>
+            </div>
+            @endif
+        </div>
+
+        <div class="container">
             <div class="row">
                 <div class="col-md-8">
                     <h5 class="text-secondary"><b>{{$totalMensajes}}</b> Mensajes en la base de datos.</h5></div>
@@ -56,9 +65,9 @@
                         <td>{{$mensaje->actividad}}</td>
                         @if ( (Auth::user()->rol) === 1 )
                             <td>
-                                <form action="{{route('mensajes.destroy', $mensaje->nombre)}}" method="post">
+                                <form action="{{route('admin.mensajes.destroy_precalificate', $mensaje->id)}}" method="post">
                                     {{csrf_field()}}
-                                    <input type="hidden" name="id" value="{{$mensaje->nombre}}">
+                                    <input type="hidden" name="id" value="{{$mensaje->id}}">
                                     <input class="btn-sm btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
                                 </form>
                             </td>

@@ -67,12 +67,12 @@
         <div id="summernote"></div>
         <script src="{{ asset('js/summernote.js') }}"></script>
 
-        <div class="form-group">
+        <div class="form- mt-4">
             <button id="enviar" class="btn btn-success" type="submit">Guardar</button>
             <a class="btn btn-warning" href="{{ route('admin.nueva_noticia')}}">Limpiar</a>
         </div>
         </form>
-        <div class="container text-right">
+        <div class="container text-right mb-5">
             <a href="{{ route('admin')}}">
                 <button class="btn btn-danger">Cancelar</button>
             </a>
