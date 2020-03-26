@@ -28,7 +28,7 @@ class UsersSeeder extends Seeder
             'name' => 'Eze Guest',
             'email' => 'ezequiel@gmail.com',
             'password' => $hashed,
-            'rol' => 2,
+            'rol' => 0,
         ]);
     }
 }

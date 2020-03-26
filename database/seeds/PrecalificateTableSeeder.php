@@ -11,6 +11,6 @@ class PrecalificateTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\ContactPrecalificate::class, 500)->create();
+        factory(App\ContactPrecalificate::class, 40)->create();
     }
 }

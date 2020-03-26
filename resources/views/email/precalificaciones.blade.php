@@ -27,8 +27,8 @@
             </a>
         </div>
 
-        <div class="container">
-            <table class="table table-hover table-sprite">
+        <div class="container-fluid">
+            <table class="table table-responsive table-hover table-sprite">
                 <thead>
                     <tr>
                         <th scope="col">Recibido el</th>

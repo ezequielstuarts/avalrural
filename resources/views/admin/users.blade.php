@@ -5,7 +5,7 @@
     <h5 class="text-secondary">Gestión de usuarios</h5>
 </div>
 
-@if ( (Auth::user()->rol) === 1 )
+@if ( Auth::user()->rol)
     <div class="container mt-3 mb-5">
         <a  href="{{route('users.nuevo_usuario')}}">
             <button class="btn btn-info">Nuevo Usuario</button>
@@ -26,7 +26,7 @@
 
 <div class="container">
     <table class="table table-hover table-sprite">
-        @if ( (Auth::user()->rol) === 1 )
+        @if ( Auth::user()->rol )
             <thead>
                 <tr>
                     <th scope="col">Nombre</th>
@@ -41,14 +41,14 @@
                         <td width="130px">{{ $user->name }}</td>
                         <td width="130px">{{ $user->email }}</td>
                         <td width="130px">
-                            @if ($user->rol === 1)
+                            @if ($user->rol)
                                 Administrador
                             @else
                                 Invitado
                             @endif
                         </td>
 
-                        @if ( (Auth::user()->rol) === 1 )
+                        @if ( Auth::user()->rol )
                         <td class="float-right">
                                 <form action="{{route('user.destroy', $user->id)}}" method="post">
                                     {{csrf_field()}}
@@ -79,7 +79,7 @@
                         <td width="130px">{{ Auth::user()->name }}</td>
                         <td width="130px">{{ Auth::user()->email }}</td>
                         <td width="130px">
-                            @if (Auth::user()->rol === 1)
+                            @if (!Auth::user())
                                 Administrador
                             @else
                                 Invitado

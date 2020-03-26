@@ -26,7 +26,7 @@
             <li class="nav-item {{ Request::is( 'precalificaciones') ? 'activado' : '' }}">
               <a class="nav-link" href="{{ URL::to('precalificaciones') }}"><i class="fas fa-clipboard-check"></i>Precalificaciones</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="api/getNoticias">GetNoticias</a>
             </li>
             <li class="nav-item">
@@ -34,7 +34,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="api/getMensajes">getMensajes</a>
-            </li>
+            </li> -->
 
             <li class="nav-item">
 
