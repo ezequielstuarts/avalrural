@@ -9,5 +9,5 @@ class Users extends Model
     public $table = "users";
     //public $primarykey = "id";
     //public $timestamps = "";
-    protected $fillable = [];
+    protected $fillable = ['name', 'email', 'password', 'updated_at', 'created_at'];
 }

@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
-use App\Users;
 use App\User;
 
-class Userscontroller extends Controller
+
+class Usercontroller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,17 +42,18 @@ class Userscontroller extends Controller
     {
         $reglas = [
             "name" => "required | string | max:255",
-            "email" => "required | string | email | max:255 | unique:users",
+            "email" => "required | email | unique:users,email",
             "password" => "required | string | min:8 | confirmed",
 
         ];
         $mensajes = [
             "required" => "Debe ingresar :attribute.",
+            "unique" => "Ese email ya existe.",
         ];
 
         $this->validate($request, $reglas, $mensajes);
 
-        $user = new Users();
+        $user = new User();
 
         $user->name = $request["name"];
         $user->email = $request["email"];

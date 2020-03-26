@@ -87,7 +87,7 @@
                         </td>
                         <td>
                             <input type="hidden" name="id">
-                            <a href="{{route('users.edit_user', Auth::user()->id)}}" class="btn-sm btn-warning">
+                            <a href="{{route('users.edit_user', Auth::user()->id)}}" class="btn btn-warning">
                                 Editar
                             </a>
                         </td>

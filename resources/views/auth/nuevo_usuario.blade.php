@@ -59,23 +59,25 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-                        <div class="container mt-5">
+                        <div class="container mt-4">
                             <div class="row">
-                                <div class="col-md offset-3">
+                                <div class="col-md offset-6">
                                     <button type="submit" class="btn btn-success">
                                         Guardar
                                     </button>
                                 </div>
-                                <div class="col-md">
-                                    <a href="{{ url('users') }}">
-                                        <button class="btn btn-primary">
-                                            Cancelar
-                                        </button>
-                                    </a>
-                                </div>
                             </div>
                         </div>
                     </form>
+                    <div class="container">
+                        <div class="col-md offset-10 mt-5">
+                            <a href="{{ url('users') }}">
+                                <button class="btn btn-primary">
+                                    Cancelar
+                                </button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 
             </div>

@@ -71,19 +71,19 @@ Route::group(['middleware' => 'auth'], function ()
 
     Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 
-    Route::get('users', "usersController@index")->name('users');
+    Route::get('users', "userController@index")->name('users');
 
-    Route::post('users', "usersController@index")->name('users');
+    Route::post('users', "userController@index")->name('users');
 
-    Route::get('nuevo_usuario', 'UsersController@create')->name('users.nuevo_usuario');
+    Route::get('nuevo_usuario', 'UserController@create')->name('users.nuevo_usuario');
 
-    Route::post('destroy', "usersController@destroy")->name('user.destroy');
+    Route::post('destroy', "userController@destroy")->name('user.destroy');
 
-    Route::post('nuevo_usuario', 'UsersController@store')->name('nuevo_usuario');
+    Route::post('nuevo_usuario', 'UserController@store')->name('nuevo_usuario');
 
-    Route::get('users/edit_user/{id}', 'UsersController@edit')->name('users.edit_user');
+    Route::get('users/edit_user/{id}', 'UserController@edit')->name('users.edit_user');
 
-    Route::patch('users/edit_user/{id}', "UsersController@update")->name('users.edit_user');
+    Route::patch('users/edit_user/{id}', "UserController@update")->name('users.edit_user');
     //ok
     // Route::post('register', 'Auth\RegisterController@register');
     // Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
