@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class=" container mt-4">
-    <form action="/admin/update/{{$noticia->id}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('noticias.update', $noticia->id)}}" method="post" enctype="multipart/form-data">
         @method("patch")
         {{csrf_field()}}
         <div class="form-group">

@@ -52,22 +52,25 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('admin', 'adminController@tablaDeNoticias')->name('admin');
     Route::get('home', 'adminController@tablaDeNoticias')->name('home');
 
-    Route::get('admin/nueva_noticia', "adminController@create")->name('admin.nueva_noticia');
+    Route::get('noticias/nueva_noticia', "adminController@create")->name('noticias.nueva_noticia');
 
-    Route::post('admin/nueva_noticia', "adminController@store")->name('noticias.nueva_noticia');
+    Route::post('noticias/nueva_noticia', "adminController@store")->name('noticias.nueva_noticia');
 
-    Route::post('admin/destroy', "adminController@destroy")->name('noticia.destroy');
+    Route::post('noticias/destroy', "adminController@destroy")->name('noticias.destroy');
+    
+    Route::post('noticias/hide/{id}', "adminController@hide")->name('noticias.hide');
 
-    Route::get('admin/edit/{id}', "adminController@edit")->name('noticia.edit');
+    Route::get('noticias/edit/{id}', "adminController@edit")->name('noticias.edit');
 
-    Route::patch('admin/update/{id}', "adminController@update");
+    Route::patch('noticias/update/{id}', "adminController@update")->name('noticias.update');;
 
-    Route::get('mensajes', "MensajesController@index")->name('admin.mensajes');
+    Route::get('mensajes', "MensajesController@index")->name('mensajes');
 
-    Route::get('precalificaciones', "MensajesController@precalificaciones")->name('admin.precalificaciones');
+    Route::get('precalificaciones', "PrecalificateController@index")->name('precalificaciones');
 
-    Route::post('mensajes/destroy', "MensajesController@destroy_mensaje")->name('admin.mensajes.destroy');
-    Route::post('mensajes/destroy_precalificate', "MensajesController@destroy_precalificate")->name('admin.mensajes.destroy_precalificate');
+    Route::post('mensajes/destroy/{id}', "MensajesController@destroy")->name('mensajes.destroy');
+    
+    Route::post('precalificaciones/destroy/{id}', "PrecalificateController@destroy")->name('precalificate.destroy');
 
     Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 
@@ -77,7 +80,7 @@ Route::group(['middleware' => 'auth'], function ()
 
     Route::get('nuevo_usuario', 'UserController@create')->name('users.nuevo_usuario');
 
-    Route::post('destroy', "userController@destroy")->name('user.destroy');
+    Route::post('user/destroy', "userController@destroy")->name('user.destroy');
 
     Route::post('nuevo_usuario', 'UserController@store')->name('nuevo_usuario');
 

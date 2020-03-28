@@ -60,11 +60,10 @@
                 <td>{{$mensaje->email}}</td>
                 @if ( (Auth::user()->rol) === 1 )
                 <td>
-                    <form action="{{route('admin.mensajes.destroy', $mensaje->id)}}" method="post">
+                    <form action="{{route('mensajes.destroy', $mensaje->id)}}" method="post">
                         {{csrf_field()}}
                         <input type="hidden" name="id" value="{{$mensaje->id}}">
-                        <input class="btn-sm btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
-
+                        <input class="btn btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
                     </form>
                 </td>
                 @endif

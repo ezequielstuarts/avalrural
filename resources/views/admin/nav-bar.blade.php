@@ -16,9 +16,6 @@
               <a class="nav-link" href="{{ URL::to('admin') }}"><i class="fas fa-newspaper"></i>Listado de noticias</a>
             </li>
 
-        </li>
-
-
             <li class="nav-item {{ Request::is( 'mensajes') ? 'activado' : '' }}">
               <a class="nav-link" href="{{ URL::to('mensajes') }}"><i class="fas fa-envelope"></i>Mensajes</a>
             </li>
@@ -36,9 +33,7 @@
               <a class="nav-link" href="api/getMensajes">getMensajes</a>
             </li> -->
 
-            <li class="nav-item">
-
-            </li>
+          
 
 
             <li class="nav-item dropdown ">

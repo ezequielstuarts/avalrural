@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\Mensajerecibido;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+Use App\Precalificacion;
 
 class precalificateController extends Controller
 {
@@ -15,7 +16,9 @@ class precalificateController extends Controller
      */
     public function index()
     {
-        //
+        $mensajes = Precalificacion::paginate(10);
+        $totalMensajes = count(Precalificacion::get());
+        return view ("email.precalificaciones", ['mensajes' => $mensajes, 'totalMensajes' => $totalMensajes]);
     }
 
     /**
@@ -116,6 +119,8 @@ class precalificateController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $mensaje = Precalificacion::find($id);
+        $mensaje->delete();
+        return redirect('precalificaciones')->with('mensaje', 'Mensaje Eliminado');
     }
 }

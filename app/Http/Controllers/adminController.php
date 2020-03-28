@@ -132,6 +132,15 @@ class adminController extends Controller
 
         return redirect('/admin');
     }
+
+    public function hide($id)
+    {
+        $date = Carbon::now();
+        $noticia = Noticia::find($id);
+
+        
+        return view ("admin.edit", ['noticia' => $noticia, 'date' => $date]);
+    }
 }
 
 
