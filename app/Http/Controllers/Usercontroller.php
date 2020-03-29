@@ -10,11 +10,7 @@ use App\User;
 
 class Usercontroller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $usuarios = User::all();
@@ -22,22 +18,13 @@ class Usercontroller extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('auth.nuevo_usuario');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $reglas = [
@@ -65,12 +52,6 @@ class Usercontroller extends Controller
     }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $date = Carbon::now();
@@ -78,13 +59,7 @@ class Usercontroller extends Controller
         return view ("auth.edit_user", ['user' => $usuario, 'date' => $date]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         $reglas = [
@@ -105,9 +80,11 @@ class Usercontroller extends Controller
             $password =  Hash::make($request['password']);
             $diff["password"] = $password;
         }
+        // if ( $request->admin ) {
+        //     $usuario->rol = true;
+        // }
 
-
-        $usuario->update($diff);
+        $usuario->update([$diff, $usuario->rol]);
         return redirect()->route('admin.users')->with('mensaje', 'Usuario: ' .$usuario->name. ' actualizado');
     }
 

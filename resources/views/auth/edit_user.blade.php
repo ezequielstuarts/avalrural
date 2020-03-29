@@ -60,24 +60,16 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label for="rol" class="col-md-4 col-form-label text-md-right">Rol del usuario</label>
                             <div class="col-md-6">
                                 
-                                <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                    <label class="form-check-label" for="exampleRadios1">
-                                        Invitado
-                                    </label>
-                                    </div>
-                                    <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                    <label class="form-check-label" for="exampleRadios2">
-                                    Administrador
-                                    </label>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1" name="admin">
+                                <label class="custom-control-label" for="customCheck1">Es Administrador</label>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="container">
                             <div class="row">
