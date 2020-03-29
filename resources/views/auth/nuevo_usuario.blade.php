@@ -1,13 +1,13 @@
-@extends('admin.admin')
+@extends('admin.layout')
 @section('admin')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">Registrar nuevo usuario</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('nuevo_usuario') }}">
+                    <form method="POST" action="{{ route('admin.nuevo_usuario') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -71,7 +71,7 @@
                     </form>
                     <div class="container">
                         <div class="col-md offset-10 mt-5">
-                            <a href="{{ url('users') }}">
+                            <a href="{{ route('admin.users') }}">
                                 <button class="btn btn-primary">
                                     Cancelar
                                 </button>

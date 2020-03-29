@@ -1,4 +1,4 @@
-@extends('admin.admin')
+@extends('admin.layout')
 @section('admin')
         
         <div class="container mt-5">
@@ -23,12 +23,12 @@
 
         <div class="container text-right mb-4">
             <a href="{{ route('admin')}}">
-                <button class="btn btn-info">Volver</button>
+                <button class="btn btn-outline-secondary">Volver</button>
             </a>
         </div>
 
         <div class="container-fluid">
-            <table class="table table-responsive table-hover table-sprite">
+            <table class="table table-hover table-sprite">
                 <thead>
                     <tr>
                         <th scope="col">Recibido el</th>
@@ -63,9 +63,9 @@
                         <td>{{$mensaje->balance}}</td>
                         <td>{{$mensaje->nomina}}</td>
                         <td>{{$mensaje->actividad}}</td>
-                        @if ( (Auth::user()->rol) === 1 )
+                        @if ( Auth::user()->rol )
                             <td>
-                                <form action="{{route('precalificate.destroy', $mensaje->id)}}" method="post">
+                                <form action="{{route('admin.precalificate.destroy', $mensaje->id)}}" method="post">
                                     {{csrf_field()}}
                                     <input type="hidden" name="id" value="{{$mensaje->id}}">
                                     <input class="btn btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
@@ -76,7 +76,7 @@
                 </tbody>
                 @empty
                 <div class="alert alert-info" role="alert">
-                    <h3>No hay mensajes cargadas en la base de datos</h3>
+                    <h3 class="text-center">No hay mensajes recibidos</h3>
                 </div>
                 @endforelse
             </table>

@@ -1,8 +1,8 @@
-<div class="row" style="background-color: #EDEDED;">
+<div style="background-color: #EDEDED;">
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="{{ url('/admin') }}">
-            <img src="{{ URL::asset('img/logo/buildify_mini.png') }} " alt="" />
+        <a class="navbar-brand" href="{{ url('admin') }}">
+            <img src="{{ URL::asset('img/logo/buildify_mini.png') }} ">
             {{ config('', 'Panel de Administracion') }}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,12 +16,12 @@
               <a class="nav-link" href="{{ URL::to('admin') }}"><i class="fas fa-newspaper"></i>Listado de noticias</a>
             </li>
 
-            <li class="nav-item {{ Request::is( 'mensajes') ? 'activado' : '' }}">
-              <a class="nav-link" href="{{ URL::to('mensajes') }}"><i class="fas fa-envelope"></i>Mensajes</a>
+            <li class="nav-item {{ Request::is( 'admin/mensajes') ? 'activado' : '' }}">
+              <a class="nav-link" href="{{ URL::to('admin/mensajes') }}"><i class="fas fa-envelope"></i>Mensajes</a>
             </li>
 
-            <li class="nav-item {{ Request::is( 'precalificaciones') ? 'activado' : '' }}">
-              <a class="nav-link" href="{{ URL::to('precalificaciones') }}"><i class="fas fa-clipboard-check"></i>Precalificaciones</a>
+            <li class="nav-item {{ Request::is( 'admin/precalificaciones') ? 'activado' : '' }}">
+              <a class="nav-link" href="{{ URL::to('admin/precalificaciones') }}"><i class="fas fa-clipboard-check"></i>Precalificaciones</a>
             </li>
             <!-- <li class="nav-item">
               <a class="nav-link" href="api/getNoticias">GetNoticias</a>
@@ -41,7 +41,7 @@
                 {{ Auth::user()->name }} <span class="caret"></span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('users') }}">
+                <a class="dropdown-item" href="{{ route('admin.users') }}">
                   <i class="fas fa-users"></i>Usuarios</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}"

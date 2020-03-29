@@ -25,6 +25,6 @@ class MensajesController extends Controller
         $id = $formulario['id'];
         $mensaje = Mensaje::find($id);
         $mensaje->delete();
-        return redirect('mensajes')->with('mensaje', 'Mensaje Eliminado');   
+        return redirect('admin/mensajes')->with('mensaje', 'Mensaje Eliminado');   
     }
 }

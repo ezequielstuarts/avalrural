@@ -1,4 +1,4 @@
-@extends('admin.admin')
+@extends('admin.layout')
 @section('admin')
 
     <!-- Datepicker Files -->
@@ -32,7 +32,7 @@
         </div>
     </div>
     <div class=" container mt-4">
-    <form action="{{route('noticias.update', $noticia->id)}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('admin.noticias.update', $noticia->id)}}" method="post" enctype="multipart/form-data">
         @method("patch")
         {{csrf_field()}}
         <div class="form-group">
@@ -117,9 +117,9 @@
             <a class="btn btn-info" href="{{ route('admin')}}">Caneclar</a>
         </div>
     </form>
-    <div class="container text-right">
+    <div class="container text-right mb-5">
         <a href="{{ route('admin')}}">
-            <button class="btn btn-danger">Volver</button>
+            <button class="btn btn-outline-secondary">Volver</button>
         </a>
     </div>
     </div>

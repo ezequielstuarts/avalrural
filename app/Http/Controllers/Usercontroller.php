@@ -60,7 +60,7 @@ class Usercontroller extends Controller
         $user->password =  Hash::make($request['password']);
 
         $user->save();
-        return redirect('users');
+        return redirect('admin/users');
 
     }
 
@@ -108,7 +108,7 @@ class Usercontroller extends Controller
 
 
         $usuario->update($diff);
-        return redirect()->route('users')->with('mensaje', 'Usuario ' .$usuario->name. ' actualizado');
+        return redirect()->route('admin.users')->with('mensaje', 'Usuario: ' .$usuario->name. ' actualizado');
     }
 
     /**
@@ -122,6 +122,6 @@ class Usercontroller extends Controller
         $id = $formulario['id'];
         $user = User::find($id);
         $user->delete();
-        return redirect('users');
+        return redirect()->route('admin.users')->with('mensaje', 'Usuario eliminado');
     }
 }

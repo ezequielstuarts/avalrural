@@ -1,4 +1,4 @@
-@extends('admin.admin')
+@extends('admin.layout')
 @section('admin')
 
 <div class="container">
@@ -7,7 +7,7 @@
 
 @if ( Auth::user()->rol)
     <div class="container mt-3 mb-5">
-        <a  href="{{route('users.nuevo_usuario')}}">
+        <a  href="{{route('admin.users.nuevo_usuario')}}">
             <button class="btn btn-info">Nuevo Usuario</button>
         </a>
     </div>
@@ -50,7 +50,7 @@
 
                         @if ( Auth::user()->rol )
                         <td class="float-right">
-                                <form action="{{route('user.destroy', $user->id)}}" method="post">
+                                <form action="{{route('admin.user.destroy', $user->id)}}" method="post">
                                     {{csrf_field()}}
                                     <input type="hidden" name="id" value="{{$user->id}}">
                                     <input class="btn btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
@@ -59,7 +59,7 @@
 
                             <td class="float-right">
                                 <input type="hidden" name="id" value="{{$user->id}}" class="floa-right">
-                                <a href="{{route('users.edit_user', $user->id)}}" class="btn btn-warning">Editar</a>
+                                <a href="{{route('admin.users.edit_user', $user->id)}}" class="btn btn-warning">Editar</a>
                             </td>
                         @endif
                     </tr>
@@ -87,7 +87,7 @@
                         </td>
                         <td>
                             <input type="hidden" name="id">
-                            <a href="{{route('users.edit_user', Auth::user()->id)}}" class="btn btn-warning">
+                            <a href="{{route('admin.users.edit_user', Auth::user()->id)}}" class="btn btn-warning">
                                 Editar
                             </a>
                         </td>
@@ -98,7 +98,7 @@
 </div>
 <div class="container text-right">
     <a href="{{ route('admin')}}">
-        <button class="btn btn-danger">Volver</button>
+        <button class="btn btn-outline-secondary">Volver</button>
     </a>
 </div>
 

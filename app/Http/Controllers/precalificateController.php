@@ -121,6 +121,6 @@ class precalificateController extends Controller
     {
         $mensaje = Precalificacion::find($id);
         $mensaje->delete();
-        return redirect('precalificaciones')->with('mensaje', 'Mensaje Eliminado');
+        return redirect('admin/precalificaciones')->with('mensaje', 'Mensaje Eliminado');
     }
 }

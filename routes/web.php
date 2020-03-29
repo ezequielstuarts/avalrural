@@ -49,44 +49,49 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::group(['middleware' => 'auth'], function ()
 {
 
-    Route::get('admin', 'adminController@tablaDeNoticias')->name('admin');
-    Route::get('home', 'adminController@tablaDeNoticias')->name('home');
+    Route::get('admin', 'NoticiasController@tablaDeNoticias')->name('admin');
+    Route::get('home', 'NoticiasController@tablaDeNoticias')->name('home');
 
-    Route::get('noticias/nueva_noticia', "adminController@create")->name('noticias.nueva_noticia');
+    Route::get('admin/noticias/nueva_noticia', "NoticiasController@create")->name('admin.noticias.nueva_noticia');
 
-    Route::post('noticias/nueva_noticia', "adminController@store")->name('noticias.nueva_noticia');
+    Route::post('admin/noticias/nueva_noticia', "NoticiasController@store")->name('admin.noticias.nueva_noticia');
 
-    Route::post('noticias/destroy', "adminController@destroy")->name('noticias.destroy');
+    Route::post('admin/noticias/destroy', "NoticiasController@destroy")->name('admin.noticias.destroy');
+    Route::post('admin/noticiasHide/destroy', "NoticiasHideController@destroy")->name('admin.noticiasHide.destroy');
     
-    Route::post('noticias/hide/{id}', "adminController@hide")->name('noticias.hide');
-
-    Route::get('noticias/edit/{id}', "adminController@edit")->name('noticias.edit');
-
-    Route::patch('noticias/update/{id}', "adminController@update")->name('noticias.update');;
-
-    Route::get('mensajes', "MensajesController@index")->name('mensajes');
-
-    Route::get('precalificaciones', "PrecalificateController@index")->name('precalificaciones');
-
-    Route::post('mensajes/destroy/{id}', "MensajesController@destroy")->name('mensajes.destroy');
+    Route::get('admin/noticiasHide', "NoticiasHideController@index")->name('admin.noticiasHide');
     
-    Route::post('precalificaciones/destroy/{id}', "PrecalificateController@destroy")->name('precalificate.destroy');
+    Route::post('admin/noticias/hide/{id}', "NoticiasController@hide");
+    
+    Route::post('admin/noticiasHide/visible/{id}', "NoticiasHideController@visible");
 
-    Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+    Route::get('admin/noticias/edit/{id}', "NoticiasController@edit")->name('admin.noticias.edit');
 
-    Route::get('users', "userController@index")->name('users');
+    Route::patch('admin/noticias/update/{id}', "NoticiasController@update")->name('admin.noticias.update');;
 
-    Route::post('users', "userController@index")->name('users');
+    Route::get('admin/mensajes', "MensajesController@index")->name('admin.mensajes');
 
-    Route::get('nuevo_usuario', 'UserController@create')->name('users.nuevo_usuario');
+    Route::get('admin/precalificaciones', "PrecalificateController@index")->name('admin.precalificaciones');
 
-    Route::post('user/destroy', "userController@destroy")->name('user.destroy');
+    Route::post('admin/mensajes/destroy/{id}', "MensajesController@destroy")->name('admin.mensajes.destroy');
+    
+    Route::post('admin/precalificaciones/destroy/{id}', "PrecalificateController@destroy")->name('admin.precalificate.destroy');
 
-    Route::post('nuevo_usuario', 'UserController@store')->name('nuevo_usuario');
+    Route::get('admin/register', 'Auth\RegisterController@showRegistrationForm')->name('admin.register');
 
-    Route::get('users/edit_user/{id}', 'UserController@edit')->name('users.edit_user');
+    Route::get('admin/users', "UserController@index")->name('admin.users');
 
-    Route::patch('users/edit_user/{id}', "UserController@update")->name('users.edit_user');
+    Route::post('admin/users', "UserController@index")->name('admin.users');
+
+    Route::get('admin/nuevo_usuario', 'UserController@create')->name('admin.users.nuevo_usuario');
+
+    Route::post('admin/user/destroy', "UserController@destroy")->name('admin.user.destroy');
+
+    Route::post('admin/nuevo_usuario', 'UserController@store')->name('admin.nuevo_usuario');
+
+    Route::get('admin/users/edit_user/{id}', 'UserController@edit')->name('admin.users.edit_user');
+
+    Route::patch('admin/users/edit_user/{id}', "UserController@update")->name('admin.users.edit_user');
     //ok
     // Route::post('register', 'Auth\RegisterController@register');
     // Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');

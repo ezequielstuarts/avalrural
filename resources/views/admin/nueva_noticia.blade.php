@@ -1,5 +1,5 @@
 
-@extends('admin.admin')
+@extends('admin.layout')
 
 @section('admin')
 
@@ -23,7 +23,7 @@
         <h5>{{ $date->isoFormat('dddd, Do MMMM YYYY') }}</h5>
     </div>
     <div class=" container mt-3">
-    <form action="{{route('admin.nueva_noticia')}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('admin.noticias.nueva_noticia')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="form-group">
             <label for="date"><b>Fecha</b></label>
@@ -69,12 +69,12 @@
 
         <div class="form- mt-4">
             <button id="enviar" class="btn btn-success" type="submit">Guardar</button>
-            <a class="btn btn-warning" href="{{ route('admin.nueva_noticia')}}">Limpiar</a>
+            <a class="btn btn-warning" href="{{ route('admin.noticias.nueva_noticia')}}">Limpiar</a>
         </div>
         </form>
         <div class="container text-right mb-5">
             <a href="{{ route('admin')}}">
-                <button class="btn btn-danger">Cancelar</button>
+                <button class="btn btn-outline-danger">Cancelar</button>
             </a>
         </div>
     </div>

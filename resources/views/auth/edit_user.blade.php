@@ -1,4 +1,4 @@
-@extends('admin.admin')
+@extends('admin.layout')
 @section('admin')
 <div class="container">
     <div class="row justify-content-center">
@@ -7,7 +7,7 @@
             <div class="card-header"><b>{{ __('Edit User') }}: </b> {{$user->name}}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('users.edit_user', $user->id) }}">
+                    <form method="POST" action="{{ route('admin.users.edit_user', $user->id) }}">
                         @method("patch")
                         {{csrf_field()}}
 
@@ -81,24 +81,24 @@
 
                         <div class="container">
                             <div class="row">
-                                <div class="col-md offset-3">
+                                <div class="col-md offset-5">
                                     <button type="submit" class="btn btn-success">
                                         Guardar
                                     </button>
                                 </div>
-                                <div class="col-md">
-                                    <a href="{{ url('users') }}">
-                                        <button class="btn btn-primary">
-                                            Cancelar
-                                        </button>
-                                    </a>
-                                </div>
                             </div>
                         </div>
-                        
                     </form>
-                </div>
-                
+                    <div class="container">
+                        <div class="col-md offset-10 mt-4">
+                            <a href="{{ route('admin.users') }}">
+                                <button class="btn btn-outline-primary">
+                                    Cancelar
+                                </button>
+                            </a>
+                        </div>
+                    </div>  
+                </div>      
             </div>
         </div>
     </div>

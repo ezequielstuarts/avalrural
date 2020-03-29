@@ -1,4 +1,4 @@
-@extends('admin.admin')
+@extends('admin.layout')
 @section('admin')
 
 <div class="container mt-3">
@@ -23,9 +23,10 @@
 
 <div class="container text-right mb-4">
     <a href="{{ route('admin')}}">
-        <button class="btn btn-info">Volver</button>
+        <button class="btn btn-outline-secondary">Volver</button>
     </a>
 </div>
+
 
 <div class="container">
     <table class="table table-hover table-sprite">
@@ -60,7 +61,7 @@
                 <td>{{$mensaje->email}}</td>
                 @if ( (Auth::user()->rol) === 1 )
                 <td>
-                    <form action="{{route('mensajes.destroy', $mensaje->id)}}" method="post">
+                    <form action="{{route('admin.mensajes.destroy', $mensaje->id)}}" method="post">
                         {{csrf_field()}}
                         <input type="hidden" name="id" value="{{$mensaje->id}}">
                         <input class="btn btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
@@ -73,7 +74,7 @@
         </tbody>
         @empty
         <div class="alert alert-info" role="alert">
-            <h3>No hay mensajes cargadas en la base de datos</h3>
+            <h3 class="text-center">No hay mensajes recibidos</h3>
         </div>
         @endforelse
     </table>

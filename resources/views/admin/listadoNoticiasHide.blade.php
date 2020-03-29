@@ -4,19 +4,13 @@
 <div class="container mt-3 mb-3">
     <div class="row">
 
-        <div class="col-md-8 ">
-            <h5 class="text-secondary">Listado de noticias. <b>{{$totalNoticias}}</b> Noticias en la base de datos.</h5>
-        </div>
-
-        <div class="col-md-3">
-            <a class="float-right" href="{{route('admin.noticias.nueva_noticia')}}">
-                <button class="btn btn-info">Nueva Noticia</button>
-            </a>
+        <div class="col-md-11 ">
+            <h5 class="text-secondary">Listado de noticias <b>ocultas.</b> (Estas no se muestran en el sitio) </h5>
         </div>
 
         <div class="col-md-1">
-            <a class="float-right" href="{{route('admin.noticiasHide')}}" title="Ver noticias ocultas">
-            <i class="fas fa-eye-slash"></i></a>
+            <a class="float-right" href="{{route('admin')}}" title="Ver noticias visibles">
+            <i class="fas fa-eye"></i></a>
         </div>
 
     </div>
@@ -38,8 +32,8 @@
                 <th colspan="col">Fecha</th>
                 <th colspan="col">Titulo</th>
                 <th colspan="col">Imagen</th>
-                <th colspan="2">Acciones</th>
-                <!-- <th colspan="col">Acciones</th> -->
+                <th colspan="col">Acciones</th>
+                <th colspan="1"></th>
             </tr>
         </thead>
         @forelse ($noticias as $noticia)
@@ -54,33 +48,28 @@
                         <img style="width:100px" src="/img/noimg.png" class="card-img-top">
                     @endif
                 </td>
-                <td>
-                    <a href="{{route('admin.noticias.edit', $noticia->id)}}" class="btn btn-warning">Editar</a>
-                </td>
+                
 
                 <td>
-                    <form action="{{url('admin/noticias/hide', $noticia->id)}}" method="post">
+                    <form action="{{url('admin/noticiasHide/visible', $noticia->id)}}" method="post">
                         {{csrf_field()}}
                         <input type="hidden" name="id" value="{{$noticia->id}}">
-                        <input class="btn btn-default" type="submit" value="Ocultar" onclick="return confirm('Seguro queres ocultar esta noticia?')">
+                        <input class="btn btn-default" type="submit" value="Hacer visible">
                     </form>
                 </td>
                 
-
-                
-                <!-- <td>
-                    <form action="{{route('admin.noticias.destroy', $noticia->id)}}" method="post">
+                <td>
+                    <form action="{{route('admin.noticiasHide.destroy', $noticia->id)}}" method="post">
                         {{csrf_field()}}
                         <input type="hidden" name="id" value="{{$noticia->id}}">
                         <input class="btn btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
-
                     </form>
-                </td> -->
+                </td>
             </tr>
         </tbody>
         @empty
         <div class="alert alert-info" role="alert">
-            <h3>No hay Noticias cargadas en la base de datos</h3>
+            <h3 class="text-center" >No hay Noticias Ocultas</h3>
         </div>
         @endforelse
     </table>
