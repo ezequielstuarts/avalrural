@@ -31,3 +31,14 @@ tr.shown td.details-control {
 {
     color: rgb(35, 209, 0)!important;
 }
+
+.card-admin {
+    background-color: rgba(153, 235, 128, 0.6);
+    margin-top: 30px;
+}
+.card-admin:hover {
+    background-color: rgba(138, 218, 114, 0.6);
+}
+.card-admin h4 {
+    font-weight: 600;
+}

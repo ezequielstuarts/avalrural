@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ContactEmail;
 use App\ContactPrecalificate;
+use Mail;
 
 class contactoController extends Controller
 {
@@ -47,6 +48,18 @@ class contactoController extends Controller
         $newMail->consulta = $request["consulta"];
 
         $newMail->save();
+
+
+        $subject = "Asunto del correo";
+        $for = "elzeke55@gmail.com";
+        // dd($request->all());
+        Mail::send('email.formulario_de_contacto',$request->all(),
+        function($msj) use($subject,$for){
+            $msj->from("elzeke55@gmail.com","Mensaje desde el fomulario de contacto de Aval Rural");
+            $msj->subject($subject);
+            $msj->to($for);
+        });
+
         return view('enviado');
     }
 

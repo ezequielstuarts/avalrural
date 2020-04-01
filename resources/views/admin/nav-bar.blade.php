@@ -1,7 +1,7 @@
 <div style="background-color: #EDEDED;">
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="{{ url('admin') }}">
+        <a class="navbar-brand" href="{{ url('panel') }}">
             <img src="{{ URL::asset('img/logo/buildify_mini.png') }} ">
             {{ config('', 'Panel de Administracion') }}
         </a>

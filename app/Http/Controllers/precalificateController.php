@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Mail\Mensajerecibido;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+// use Illuminate\Support\Facades\Mail;
 Use App\Precalificacion;
+use Mail;
 
 class precalificateController extends Controller
 {
@@ -68,13 +69,18 @@ class precalificateController extends Controller
         "Actividad" => $request['Actividad'],
         "Acepta" => $request['Acepta'],
         );
-        Mail::send('email.welcome', $data, function ($message) {
-            $message->from('e.stuarts@gmail.com', 'Desde Aval Formulario de Precalificate');
-            $message->to('e.stuarts@gmail.com')->subject('test de envio de email desde aval');
+        
+        $subject = "Asunto del correo";
+        $for = "elzeke55@gmail.com";
+        // dd($request->all());
+        Mail::send('email.formulario_de_precalificaciones',$request->all(),
+        function($msj) use($subject,$for){
+            $msj->from("elzeke55@gmail.com","Mensaje desde el fomulario de precalificate de Aval Rural");
+            $msj->subject($subject);
+            $msj->to($for);
         });
-
-        dd($data);
-        return redirect()->route('index')->with('mensaje', 'Hemos enviado su email');
+        return view('enviado');
+        // return redirect()->route('index')->with('mensaje', 'Hemos enviado su email');
     }
 
     /**

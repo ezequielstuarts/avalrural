@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth'], function ()
 {
 
     Route::get('admin', 'NoticiasController@tablaDeNoticias')->name('admin');
+    Route::get('panel', 'AdminController@index')->name('panel');
     Route::get('home', 'NoticiasController@tablaDeNoticias')->name('home');
 
     Route::get('admin/noticias/nueva_noticia', "NoticiasController@create")->name('admin.noticias.nueva_noticia');
