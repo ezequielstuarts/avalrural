@@ -97,7 +97,7 @@
     </table>
 </div>
 <div class="container text-right">
-    <a href="{{ route('admin')}}">
+    <a href="{{ route('panel')}}">
         <button class="btn btn-outline-secondary">Volver</button>
     </a>
 </div>
