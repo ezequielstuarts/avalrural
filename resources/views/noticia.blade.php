@@ -50,10 +50,8 @@
                         </div>
                         <div class="buildify_tm_top_section">
                             <div class="subtitle txt_noticias">
-
+                                <h6 style="padding-bottom: 20px"> <b>{{$noticia->subtitle}}</b></h6>
                                 {!!$noticia->content!!}
-
-
                             </div>
                         </div>
 

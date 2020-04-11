@@ -35,14 +35,14 @@
                                                     @endif
                                                 </div>
                                                 <div class="blog_title">
-                                                    <h3><a href="noticias/{{$noticia->id}}">{{$noticia->title}}</a></h3>
+                                                    <h3><a href="noticias/{{$noticia->slug}}">{{$noticia->title}}</a></h3>
 
                                                 </div>
                                                 <div class="blog_definition">
                                                     <p>{{$noticia->subtitle}}</p>
                                                 </div>
                                                 <div class="buildify_tm_read_more">
-                                                    <p><a href="noticias/{{$noticia->id}}">Leer Más</a><span>
+                                                    <p><a href="noticias/{{$noticia->slug}}">Leer Más</a><span>
                                                         {{ $noticia->created_at->isoFormat('MMMM YYYY', 'Do MMMM')  }}
                                                      </span></p>
                                                 </div>

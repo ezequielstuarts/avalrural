@@ -22,13 +22,13 @@
                                 </div>
                                 <div class="main_part">
                                     <div class="title_holder_news">
-                                        <h3><a href="/noticias/{{$noticia->id}}">{{ str_limit($noticia->title, 45) }}</a></h3>
+                                        <h3><a href="/noticias/{{$noticia->slug}}">{{ str_limit($noticia->title, 45) }}</a></h3>
                                     </div>
                                     <div class="definition">
                                         <p>{{ str_limit($noticia->subtitle, 50) }}</p>
                                     </div>
                                     <div class="read_more_news">
-                                        <p><a href="/noticias/{{$noticia->id}}">Ver más</a><span>{{ $noticia->created_at->isoFormat('MMMM YYYY', 'Do MMMM')  }}</span></p>
+                                        <p><a href="/noticias/{{$noticia->slug}}">Ver más</a><span>{{ $noticia->created_at->isoFormat('MMMM YYYY', 'Do MMMM')  }}</span></p>
                                     </div>
                                 </div>
                             </div>

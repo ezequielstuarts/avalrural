@@ -43,7 +43,7 @@
                         <th scope="col">balance</th>
                         <th scope="col">nomina</th>
                         <th scope="col">actividad</th>
-                        @if ( (Auth::user()->rol) === 1 )
+                        @if ( (Auth::user()->rollll) === 1 )
                             <th colspan="1">&nbsp;</th>
                         @endif
                     </tr>

@@ -9,9 +9,12 @@ i {
     color: crimson;
     cursor: pointer;
 }
-.fas {
+nav .fas {
     color: rgb(65, 65, 65);
     padding-right: 10px;
+}
+.fas {
+    color: rgb(65, 65, 65);
 }
 td.details-control {
     background: url('/img/details_open.png') no-repeat center center;
@@ -36,9 +39,24 @@ tr.shown td.details-control {
     background-color: rgba(153, 235, 128, 0.6);
     margin-top: 30px;
 }
-.card-admin:hover {
+.card-admin:hover, .boton-nueva-noticia a:hover {
     background-color: rgba(138, 218, 114, 0.6);
 }
 .card-admin h4 {
     font-weight: 600;
+}
+.boton-nueva-noticia a {
+    float: right;
+    padding: 13px 15px;
+    height: 40px;
+    line-height: 1;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    background-color: rgba(136, 255, 100, 0.6);
 }

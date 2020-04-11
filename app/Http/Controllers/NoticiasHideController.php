@@ -90,8 +90,6 @@ class NoticiasHideController extends Controller
         $img_preview = $noticia['img_preview'];
         $img_noticia = $noticia['img_noticia'];
 
-        
-
         Storage::delete('public/imagenes/img_noticias/'.$img_preview);
         Storage::delete('public/imagenes/img_noticias/'.$img_noticia);
         $noticia->delete();
@@ -113,6 +111,7 @@ class NoticiasHideController extends Controller
         $mostrar->date = $noticiaHide->date;
         $mostrar->img_preview = $noticiaHide->img_preview;
         $mostrar->img_noticia = $noticiaHide->img_noticia;
+        $mostrar->slug = $noticiaHide->slug;
         $mostrar->modified_by = (auth()->user()->name);
 
         $mostrar->save();

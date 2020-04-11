@@ -59,17 +59,27 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
                             </div>
                         </div>
-
-                        <!-- <div class="form-group row">
-                            <label for="rol" class="col-md-4 col-form-label text-md-right">Rol del usuario</label>
+                        @if ( (Auth::User()->rol === 1) )
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Rol de usuario</label>
                             <div class="col-md-6">
-                                
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1" name="admin">
-                                <label class="custom-control-label" for="customCheck1">Es Administrador</label>
-                                </div>
+                                <select class="custom-select" name="rol">
+                                    <?php 
+                                    $rol = ['I' => 'Invitado','A' => 'Administrador',];
+                                    ?>
+                                    @foreach ($rol as $tipo => $nombre)
+                                        @if ($user->rol === 1)
+                                            <option value=" {{$tipo}} " selected> {{$nombre}} </option>
+                                        @else
+                                            <option value=" {{$tipo}} "> {{$nombre}} </option>
+                                        @endif
+                                    @endforeach
+                                </select>
                             </div>
-                        </div> -->
+                        </div>
+                        @endif
+
+                        
 
                         <div class="container">
                             <div class="row">

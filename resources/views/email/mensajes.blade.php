@@ -40,7 +40,7 @@
                 <th scope="col">Localidad</th>
                 <th scope="col">Telefono</th>
                 <th scope="col">Email</th>
-                @if ( (Auth::user()->rol) === 1 )
+                @if ( (Auth::user()->rollll) === 1 )
                 <th colspan="1">&nbsp;</th>
                 @endif
             </tr>
@@ -59,7 +59,7 @@
                 <td>{{$mensaje->localidad}}</td>
                 <td>{{$mensaje->telefono}}</td>
                 <td>{{$mensaje->email}}</td>
-                @if ( (Auth::user()->rol) === 1 )
+                @if ( Auth::user()->rol )
                 <td>
                     <form action="{{route('admin.mensajes.destroy', $mensaje->id)}}" method="post">
                         {{csrf_field()}}

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
 use App\User;
+use App\Rol;
 
 
 class Usercontroller extends Controller
@@ -28,9 +29,9 @@ class Usercontroller extends Controller
     public function store(Request $request)
     {
         $reglas = [
-            "name" => "required | string | max:255",
-            "email" => "required | email | unique:users,email",
-            "password" => "required | string | min:8 | confirmed",
+            //"name" => "required | string | max:255",
+            //"email" => "required | email | unique:users,email",
+            //"password" => "required | string | min:8 | confirmed",
 
         ];
         $mensajes = [
@@ -41,12 +42,17 @@ class Usercontroller extends Controller
         $this->validate($request, $reglas, $mensajes);
 
         $user = new User();
-
+        
         $user->name = $request["name"];
         $user->email = $request["email"];
         $user->password =  Hash::make($request['password']);
 
-        $user->save();
+        if ($request->rol == 'A') {
+            $user->rol = 1;
+        }        
+        
+        $user->save();      
+
         return redirect('admin/users');
 
     }
@@ -56,7 +62,8 @@ class Usercontroller extends Controller
     {
         $date = Carbon::now();
         $usuario = User::find($id);
-        return view ("auth.edit_user", ['user' => $usuario, 'date' => $date]);
+        
+        return view ("auth.edit_user", ['user' => $usuario, 'date' => $date, 'rolusers' => '$rolusers']);
     }
 
 
@@ -75,16 +82,20 @@ class Usercontroller extends Controller
 
         $usuario = User::find($id);
         $diff = array_diff($request->toArray(), $usuario->toArray());
-
+        
+        
         if ($request->has('password')) {
             $password =  Hash::make($request['password']);
             $diff["password"] = $password;
         }
-        // if ( $request->admin ) {
-        //     $usuario->rol = true;
-        // }
-
-        $usuario->update([$diff, $usuario->rol]);
+        
+        if ($request->rol == 'A') {
+            $diff['rol'] = 1;
+        } else {
+            $diff['rol'] = 0;
+        }
+        
+        $usuario->update($diff);
         return redirect()->route('admin.users')->with('mensaje', 'Usuario: ' .$usuario->name. ' actualizado');
     }
 

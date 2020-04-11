@@ -21,9 +21,9 @@ class noticiasController extends Controller
         return view ("todasLasNoticias", ['noticias' => $noticias]);
     }
 
-    public function verNoticia($id)
+    public function verNoticia($slug)
     {
-            $noticia = Noticia::find($id);
+            $noticia = Noticia::where('slug', $slug)->first();
             return view ("noticia", ['noticia' => $noticia]);
     }
 
@@ -58,7 +58,7 @@ class noticiasController extends Controller
         ];
 
         $this->validate($request, $reglas, $mensajes);
-
+        
         $carpeta = 'img_noticias';
 
         $rutaPreview = $request->file("img_preview")->store('imagenes/'.$carpeta, 'public');
@@ -74,6 +74,7 @@ class noticiasController extends Controller
         $newNoticia->subtitle = $request["subtitle"];
         $newNoticia->content = $request["content"];
         $newNoticia->date = $request["date"];
+        $newNoticia->slug = str_slug($request["title"]);
 
         $newNoticia->created_at = Carbon::now();
 
@@ -82,16 +83,15 @@ class noticiasController extends Controller
         $newNoticia->modified_by = (auth()->user()->name);
 
 
-            // dd($newNoticia);
         $newNoticia->save();
         return redirect('/admin');
 
     }
 
-    public function edit($id)
+    public function edit($slug)
     {
         $date = Carbon::now();
-        $noticia = Noticia::find($id);
+        $noticia = Noticia::where('slug', $slug)->first();
         return view ("admin.edit", ['noticia' => $noticia, 'date' => $date]);
     }
 
@@ -115,7 +115,9 @@ class noticiasController extends Controller
             $diff = array_diff($request->toArray(), $noticia->toArray());
 
             if ($request->has('img_preview')) {
+
                 $basename_preview = basename($request->file("img_preview")->store('public/imagenes/img_noticias/'));
+
                 $img_preview = $noticia['img_preview'];
                 Storage::delete('public/imagenes/img_noticias/'.$img_preview);
                 $diff["img_preview"] = $basename_preview;
@@ -128,6 +130,7 @@ class noticiasController extends Controller
             }
 
             $noticia->modified_by = (auth()->user()->name);
+            $diff['slug'] = str_slug($request["title"]);
             $noticia->update($diff);
             return redirect()->route('admin')->with('mensaje', 'Noticia Actualizada');
 
@@ -146,6 +149,7 @@ class noticiasController extends Controller
         $hideNoticia->date = $noticia->date;
         $hideNoticia->img_preview = $noticia->img_preview;
         $hideNoticia->img_noticia = $noticia->img_noticia;
+        $hideNoticia->slug = $noticia->slug;
         $hideNoticia->modified_by = (auth()->user()->name);
 
         $hideNoticia->save();

@@ -22,7 +22,8 @@ class NoticiasSeeder extends Seeder
             'img_noticia' => '',
             'modified_by' => '',
             'created_at' => '2018-06-01 00:00:00',
-            'updated_at' => '2018-06-01 00:00:00'
+            'updated_at' => '2018-06-01 00:00:00',
+            'slug' => 'Nueva-alternativa-de-financiación-para-las-Pymes'
         ]);
         DB::table('noticias')->insert([
             'date' => '2018-06-01 00:00:00',
@@ -33,7 +34,8 @@ class NoticiasSeeder extends Seeder
             'img_noticia' => '',
             'modified_by' => '',
             'created_at' => '2018-06-01 00:00:00',
-            'updated_at' => '2018-06-01 00:00:00'
+            'updated_at' => '2018-06-01 00:00:00',
+            'slug' => 'Educación-financiera---Instructivos-MiPyME'
         ]);
         DB::table('noticias')->insert([
             'date' => '2018-06-01 00:00:00',
@@ -44,18 +46,20 @@ class NoticiasSeeder extends Seeder
             'img_noticia' => '',
             'modified_by' => '',
             'created_at' => '2018-06-01 00:00:00',
-            'updated_at' => '2018-06-01 00:00:00'
+            'updated_at' => '2018-06-01 00:00:00',
+            'slug' => 'Financiación-PyME-para-la-campaña-fina-2018-Aval'
         ]);
         DB::table('noticias')->insert([
             'date' => '2018-06-01 00:00:00',
-            'title' => 'Nueva Normativa 455/2018',
+            'title' => 'Nueva Normativa 455-2018',
             'subtitle' => 'Salió la Resolución 455/2018 derogando la Resolución 212/2013, e introduciendo cambios a la normativa aplicable a las SGRs.',
             'content' => '<p>Pueden leer la norma completa del siguiente link:</p><p><a href="https://www.boletinoficial.gob.ar/#!DetalleNorma/188981/20180727" target="_blank">https://www.boletinoficial.gob.ar/#!DetalleNorma/188981/20180727</a><br></p>',
             'img_preview' => '',
             'img_noticia' => '',
             'modified_by' => '',
             'created_at' => '2018-06-01 00:00:00',
-            'updated_at' => '2018-06-01 00:00:00'
+            'updated_at' => '2018-06-01 00:00:00',
+            'slug' => 'Nueva-Normativa-455-2018'
         ]);
         DB::table('noticias')->insert([
             'date' => '2019-05-01 00:00:00',
@@ -66,7 +70,8 @@ class NoticiasSeeder extends Seeder
             'img_noticia' => '',
             'modified_by' => '',
             'created_at' => '2019-05-01 00:00:00',
-            'updated_at' => '2019-05-01 00:00:00'
+            'updated_at' => '2019-05-01 00:00:00',
+            'slug' => 'Renovación-del-certificado-PYME'
         ]);
         DB::table('noticias')->insert([
             'date' => '2019-06-03 00:00:00',
@@ -77,7 +82,8 @@ class NoticiasSeeder extends Seeder
             'img_noticia' => '',
             'modified_by' => '',
             'created_at' => '2019-06-03 00:00:00',
-            'updated_at' => '2019-06-03 00:00:00'
+            'updated_at' => '2019-06-03 00:00:00',
+            'slug' => 'Las-pymes-se-financiaron-en-el-mercado-por-un-récord-histórico-durante-mayo' 
         ]);
         DB::table('noticias')->insert([
             'date' => '2019-12-02 00:00:00',
@@ -88,7 +94,8 @@ class NoticiasSeeder extends Seeder
             'img_noticia' => '',
             'modified_by' => '',
             'created_at' => '2019-12-02 00:00:00',
-            'updated_at' => '2019-12-02 00:00:00'
+            'updated_at' => '2019-12-02 00:00:00',
+            'slug' => 'Condiciones-Aval-Rural-Octubre-2019'
         ]);
         DB::table('noticias')->insert([
             'date' => '2019-12-02 00:00:00',
@@ -99,7 +106,8 @@ class NoticiasSeeder extends Seeder
             'img_noticia' => '',
             'modified_by' => '',
             'created_at' => '2019-12-02 00:00:00',
-            'updated_at' => '2019-12-02 00:00:00'
+            'updated_at' => '2019-12-02 00:00:00',
+            'slug' => 'Nuevos-Límites-PYME-Resolución-563-2019'
         ]);
 
     }

@@ -9,5 +9,5 @@ class NoticiaHide extends Model
     public $table = "noticias_hide";
     public $primarykey = "id";
     //public $timestamps = "";
-    protected $fillable = ['title', 'subtitle', 'content', 'date', 'img_preview', 'img_noticia', 'created_at', 'updated_at'. 'id', 'modified_by'];
+    protected $fillable = ['title', 'subtitle', 'content', 'date', 'img_preview', 'img_noticia', 'created_at', 'updated_at'. 'id', 'modified_by', 'slug'];
 }

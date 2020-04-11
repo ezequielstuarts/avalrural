@@ -1,6 +1,15 @@
 @extends('admin.layout')
 @section('admin')
 
+<div class="row ">
+    <div class="container">
+        <div class="boton-nueva-noticia">
+            <a class="" href="{{route('admin.noticias.nueva_noticia')}}">
+                Nueva Noticia
+            </a>
+        </div>
+    </div>
+</div>
 
 <div class="container">
     <div class="row">
@@ -63,7 +72,7 @@
                 <h4 class="card-title">USUARIO</h4>
                 <p class="card-text">Estás logueado como: {{  Auth::user()->name }}</p>
                 <p class="card-text">Tienes permisos de: 
-                    @if ( Auth::user()->rol )
+                    @if ( Auth::user()->rollll )
                         Administrador
                     @else
                         Invistado

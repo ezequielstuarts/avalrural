@@ -33,7 +33,6 @@
                 <th colspan="col">Titulo</th>
                 <th colspan="col">Imagen</th>
                 <th colspan="col">Acciones</th>
-                <th colspan="1"></th>
             </tr>
         </thead>
         @forelse ($noticias as $noticia)
@@ -49,21 +48,21 @@
                     @endif
                 </td>
                 
-
                 <td>
-                    <form action="{{url('admin/noticiasHide/visible', $noticia->id)}}" method="post">
-                        {{csrf_field()}}
-                        <input type="hidden" name="id" value="{{$noticia->id}}">
-                        <input class="btn btn-default" type="submit" value="Hacer visible">
-                    </form>
-                </td>
-                
-                <td>
-                    <form action="{{route('admin.noticiasHide.destroy', $noticia->id)}}" method="post">
-                        {{csrf_field()}}
-                        <input type="hidden" name="id" value="{{$noticia->id}}">
-                        <input class="btn btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
-                    </form>
+                    <div class="form-group btn-group">
+                        <form action="{{url('admin/noticiasHide/visible', $noticia->id)}}" method="post">
+                            {{csrf_field()}}
+                            <input type="hidden" name="id" value="{{$noticia->id}}">
+                            <input class="btn btn-secondary" type="submit" value="Hacer visible">
+                        </form>
+                    </div>
+                        <div class="form-group btn-group">
+                        <form action="{{route('admin.noticiasHide.destroy', $noticia->id)}}" method="post">
+                            {{csrf_field()}}
+                            <input type="hidden" name="id" value="{{$noticia->id}}">
+                            <input class="btn btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
+                        </form>
+                    </div>
                 </td>
             </tr>
         </tbody>

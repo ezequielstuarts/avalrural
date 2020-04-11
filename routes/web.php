@@ -26,7 +26,7 @@ Route::get('como_obtener', "pertenecerController@como_obtener")->name('como_obte
 
 Route::get('noticias', "noticiasController@index")->name('noticias');
 
-Route::get('noticias/{id}', "noticiasController@verNoticia")->name('ver.noticia.{id}');
+Route::get('noticias/{slug}', "noticiasController@verNoticia")->name('ver.noticia');
 
 Route::get('faq', "faqController@index")->name('faq');
 
@@ -66,7 +66,7 @@ Route::group(['middleware' => 'auth'], function ()
     
     Route::post('admin/noticiasHide/visible/{id}', "NoticiasHideController@visible");
 
-    Route::get('admin/noticias/edit/{id}', "NoticiasController@edit")->name('admin.noticias.edit');
+    Route::get('admin/noticias/edit/{slug}', "NoticiasController@edit")->name('admin.noticias.edit');
 
     Route::patch('admin/noticias/update/{id}', "NoticiasController@update")->name('admin.noticias.update');;
 

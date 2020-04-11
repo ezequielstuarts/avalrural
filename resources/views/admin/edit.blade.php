@@ -75,8 +75,8 @@
                 </div>
                 <div class="col-5">
                     @if (!empty($noticia->img_noticia))
-                        <img class="img-responsive" style="border:solid 1px; width:100%" src="/storage/imagenes/img_noticias/{{$noticia->img_preview}}" alt="">
-
+                    <a href="/storage/imagenes/img_noticias/{{$noticia->img_preview}}" target="blanc">
+                        <img class="img-responsive" style="border:solid 1px; width:150px ;float:right;" src="/storage/imagenes/img_noticias/{{$noticia->img_preview}}"></a>
                     @else
                         <img style="width:200px" src="/img/noimg.png" class="card-img-top">
                     @endif
@@ -95,7 +95,8 @@
                 </div>
                 <div class="col-5">
                     @if (!empty($noticia->img_noticia))
-                        <img class="img-responsive" style="border:solid 1px; width:100%" src="/storage/imagenes/img_noticias/{{$noticia->img_noticia}}" alt="">
+                    <a href="/storage/imagenes/img_noticias/{{$noticia->img_noticia}}" target="blanc">
+                        <img class="img-responsive" style="border:solid 1px; width:150px ;float:right;" src="/storage/imagenes/img_noticias/{{$noticia->img_noticia}}"></a>
 
                     @else
                         <img style="width:200px" src="/img/noimg.png" class="card-img-top">
