@@ -22,7 +22,7 @@
 </div>
 
 <div class="container text-right mb-4">
-    <a href="{{ route('panel')}}">
+    <a href="{{ route('admin')}}">
         <button class="btn btn-outline-secondary">Volver</button>
     </a>
 </div>

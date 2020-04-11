@@ -73,7 +73,7 @@
         </div>
         </form>
         <div class="container text-right mb-5">
-            <a href="{{ route('admin')}}">
+            <a href="{{ route('admin.noticias')}}">
                 <button class="btn btn-outline-danger">Cancelar</button>
             </a>
         </div>

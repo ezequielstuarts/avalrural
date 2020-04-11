@@ -1,7 +1,7 @@
 <div style="background-color: #EDEDED;">
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="{{ url('panel') }}">
+        <a class="navbar-brand" href="{{ url('admin') }}">
             <img src="{{ URL::asset('img/logo/buildify_mini.png') }} ">
             {{ config('', 'Panel de Administracion') }}
         </a>
@@ -12,8 +12,8 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" >
           <ul class="navbar-nav mr-auto" >
 
-            <li class="nav-item {{ Request::is( 'admin') ? 'activado' : '' }}">
-              <a class="nav-link" href="{{ URL::to('admin') }}"><i class="fas fa-newspaper"></i>Listado de noticias</a>
+            <li class="nav-item {{ Request::is( 'admin/noticias') ? 'activado' : '' }}">
+              <a class="nav-link" href="{{ URL::to('admin/noticias') }}"><i class="fas fa-newspaper"></i>Listado de noticias</a>
             </li>
 
             <li class="nav-item {{ Request::is( 'admin/mensajes') ? 'activado' : '' }}">

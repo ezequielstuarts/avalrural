@@ -29,9 +29,9 @@ class Usercontroller extends Controller
     public function store(Request $request)
     {
         $reglas = [
-            //"name" => "required | string | max:255",
-            //"email" => "required | email | unique:users,email",
-            //"password" => "required | string | min:8 | confirmed",
+            "name" => "required | string | max:255",
+            "email" => "required | email | unique:users,email",
+            "password" => "required | string | min:8 | confirmed",
 
         ];
         $mensajes = [
@@ -84,10 +84,12 @@ class Usercontroller extends Controller
         $diff = array_diff($request->toArray(), $usuario->toArray());
         
         
-        if ($request->has('password')) {
+        if ($request['password']) {
             $password =  Hash::make($request['password']);
             $diff["password"] = $password;
         }
+
+        
         
         if ($request->rol == 'A') {
             $diff['rol'] = 1;
@@ -96,7 +98,7 @@ class Usercontroller extends Controller
         }
         
         $usuario->update($diff);
-        return redirect()->route('admin.users')->with('mensaje', 'Usuario: ' .$usuario->name. ' actualizado');
+        return redirect()->route('admin.users')->with('mensaje', 'Usuario: ' .$usuario->name. ' actualizado.');
     }
 
     /**
