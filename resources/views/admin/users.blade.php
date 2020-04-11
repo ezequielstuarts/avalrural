@@ -2,17 +2,21 @@
 @section('admin')
 
 <div class="container">
-    <h5 class="text-secondary">Gestión de usuarios</h5>
-</div>
-
-
-@if (Auth::user()->rol)
-    <div class="container mt-3 mb-5">
-        <a  href="{{route('admin.users.nuevo_usuario')}}">
-            <button class="btn btn-info">Nuevo Usuario</button>
-        </a>
+    <div class="row mb-5">
+        <div class="col-md-8">
+            <h5 class="text-secondary">Gestión de usuarios</h5>
+        </div>
+        @if (Auth::user()->rol)
+            <div class="col-md-4">
+                <div class="boton-nueva-noticia">
+                    <a class="" href="{{route('admin.users.nuevo_usuario')}}">
+                        Agregar Usuario
+                    </a>
+                </div>
+            </div>
+        @endif
     </div>
-@endif
+</div>
 
 <div class="container">
     @if (session('mensaje'))
