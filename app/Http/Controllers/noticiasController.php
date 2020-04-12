@@ -27,13 +27,11 @@ class noticiasController extends Controller
             return view ("noticia", ['noticia' => $noticia]);
     }
 
-
-
     public function tablaDeNoticias()
     {
         $totalNoticias = count(Noticia::get());
 
-        $noticias = Noticia::orderBy('date', 'DESC')->get();
+        $noticias = Noticia::orderBy('date', 'DESC')->where('status', 'PUBLISHED')->get();
         return view ("admin.listadoNoticias", ['noticias' => $noticias, 'totalNoticias' => $totalNoticias]);
     }
 
@@ -69,22 +67,17 @@ class noticiasController extends Controller
         $nombreImagen = basename($rutaImg);
 
         $newNoticia = new Noticia();
-
         $newNoticia->title = $request["title"];
         $newNoticia->subtitle = $request["subtitle"];
         $newNoticia->content = $request["content"];
         $newNoticia->date = $request["date"];
         $newNoticia->slug = str_slug($request["title"]);
-
         $newNoticia->created_at = Carbon::now();
-
         $newNoticia->img_preview = $nombrePreview;
         $newNoticia->img_noticia = $nombreImagen;
         $newNoticia->modified_by = (auth()->user()->name);
-
-
         $newNoticia->save();
-        return redirect('/admin');
+        return redirect('admin.noticias');
 
     }
 
@@ -99,10 +92,6 @@ class noticiasController extends Controller
     {
             $reglas = [
                 "title" => "required|string",
-                // "subtitle" => "required|string",
-                //"img_preview" => "required|file",
-                //"img_noticia" => "required|file",
-                //"favorite_movie_id" => "required"
             ];
             $mensajes = [
                 "string" => "El campo :attribute debe ser un nombre.",
@@ -132,29 +121,17 @@ class noticiasController extends Controller
             $noticia->modified_by = (auth()->user()->name);
             $diff['slug'] = str_slug($request["title"]);
             $noticia->update($diff);
-            return redirect()->route('admin')->with('mensaje', 'Noticia Actualizada');
+            return redirect()->route('admin.noticias')->with('mensaje', 'Noticia Actualizada');
 
     }
 
     public function hide(Request $request, $id)
     {
-
         $noticia = Noticia::find($id);
-
-        $hideNoticia = new NoticiaHide();
-
-        $hideNoticia->title = $noticia->title;
-        $hideNoticia->subtitle = $noticia->subtitle;
-        $hideNoticia->content = $noticia->content;
-        $hideNoticia->date = $noticia->date;
-        $hideNoticia->img_preview = $noticia->img_preview;
-        $hideNoticia->img_noticia = $noticia->img_noticia;
-        $hideNoticia->slug = $noticia->slug;
-        $hideNoticia->modified_by = (auth()->user()->name);
-
-        $hideNoticia->save();
-        $noticia->delete();
-
-        return redirect()->route('admin')->with('mensaje', 'Se ocuto la noticia');
+        $noticia->status = 'DRAFT';
+        $noticia->modified_by = (auth()->user()->name);
+        $noticia->save();
+        return redirect()->route('admin.noticias')->with('mensaje', 'Se ocuto la noticia');
     }
+
 }

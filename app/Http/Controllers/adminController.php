@@ -19,9 +19,9 @@ class adminController extends Controller
     public function index () 
     {
         $noticias = Noticia::all();
-        $totalNoticiasVisibles = count(Noticia::get());
-
-        $totalNoticiasOcultas = count(NoticiaHide::get());
+        $totalNoticiasVisibles = count(Noticia::orderBy('id', 'ASC')->where('status', 'PUBLISHED')->get());
+        
+        $totalNoticiasOcultas = count(Noticia::orderBy('id', 'ASC')->where('status', 'DRAFT')->get());
         
         $mensajes = Mensaje::All();
         $totalMensajes = count(Mensaje::get());

@@ -9,7 +9,7 @@
         </div>
 
         <div class="col-md-1">
-            <a class="float-right" href="{{route('admin')}}" title="Ver noticias visibles">
+            <a class="float-right" href="{{route('admin.noticias')}}" title="Ver noticias visibles">
             <i class="fas fa-eye"></i></a>
         </div>
 

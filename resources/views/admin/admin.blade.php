@@ -24,7 +24,7 @@
                     <h5 class="text-secondary">No hay noticias visibles.</h5>
                 @endif
 
-                @if ( $totalNoticiasOcultas <= 1)
+                @if ( $totalNoticiasOcultas < 1)
                     <h5 class="text-secondary">No hay noticias ocultas.</h5>
                 @else 
                     <h5 class="card-text">{{$totalNoticiasOcultas}} Noticias Ocultas.</h5>

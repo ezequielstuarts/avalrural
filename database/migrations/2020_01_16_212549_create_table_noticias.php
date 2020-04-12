@@ -24,6 +24,7 @@ class CreateTableNoticias extends Migration
             $table->char('img_preview', 255);
             $table->char('img_noticia', 255);
             $table->string('slug', 255)->unique();
+            $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('PUBLISHED');
         });
     }
 
