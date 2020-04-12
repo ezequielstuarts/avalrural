@@ -17,7 +17,7 @@ class noticiasController extends Controller
 
     public function index()
     {
-        $noticias = Noticia::orderBy('date', 'DESC')->paginate(4);
+        $noticias = Noticia::orderBy('date', 'DESC')->where('status', 'PUBLISHED')->paginate(4);
         return view ("todasLasNoticias", ['noticias' => $noticias]);
     }
 

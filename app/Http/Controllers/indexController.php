@@ -10,7 +10,7 @@ class indexController extends Controller
 
     public function index()
     {
-        $noticias = Noticia::orderBy('id', 'DESC')->take(3)->get();
+        $noticias = Noticia::orderBy('id', 'DESC')->where('status', 'PUBLISHED')->take(3)->get();
         return view ("index", ['noticias' => $noticias]);
     }
 
