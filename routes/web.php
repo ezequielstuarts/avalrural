@@ -1,9 +1,6 @@
 <?php
 
-// Route::get('/', function () {
-//     return view('home');
-// });
-
+Route::redirect('/', 'index');
 Route::get('', "indexController@index")->name('index');
 
 Route::get('sobre_aval', "sobreavalController@index")->name('quienes_somos');

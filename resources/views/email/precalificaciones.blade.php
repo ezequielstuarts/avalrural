@@ -1,7 +1,7 @@
 @extends('admin.layout')
 @section('admin')
         
-        <div class="container mt-5">
+        <div class="container">
             <h5 class="text-secondary">Mensajes recibidos desde formulario de precalifiaciones.</h5>
         </div>
 

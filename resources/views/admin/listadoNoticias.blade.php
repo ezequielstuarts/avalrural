@@ -1,7 +1,7 @@
 @extends('admin.layout')
 @section('admin')
 
-<div class="container mt-3 mb-5">
+<div class="container mb-5">
     <div class="row">
 
         <div class="col-md-9 ">

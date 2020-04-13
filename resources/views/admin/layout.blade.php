@@ -26,7 +26,7 @@
 </head>
 <body>
    @include('admin.nav-bar')
-   <div class="mt-5">
+   <div style="padding-top:100px;">
         @yield('admin')
    </div>
 
