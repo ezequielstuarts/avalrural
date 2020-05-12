@@ -36,6 +36,5 @@
     <script src="js/summernote.js"></script>
     {{-- <script src="js/envio-form.js"></script> --}}
     {{-- <script>$(document).ready(function() {$('#summernote').summernote();});</script> --}}
-
 </body>
 </html>

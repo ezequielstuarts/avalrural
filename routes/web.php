@@ -3,34 +3,25 @@
 Route::redirect('/', 'index');
 Route::get('', "indexController@index")->name('index');
 
-Route::get('sobre_aval', "sobreavalController@index")->name('quienes_somos');
+Route::get('sobre_aval', function () {return view ("quienes_somos");});
+Route::get('productos', function () {return view ("productos/cheques");});
+Route::get('cheques', function () {return view ("productos/cheques");});
+Route::get('pagares', function () {return view ("productos/pagares");});
+Route::get('bancos', function () {return view ("productos/bancos");});
+Route::get('obligaciones', function () {return view ("productos/obligaciones");});
+Route::get('fideicomisos', function () {return view ("productos/fideicomisos");});
+Route::get('garantias', function () {return view ("productos/garantias");});
+Route::get('que-es-una-sgr', function () {return view ("que-es");});
+Route::get('faq', function () {return view ("faq");});
+Route::get('pertenecer', function () {return view ("pertenecer/pertenecer");});
+Route::get('requisitos', function () {return view ("pertenecer/requisitos");});
+Route::get('como-obtener', function () {return view ("pertenecer/como-obtener");});
 
-Route::get('productos', "productosController@cheques")->name('cheques');
-Route::get('cheques', "productosController@cheques")->name('cheques');
-Route::get('pagares', "productosController@pagares")->name('pagares');
-Route::get('bancos', "productosController@bancos")->name('bancos');
-Route::get('obligaciones', "productosController@obligaciones")->name('obligaciones');
-Route::get('fideicomisos', "productosController@fideicomisos")->name('fideicomisos');
-Route::get('garantias', "productosController@garantias")->name('garantias');
-
-
-Route::get('que_es_una_sgr', "queesController@index")->name('que_es_una_sgr');
-
-
-Route::get('pertenecer', "pertenecerController@requisitos")->name('pertenecer');
-Route::get('requisitos', "pertenecerController@requisitos")->name('requisitos');
-Route::get('como_obtener', "pertenecerController@como_obtener")->name('como_obtener');
 
 Route::get('noticias', "noticiasController@index")->name('noticias');
-
 Route::get('noticias/{slug}', "noticiasController@verNoticia")->name('ver.noticia');
-
-Route::get('faq', "faqController@index")->name('faq');
-
 Route::get('contacto', "contactoController@index")->name('contacto');
-
 Route::post('enviar_contacto', "contactoController@enviar_contacto")->name('enviar_contacto');
-
 Route::post('precalificacion', "contactoController@precalificacion")->name('precalificacion');
 
 
@@ -94,9 +85,7 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('admin/users/edit_user/{id}', 'UserController@edit')->name('admin.users.edit_user');
 
     Route::patch('admin/users/edit_user/{id}', "UserController@update")->name('admin.users.edit_user');
-    //ok
-    // Route::post('register', 'Auth\RegisterController@register');
-    // Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+    
 });
 
 //Route::get('/home', 'homeController@auth')->name('home'); esto esra antes

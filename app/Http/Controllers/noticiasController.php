@@ -131,7 +131,7 @@ class noticiasController extends Controller
         $noticia->status = 'DRAFT';
         $noticia->modified_by = (auth()->user()->name);
         $noticia->save();
-        return redirect()->route('admin.noticias')->with('mensaje', 'Se ocuto la noticia');
+        return redirect()->route('admin.noticias')->with('mensaje','Hemos ocultado la noticia.');
     }
 
 }
