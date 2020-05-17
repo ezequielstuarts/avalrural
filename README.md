@@ -4,5 +4,5 @@
 ## About Laravel
 
 Pasaje de sitio web html a laravel, con implementacion de backofice.
-https://avalrural.com.ar
+http://avalrural.com.ar
 
