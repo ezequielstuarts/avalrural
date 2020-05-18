@@ -1,0 +1,241 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+@font-face {
+    font-family: 'FreeFont';
+    src: url('http://mobile.free.fr/common/font/helvetica_neue/light/LT-Std-light.eot');
+    src: url('http://mobile.free.fr/common/font/helvetica_neue/light/LT-Std-light.eot?#iefix') format('embedded-opentype'),
+         url('http://mobile.free.fr/common/font/helvetica_neue/light/LT-Std-light.woff') format('woff'),
+         url('http://mobile.free.fr/common/font/helvetica_neue/light/LT-Std-light.ttf') format('truetype'),
+         url('http://mobile.free.fr/common/font/helvetica_neue/light/LT-Std-light.svg#helvetica_neue_lt_std45_light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FreeFont';
+    src: url('http://mobile.free.fr/common/font/helvetica_neue/bold/LT-Std-bold.eot');
+    src: url('http://mobile.free.fr/common/font/helvetica_neue/bold/LT-Std-bold.eot?#iefix') format('embedded-opentype'),
+         url('http://mobile.free.fr/common/font/helvetica_neue/bold/LT-Std-bold.woff') format('woff'),
+         url('http://mobile.free.fr/common/font/helvetica_neue/bold/LT-Std-bold.ttf') format('truetype'),
+         url('http://mobile.free.fr/common/font/helvetica_neue/bold/LT-Std-bold.svg#helvetica_neue_lt_std75_bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+
+
+
+h3 {font-family:"FreeFont";}
+a { text-decoration: none; color:#444; }
+.hide{display:none;}
+.inline {display:inline-block; vertical-align:top;/float:left;}
+.right {float:right;}
+.left {float:left;}
+.red{color:#c00;}
+.grey{color:#444;}
+.center{text-align:center;}
+.maj{text-transform:uppercase;}
+.bold{font-weight:bold;}
+.underline {text-decoration:underline;}
+.lienHover {text-decoration:underline; color:#c00;}
+.font12 { font-size:12px;}
+
+body{ background-color:#fff; font-family:Arial, Helvetica, sans-serif; margin:0; color:#444;}
+#page{background-color:#f3f3f3; }
+
+#header {  margin-left:auto; margin-right:auto; background-color:white; height:60px; margin:0px auto; padding-top:5px; display:block;  }
+#header a { text-decoration: none;}
+#conteneur { /margin-top:-3px; width:990px; margin-left:auto; margin-right:auto; height:auto; background-image:url(http://mobile.free.fr/images/home/nov_2013/fond.png); background-repeat:no-repeat; background-position:center top 5%;}
+#contenuFree { margin-top:20px; display:inline-block; width:990px; vertical-align:top;/float:left;}
+#contenuFreeNew { width:320px; margin-top:20px; margin-bottom:10px; display:inline-block; vertical-align:top;/float:left;}
+
+/* --- DEBUT HEADER --- */
+
+#header img.logoFree 	{ width:129px; height:49px; }
+#header #menu 			{ color:#333; list-style:none; text-decoration:none; display:inline-block; vertical-align:top;	/float: left;	/width: 850px;	/margin-top: -50px;	/margin-left: 100px;	}
+
+#header #menu > ul 		{ color:#333; margin-top:15px; padding-left:20px; }
+#header #menu > ul li 	{ display:inline; padding:0px 15px; }
+#header #menu > ul li a { color:#333; font-size:16px; text-decoration:none; text-transform:uppercase; }
+#header #menu > ul li a:hover, #header #menu > ul li a:focus, #header #menu > ul li a.actif	{ color:#B40101; }
+.logo { display:inline-block; vertical-align:top;/float:left;}
+
+.abonneFreebox{background-color:#f1f1f1; padding:1px; width:200px; margin-left:auto; margin-right:auto; text-align:center;  }
+.titreFreebox  {font-family:"FreeFont"; font-size:15px; font-weight:bold;}
+.titreNoFreebox  {font-family:"FreeFont"; font-size:14px; font-weight:bold;}
+.titreForfait  {font-family:"FreeFont"; font-size:80px; }
+.prixMensuelCents {margin-top:35px; display:inline-block; vertical-align:top;/float:left;}
+.prixMensuelCents p {display:inline-block; vertical-align:top; /float:left; font-size:16px;}
+
+.prixMensuel { display:inline-block; vertical-align:top; /float:left;  }
+.prixMensuel p { display:inline-block; vertical-align:top;/float:left; /margin-top:20px; /margin-left:200px;}
+.prixMensuelCentsFreebox { display:inline-block; vertical-align:top;}
+.prixMensuelFreebox { display:inline-block; vertical-align:top;}
+a.btnInscription { background-color:#c00; color:white; border:1px solid #c00; border-radius: 8px; padding:10px 25px 10px 25px; font-size:16px; }
+a:hover.btnInscription { background-color:#f5f5f5; border:1px solid #e8e8e8; color:#444; border-radius: 8px; padding:10px 25px 10px 25px; font-size:16px; }
+
+
+
+a.btnFicheProduit { background-color:#f5f5f5; border:1px solid #e8e8e8; color:#444; border-radius: 4px; padding:3px 10px 3px 10px; font-size:12px; font-weight:bold; }
+a:hover.btnFicheProduit { background-color:#c00; border:1px solid #c00; color:#fff; border-radius: 4px; padding:3px 10px 3px 10px; font-size:12px; }
+.detailForfait{ text-decoration:underline;  text-align:center; margin: 30px 0 10px 0;}
+.detailForfait a{color:#444; font-size:14px;}
+
+
+
+#blocsAssistance ul li a:hover{text-decoration:underline; color:#c00;}
+
+
+.ombreHeader{
+	  -moz-box-shadow: 0px 2px 2px 2px #aaa inset;
+	  -webkit-box-shadow: 0px 2px 2px 2px #aaa inset;
+	  box-shadow: 0px 2px 2px #e1e1e1 inset;
+  }
+
+.ombrage {
+  -moz-box-shadow: 2px 2px 2px 2px #aaa;
+  -webkit-box-shadow: 2px 2px 2px 2px #aaa;
+  box-shadow: 2px 2px 2px #e1e1e1;
+}
+
+.degrade {
+background-image:linear-gradient(to left, white, #f1f1f1, white);
+}
+.nonFreebox{padding:5px; width:400px; margin-left:auto; margin-right:auto; text-align:center; height:50px;}
+
+<!--[if lte IE 8]-->
+  .ombrage {filter:progid:DXImageTransform.Microsoft.Shadow(color='#aaaaaa', Direction=135, Strength=12); zoom: 1;}
+<!--[endif]-->
+
+/*--SLIDER--*/
+
+#banner-fade, #banner-slide{margin-bottom: 60px;}
+ul.bjqs-controls.v-centered li a{display:block; padding:20px; color:#c00; text-decoration: none; font-weight:bold; font-size:30px; /float:left; /display:inline;}
+ul.bjqs-controls.v-centered li a:hover{color:#ccc;}
+ol.bjqs-markers li a{color:#fff; margin:2px; text-decoration: none; font-size:13px; font-weight:bold; width:15px; height:15px; text-align:center;border:1px solid #e8e8e8; background-color:#f5f5f5 ;color:#958989;
+}
+ol.bjqs-markers li.active-marker a,
+ol.bjqs-markers li a:hover{background: #c00; color:white;}
+p.bjqs-caption{background: rgba(255,255,255,0.5);}
+ul.bjqs{position:relative; list-style:none;padding:0;margin:0;overflow:hidden; display:none;}
+li.bjqs-slide{position:absolute; display:none;}
+ul.bjqs-controls{list-style:none;margin:0;padding:0;z-index:9999;}
+ul.bjqs-controls.v-centered li a{position:absolute;}
+ul.bjqs-controls.v-centered li.bjqs-next a{right:0;}
+ul.bjqs-controls.v-centered li.bjqs-prev a{left:0;}
+ol.bjqs-markers{list-style: none; padding: 0; margin: 0; margin-top:0px; width:100%;}
+ol.bjqs-markers.h-centered{text-align: center;}
+ol.bjqs-markers li{display:inline;}
+ol.bjqs-markers li a{display:inline-block;}
+p.bjqs-caption{display:block;width:96%;margin:0;padding:2%;position:absolute;bottom:0;}
+
+.imgLoc {width:200px; height:160px; margin-left:55px; margin-top:10px;}
+
+#contenuFooter, #contenuHeader { width:990px; margin-left:auto; margin-right:auto;}
+
+
+#forfait2euros {display:inline-block; vertical-align:top;  margin-right:10px;background-color:white;/float:left;
+width:485px; height:400px; background-image:url(http://mobile.free.fr/images/home/nov_2013/corner4G.png); background-repeat:no-repeat; background-position:right top;/height:400px; }
+
+#forfaitFree {background-image:url(http://mobile.free.fr/images/home/juillet_2014/corner4G_SMS.png); background-repeat:no-repeat; background-position:right top;width:485px;height:400px; /height:400px; margin-right:0px; margin-left:4px; height:400px;display:inline-block; vertical-align:top; background-color:white;/float:left;}
+
+.forfaitDescription {font-size:16px; height:90px; margin-bottom:20px;}
+
+.content_blocsAssistance {width:450px;}
+
+.titre_blocsAssistance {margin-top:15px;width:485px; margin-left:15px;}
+.titre_blocsAssistance p {padding:10px; padding-bottom:20px; margin-top:-5px;/float:left;}
+
+
+
+.blocsAssistance { background-image:url(http://mobile.free.fr/images/home/dec_2013/fond_femme.png); background-position:left 5% center; background-repeat:no-repeat;width:485px; background-color:white; margin-right:10px; height:205px; margin-top:-10px; margin-bottom:20px; }
+.blocsAssistance ul li { font-size:13px; list-style-image:url(http://mobile.free.fr/common/images/listDecoration.png);}
+.blocsAssistance ul { width:320px; line-height:18px; margin-left:120px;/float:left; /margin-top:20px;/margin-left:140px; padding-top:5px;}
+.blocsAssistance div  {height:50px; border-bottom:1px solid #efefef;}
+.blocsAssistance p {  height:auto; vertical-align:middle;display:inline-block;}
+
+.blocsAssistance .titreActualite{width:460px;margin-top:5px; border-bottom:none;}
+
+.titreActualite p {margin-left:15px;}
+
+
+
+#vignettes {height: auto;margin-left: auto;margin-right: auto;margin-top: 0px;width: 990px; margin-bottom:20px}
+.vignette {display:inline-block; vertical-align:top; width:320px; margin-right:5px;background-color:white; margin-top:10px; /float:left;}
+#menu { font-size:16px; }
+#menu ul#menu_horizontal li a.menuActif {border-bottom: solid 3px #c00;}
+
+
+#blocLocation {width:620px;height:320px; margin-top:30px;}
+#locationMobile {width:650px;height:280px; margin-left:10px;background-image:url(http://mobile.free.fr/images/home/dec_2013/backgroundLoc.png); background-repeat:no-repeat; background-position: left center; /background-position: center; /background-image:url(http://mobile.free.fr/images/home/dec_2013/backgroundLoc_ie7.png);}
+#locationMobile ul li{list-style:none;}
+
+.conserverNum{ background-image:url(http://mobile.free.fr/images/home/nov_2013/conserverNum.jpg); background-repeat:no-repeat; width:620px;}
+
+/*--CONTACT--*/
+
+#contenuContact ul.texteContact{ width:500px; float:right;  margin-right:50px; text-align:justify; list-style:url(http://mobile.free.fr/common/images/listDecoration.png);}
+#contenuContact ul.texteContact li{ padding-top:10px; font-size:13px;}
+
+.titre { font-family:"FreeFont"; font-size:25px; /font-size:20px; /margin-bottom:20px;}
+
+#contenuContact{ width:990px; margin-top:20px; display:inline-block; vertical-align:top; background-color:white;background-image:url(http://mobile.free.fr/images/home/nov_2013/contact.jpg); background-position:bottom left; background-repeat:no-repeat;  height:450px; padding:0; margin-bottom:20px;/float:left;}
+
+
+/*--ENFANCE--*/
+#contenuEnfance{ width:990px; margin-top:20px; display:inline-block; vertical-align:top; background-color:white;background-image:url(http://mobile.free.fr/images/annexes/backgroundProtectEnfance.jpg); background-position:bottom left; background-repeat:no-repeat;  min-height:450px; padding:0; margin-bottom:20px;/float:left;}
+
+#box1 , #box2, #box3, #box4 {background-color:white; opacity:0.8; width:600px; float:right; text-align:justify; margin-right:50px; font-size:13px; padding:10px; margin-bottom:20px;}
+
+.champsTexte {}
+.menuProtectEnfance { width:300px; margin-left:600px; margin-top:80px;  font-size:13px; list-style-image:url(http://mobile.free.fr/common/images/listDecoration.png);  }
+.selected { font-weight:bold; color:#c00;}
+
+/*--FICHES INFOS--*/
+
+.important {border:1px solid #c00; background-color:#f8f8f8; padding:5px;}
+
+/* ---------------- FOOTER --------------- */
+#footer { margin-left:auto; margin-right:auto; background-color:white;}
+#footer .mentions {display: none;width: 990px;margin: 0 auto 0 auto;padding: 20px 0 40px 0;text-align: justify;font-size: 10px;color: #666666;}
+#footer .menu {display: inline-block;vertical-align: top;font-size: 10px; width:250px;/float:left;/margin-top:5px;
+font-family: Arial, Helvetica, sans-serif;text-decoration: none;}
+#footer .menu a {font-size: 12px;color: #666666;}
+#footer .menu a:hover {font-size: 12px;color: #C00000;}
+#footer .menu ul {color: #CCCCCC;list-style: url(http://mobile.free.fr/common/images/listDecoration.png);margin-left: -10px;}
+#footer .menu h5 {font-size: 10px;color: #000000;margin-left: 20px;}
+
+/*Parcours souscription - Choix SIM&Mobile*/
+
+.choixMobile{  display:inline-block; vertical-align:top; width:320px;  margin-right:10px;background-color:white;/float:left; margin-bottom:50px; margin-top:50px;}
+
+
+/*Page dediee Nokia*/
+
+.headline { padding:10px;color:#124191; border-bottom: 2px solid #124191; font-size:24px; font-weight: 800; line-height: 1.1em; margin: 0 0 0.5em;padding-bottom: 0.5em;}
+
+.nokia_block { background-color:white;box-shadow: 0 2px 2px #e1e1e1; margin-top:20px; width:1000px;}
+.img_block {display:inline-block; vertical-align:top; /float:left;} 
+
+.nokia_block  .headline {font-size:24px;width:370px; text-align:center; padding-top:30px; margin:20px 20px 0px 20px;}
+.nokia_block p { width:370px; display:inline-block; vertical-align:top; /float:left; text-align:center; padding:10px; margin:20px; font-size:14px; color:#666;}
+.content_block {width:400px; display:inline-block; vertical-align:top; margin-top:50px; /float:left;}
+
+.archos_block { background-color:white;box-shadow: 0 2px 2px #e1e1e1; margin-top:20px; width:1000px;}
+.archos_block h4 {color:#444; font-size:24px;width:370px; text-align:center; padding-top:30px; margin:20px 20px 0px 20px;border-bottom:none;}
+.archos_block p { width:370px; display:inline-block; vertical-align:top; /float:left; text-align:center; padding:10px; margin:20px; font-size:16px; color:#666;}
+
+
+
+
+/* User agent stylesheet Chrome*/
+
+p{
+-webkit-margin-before: none;
+-webkit-margin-after: 0;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;}

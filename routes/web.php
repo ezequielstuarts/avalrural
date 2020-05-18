@@ -15,7 +15,6 @@ Route::get('que-es-una-sgr', function () {return view ("que-es");});
 Route::get('faq', function () {return view ("faq");});
 Route::get('pertenecer', function () {return view ("pertenecer/pertenecer");});
 Route::get('requisitos', function () {return view ("pertenecer/requisitos");});
-Route::get('como-obtener', function () {return view ("pertenecer/como-obtener");});
 
 
 Route::get('noticias', "noticiasController@index")->name('noticias');
