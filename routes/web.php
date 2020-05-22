@@ -17,8 +17,8 @@ Route::get('pertenecer', function () {return view ("pertenecer/pertenecer");});
 Route::get('requisitos', function () {return view ("pertenecer/requisitos");});
 
 
-Route::get('noticias', "noticiasController@index")->name('noticias');
-Route::get('noticias/{slug}', "noticiasController@verNoticia")->name('ver.noticia');
+Route::get('noticias', "NoticiasController@index")->name('noticias');
+Route::get('noticias/{slug}', "NoticiasController@verNoticia")->name('ver.noticia');
 Route::get('contacto', "contactoController@index")->name('contacto');
 Route::post('enviar_contacto', "contactoController@enviar_contacto")->name('enviar_contacto');
 Route::post('precalificacion', "contactoController@precalificacion")->name('precalificacion');
