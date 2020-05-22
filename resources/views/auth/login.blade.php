@@ -6,6 +6,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Sistema de gestión de Aval Rural</div>
+                <div class="container mt-3">
+                    <p class="alert alert-info text-center">Si es invitado y quiere ver el sistema puede ingresar con el usuario <br>"<b>invitado@invitado.com</b>" y contraseña "<b>invitado</b>"</p>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

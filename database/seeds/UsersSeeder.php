@@ -33,5 +33,11 @@ class UsersSeeder extends Seeder
             'password' => $hashed,
             'rol' => 0,
         ]);
+        DB::table('users')->insert([
+            'name' => 'Invitado',
+            'email' => 'invitado@invitado.com',
+            'password' => Hash::make('invitado'),
+            'rol' => 0,
+        ]);
     }
 }
