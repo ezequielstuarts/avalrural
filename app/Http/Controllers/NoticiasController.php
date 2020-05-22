@@ -77,7 +77,7 @@ class NoticiasController extends Controller
         $newNoticia->img_noticia = $nombreImagen;
         $newNoticia->modified_by = (auth()->user()->name);
         $newNoticia->save();
-        return redirect('admin.noticias');
+        return redirect()->route('admin.noticias');
 
     }
 
