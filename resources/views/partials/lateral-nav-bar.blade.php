@@ -33,15 +33,15 @@
                                         </ul>
                                 </div>
                             </li>
-                            <li><a href="que_es_una_sgr">¿Qué es una SGR?</a></li>
-                            <li class="active1">
-                                <a href="requisitos">Pertenecer</a>
-                                <div class="inside_menu">
+                            <li><a href="que-es-una-sgr">¿Qué es una SGR?</a></li>
+                            <li>
+                                <a href="requisitos">Obtener un aval</a>
+                                {{-- <div class="inside_menu">
                                         <ul>
                                             <li><a href="requisitos">Requisitos para asociarse</a>	</li>
-                                            <li><a href="como_obtener">¿Cómo obtener un aval?</a></li>
+                                            <li><a href="como-obtener">¿Cómo obtener un aval?</a></li>
                                         </ul>
-                                    </div>
+                                    </div> --}}
                             </li>
                             <li><a href="faq">Preguntas frecuentes</a></li>
                             <li><a href="contacto">Contacto</a></li>

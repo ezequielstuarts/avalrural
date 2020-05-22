@@ -2238,6 +2238,9 @@ strong{color: #777;}
 /*------------------------------------------------------------------*/ 
 /*	09) BUILDIFY BLOG
 /*------------------------------------------------------------------*/
+.txt_noticias {
+	font-family: 'Quicksand', sans-serif;
+}
 .txt_noticias p{
 	margin-bottom: 10px;
 	margin-top: 10px;

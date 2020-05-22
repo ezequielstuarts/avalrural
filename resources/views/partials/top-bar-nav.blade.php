@@ -38,14 +38,8 @@
 
                             </ul>
                         </li>
-                        <li><a href="que_es_una_sgr">¿Qué es una SGR?</a></li>
-                        <li>
-                            <a href="requisitos">Pertenecer</a>
-                            <ul class="sub_menu">
-                                <li><a href="requisitos">Requisitos para asociarse</a></li>
-                                <li><a href="como_obtener">¿Cómo obtener un aval?</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="que-es-una-sgr">¿Qué es una SGR?</a></li>
+                        <li><a href="requisitos">Obtener un aval</a></li>
                         <li><a href="noticias">Noticias</a></li>
                         <li><a href="faq">Preguntas frecuentes</a></li>
                         <li><a href="contacto">Contacto</a></li>

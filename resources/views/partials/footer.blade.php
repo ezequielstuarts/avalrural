@@ -21,7 +21,7 @@
                     <li>
                         <div class="inner">
                             <div class="footer_section_title">
-                                <h3><a href="que_es_una_sgr">¿Qué es una SGR?</a>
+                                <h3><a href="que-es-una-sgr">¿Qué es una SGR?</a>
                                 </h3>
                             </div>
                         </div>

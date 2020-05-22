@@ -18,7 +18,6 @@
     <script src="{{ asset('js/summer-language.js') }}"></script>
     {{-- end summernote --}}
 
-
     <div class="container text-right">
         <h5>{{ $date->isoFormat('dddd, Do MMMM YYYY') }}</h5>
     </div>
@@ -40,6 +39,10 @@
             <label for="title"><b>Titulo</b></label>
             <input type="text" class="form-control" id="title" name="title" value="{{old("title")}}">
             <p class="text-danger pl-1 pt-1">{{ $errors->first('title') }}</p>
+        </div>
+        <div class="form-group">
+            <label for="title"><b>URL amigable</b></label>
+            <input type="text" class="form-control" id="slug" value="">
         </div>
         <div class="form-group">
             <label for="subtitle"><b>Subtitulo</b></label>
@@ -87,5 +90,17 @@
             autoclose: true
         });
     </script>
-
+    @section('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <script src=" {{asset('vendor/stringToSlug/jquery.stringToSlug.js')}} "></script>
+    <script>
+        
+            $("#title, #slug").stringToSlug({
+                callback: function(text){
+                    $("#slug").val(text);
+                }
+            });
+        
+    </script>
+    @endsection
 @endsection
