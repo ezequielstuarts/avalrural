@@ -39,10 +39,6 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('admin', 'AdminController@index')->name('admin');
     Route::get('home', 'AdminController@index')->name('home');
     Route::get('admin/noticias', 'NoticiasController@tablaDeNoticias')->name('admin.noticias');
-   
-    // Route::get('admin', 'NoticiasController@tablaDeNoticias')->name('admin');
-    // Route::get('panel', 'AdminController@index')->name('panel');
-    // Route::get('home', 'NoticiasController@tablaDeNoticias')->name('home');
 
     Route::get('admin/noticias/nueva_noticia', "NoticiasController@create")->name('admin.noticias.nueva_noticia');
 
@@ -86,11 +82,6 @@ Route::group(['middleware' => 'auth'], function ()
     Route::patch('admin/users/edit_user/{id}', "UserController@update")->name('admin.users.edit_user');
     
 });
-
-//Route::get('/home', 'homeController@auth')->name('home'); esto esra antes
-// Route::get('/home', 'homeController@index')->name('home');
-// Route::get('/home', 'adminController@tablaDeNoticias')->name('home');
-
 
 Route::get('/init', function () {
     Artisan::call('storage:link');
