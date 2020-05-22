@@ -28,8 +28,8 @@
                                         <div class="content">
                                             <div class="content_inner">
                                                 <div class="foto_noticia">
-                                                    @if (!empty($noticia->img_noticia))
-                                                        <img src="/storage/imagenes/img_noticias/{{$noticia->img_noticia}}"/>
+                                                    @if (!empty($noticia->img_preview))
+                                                        <img src="/storage/imagenes/img_noticias/{{$noticia->img_preview}}"/>
                                                     @else
                                                         <img src="../img/noimg.png" class="card-img-top">
                                                     @endif
