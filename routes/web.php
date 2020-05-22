@@ -1,7 +1,7 @@
 <?php
 
 Route::redirect('/', 'index');
-Route::get('', "indexController@index")->name('index');
+Route::get('', "IndexController@index")->name('index');
 
 Route::get('sobre_aval', function () {return view ("quienes_somos");});
 Route::get('productos', function () {return view ("productos/cheques");});
@@ -17,11 +17,11 @@ Route::get('pertenecer', function () {return view ("pertenecer/pertenecer");});
 Route::get('requisitos', function () {return view ("pertenecer/requisitos");});
 
 
-Route::get('noticias', "noticiasController@index")->name('noticias');
-Route::get('noticias/{slug}', "noticiasController@verNoticia")->name('ver.noticia');
-Route::get('contacto', "contactoController@index")->name('contacto');
-Route::post('enviar_contacto', "contactoController@enviar_contacto")->name('enviar_contacto');
-Route::post('precalificacion', "contactoController@precalificacion")->name('precalificacion');
+Route::get('noticias', "NoticiasController@index")->name('noticias');
+Route::get('noticias/{slug}', "NoticiasController@verNoticia")->name('ver.noticia');
+Route::get('contacto', "ContactoController@index")->name('contacto');
+Route::post('enviar_contacto', "ContactoController@enviar_contacto")->name('enviar_contacto');
+Route::post('precalificacion', "ContactoController@precalificacion")->name('precalificacion');
 
 
 // ADMIN
@@ -39,10 +39,6 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('admin', 'AdminController@index')->name('admin');
     Route::get('home', 'AdminController@index')->name('home');
     Route::get('admin/noticias', 'NoticiasController@tablaDeNoticias')->name('admin.noticias');
-   
-    // Route::get('admin', 'NoticiasController@tablaDeNoticias')->name('admin');
-    // Route::get('panel', 'AdminController@index')->name('panel');
-    // Route::get('home', 'NoticiasController@tablaDeNoticias')->name('home');
 
     Route::get('admin/noticias/nueva_noticia', "NoticiasController@create")->name('admin.noticias.nueva_noticia');
 
@@ -86,11 +82,6 @@ Route::group(['middleware' => 'auth'], function ()
     Route::patch('admin/users/edit_user/{id}', "UserController@update")->name('admin.users.edit_user');
     
 });
-
-//Route::get('/home', 'homeController@auth')->name('home'); esto esra antes
-// Route::get('/home', 'homeController@index')->name('home');
-// Route::get('/home', 'adminController@tablaDeNoticias')->name('home');
-
 
 Route::get('/init', function () {
     Artisan::call('storage:link');
