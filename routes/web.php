@@ -1,7 +1,7 @@
 <?php
 
 Route::redirect('/', 'index');
-Route::get('', "indexController@index")->name('index');
+Route::get('', "IndexController@index")->name('index');
 
 Route::get('sobre_aval', function () {return view ("quienes_somos");});
 Route::get('productos', function () {return view ("productos/cheques");});
