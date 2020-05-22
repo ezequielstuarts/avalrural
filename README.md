@@ -6,6 +6,6 @@
 Pasaje de sitio web html a laravel, con implementacion de backofice.
 http://avalrural.ezequielstuarts.dhalumnos.com/
 
-## Acceso al backofice
+## Acceso al backoffice
 http://avalrural.ezequielstuarts.dhalumnos.com/admin
 
