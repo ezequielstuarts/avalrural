@@ -7,7 +7,7 @@ use App\ContactEmail;
 use App\ContactPrecalificate;
 use Mail;
 
-class contactoController extends Controller
+class ContactoController extends Controller
 {
 
     public function index()

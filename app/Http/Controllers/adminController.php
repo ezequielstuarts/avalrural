@@ -9,7 +9,7 @@ use App\Mensaje;
 use App\Precalificacion;
 
 
-class adminController extends Controller
+class AdminController extends Controller
 {
     public function __construct()
     {

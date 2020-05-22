@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 Use App\Precalificacion;
 use Mail;
 
-class precalificateController extends Controller
+class PrecalificateController extends Controller
 {
     /**
      * Display a listing of the resource.

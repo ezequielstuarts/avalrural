@@ -8,7 +8,7 @@ use App\NoticiaHide;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 
-class noticiasController extends Controller
+class NoticiasController extends Controller
 {
     public function __construct()
     {
