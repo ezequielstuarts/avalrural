@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @yield('styles')
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
@@ -22,12 +23,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin-style.css') }}" rel="stylesheet">
+    @yield('scripts-headers')
 
 </head>
 <body>
    @include('admin.nav-bar')
    <div style="padding-top:100px;">
         @yield('admin')
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
         @yield('scripts')
    </div>
 </body>

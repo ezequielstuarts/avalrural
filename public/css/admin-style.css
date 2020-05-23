@@ -2,36 +2,45 @@ i {
     font-size: 20px;
     color: rgb(46, 43, 226);
 }
+
 .fa-edit {
     color: rgb(247, 148, 0);
 }
+
 .fa-trash-alt {
     color: crimson;
     cursor: pointer;
 }
+
 nav .fas {
     color: rgb(65, 65, 65);
     padding-right: 10px;
 }
+
 .fas {
     color: rgb(65, 65, 65);
 }
+
 td.details-control {
     background: url('/img/details_open.png') no-repeat center center;
     cursor: pointer;
 }
+
 tr.shown td.details-control {
     background: url('/img/details_close.png') no-repeat center center;
 }
+
 .navbar-brand img {
     width: 40px;
 }
+
 .note-toolbar .note-btn-group i {
     color: rgb(61, 61, 61)!important;
     font-size: 16px;
 }
-.activado a, .activado i
-{
+
+.activado a,
+.activado i {
     color: rgb(35, 209, 0)!important;
 }
 
@@ -39,12 +48,16 @@ tr.shown td.details-control {
     background-color: rgba(153, 235, 128, 0.6);
     margin-top: 30px;
 }
-.card-admin:hover, .boton-nueva-noticia a:hover {
+
+.card-admin:hover,
+.boton-nueva-noticia a:hover {
     background-color: rgba(138, 218, 114, 0.6);
 }
+
 .card-admin h4 {
     font-weight: 600;
 }
+
 .boton-nueva-noticia a {
     float: right;
     padding: 13px 15px;
@@ -59,4 +72,20 @@ tr.shown td.details-control {
     color: #000;
     cursor: pointer;
     background-color: rgba(136, 255, 100, 0.6);
+}
+
+.slug {
+    width: 100%;
+    border: none;
+    background: none;
+}
+
+.slug-cont {
+    width: 100%;
+    background-color: rgb(240, 240, 240);
+    padding: 10px;
+}
+
+table {
+    border: solid 1px #f1f1f1;
 }

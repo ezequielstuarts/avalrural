@@ -3,20 +3,11 @@
 
 @section('admin')
 
-    <!-- Datepicker Files -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <link rel="stylesheet" href="../../css/css-date/bootstrap-datepicker3.css">
-    <link rel="stylesheet" href="../../css/css-date/bootstrap-datepicker.standalone.css">
-    <script src="../../js/js-date/bootstrap-datepicker.min.js"></script>
-    <!-- Languaje -->
-    <script src="../../js/locales-date/bootstrap-datepicker.es.min.js"></script>
-    <!-- End Datepicker Files -->
-
-    {{-- summernote --}}
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-lite.min.js"></script>
-    <script src="{{ asset('js/summer-language.js') }}"></script>
-    {{-- end summernote --}}
+    @section('styles')
+    <!-- Datepicker Files --><!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="{{asset('/vendor/datepicker/bootstrap-datepicker3.css')}}">
+    <link rel="stylesheet" href="{{asset('/vendor/datepicker/bootstrap-datepicker.standalone.css')}}">
+    @endsection
 
     <div class="container text-right">
         <h5>{{ $date->isoFormat('dddd, Do MMMM YYYY') }}</h5>
@@ -26,10 +17,10 @@
         {{csrf_field()}}
         <div class="form-group">
             <label for="date"><b>Fecha</b></label>
-            <div class="input-group">
+            <div class="input-group date">
                 <input type="text" class="form-control datepicker" name="date">
-                <div class="input-group-addon">
-                    <span class="glyphicon glyphicon-th"></span>
+                <div class="input-group-append">
+                    <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
                 </div>
             </div>
             <p class="text-danger pl-1 pt-1">{{ $errors->first('date') }}</p>
@@ -64,11 +55,8 @@
 
         <div class="form-group">
             <label class="labels" for="content"><b>Contenido</b></label>
-            <textarea id="summernote" class="form-control" name="content"></textarea>
+            <textarea id="content" class="form-control" name="content"></textarea>
         </div>
-
-        <div id="summernote"></div>
-        <script src="{{ asset('js/summernote.js') }}"></script>
 
         <div class="form- mt-4">
             <button id="enviar" class="btn btn-success" type="submit">Guardar</button>
@@ -82,25 +70,37 @@
         </div>
     </div>
 
-    <script>
-        $('.datepicker').datepicker({
-            format: "yyyy-mm-dd",
-            language: "es",
-            todayBtn: "linked",
-            autoclose: true
-        });
-    </script>
     @section('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
-    <script src=" {{asset('vendor/stringToSlug/jquery.stringToSlug.js')}} "></script>
-    <script>
-        
+        <!-- Datepicker Files -->
+        <script src="{{asset('/vendor/datepicker/bootstrap-datepicker.min.js')}}"></script>
+        <!-- Languaje -->
+        <script src="{{asset('/vendor/datepicker/bootstrap-datepicker.es.min.js')}}"></script>
+        <script>
+            $('.input-group.date').datepicker({
+                format: "dd-mm-yyyy",
+                todayBtn: "linked",
+                clearBtn: true,
+                language: "es",
+                autoclose: true,
+                todayHighlight: true
+            });
+        </script>
+
+        <script src=" {{asset('vendor/stringToSlug/jquery.stringToSlug.js')}} "></script>
+        <script>
             $("#title, #slug").stringToSlug({
                 callback: function(text){
                     $("#slug").val(text);
                 }
             });
-        
-    </script>
+        </script>
+
+        {{-- CKEDITOR --}}
+        <script src=" {{asset('vendor/ckeditor/ckeditor.js')}} "></script>
+        <script>
+            CKEDITOR.config.height = 300;
+            CKEDITOR.config.width = 'auto';
+            CKEDITOR.replace('content');
+        </script>
     @endsection
 @endsection

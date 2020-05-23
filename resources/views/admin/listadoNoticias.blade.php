@@ -5,7 +5,7 @@
     <div class="row">
 
         <div class="col-md-9 ">
-            <h5 class="text-secondary">Listado de noticias. <b>{{$totalNoticias}}</b> Noticias en la base de datos.</h5>
+            <h5 class="text-secondary"><b>{{$totalNoticias}}</b> Noticias en la base de datos.</h5>
         </div>
 
         <div class="col-md-2">
@@ -15,7 +15,6 @@
                 </a>
             </div>
         </div>
-
         <div class="col-md-1">
             <div class="boton-nueva-noticia">
                 <a class="" href="{{route('admin.noticiasHide')}}" title="Ver noticias ocultas"><i class="fas fa-eye-slash"></i></a>
@@ -34,13 +33,15 @@
 </div>
 
 <div class="container">
-    <table class="table table-hover">
+    <table class="table table-hover ">
         <thead>
             <tr style="background-color:#c6f8be;">
                 <th colspan="col">Fecha</th>
                 <th colspan="col">Titulo</th>
                 <th colspan="col">Imagen</th>
-                <th colspan="2">Acciones</th>
+                <th colspan="1"></th>
+                <th>Acciones</th>
+                <th colspan="1"></th>
                 <!-- <th colspan="col">Acciones</th> -->
             </tr>
         </thead>
@@ -49,7 +50,6 @@
             <tr>
                 <td width="130px">{{date('d-m-Y', strtotime($noticia->date))}}</td>
                 <td><b style="font-size:18px;">{{$noticia->title}}</b>
-                   <p><b>Ruta amigable:</b> {{$noticia->slug}}</p>
                     <hr>
                     <p class="text-secondary" style="font-size:12px;"><b>Subtitulo: </b>{{$noticia->subtitle}}</p>
                 </td>
@@ -60,17 +60,17 @@
                         <img style="width:100px" src="/img/noimg.png" class="card-img-top">
                     @endif
                 </td>
-                <td>
-                    <div class="form-group btn-group">
-                        <a href="{{route('admin.noticias.edit', $noticia->slug)}}" class="btn btn-warning">Editar</a>
-                    </div>
-                    <div class="form-group btn-group">
-                        <form action="{{url('admin/noticias/hide', $noticia->id)}}" method="post">
-                            {{csrf_field()}}
-                            <input type="hidden" name="id" value="{{$noticia->id}}">
-                            <input class="btn btn-secondary" type="submit" value="Ocultar" onclick="return confirm('Seguro queres ocultar esta noticia?')">
-                        </form>
-                    </div>
+                
+                <td width="5px">
+                    <a href="#" class="btn btn-sm btn-outline-primary">Ver</a>
+                </td>
+                
+                <td width="5px">
+                    <a href="{{ route('admin.noticias.edit', $noticia->slug) }}" class="btn btn-sm btn-outline-success">Editar</a>
+                </td>
+                
+                <td width="5px">
+                    <a href="{{ route('admin.noticias.hide', $noticia->id) }}" class="btn btn-sm btn-outline-info">Ocultar</a>
                 </td>
             </tr>
         </tbody>

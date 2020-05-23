@@ -59,23 +59,24 @@ class NoticiasController extends Controller
         
         $carpeta = 'img_noticias';
 
-        $rutaPreview = $request->file("img_preview")->store('imagenes/'.$carpeta, 'public');
-        $nombrePreview = basename($rutaPreview);
-
-
-        $rutaImg = $request->file("img_noticia")->store('imagenes/'.$carpeta, 'public');
-        $nombreImagen = basename($rutaImg);
-
         $newNoticia = new Noticia();
         $newNoticia->title = $request["title"];
         $newNoticia->subtitle = $request["subtitle"];
         $newNoticia->content = $request["content"];
-        $newNoticia->date = $request["date"];
+        $date = Carbon::createFromFormat('d-m-Y', $request->date)->toDateString();
+        $newNoticia->date = $date;
         $newNoticia->slug = str_slug($request["title"]);
         $newNoticia->created_at = Carbon::now();
+        $newNoticia->modified_by = (auth()->user()->name);
+
+        $rutaPreview = $request->file("img_preview")->store('imagenes/'.$carpeta, 'public');
+        $nombrePreview = basename($rutaPreview);
+        $rutaImg = $request->file("img_noticia")->store('imagenes/'.$carpeta, 'public');
+        $nombreImagen = basename($rutaImg);
+
         $newNoticia->img_preview = $nombrePreview;
         $newNoticia->img_noticia = $nombreImagen;
-        $newNoticia->modified_by = (auth()->user()->name);
+
         $newNoticia->save();
         return redirect()->route('admin.noticias');
 
@@ -83,9 +84,11 @@ class NoticiasController extends Controller
 
     public function edit($slug)
     {
-        $date = Carbon::now();
+        $now = Carbon::now();
         $noticia = Noticia::where('slug', $slug)->first();
-        return view ("admin.edit", ['noticia' => $noticia, 'date' => $date]);
+        // $dateNoticia = $noticia->date;
+        
+        return view ("admin.edit", ['noticia' => $noticia, 'now' => $now]);
     }
 
     public function update(Request $request, $id)
@@ -116,6 +119,11 @@ class NoticiasController extends Controller
                 $img_noticia = $noticia['img_noticia'];
                 Storage::delete('public/imagenes/img_noticias/'.$img_noticia);
                 $diff["img_noticia"] = $basename_img;
+            }
+
+            if ($diff['date']) {
+                $date = Carbon::createFromFormat('d-m-Y', $request->date)->toDateTimeString();
+                $diff['date'] = $date;
             }
 
             $noticia->modified_by = (auth()->user()->name);

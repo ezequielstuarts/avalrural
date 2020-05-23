@@ -132,7 +132,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <label><input id="Acepta" name="Acepta" type="checkbox" value="SI" required >Acepto condiciones legales. </label>
+                                        <label><input id="Acepta" name="Acepta" type="checkbox" value="SI"    >Acepto condiciones legales. </label>
                                         <a href="#popup-legales-contacto" class="popuplegal-link-contacto">Reservas Legales</a>
                                     </div>
                                 </li>

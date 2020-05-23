@@ -49,7 +49,7 @@ Route::group(['middleware' => 'auth'], function ()
     
     Route::get('admin/noticiasHide', "NoticiasHideController@index")->name('admin.noticiasHide');
     
-    Route::post('admin/noticias/hide/{id}', "NoticiasController@hide");
+    Route::post('admin/noticias/hide/{id}', "NoticiasController@hide")->name('admin.noticias.hide');
     
     Route::post('admin/noticiasHide/visible/{id}', "NoticiasHideController@visible");
 
