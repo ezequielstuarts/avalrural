@@ -97,7 +97,7 @@
                                                     </div>
 
                                                     <div class="row">
-                                                        <div class="g-recaptcha" data-sitekey="6Ledg_sUAAAAAMiDKcXDL2ePVExVx5uBDKDnocb3"></div>
+                                                        <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
                                                         <p class="error">{{ $errors->first('g-recaptcha-response') }}</p>
                                                     </div>
                                                     
