@@ -26,6 +26,12 @@ class NoticiasController extends Controller
             $noticia = Noticia::where('slug', $slug)->first();
             return view ("noticia", ['noticia' => $noticia]);
     }
+    
+    public function show($slug)
+    {
+        $noticia = Noticia::where('slug', $slug)->first();
+        return view ("admin.verNoticia", ['noticia' => $noticia]);
+    }
 
     public function tablaDeNoticias()
     {
@@ -129,7 +135,7 @@ class NoticiasController extends Controller
             $noticia->modified_by = (auth()->user()->name);
             $diff['slug'] = str_slug($request["title"]);
             $noticia->update($diff);
-            return redirect()->route('admin.noticias')->with('mensaje', 'Noticia Actualizada');
+            return redirect()->route('admin.noticias.show', $noticia->slug)->with('mensaje', 'Noticia Actualizada');
 
     }
 

@@ -35,11 +35,11 @@
                                                     @endif
                                                 </div>
                                                 <div class="blog_title">
-                                                    <h3><a href="noticias/{{$noticia->slug}}">{{$noticia->title}}</a></h3>
+                                                    <h3><a href="noticias/{{$noticia->slug}}">{{ str_limit($noticia->title, 45) }}</a></h3>
 
                                                 </div>
                                                 <div class="blog_definition">
-                                                    <p>{{$noticia->subtitle}}</p>
+                                                    <p>{{ str_limit($noticia->subtitle, 50) }}</p>
                                                 </div>
                                                 <div class="buildify_tm_read_more">
                                                     <p><a href="noticias/{{$noticia->slug}}">Leer Más</a><span>

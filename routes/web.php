@@ -43,15 +43,17 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('admin/noticias/nueva_noticia', "NoticiasController@create")->name('admin.noticias.nueva_noticia');
 
     Route::post('admin/noticias/nueva_noticia', "NoticiasController@store")->name('admin.noticias.nueva_noticia');
+    
+    Route::get('admin/noticias/ver/{id}', "NoticiasController@show")->name('admin.noticias.show');
 
-    Route::post('admin/noticias/destroy', "NoticiasController@destroy")->name('admin.noticias.destroy');
+    // Route::post('admin/noticias/destroy', "NoticiasController@destroy")->name('admin.noticias.destroy');
     Route::post('admin/noticiasHide/destroy', "NoticiasHideController@destroy")->name('admin.noticiasHide.destroy');
     
     Route::get('admin/noticiasHide', "NoticiasHideController@index")->name('admin.noticiasHide');
+        
+    Route::get('admin/noticias/hide/{id}', "NoticiasController@hide")->name('admin.noticias.hide');
     
-    Route::post('admin/noticias/hide/{id}', "NoticiasController@hide")->name('admin.noticias.hide');
-    
-    Route::post('admin/noticiasHide/visible/{id}', "NoticiasHideController@visible");
+    Route::get('admin/noticiasHide/visible/{id}', "NoticiasHideController@visible")->name('admin.noticiasHide.visible');
 
     Route::get('admin/noticias/edit/{slug}', "NoticiasController@edit")->name('admin.noticias.edit');
 

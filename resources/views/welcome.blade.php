@@ -21,6 +21,8 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+		@yield('scripts-headers')
+
     </head>
 
 
@@ -103,7 +105,8 @@
 	<!--[if lt IE 10]> <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->
     <script type="text/javascript" src=" {{ URL::asset('js/init.js') }} "></script>
 	<script type="text/javascript" src=" {{ URL::asset('js/popup-init.js') }} "></script>
-	<script type="text/javascript" src=" {{ URL::asset('js/formulario.js') }} "></script>
+	{{-- <script type="text/javascript" src=" {{ URL::asset('js/formulario.js') }} "></script> --}}
+	<script type="text/javascript" src=" {{ URL::asset('js/enviar-contacto.js') }} "></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> --}}

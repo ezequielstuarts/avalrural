@@ -62,15 +62,15 @@
                 </td>
                 
                 <td width="5px">
-                    <a href="#" class="btn btn-sm btn-outline-primary">Ver</a>
+                    <a href="{{ route('admin.noticias.show', $noticia->slug) }}" class="btn btn-sm btn-outline-primary">Ver</a>
                 </td>
                 
                 <td width="5px">
-                    <a href="{{ route('admin.noticias.edit', $noticia->slug) }}" class="btn btn-sm btn-outline-success">Editar</a>
+                    <a href="{{ route('admin.noticias.edit', $noticia->id) }}" class="btn btn-sm btn-outline-success">Editar</a>
                 </td>
                 
                 <td width="5px">
-                    <a href="{{ route('admin.noticias.hide', $noticia->id) }}" class="btn btn-sm btn-outline-info">Ocultar</a>
+                    <a href="{{ route('admin.noticias.hide', $noticia->id) }}" class="btn btn-sm btn-outline-info" onclick="return confirm('Seguro queres ocultar esta noticia?')">Ocultar</a>
                 </td>
             </tr>
         </tbody>

@@ -107,14 +107,9 @@
 
         <div class="form-group">
             <button class="btn btn-success" type="submit">Guardar Cambios</button>
-            <a class="btn btn-info" href="{{ route('admin')}}">Caneclar</a>
+            <a class="btn btn-info" href="{{ route('admin.noticias')}}">Caneclar</a>
         </div>
     </form>
-    <div class="container text-right mb-5">
-        <a href="{{ route('admin')}}">
-            <button class="btn btn-outline-secondary">Volver</button>
-        </a>
-    </div>
     </div>
 
     @section('scripts')

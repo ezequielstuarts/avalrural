@@ -40,8 +40,8 @@
                 <th scope="col">Localidad</th>
                 <th scope="col">Telefono</th>
                 <th scope="col">Email</th>
-                @if ( (Auth::user()->rollll) === 1 )
-                <th colspan="1">&nbsp;</th>
+                @if ( (Auth::user()->rol) === 1 )
+                    <th colspan="1">&nbsp;</th>
                 @endif
             </tr>
         </thead>

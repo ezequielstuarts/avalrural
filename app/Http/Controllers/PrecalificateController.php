@@ -17,7 +17,7 @@ class PrecalificateController extends Controller
      */
     public function index()
     {
-        $mensajes = Precalificacion::paginate(10);
+        $mensajes = Precalificacion::orderBy('created_at', 'DESC')->paginate(10);
         $totalMensajes = count(Precalificacion::get());
         return view ("email.precalificaciones", ['mensajes' => $mensajes, 'totalMensajes' => $totalMensajes]);
     }

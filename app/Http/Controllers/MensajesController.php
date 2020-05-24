@@ -15,7 +15,7 @@ class MensajesController extends Controller
      */
     public function index()
     {
-        $mensajes = Mensaje::paginate(10);
+        $mensajes = Mensaje::orderBy('created_at', 'DESC')->paginate(10);
         $totalMensajes = count(Mensaje::get());
         return view ("email.mensajes", ['mensajes' => $mensajes, 'totalMensajes' => $totalMensajes]);
     }
