@@ -99,7 +99,7 @@ window.addEventListener('load', function() {
     var acepta = document.getElementById('terminos');
 
 
-    apellido.onblur = function() {
+    apellido.onchange = function() {
         if (apellido.value.trim() == "") {
             $('#error_apellidoo').removeClass('oculto');
             $("#error").addClass('oculto');
@@ -107,7 +107,7 @@ window.addEventListener('load', function() {
             $('#error_apellidoo').addClass('oculto');
         }
     }
-    nombre.onblur = function() {
+    nombre.onchange = function() {
         if (nombre.value.trim() == "") {
             $('#error_nombree').removeClass('oculto');
             $("#error").addClass('oculto');
@@ -115,7 +115,7 @@ window.addEventListener('load', function() {
             $('#error_nombree').addClass('oculto');
         }
     }
-    empresa.onblur = function() {
+    empresa.onchange = function() {
         if (empresa.value.trim() == "") {
             $('#error_empresaa').removeClass('oculto');
             $("#error").addClass('oculto');
@@ -123,7 +123,7 @@ window.addEventListener('load', function() {
             $('#error_empresaa').addClass('oculto');
         }
     }
-    cuit.onblur = function() {
+    cuit.onchange = function() {
         if (cuit.value.trim() == "") {
             $('#error_cuitt').removeClass('oculto');
             $("#error").addClass('oculto');
@@ -136,7 +136,7 @@ window.addEventListener('load', function() {
             $('#error_cuitt').addClass('oculto');
         }
     }
-    localidad.onblur = function() {
+    localidad.onchange = function() {
         if (localidad.value.trim() == "") {
             $('#error_localidadd').removeClass('oculto');
             $("#error").addClass('oculto');
@@ -144,7 +144,7 @@ window.addEventListener('load', function() {
             $('#error_localidadd').addClass('oculto');
         }
     }
-    telefono.onblur = function() {
+    telefono.onchange = function() {
         if (telefono.value.trim() == "") {
             $('#error_telefonoo').removeClass('oculto');
             $("#error").addClass('oculto');
@@ -152,7 +152,7 @@ window.addEventListener('load', function() {
             $('#error_telefonoo').addClass('oculto');
         }
     }
-    email.onblur = function() {
+    email.onchange = function() {
         if (email.value.trim() == "") {
             $('#error_emaill').removeClass('oculto');
             $("#error").addClass('oculto');
@@ -160,7 +160,7 @@ window.addEventListener('load', function() {
             $('#error_emaill').addClass('oculto');
         }
     }
-    consulta.onblur = function() {
+    consulta.onchange = function() {
         if (consulta.value.trim() == "") {
             $('#error_consultaa').removeClass('oculto');
             $("#error").addClass('oculto');

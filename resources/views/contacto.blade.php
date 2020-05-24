@@ -104,25 +104,24 @@
                                                     <div class="row">
                                                         <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
                                                         <p class="error">{{ $errors->first('g-recaptcha-response') }}</p>
-
                                                     </div>
                                                     
                                                 </div>
                                                 <div class="row">
                                                     <label><input id="terminos" name="acepta" type="checkbox">Acepto condiciones legales. </label>
-                                                    <a href="#popup-legales-contacto" class="popuplegal-link-contacto">Reservas Legales</a>
+                                                    <a href="#popup-legales" class="popuplegal-link-contacto">Reservas Legales</a>
                                                     <p id="error_terminos" class="error">{{ $errors->first('acepta') }}</p>
                                                 </div>
+                                            </div>
                                         </div>
+                                    <div class="row">
+                                        <p id="error" class="error" style="padding-bottom:5px;"></p>
+                                        <input type="submit" id="enviar" value="Enviar"/>
+                                        <input type="button" id="enviando" value="Enviando..." class="oculto"/>
+                                        <div style="color: red; margin-top: 10px;" id=""></div>
                                     </div>
                                 </li>
                             </ul>
-                                <div class="row">
-                                    <p id="error" class="error" style="padding-bottom:5px;"></p>
-                                    <input type="submit" id="enviar" value="Enviar"/>
-                                    <input type="button" id="enviando" value="Enviando..." class="oculto"/>
-                                    <div style="color: red; margin-top: 10px;" id=""></div>
-                                </div>
                             </form>
                             <!-- /form -->
                         </div>

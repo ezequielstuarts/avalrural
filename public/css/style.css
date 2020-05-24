@@ -617,8 +617,8 @@ a.popup-cerrar:hover {
 }
 
 .popuplegal-link-contacto {
-    text-decoration: underline;
-    color: #8ac067;
+    text-decoration: underline!important;
+    color: #8ac067!important;
     -webkit-transition: all .3s ease;
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
@@ -627,7 +627,8 @@ a.popup-cerrar:hover {
 }
 
 .popuplegal-link-contacto:hover {
-    color: #777;
+    color: #777!important;
+    text-decoration: none!important;
 }
 
 .legales-pequenios {
@@ -4101,6 +4102,8 @@ strong {
 
 input[type="button"],
 input[type="submit"] {
+    width: 340px;
+    ;
     padding: 13px 15px;
     height: 40px;
     line-height: 1;
