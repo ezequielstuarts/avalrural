@@ -41,44 +41,40 @@ class ContactoController extends Controller
                 "acepta" => "accepted",
                 // 'g-recaptcha-response' => new Captcha()
             ],
-
             $messages
         );
+
+        // $this->Validator($request, $mensajes);
 
         if($Validator->fails()) {
             $response = $Validator->messages();
         } else {
-            // hacer algo aca
+            
+            $newMail = new ContactEmail();
+            $newMail->apellido = $request["apellido"];
+            $newMail->nombre = $request["nombre"];
+            $newMail->empresa = $request["empresa"];
+            $newMail->cuit = $request["cuit"];
+            $newMail->localidad = $request["localidad"];
+            $newMail->telefono = $request["telefono"];
+            $newMail->email = $request["email"];
+            $newMail->consulta = $request["consulta"];
+
+            $newMail->save();
+
+
+            $subject = "Asunto del correo";
+            $for = "elzeke55@gmail.com";
+            Mail::send('email.formulario_de_contacto',$request->all(),
+            function($msj) use($subject,$for){
+                $msj->from("elzeke55@gmail.com","Mensaje desde el fomulario de contacto de Aval Rural");
+                $msj->subject($subject);
+                $msj->to($for);
+            });
+
             $response = ['success' => 'Hemos enviado tu mnensaje'];
         }
-
         return response()->json($response,200);
-        
-
-        // $this->validate($request, $reglas, $mensajes);
-
-        // $newMail = new ContactEmail();
-
-        // $newMail->apellido = $request["apellido"];
-        // $newMail->nombre = $request["nombre"];
-        // $newMail->empresa = $request["empresa"];
-        // $newMail->cuit = $request["cuit"];
-        // $newMail->localidad = $request["localidad"];
-        // $newMail->telefono = $request["telefono"];
-        // $newMail->email = $request["email"];
-        // $newMail->consulta = $request["consulta"];
-
-        // $newMail->save();
-
-
-        // $subject = "Asunto del correo";
-        // $for = "elzeke55@gmail.com";
-        // Mail::send('email.formulario_de_contacto',$request->all(),
-        // function($msj) use($subject,$for){
-        //     $msj->from("elzeke55@gmail.com","Mensaje desde el fomulario de contacto de Aval Rural");
-        //     $msj->subject($subject);
-        //     $msj->to($for);
-        // });
 
         
     }
