@@ -1,11 +1,6 @@
 @extends('welcome')
 @section('content')
 
-@section('scripts-headers')
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-@endsection
-
-
 <div class="buildify_tm_content_wrap">
     <div class="buildify_tm_content buildify_tm_content_gris">
         <div class="buildify_tm_universal_title_holder">
@@ -102,7 +97,7 @@
                                                     </div>
 
                                                     <div class="row">
-                                                        <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
+                                                        <div class="g-recaptcha" data-sitekey="6Ledg_sUAAAAAMiDKcXDL2ePVExVx5uBDKDnocb3"></div>
                                                         <p class="error">{{ $errors->first('g-recaptcha-response') }}</p>
                                                     </div>
                                                     
