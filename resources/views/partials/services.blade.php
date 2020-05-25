@@ -29,7 +29,7 @@
                         </div>
                         <div class="titles_holder">
                             <div class="title">
-                                <h3><a href="#" id="precalificate" class="precalificate">Precalificate</a></h3>
+                                <h3><a href="#" class="precalificate">Precalificate</a></h3>
                             </div>
                             <div class="definition">
                                 <p>Accede al formulario, completá los datos y un asesor se comunicará con vos a la brevedad.</p>

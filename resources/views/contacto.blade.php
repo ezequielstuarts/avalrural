@@ -1,4 +1,5 @@
 @extends('welcome')
+@section('title', 'Aval Rural SGR | #Contacto')
 @section('content')
 
 <div class="buildify_tm_content_wrap">
@@ -97,13 +98,14 @@
                                                     </div>
 
                                                     <div class="row">
-                                                        <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div>
+                                                        <div class="g-recaptcha" data-sitekey="6Ledg_sUAAAAAMiDKcXDL2ePVExVx5uBDKDnocb3"></div>
                                                         <p class="error">{{ $errors->first('g-recaptcha-response') }}</p>
                                                     </div>
                                                     
                                                 </div>
                                                 <div class="row">
-                                                    <label><input id="terminos" name="acepta" type="checkbox">Acepto condiciones legales. </label>
+                                                    <label>
+                                                        <input id="terminos" name="acepta" type="checkbox">Acepto condiciones legales. </label>
                                                     <a href="#popup-legales" class="popuplegal-link-contacto">Reservas Legales</a>
                                                     <p id="error_terminos" class="error">{{ $errors->first('acepta') }}</p>
                                                 </div>
@@ -113,7 +115,6 @@
                                         <p id="error" class="error" style="padding-bottom:5px;"></p>
                                         <input type="submit" id="enviar" value="Enviar"/>
                                         <input type="button" id="enviando" value="Enviando..." class="oculto"/>
-                                        <div style="color: red; margin-top: 10px;" id=""></div>
                                     </div>
                                 </li>
                             </ul>

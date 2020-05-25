@@ -63,7 +63,7 @@ class NoticiasController extends Controller
 
         $this->validate($request, $reglas, $mensajes);
         
-        $carpeta = 'img_noticias';
+        $carpeta = 'imagenes/img_noticias';
 
         $newNoticia = new Noticia();
         $newNoticia->title = $request["title"];
@@ -75,9 +75,9 @@ class NoticiasController extends Controller
         $newNoticia->created_at = Carbon::now();
         $newNoticia->modified_by = (auth()->user()->name);
 
-        $rutaPreview = $request->file("img_preview")->store('imagenes/'.$carpeta, 'public');
+        $rutaPreview = $request->file("img_preview")->store($carpeta, 'public');
         $nombrePreview = basename($rutaPreview);
-        $rutaImg = $request->file("img_noticia")->store('imagenes/'.$carpeta, 'public');
+        $rutaImg = $request->file("img_noticia")->store($carpeta, 'public');
         $nombreImagen = basename($rutaImg);
 
         $newNoticia->img_preview = $nombrePreview;

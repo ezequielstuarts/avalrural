@@ -402,14 +402,32 @@ ol {
 .popup-contenedor {
     overflow: auto;
     position: relative;
-    margin: 3% auto;
-    padding: 50px 50px;
+    margin: 0 auto;
+    padding: 20px 50px;
     background-color: #f7f7f7;
     color: #333;
     border-radius: 3px;
-    width: 70%;
+    width: 75%;
     /*height: 676px;*/
-    height: 70vh;
+    height: 80vh;
+}
+
+.mensaje-enviado {
+    background-color: #7dba57;
+    width: 30%;
+    margin-top: 15vh;
+    margin-left: 15%;
+    text-align: center;
+    position: absolute;
+    z-index: 1000;
+    padding: 50px;
+}
+
+.mensaje-enviado p,
+.mensaje-enviado span {
+    color: #fff;
+    font-size: 25px;
+    line-height: 30px;
 }
 
 .sin_margen_bottom {

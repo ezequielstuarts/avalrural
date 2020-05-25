@@ -1,4 +1,5 @@
 @extends('welcome')
+@section('title', 'Aval Rural SGR | #Requisitos')
 @section('content')
 <div class="buildify_tm_content_wrap">
 <div class="buildify_tm_content buildify_tm_content_gris">

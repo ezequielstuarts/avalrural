@@ -1,4 +1,5 @@
 @extends('welcome')
+@section('title', 'Aval Rural SGR | #FAQ')
 @section('content')
 <link rel="stylesheet" href="css/menuacordeon.css">
 <div class="buildify_tm_content_wrap">

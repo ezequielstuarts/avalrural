@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Aval Rural SGR – Sociedad de Garantía Recíproca</title>
+        <title> @yield('title', 'Aval Rural SGR – Sociedad de Garantía Recíproca')</title>
         <!-- Fonts -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -76,7 +76,7 @@
                             <!-- TOPBAR -->
 							@include('partials.top-bar-nav')
 							<!-- /TOPBAR -->
-
+							@include('partials.envios-success')
                             @yield('content')
 
 
@@ -105,8 +105,8 @@
 	<!--[if lt IE 10]> <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->
     <script type="text/javascript" src=" {{ URL::asset('js/init.js') }} "></script>
 	<script type="text/javascript" src=" {{ URL::asset('js/popup-init.js') }} "></script>
-	{{-- <script type="text/javascript" src=" {{ URL::asset('js/formulario.js') }} "></script> --}}
 	<script type="text/javascript" src=" {{ URL::asset('js/enviar-contacto.js') }} "></script>
+	<script type="text/javascript" src=" {{ URL::asset('js/enviar-contacto-precalificacion.js') }} "></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> --}}
