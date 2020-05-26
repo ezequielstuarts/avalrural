@@ -9,9 +9,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta description="Aval Rural es una Sociedad de Garantía Recíproca autorizada por la Sepyme, miembro del grupo Cofco Intl e integrada por MiPyMEs de diferentes sectores.">
         <meta name="keywords" content="avales, aval, rural, aval rural, fideicomisos, préstamos, cheque, noticias agro, noticias campo, COFCO International Argentina S.A., avales COFCO, fideicomisos financieros, endeudamiento, préstamos, bonos.">
-        <link rel="shortcut icon" href="img/logo/logo_aval_rural.ico">
-
-
+		
+		<script src='https://www.google.com/recaptcha/api.js'></script>		
+		<link rel="shortcut icon" href="img/logo/logo_aval_rural.ico">
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/fontello.css') }} " />
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/skeleton.css') }} " />
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/plugins.css') }} " />

@@ -48,7 +48,8 @@
         @forelse ($mensajes as $mensaje)
         <tbody>
             <tr>
-                <td width="130px">{{date('d-m-Y', strtotime($mensaje->created_at))}}</td>
+                <td width="130px">{{date('d-m-Y', strtotime($mensaje->created_at))}}
+                 <span class="blockquote-footer">{{date('H:i', strtotime($mensaje->created_at))}} hs.</span></td>
 
                 <td>{{$mensaje->nombre}} {{$mensaje->apellido}} </td>
                 

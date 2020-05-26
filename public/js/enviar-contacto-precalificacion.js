@@ -2,17 +2,15 @@ $(function() {
     $('#formulario-precalificate').submit(function(e) {
         $("#enviando").removeClass("oculto");
         $("#enviar").addClass("oculto");
-
         var route = $('#formulario-precalificate').data('route');
-        // var form_data = $(this);
+        var dataForm = new FormData($('#formulario-precalificate')[0]);
 
         $.ajax({
-            type: 'POST',
+            data: dataForm,
             url: route,
-            data: new FormData(this),
-            cache: false,
-            processData: false,
+            type: 'POST',
             contentType: false,
+            processData: false,
             success: function(Response) {
                 if (Response.NombreYApellido) {
                     $("#enviando").addClass("oculto");
@@ -77,7 +75,6 @@ $(function() {
                     $('#error').removeClass('oculto');
                     $("#error").html("Debe completar todos los campos.");
                 }
-
                 if (Response.Acepta) {
                     $("#enviando").addClass("oculto");
                     $("#enviar").removeClass("oculto");

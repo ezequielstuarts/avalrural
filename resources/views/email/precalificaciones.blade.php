@@ -33,25 +33,27 @@
                     <tr>
                         <th scope="col">Recibido el</th>
                         <th scope="col">De</th>
-                        <th scope="col">email</th>
-                        <th scope="col">telefono</th>
-                        <th scope="col">celular</th>
-                        <th scope="col">empresa</th>
-                        <th scope="col">cuit</th>
-                        <th scope="col">rubro</th>
-                        <th scope="col">codigo_afip</th>
-                        <th scope="col">balance</th>
-                        <th scope="col">nomina</th>
-                        <th scope="col">actividad</th>
-                        @if ( (Auth::user()->rollll) === 1 )
-                            <th colspan="1">&nbsp;</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Celular</th>
+                        <th scope="col">Empresa</th>
+                        <th scope="col">CUIT</th>
+                        <th scope="col">Rubro</th>
+                        <th scope="col">Codigo_afip</th>
+                        <th scope="col">Balance</th>
+                        <th scope="col">Nomina</th>
+                        <th scope="col">Actividad</th>
+                        @if ( (Auth::user()->rol) === 1 )
+                            <th colspan="1">Accion</th>
                         @endif
                     </tr>
                 </thead>
                 @forelse ($mensajes as $mensaje)
                 <tbody>
                     <tr>
-                        <td width="130px">{{date('d-m-Y', strtotime($mensaje->created_at))}}</td>
+                        <td width="130px">{{date('d-m-Y', strtotime($mensaje->created_at))}}
+                            <span class="blockquote-footer">{{date('H:i', strtotime($mensaje->created_at))}} hs.</span>
+                        </td>
                         <td>{{$mensaje->nombre_y_apellido}} </td>
                         <td>{{$mensaje->email}}</td>
                         <td>{{$mensaje->telefono}}</td>
@@ -60,8 +62,18 @@
                         <td>{{$mensaje->cuit}}</td>
                         <td>{{$mensaje->rubro}}</td>
                         <td>{{$mensaje->codigo_afip}}</td>
-                        <td>{{$mensaje->balance}}</td>
-                        <td>{{$mensaje->nomina}}</td>
+                        <td>
+                            @if ($mensaje->balance) 
+                            <a class="btn btn-sm btn-outline-secondary" href="/storage/precalificaciones/balancesynominas/{{$mensaje->balance}}" target="blanc">Ver</a>
+                            @endif
+                        </td>
+                        
+                        <td>
+                            @if ($mensaje->nomina) 
+                                <a class="btn btn-sm btn-outline-secondary" href="/storage/precalificaciones/balancesynominas/{{$mensaje->nomina}}" target="blanc">Ver</a>
+                            @endif
+                        </td>
+
                         <td>{{$mensaje->actividad}}</td>
                         @if ( Auth::user()->rol )
                             <td>

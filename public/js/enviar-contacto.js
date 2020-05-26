@@ -1,8 +1,8 @@
 $(function() {
 
     $('#formulario-contacto').submit(function(e) {
-        $("#enviando").removeClass("oculto");
-        $("#enviar").addClass("oculto");
+        $("#enviandoContacto").removeClass("oculto");
+        $("#enviarContacto").addClass("oculto");
         var route = $('#formulario-contacto').data('route');
         var form_data = $(this);
         $.ajax({
@@ -10,68 +10,73 @@ $(function() {
             url: route,
             data: form_data.serialize(),
             success: function(Response) {
+                console.log(Response);
                 if (Response.apellido) {
-                    $("#enviando").addClass("oculto");
-                    $("#enviar").removeClass("oculto");
-                    $("#error_apellidoo").html("Debe ingresar su apellido.");
-                    $('#error').removeClass('oculto');
-                    $("#error").html("Debe completar todos los campos.");
+                    $("#enviandoContacto").addClass("oculto");
+                    $("#enviarContacto").removeClass("oculto");
+                    $("#error_apellidoo_contacto").html("Debe ingresar su apellido JS.");
+                    $("#error_contacto").removeClass('oculto');
+                    $("#error_contacto").html("Debe completar todos los campos JS.");
                 }
                 if (Response.nombre) {
-                    $("#enviando").addClass("oculto");
-                    $("#enviar").removeClass("oculto");
-                    $("#error_nombree").html("Debe ingresar su nombre.");
-                    $('#error').removeClass('oculto');
-                    $("#error").html("Debe completar todos los campos.");
+                    $("#enviandoContacto").addClass("oculto");
+                    $("#enviarContacto").removeClass("oculto");
+                    $("#error_nombree_contacto").html("Debe ingresar su nombre JS.");
+                    $("#error_contacto").removeClass('oculto');
+                    $("#error_contacto").html("Debe completar todos los campos JS.");
                 }
                 if (Response.empresa) {
-                    $("#enviando").addClass("oculto");
-                    $("#enviar").removeClass("oculto");
-                    $("#error_empresaa").html("Debe ingresar su empresa.");
-                    $('#error').removeClass('oculto');
-                    $("#error").html("Debe completar todos los campos.");
+                    $("#enviandoContacto").addClass("oculto");
+                    $("#enviarContacto").removeClass("oculto");
+                    $("#error_empresaa_contacto").html("Debe ingresar su empresa JS.");
+                    $("#error_contacto").removeClass('oculto');
+                    $("#error_contacto").html("Debe completar todos los campos JS.");
                 }
                 if (Response.cuit) {
-                    $("#enviando").addClass("oculto");
-                    $("#enviar").removeClass("oculto");
-                    $("#error_cuitt").html("Debe ingresar su cuit.");
-                    $('#error').removeClass('oculto');
-                    $("#error").html("Debe completar todos los campos.");
+                    $("#enviandoContacto").addClass("oculto");
+                    $("#enviarContacto").removeClass("oculto");
+                    $("#error_cuitt_contacto").html("Debe ingresar su cuit JS.");
+                    $("#error_contacto").removeClass('oculto');
+                    $("#error_contacto").html("Debe completar todos los campos JS.");
                 }
                 if (Response.localidad) {
-                    $("#enviando").addClass("oculto");
-                    $("#enviar").removeClass("oculto");
-                    $("#error_localidadd").html("Debe ingresar su localidad.");
-                    $('#error').removeClass('oculto');
-                    $("#error").html("Debe completar todos los campos.");
+                    $("#enviandoContacto").addClass("oculto");
+                    $("#enviarContacto").removeClass("oculto");
+                    $("#error_localidadd_contacto").html("Debe ingresar su localidad JS.");
+                    $("#error_contacto").removeClass('oculto');
+                    $("#error_contacto").html("Debe completar todos los campos JS.");
                 }
                 if (Response.telefono) {
-                    $("#enviando").addClass("oculto");
-                    $("#enviar").removeClass("oculto");
-                    $("#error_telefonoo").html("Debe ingresar su telefono.");
-                    $('#error').removeClass('oculto');
-                    $("#error").html("Debe completar todos los campos.");
+                    $("#enviandoContacto").addClass("oculto");
+                    $("#enviarContacto").removeClass("oculto");
+                    $("#error_telefonoo_contacto").html("Debe ingresar su telefono JS.");
+                    $("#error_contacto").removeClass('oculto');
+                    $("#error_contacto").html("Debe completar todos los campos JS.");
                 }
                 if (Response.email) {
-                    $("#enviando").addClass("oculto");
-                    $("#enviar").removeClass("oculto");
-                    $("#error_emaill").html("Debe ingresar su email.");
-                    $('#error').removeClass('oculto');
-                    $("#error").html("Debe completar todos los campos.");
+                    $("#enviandoContacto").addClass("oculto");
+                    $("#enviarContacto").removeClass("oculto");
+                    $("#error_emaill_contacto").html("Debe ingresar su email JS.");
+                    $("#error_contacto").removeClass('oculto');
+                    $("#error_contacto").html("Debe completar todos los campos JS.");
                 }
                 if (Response.consulta) {
-                    $("#enviando").addClass("oculto");
-                    $("#enviar").removeClass("oculto");
-                    $("#error_consultaa").html("Debe ingresar su consulta.");
-                    $('#error').removeClass('oculto');
-                    $("#error").html("Debe completar todos los campos.");
+                    $("#enviandoContacto").addClass("oculto");
+                    $("#enviarContacto").removeClass("oculto");
+                    $("#error_consultaa_contacto").html("Debe ingresar su consulta JS.");
+                    $("#error_contacto").removeClass('oculto');
+                    $("#error_contacto").html("Debe completar todos los campos JS.");
                 }
-                if (Response.acepta) {
-                    $("#enviando").addClass("oculto");
-                    $("#enviar").removeClass("oculto");
-                    $("#error_terminos").html("Debe aceptar los términos y condiciones.");
-                    $('#error').removeClass('oculto');
-                    $("#error").html("Debe completar todos los campos.");
+                if (Response.terminosYcondiciones) {
+                    $("#enviandoContacto").addClass("oculto");
+                    $("#enviarContacto").removeClass("oculto");
+                    $("#error_terminos_contacto").html("Debe aceptar los términos y condiciones JS.");
+                    $("#error_contacto").removeClass('oculto');
+                    $("#error_contacto").html("Debe completar todos los campos JS.");
+                } else {
+                    $("#enviandoContacto").addClass("oculto");
+                    $("#enviarContacto").removeClass("oculto");
+                    $("#error_captcha_contacto").html("Debe validar el captcha");
                 }
                 if (Response.success) {
                     $(".respuesta-success").html("Enviado! ");
@@ -96,84 +101,84 @@ window.addEventListener('load', function() {
     var telefono = document.getElementById('telefono');
     var email = document.getElementById('email');
     var consulta = document.getElementById('consulta');
-    var acepta = document.getElementById('terminos');
+    var terminosYcondiciones = document.getElementById('terminosYcondiciones');
 
 
     apellido.onchange = function() {
         if (apellido.value.trim() == "") {
-            $('#error_apellidoo').removeClass('oculto');
-            $("#error").addClass('oculto');
+            $('#error_apellidoo_contacto').removeClass('oculto');
+            $("#error_contacto").addClass('oculto');
         } else {
-            $('#error_apellidoo').addClass('oculto');
+            $('#error_apellidoo_contacto').addClass('oculto');
         }
     }
     nombre.onchange = function() {
         if (nombre.value.trim() == "") {
-            $('#error_nombree').removeClass('oculto');
-            $("#error").addClass('oculto');
+            $('#error_nombree_contacto').removeClass('oculto');
+            $("#error_contacto").addClass('oculto');
         } else {
-            $('#error_nombree').addClass('oculto');
+            $('#error_nombree_contacto').addClass('oculto');
         }
     }
     empresa.onchange = function() {
         if (empresa.value.trim() == "") {
-            $('#error_empresaa').removeClass('oculto');
-            $("#error").addClass('oculto');
+            $('#error_empresaa_contacto').removeClass('oculto');
+            $("#error_contacto").addClass('oculto');
         } else {
-            $('#error_empresaa').addClass('oculto');
+            $('#error_empresaa_contacto').addClass('oculto');
         }
     }
     cuit.onchange = function() {
         if (cuit.value.trim() == "") {
-            $('#error_cuitt').removeClass('oculto');
-            $("#error").addClass('oculto');
+            $('#error_cuitt_contacto').removeClass('oculto');
+            $("#error_contacto").addClass('oculto');
         } else {
-            $('#error_cuitt').addClass('oculto');
+            $('#error_cuitt_contacto').addClass('oculto');
         }
 
-        $("#error").addClass('oculto');
+        $("#error_contacto").addClass('oculto');
         if (cuit.value.trim().length > 0) {
-            $('#error_cuitt').addClass('oculto');
+            $('#error_cuitt_contacto').addClass('oculto');
         }
     }
     localidad.onchange = function() {
         if (localidad.value.trim() == "") {
-            $('#error_localidadd').removeClass('oculto');
-            $("#error").addClass('oculto');
+            $('#error_localidadd_contacto').removeClass('oculto');
+            $("#error_contacto").addClass('oculto');
         } else {
-            $('#error_localidadd').addClass('oculto');
+            $('#error_localidadd_contacto').addClass('oculto');
         }
     }
     telefono.onchange = function() {
         if (telefono.value.trim() == "") {
-            $('#error_telefonoo').removeClass('oculto');
-            $("#error").addClass('oculto');
+            $('#error_telefonoo_contacto').removeClass('oculto');
+            $("#error_contacto").addClass('oculto');
         } else {
-            $('#error_telefonoo').addClass('oculto');
+            $('#error_telefonoo_contacto').addClass('oculto');
         }
     }
     email.onchange = function() {
         if (email.value.trim() == "") {
-            $('#error_emaill').removeClass('oculto');
-            $("#error").addClass('oculto');
+            $('#error_emaill_contacto').removeClass('oculto');
+            $("#error_contacto").addClass('oculto');
         } else {
-            $('#error_emaill').addClass('oculto');
+            $('#error_emaill_contacto').addClass('oculto');
         }
     }
     consulta.onchange = function() {
         if (consulta.value.trim() == "") {
-            $('#error_consultaa').removeClass('oculto');
-            $("#error").addClass('oculto');
+            $('#error_consultaa_contacto').removeClass('oculto');
+            $("#error_contacto").addClass('oculto');
         } else {
-            $('#error_consultaa').addClass('oculto');
+            $('#error_consultaa_contacto').addClass('oculto');
         }
     }
-    acepta.onclick = function() {
-        if (acepta.checked) {
-            $('#error_terminos').addClass('oculto');
-            $("#error").addClass('oculto');
+    terminosYcondiciones.onclick = function() {
+        if (terminosYcondiciones.checked) {
+            $('#error_terminos_contacto').addClass('oculto');
+            $("#error_contacto").addClass('oculto');
         } else {
-            $('#error_terminos').removeClass('oculto');
+            $('#error_terminos_contacto').removeClass('oculto');
         }
     }
 })

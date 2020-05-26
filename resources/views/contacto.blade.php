@@ -58,63 +58,63 @@
                                                     <div class="row">
                                                         <label>Apellido<span></span></label>
                                                         <input id="apellido" name="apellido" type="text" value="{{old("apellido")}}" >
-                                                        <p id="error_apellidoo" class="error">{{ $errors->first('apellido') }}</p>
+                                                        <p id="error_apellidoo_contacto" class="error">{{ $errors->first('apellido') }}</p>
                                                         
                                                     </div>
                                                     <div class="row">
                                                         <label>Nombre<span></span></label>
                                                         <input id="nombre" name="nombre" type="text" value="{{old("nombre")}}" >
-                                                        <p id="error_nombree"  class="error">{{ $errors->first('nombre') }}</p>
+                                                        <p id="error_nombree_contacto"  class="error">{{ $errors->first('nombre') }}</p>
                                                     </div>
                                                     <div class="row">
                                                         <label>Empresa<span></span></label>
                                                         <input id="empresa" name="empresa" type="text" value="{{old("empresa")}}" >
-                                                        <p id="error_empresaa" class="error">{{ $errors->first('empresa') }}</p>
+                                                        <p id="error_empresaa_contacto" class="error">{{ $errors->first('empresa') }}</p>
                                                     </div>
                                                     <div class="row">
                                                         <label>CUIT (empresa)<span></span></label>
                                                         <input id="cuit" name="cuit" type="number" value="{{old("cuit")}}" >
-                                                        <p id="error_cuitt" class="error">{{ $errors->first('cuit') }}</p>
+                                                        <p id="error_cuitt_contacto" class="error">{{ $errors->first('cuit') }}</p>
                                                     </div>
                                                     <div class="row">
                                                         <label>Localidad<span></span></label>
                                                         <input id="localidad" name="localidad" type="text" value="{{old("localidad")}}" >
-                                                        <p id="error_localidadd" class="error">{{ $errors->first('localidad') }}</p>
+                                                        <p id="error_localidadd_contacto" class="error">{{ $errors->first('localidad') }}</p>
                                                     </div>
                                                     <div class="row">
                                                         <label>Teléfono<span></span></label>
                                                         <input id="telefono" name="telefono" type="number" value="{{old("telefono")}}" >
-                                                        <p id="error_telefonoo" class="error">{{ $errors->first('telefono') }}</p>
+                                                        <p id="error_telefonoo_contacto" class="error">{{ $errors->first('telefono') }}</p>
                                                     </div>
                                                     <div class="row">
                                                         <label>E-mail<span></span></label>
                                                         <input id="email" name="email" type="email" value="{{old("email")}}" >
-                                                        <p id="error_emaill" class="error">{{ $errors->first('email') }}</p>
+                                                        <p id="error_emaill_contacto" class="error">{{ $errors->first('email') }}</p>
                                                     </div>
                                                     <div class="row">
                                                         <label>Consulta<span></span></label>
                                                         <textarea id="consulta" name="consulta" value="{{old("consulta")}}" ></textarea>
-                                                        <p id="error_consultaa" class="error">{{ $errors->first('consulta') }}</p>
+                                                        <p id="error_consultaa_contacto" class="error">{{ $errors->first('consulta') }}</p>
                                                     </div>
 
                                                     <div class="row">
                                                         <div class="g-recaptcha" data-sitekey="6Ledg_sUAAAAAMiDKcXDL2ePVExVx5uBDKDnocb3"></div>
-                                                        <p class="error">{{ $errors->first('g-recaptcha-response') }}</p>
+                                                        <p id="error_captcha_contacto" class="error">{{ $errors->first('g-recaptcha') }}</p>
                                                     </div>
                                                     
                                                 </div>
                                                 <div class="row">
                                                     <label>
-                                                        <input id="terminos" name="acepta" type="checkbox">Acepto condiciones legales. </label>
+                                                        <input id="terminosYcondiciones" name="terminosYcondiciones" type="checkbox">Acepto condiciones legales.</label>
                                                     <a href="#popup-legales" class="popuplegal-link-contacto">Reservas Legales</a>
-                                                    <p id="error_terminos" class="error">{{ $errors->first('acepta') }}</p>
+                                                    <p id="error_terminos_contacto" class="error">{{ $errors->first('terminosYcondiciones') }}</p>
                                                 </div>
                                             </div>
                                         </div>
                                     <div class="row">
-                                        <p id="error" class="error" style="padding-bottom:5px;"></p>
-                                        <input type="submit" id="enviar" value="Enviar"/>
-                                        <input type="button" id="enviando" value="Enviando..." class="oculto"/>
+                                        <p id="error_contacto" class="error" style="padding-bottom:5px;"></p>
+                                        <input type="submit" id="enviarContacto" value="Enviar"/>
+                                        <input type="button" id="enviandoContacto" value="Enviando..." class="oculto"/>
                                     </div>
                                 </li>
                             </ul>
