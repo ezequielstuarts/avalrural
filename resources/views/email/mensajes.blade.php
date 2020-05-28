@@ -1,7 +1,6 @@
 @extends('admin.layout')
 @section('admin')
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.4/jquery.xdomainrequest.min.js"></script>
+
 
 <div class="container">
     <h5 class="text-secondary">Mensajes recibidos desde formulario de contacto.</h5>
@@ -53,7 +52,7 @@
                 <td>{{$mensaje->nombre}}, {{$mensaje->apellido}} </td>
                 <td>{{$mensaje->email}}</td>
                 <td>
-                    <input name="view" id="{{$mensaje->id}}" class="btn btn-sm btn-primary view-data" type="button" value="Leer">
+                    <input name="view" id="{{$mensaje->id}}" class="btn btn-sm btn-outline-info view-data" type="button" value="Leer">
                 </td>
                 @if ( Auth::user()->rol )
                 <td>
@@ -88,7 +87,7 @@
             <p id="message-detail" ></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
@@ -100,13 +99,13 @@
             $.ajax({
                 "serveSide": true,
                 url: "{{url('/api/getMensaje')}}/"+mensaje_id,
-                method: "get", 
+                method: "post", 
                 success:function(data){
                     $('#mensaje_details').html(data.mensaje);
                     console.log(data);
                     $('#modal-title').html('<b>Mensaje recibido el: </b> '+data.data.created_at);
                     $('#message-detail').html(
-                        '<b>De:</b> '+data.data.nombre+', '+data.data.apellido+'<br><b>E-amil:</b> '+data.data.email+'<br><b>Empresa:</b> '+data.data.empresa+'<br><b>Cuit:</b> '+data.data.cuit+'<br><b>Localidad:</b> '+data.data.localidad+'<br><b>Teléfono:</b> '+data.data.telefono+'<br><b>Consulta:</b> '+data.data.consulta);
+                        '<b>De:</b> '+data.data.nombre+', '+data.data.apellido+'<br><b>E-mail:</b> '+data.data.email+'<br><b>Empresa:</b> '+data.data.empresa+'<br><b>Cuit:</b> '+data.data.cuit+'<br><b>Localidad:</b> '+data.data.localidad+'<br><b>Teléfono:</b> '+data.data.telefono+'<br><b>Consulta:</b> '+data.data.consulta);
                     $('#dataModal').modal("show");
                 }
             });

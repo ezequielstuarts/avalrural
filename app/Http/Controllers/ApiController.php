@@ -6,16 +6,19 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Noticia;
-use App\Http\resources\Noticias as NoticiasResource;
+use App\Http\Resources\Noticias as NoticiasResource;
 
 use App\Mensaje;
-use App\Http\resources\Mensaje as MensajeResource;
+use App\Http\Resources\Mensaje as MensajeResource;
 
 use App\Precalificacion;
-use App\Http\resources\Precalificacion as PrecalificacionResource;
+use App\Http\Resources\Precalificacion as PrecalificacionResource;
 
 class ApiController extends Controller
+
 {
+    
+
     public function getNoticias()
     {
         $noticias = Noticia::all();

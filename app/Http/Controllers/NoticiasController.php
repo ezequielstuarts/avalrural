@@ -88,10 +88,10 @@ class NoticiasController extends Controller
 
     }
 
-    public function edit($slug)
+    public function edit($id)
     {
         $now = Carbon::now();
-        $noticia = Noticia::where('slug', $slug)->first();
+        $noticia = Noticia::find($id);
         // $dateNoticia = $noticia->date;
         
         return view ("admin.edit", ['noticia' => $noticia, 'now' => $now]);

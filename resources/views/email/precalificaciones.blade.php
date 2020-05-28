@@ -27,24 +27,18 @@
             </a>
         </div>
 
-        <div class="container-fluid">
+        <div class="container">
             <table class="table table-hover table-sprite">
                 <thead>
                     <tr>
                         <th scope="col">Recibido el</th>
                         <th scope="col">De</th>
                         <th scope="col">E-mail</th>
-                        <th scope="col">Telefono</th>
-                        <th scope="col">Celular</th>
-                        <th scope="col">Empresa</th>
-                        <th scope="col">CUIT</th>
-                        <th scope="col">Rubro</th>
-                        <th scope="col">Codigo_afip</th>
                         <th scope="col">Balance</th>
                         <th scope="col">Nomina</th>
-                        <th scope="col">Actividad</th>
+                        <th colspan="1">Accion</th>
                         @if ( (Auth::user()->rol) === 1 )
-                            <th colspan="1">Accion</th>
+                        <th scope="col"></th>
                         @endif
                     </tr>
                 </thead>
@@ -55,32 +49,27 @@
                             <span class="blockquote-footer">{{date('H:i', strtotime($mensaje->created_at))}} hs.</span>
                         </td>
                         <td>{{$mensaje->nombre_y_apellido}} </td>
-                        <td>{{$mensaje->email}}</td>
-                        <td>{{$mensaje->telefono}}</td>
-                        <td>{{$mensaje->celular}}</td>
-                        <td>{{$mensaje->empresa}}</td>
-                        <td>{{$mensaje->cuit}}</td>
-                        <td>{{$mensaje->rubro}}</td>
-                        <td>{{$mensaje->codigo_afip}}</td>
+                        <td>{{$mensaje->email}}</td>                        
                         <td>
                             @if ($mensaje->balance) 
-                            <a class="btn btn-sm btn-outline-secondary" href="/storage/precalificaciones/balancesynominas/{{$mensaje->balance}}" target="blanc">Ver</a>
+                            <a class="btn btn-sm btn-outline-secondary" href="/storage/precalificaciones/balancesynominas/{{$mensaje->balance}}" target="blanc">Ver balance</a>
                             @endif
                         </td>
                         
                         <td>
                             @if ($mensaje->nomina) 
-                                <a class="btn btn-sm btn-outline-secondary" href="/storage/precalificaciones/balancesynominas/{{$mensaje->nomina}}" target="blanc">Ver</a>
+                                <a class="btn btn-sm btn-outline-secondary" href="/storage/precalificaciones/balancesynominas/{{$mensaje->nomina}}" target="blanc">Ver nómina</a>
                             @endif
                         </td>
-
-                        <td>{{$mensaje->actividad}}</td>
+                        <td>
+                            <input name="view" id="{{$mensaje->id}}" class="btn btn-sm btn-primary view-data" type="button" value="Leer">
+                        </td>
                         @if ( Auth::user()->rol )
                             <td>
                                 <form action="{{route('admin.precalificate.destroy', $mensaje->id)}}" method="post">
                                     {{csrf_field()}}
                                     <input type="hidden" name="id" value="{{$mensaje->id}}">
-                                    <input class="btn btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
+                                    <input class="btn btn-sm btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
                                 </form>
                             </td>
                         @endif
@@ -94,7 +83,51 @@
             </table>
             {{ $mensajes->links() }}
         </div>
+        <div class="modal fade" id="dataModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modal-title">Mensaje recibido el: </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <p id="message-detail" ></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <script>
+            $(document).ready(function(){
+                $('.view-data').click(function(){
+                    var mensaje_id = $(this).attr("id");
+                    $.ajax({
+                        "serveSide": true,
+                        url: "{{url('/api/getPrecalificacion')}}/"+mensaje_id,
+                        method: "post", 
+                        success:function(data){
+                            $('#mensaje_details').html(data.mensaje);
+                            console.log(data);
+                            $('#modal-title').html('<b>Precalificación recibida el: </b> '+data.data.created_at);
+                            $('#message-detail').html
+                            (
+                                '<b>Nombre y Apellido</b> '+data.data.nombre_y_apellido+'<br><b>E-mail</b> '+data.data.email+'<br><b>Telefono</b> '+data.data.telefono+'<br><b>Celular</b> '+data.data.celular+'<br><b>Empresa</b> '+data.data.empresa+'<br><b>Rubro</b> '+data.data.rubro+'<br><b>Actividad</b> '+data.data.actividad+'<br><b>Cuit</b> '+data.data.cuit+'<br><b>Codigo_afip</b> '+data.data.codigo_afip+'<br><a href="/storage/precalificaciones/balancesynominas/'+data.data.balance+'"target="blanc">Ver Balance</a><br><a href="/storage/precalificaciones/balancesynominas/'+data.data.nomina+'"target="blanc">Ver Nómina</a>'
 
+
+
+
+
+                            );
+                            $('#dataModal').modal("show");
+                        }
+                    });
+                });
+            })
+        </script>
 @endsection
 
 
