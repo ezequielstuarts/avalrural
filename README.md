@@ -4,8 +4,9 @@
 ## About Laravel
 
 Pasaje de sitio web html a laravel, con implementacion de backofice.
-http://avalrural.ezequielstuarts.dhalumnos.com/
+https://avalrural.ezequielstuarts.com.ar
 
-## Acceso al backoffice
-http://avalrural.ezequielstuarts.dhalumnos.com/admin
+
+## Acceso al backoffice (Podes probar el sistema en esta plataforma)
+https://avalrural.ezequielstuarts.com.ar/admin
 
