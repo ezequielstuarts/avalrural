@@ -29,7 +29,6 @@ class ApiController extends Controller
         }
         
     }
-
     public function getNoticia($id)
     {
         $noticias = Noticia::find($id);
@@ -42,7 +41,6 @@ class ApiController extends Controller
             return response()->json(['Error' => 'El Id: '.$id. ' no contiene ninguna noticia'], 404);
         }
     }
-
     public function getPrecalificaciones()
     {
         $precalificaciones = Precalificacion::all();
@@ -68,8 +66,6 @@ class ApiController extends Controller
             return response()->json(['Error' => 'El Id: '.$id. ' no contiene ningun mensaje'], 404);
         }
     }
-    
-    
     public function getMensajes()
     {
         $mensajes = Mensaje::all();

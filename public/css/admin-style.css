@@ -89,3 +89,8 @@ tr.shown td.details-control {
 table {
     border: solid 1px #f1f1f1;
 }
+
+#message-detail {
+    font-size: 16px;
+    line-height: 35px;
+}

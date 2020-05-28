@@ -1,5 +1,7 @@
 @extends('admin.layout')
 @section('admin')
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.4/jquery.xdomainrequest.min.js"></script>
 
 <div class="container">
     <h5 class="text-secondary">Mensajes recibidos desde formulario de contacto.</h5>
@@ -34,12 +36,8 @@
             <tr>
                 <th scope="col">Recibido el</th>
                 <th scope="col">De</th>
-                <th scope="col">Consulta</th>
-                <th scope="col">Empresa</th>
-                <th scope="col">CUIT</th>
-                <th scope="col">Localidad</th>
-                <th scope="col">Telefono</th>
                 <th scope="col">Email</th>
+                <th colspan="1">&nbsp;</th>
                 @if ( (Auth::user()->rol) === 1 )
                     <th colspan="1">&nbsp;</th>
                 @endif
@@ -49,28 +47,23 @@
         <tbody>
             <tr>
                 <td width="130px">{{date('d-m-Y', strtotime($mensaje->created_at))}}
-                 <span class="blockquote-footer">{{date('H:i', strtotime($mensaje->created_at))}} hs.</span></td>
+                    <span class="blockquote-footer">{{date('H:i', strtotime($mensaje->created_at))}} hs.</span>
+                </td>
 
-                <td>{{$mensaje->nombre}} {{$mensaje->apellido}} </td>
-                
-                <td>{{ $mensaje->consulta}}</td>
-                
-                <td>{{$mensaje->empresa}}</td>
-                <td>{{$mensaje->cuit}}</td>
-                <td>{{$mensaje->localidad}}</td>
-                <td>{{$mensaje->telefono}}</td>
+                <td>{{$mensaje->nombre}}, {{$mensaje->apellido}} </td>
                 <td>{{$mensaje->email}}</td>
+                <td>
+                    <input name="view" id="{{$mensaje->id}}" class="btn btn-sm btn-primary view-data" type="button" value="Leer">
+                </td>
                 @if ( Auth::user()->rol )
                 <td>
                     <form action="{{route('admin.mensajes.destroy', $mensaje->id)}}" method="post">
                         {{csrf_field()}}
                         <input type="hidden" name="id" value="{{$mensaje->id}}">
-                        <input class="btn btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
+                        <input class="btn btn-sm btn-danger" type="submit" value="Eliminar" onclick="return confirm('Seguro queres eliminar?')">
                     </form>
                 </td>
                 @endif
-            </tr>
-            <tr>
             </tr>
         </tbody>
         @empty
@@ -81,8 +74,47 @@
     </table>
     {{ $mensajes->links() }}
 </div>
-@endsection
 
+<div class="modal fade" id="dataModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-title">Mensaje recibido el: </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <p id="message-detail" ></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+    $(document).ready(function(){
+        $('.view-data').click(function(){
+            var mensaje_id = $(this).attr("id");
+            $.ajax({
+                "serveSide": true,
+                url: "{{url('/api/getMensaje')}}/"+mensaje_id,
+                method: "get", 
+                success:function(data){
+                    $('#mensaje_details').html(data.mensaje);
+                    console.log(data);
+                    $('#modal-title').html('<b>Mensaje recibido el: </b> '+data.data.created_at);
+                    $('#message-detail').html(
+                        '<b>De:</b> '+data.data.nombre+', '+data.data.apellido+'<br><b>E-amil:</b> '+data.data.email+'<br><b>Empresa:</b> '+data.data.empresa+'<br><b>Cuit:</b> '+data.data.cuit+'<br><b>Localidad:</b> '+data.data.localidad+'<br><b>Teléfono:</b> '+data.data.telefono+'<br><b>Consulta:</b> '+data.data.consulta);
+                    $('#dataModal').modal("show");
+                }
+            });
+        });
+    })
+</script>
+
+@endsection
 <!-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">

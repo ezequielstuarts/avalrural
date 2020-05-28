@@ -18,8 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-// Route::post('/mensajes', 'ApiController@show_mensajes');
-// Route::post('/mensajes/{id}', 'ApiController@show_mensajes_byid');
 
 // Route::post('/precalificaciones', 'ApiController@show_precalificacion');
 // Route::post('/precalificaciones/{id}', 'ApiController@show_precalificacion_byid');
@@ -31,7 +29,7 @@ Route::get('getPrecalificaciones', 'ApiController@getPrecalificaciones');
 Route::get('getPrecalificacion/{id}', 'ApiController@getPrecalificacion');
 
 Route::get('getMensajes', 'ApiController@getMensajes');
-Route::get('getMensajes/{id}', 'ApiController@getMensaje');
+Route::get('getMensaje/{id}', 'ApiController@getMensaje');
 
 // route::get('mensajes', function() {
 //     return datatables()->eloquent(App\Mensaje::query())->toJson();

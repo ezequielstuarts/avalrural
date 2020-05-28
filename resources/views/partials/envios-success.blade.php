@@ -6,6 +6,7 @@
 
     <script>
         document.onclick = function() {
-            $('#mensaje-enviado').addClass('oculto')
+            $('#mensaje-enviado').fadeOut('slow');
         }
+
     </script>

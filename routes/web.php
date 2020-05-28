@@ -60,6 +60,8 @@ Route::group(['middleware' => 'auth'], function ()
     Route::patch('admin/noticias/update/{id}', "NoticiasController@update")->name('admin.noticias.update');;
 
     Route::get('admin/mensajes', "MensajesController@index")->name('admin.mensajes');
+    
+    Route::get('admin/mensajes/{id}', "MensajesController@show")->name('admin.mensajes.show');
 
     Route::get('admin/precalificaciones', "PrecalificateController@index")->name('admin.precalificaciones');
 

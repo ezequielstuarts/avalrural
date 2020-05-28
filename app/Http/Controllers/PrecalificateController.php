@@ -58,7 +58,7 @@ class PrecalificateController extends Controller
             $response = $Validator->messages();
         } else {
             
-            $newPrecalificacion = new ContactPrecalificate();
+            $newPrecalificacion = new Precalificacion();
             $newPrecalificacion->nombre_y_apellido = $request["NombreYApellido"];
             $newPrecalificacion->email = $request["Email"];
             $newPrecalificacion->telefono = $request["Telefono"];

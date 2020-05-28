@@ -27,4 +27,10 @@ class MensajesController extends Controller
         $mensaje->delete();
         return redirect('admin/mensajes')->with('mensaje', 'Mensaje Eliminado');   
     }
+    
+    public function show($id)
+    {
+        $mensaje = Mensaje::find($id);
+        return ['mensaje' => $mensaje];
+    }
 }
