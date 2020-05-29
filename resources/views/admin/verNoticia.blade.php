@@ -8,7 +8,7 @@
                     <b>{{ $noticia->title}}</b>
                     <a href=" {{ route('admin.noticias') }} " class="btn btn-sm btn-info float-right">Volver a listado</a>
                     
-                    <a href="{{ route('admin.noticias.edit', $noticia->slug) }}" class="float-right btn btn-sm btn-outline-secondary mr-3">Editar</a>
+                    <a href="{{ route('admin.noticias.edit', $noticia->id) }}" class="float-right btn btn-sm btn-outline-secondary mr-3">Editar</a>
                     
                 </div>
                 <div class="card-body row">
@@ -22,8 +22,8 @@
                         <p class="mt-3"><b>Contenido:</b> {!! $noticia->content !!} </p>
                     </div>
                     <div class="col-md-4">
-                        @if (!empty($noticia->img))
-                            <img style="width:100%" class="img-responsive" src="/storage/imagenes/img_noticias/{{$noticia->img}}"/>
+                        @if (!empty($noticia->img_noticia))
+                            <img style="width:100%" class="img-responsive" src="/storage/imagenes/img_noticias/{{$noticia->img_noticia}}"/>
                         @else
                             <img style="width:100%" class="img-responsive" src="/img/noimg.png" class="card-img-top">
                         @endif
