@@ -12,6 +12,11 @@ i {
     cursor: pointer;
 }
 
+.fa-pulse {
+    font-size: 15px;
+    font-weight: bold;
+}
+
 nav .fas {
     color: rgb(65, 65, 65);
     padding-right: 10px;
@@ -28,6 +33,10 @@ td.details-control {
 
 tr.shown td.details-control {
     background: url('/img/details_close.png') no-repeat center center;
+}
+
+.background-aval {
+    background-color: #c6f8be;
 }
 
 .navbar-brand img {

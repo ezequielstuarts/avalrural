@@ -22,6 +22,13 @@ class PrecalificateController extends Controller
         $totalMensajes = count(Precalificacion::get());
         return view ("email.precalificaciones", ['mensajes' => $mensajes, 'totalMensajes' => $totalMensajes]);
     }
+
+    public function show($id)
+    {
+        $precalificacion = Precalificacion::find($id);
+        return $precalificacion;
+    }
+
     /**
      * Store a newly created resource in storage.
      *

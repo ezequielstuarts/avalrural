@@ -35,7 +35,7 @@
 <div class="container">
     <table class="table table-hover ">
         <thead>
-            <tr style="background-color:#c6f8be;">
+            <tr class="background-aval"">
                 <th colspan="col">Fecha</th>
                 <th colspan="col">Titulo</th>
                 <th colspan="col">Imagen</th>

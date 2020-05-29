@@ -65,6 +65,8 @@ Route::group(['middleware' => 'auth'], function ()
 
     Route::get('admin/precalificaciones', "PrecalificateController@index")->name('admin.precalificaciones');
 
+    Route::get('admin/precalificaciones/{id}', "PrecalificateController@show")->name('admin.precalificaciones.show');
+
     Route::post('admin/mensajes/destroy/{id}', "MensajesController@destroy")->name('admin.mensajes.destroy');
     
     Route::post('admin/precalificaciones/destroy/{id}', "PrecalificateController@destroy")->name('admin.precalificate.destroy');

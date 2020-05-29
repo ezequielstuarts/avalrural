@@ -25,11 +25,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('getNoticias', 'ApiController@getNoticias');
 Route::get('getNoticia/{id}', 'ApiController@getNoticia');
 
-Route::post('getPrecalificaciones', 'ApiController@getPrecalificaciones');
-Route::post('getPrecalificacion/{id}', 'ApiController@getPrecalificacion');
+// Route::post('getPrecalificaciones', 'ApiController@getPrecalificaciones');
+// Route::post('getPrecalificacion/{id}', 'ApiController@getPrecalificacion');
 
-Route::post('getMensajes', 'ApiController@getMensajes');
-Route::post('getMensaje/{id}', 'ApiController@getMensaje');
+// Route::post('getMensajes', 'ApiController@getMensajes');
+// Route::post('getMensaje/{id}', 'ApiController@getMensaje');
 
 // route::get('mensajes', function() {
 //     return datatables()->eloquent(App\Mensaje::query())->toJson();

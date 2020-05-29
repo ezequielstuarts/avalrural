@@ -30,7 +30,7 @@
         <div class="container">
             <table class="table table-hover table-sprite">
                 <thead>
-                    <tr>
+                    <tr class="background-aval">
                         <th scope="col">Recibido el</th>
                         <th scope="col">De</th>
                         <th scope="col">E-mail</th>
@@ -62,7 +62,10 @@
                             @endif
                         </td>
                         <td>
-                            <input name="view" id="{{$mensaje->id}}" class="btn btn-sm btn-primary view-data" type="button" value="Leer">
+                            <input name="view" id="{{$mensaje->id}}" class="btn btn-sm btn-info view-data" type="button" value="Leer Mensaje">
+
+                            <button id="loader{{$mensaje->id}}" class="loader btn btn-sm btn-info">Cargando <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i></button>
+                            
                         </td>
                         @if ( Auth::user()->rol )
                             <td>
@@ -81,48 +84,29 @@
                 </div>
                 @endforelse
             </table>
-            {{ $mensajes->links() }}
         </div>
-        <div class="modal fade" id="dataModal">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="modal-title">Mensaje recibido el: </h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                    <p id="message-detail" ></p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                </div>
-              </div>
-            </div>
-          </div>
+            <div class="container mt-5 mb-5">{{ $mensajes->links() }}</div>
+        @include('email.leer')
         <script>
             $(document).ready(function(){
+                $('.loader').hide();
                 $('.view-data').click(function(){
                     var mensaje_id = $(this).attr("id");
+                    $('#loader'+mensaje_id).show();
+                    $('#'+mensaje_id).hide();
                     $.ajax({
                         "serveSide": true,
-                        url: "{{url('/api/getPrecalificacion')}}/"+mensaje_id,
-                        method: "post", 
+                        url: "{{url('/admin/precalificaciones')}}/"+mensaje_id,
+                        method: "get", 
                         success:function(data){
-                            $('#mensaje_details').html(data.mensaje);
-                            console.log(data);
-                            $('#modal-title').html('<b>Precalificación recibida el: </b> '+data.data.created_at);
+                            $('#modal-title').html('<b>Precalificación recibida el: </b> '+data.created_at);
                             $('#message-detail').html
                             (
-                                '<b>Nombre y Apellido</b> '+data.data.nombre_y_apellido+'<br><b>E-mail</b> '+data.data.email+'<br><b>Telefono</b> '+data.data.telefono+'<br><b>Celular</b> '+data.data.celular+'<br><b>Empresa</b> '+data.data.empresa+'<br><b>Rubro</b> '+data.data.rubro+'<br><b>Actividad</b> '+data.data.actividad+'<br><b>Cuit</b> '+data.data.cuit+'<br><b>Codigo_afip</b> '+data.data.codigo_afip+'<br><a href="/storage/precalificaciones/balancesynominas/'+data.data.balance+'"target="blanc">Ver Balance</a><br><a href="/storage/precalificaciones/balancesynominas/'+data.data.nomina+'"target="blanc">Ver Nómina</a>'
-
-
-
-
-
+                                '<b>Nombre y Apellido</b> '+data.nombre_y_apellido+'<br><b>E-mail</b> '+data.email+'<br><b>Telefono</b> '+data.telefono+'<br><b>Celular</b> '+data.celular+'<br><b>Empresa</b> '+data.empresa+'<br><b>Rubro</b> '+data.rubro+'<br><b>Actividad</b> '+data.actividad+'<br><b>Cuit</b> '+data.cuit+'<br><b>Codigo_afip</b> '+data.codigo_afip+'<br><a href="/storage/precalificaciones/balancesynominas/'+data.balance+'"target="blanc">Ver Balance</a><br><a href="/storage/precalificaciones/balancesynominas/'+data.nomina+'"target="blanc">Ver Nómina</a>'
                             );
                             $('#dataModal').modal("show");
+                            $('#loader'+mensaje_id).hide();
+                            $('#'+mensaje_id).show()
                         }
                     });
                 });

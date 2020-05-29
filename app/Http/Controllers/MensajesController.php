@@ -31,6 +31,6 @@ class MensajesController extends Controller
     public function show($id)
     {
         $mensaje = Mensaje::find($id);
-        return ['mensaje' => $mensaje];
+        return $mensaje;
     }
 }
