@@ -31,14 +31,13 @@ class NoticiasHideController extends Controller
     {
         $id = $formulario['id'];
         $noticia = Noticia::find($id);
-        $img_preview = $noticia['img_preview'];
-        $img_noticia = $noticia['img_noticia'];
-
-        Storage::delete('public/imagenes/img_noticias/'.$img_preview);
-        Storage::delete('public/imagenes/img_noticias/'.$img_noticia);
+        if ($noticia->$img_preview){
+            Storage::delete('public/imagenes/img_noticias/'.$noticia->img_preview);
+        }
+        if ($noticia->$$img_noticia){
+            Storage::delete('public/imagenes/img_noticias/'.$noticia->img_noticia);
+        }
         $noticia->delete();
-
-        // return redirect('/admin');
         return redirect()->route('admin.noticiasHide')->with('mensaje', 'Se elimino la noticia');
     }
 }

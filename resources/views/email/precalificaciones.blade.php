@@ -51,13 +51,13 @@
                         <td>{{$mensaje->email}}</td>                        
                         <td>
                             @if ($mensaje->balance) 
-                            <a class="btn btn-sm btn-outline-secondary" href="/storage/precalificaciones/balancesynominas/{{$mensaje->balance}}" target="blanc">Ver balance</a>
+                            <a class="btn btn-sm btn-outline-secondary" href="/storage/precalificaciones/{{$mensaje->balance}}" target="blanc">Ver balance</a>
                             @endif
                         </td>
                         
                         <td>
                             @if ($mensaje->nomina) 
-                                <a class="btn btn-sm btn-outline-secondary" href="/storage/precalificaciones/balancesynominas/{{$mensaje->nomina}}" target="blanc">Ver nómina</a>
+                                <a class="btn btn-sm btn-outline-secondary" href="/storage/precalificaciones/{{$mensaje->nomina}}" target="blanc">Ver nómina</a>
                             @endif
                         </td>
                         <td>

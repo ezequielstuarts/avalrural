@@ -15,17 +15,18 @@
 <body>
     <h3>Mensajes recibidos desde el formulario de Contacto de Aval Rural.</h3>
     <hr>
-    
     @foreach ($mensajes as $mensaje)
-    
-    <p width="130px"><b>Recibido el: {{date('d-m-Y', strtotime($mensaje->created_at))}}</b> a las
-        <span>{{date('H:i', strtotime($mensaje->created_at))}} hs. </span><b>De: </b> {{$mensaje->nombre}}, {{$mensaje->apellido}}
+        <p>
+            <b>Recibido el: {{date('d-m-Y', strtotime($mensaje->created_at))}}</b> a las
+            <span>{{date('H:i', strtotime($mensaje->created_at))}} hs. </span><b>De: </b> {{$mensaje->nombre}}, {{$mensaje->apellido}}
         </p>
-        <p><b>E-mail: </b> {{$mensaje->email}}, <b>Empresa: </b>{{$mensaje->empresa}}, <b>CUIT: </b>{{$mensaje->cuit}}, <b>Localidad: </b>{{$mensaje->localidad}}, <b>Teléfono: </b>{{$mensaje->telefono}}</p>
-        <p><b>Consulta: </b>{{$mensaje->consulta}}</p>
+        <p>
+            <b>E-mail: </b> {{$mensaje->email}}, <b>Empresa: </b>{{$mensaje->empresa}}, <b>CUIT: </b>{{$mensaje->cuit}}, <b>Localidad: </b>{{$mensaje->localidad}}, <b>Teléfono: </b>{{$mensaje->telefono}}
+        </p>
+        <p>
+            <b>Consulta: </b>{{$mensaje->consulta}}
+        </p>
         <hr>
-        @endforeach
-        
-        
+    @endforeach
 </body>
 </html>

@@ -91,10 +91,10 @@ class PrecalificateController extends Controller
                 $newPrecalificacion->balance = $nombrebalance.'.'.$extension;
             }
             if($request->hasFile("Nomina")) {
-                $nombrebalance = "Nomina-".str_replace(' ', '-',$request["NombreYApellido"]).'-'.time();
+                $nombrenomina = "Nomina-".str_replace(' ', '-',$request["NombreYApellido"]).'-'.time();
                 $extension = $request->file('Nomina')->extension();
-                $file = $request->file("Nomina")->storeAs('public/precalificaciones/',$nombrebalance.'.'.$extension);                
-                $newPrecalificacion->balance = $nombrebalance.'.'.$extension;
+                $file = $request->file("Nomina")->storeAs('public/precalificaciones/',$nombrenomina.'.'.$extension);                
+                $newPrecalificacion->nomina = $nombrenomina.'.'.$extension;
             }
             
             $newPrecalificacion->save();
@@ -122,7 +122,15 @@ class PrecalificateController extends Controller
     public function destroy($id)
     {
         $mensaje = Precalificacion::find($id);
+        if ($mensaje->balance) {
+            Storage::delete('public/precalificaciones/'.$mensaje->balance);
+        }
+        if ($mensaje->nomina) {
+            Storage::delete('public/precalificaciones/'.$mensaje->nomina);
+        }
+
         $mensaje->delete();
+        
         return redirect('admin/precalificaciones')->with('mensaje', 'Mensaje Eliminado');
     }
 }
