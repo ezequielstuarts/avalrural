@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
-use App\ContactEmail;
+use App\Mensaje;
 use Mail;
 use App\Rules\Captcha;
+
 
 
 class ContactoController extends Controller
@@ -17,6 +18,9 @@ class ContactoController extends Controller
     {
         return view ("contacto");
     }
+
+
+
 
     public function enviar_contacto(Request $request)
     {
@@ -49,7 +53,7 @@ class ContactoController extends Controller
             $response = $Validator->messages();
         } else {
             
-            $newMail = new ContactEmail();
+            $newMail = new Mensaje();
             $newMail->apellido = $request["apellido"];
             $newMail->nombre = $request["nombre"];
             $newMail->empresa = $request["empresa"];

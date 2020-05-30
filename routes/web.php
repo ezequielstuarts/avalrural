@@ -62,6 +62,8 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('admin/mensajes', "MensajesController@index")->name('admin.mensajes');
     
     Route::get('admin/mensajes/{id}', "MensajesController@show")->name('admin.mensajes.show');
+    
+    Route::get('mensajes/exportPdf', "MensajesController@exportPdf")->name('mensajes.exportPdf');
 
     Route::get('admin/precalificaciones', "PrecalificateController@index")->name('admin.precalificaciones');
 

@@ -26,7 +26,7 @@ class AdminController extends Controller
         $mensajes = Mensaje::All();
         $totalMensajes = count(Mensaje::get());
 
-        $precalificaciones = Mensaje::All();
+        $precalificaciones = Precalificacion::All();
         $totalPrecalificaciones = count(Precalificacion::get());
 
         return view ("admin.admin", [

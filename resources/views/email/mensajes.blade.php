@@ -19,20 +19,23 @@
     <div class="row">
         <div class="col-md-8 ">
             <h5 class="text-secondary"><b>{{$totalMensajes}}</b> Mensajes en la base de datos.</h5></div>
+        </div>
     </div>
-</div>
-
-<div class="container text-right mb-4">
-    <a href="{{ route('admin')}}">
-        <button class="btn btn-outline-secondary">Volver</button>
-    </a>
-</div>
-
-
-<div class="container">
-    <table class="table table-hover table-sprite">
-        <thead>
-            <tr class="background-aval">
+    
+    <div class="container text-right mb-4">
+        <a href="{{ route('admin')}}">
+            <button class="btn btn-outline-secondary">Volver</button>
+        </a>
+    </div>
+    
+    <div class="container">
+    <a href="{{ route('mensajes.exportPdf')}}">Descargar PDF</a>
+    </div>
+    
+    <div class="container">
+        <table class="table table-hover table-sprite">
+            <thead>
+                <tr class="background-aval">
                 <th scope="col">Recibido el</th>
                 <th scope="col">De</th>
                 <th scope="col">Email</th>
