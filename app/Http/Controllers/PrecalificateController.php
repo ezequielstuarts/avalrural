@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 Use App\Precalificacion;
 use Mail;
+use Barryvdh\DomPDF\Facade as PDF;
+
 
 class PrecalificateController extends Controller
 {
@@ -27,6 +29,12 @@ class PrecalificateController extends Controller
     {
         $precalificacion = Precalificacion::find($id);
         return $precalificacion;
+    }
+
+    public function exportPdf() {
+        $precalificaciones = Precalificacion::orderBy('created_at', 'DESC')->get();
+        $pdf = PDF::loadView('email.pdf-precalificaciones', compact('precalificaciones'));
+        return $pdf->download('precalificaciones-recibidas-avalRural.pdf');
     }
 
     /**
@@ -56,7 +64,7 @@ class PrecalificateController extends Controller
                 "AFIP" => "required|string",
                 "Actividad" => "required|string",
                 "Acepta" => "accepted",
-                'file' => 'mimes:doc,docx,pdf',
+                'file' => 'file|image|mimes:doc,docx,pdf',
             ],
             $messages
         );
@@ -76,19 +84,19 @@ class PrecalificateController extends Controller
             $newPrecalificacion->codigo_afip = $request["AFIP"];
             $newPrecalificacion->actividad = $request["Actividad"];
             
-            if($request->file("Balance")) {
-                $rutabalance = $request->file("Balance")->store('precalificaciones/balancesynominas/', 'public');
-                $nombrebalance = basename($rutabalance);
-                $newPrecalificacion->balance = $nombrebalance;
+            if($request->hasFile("Balance")) {
+                $nombrebalance = "Balance-".str_replace(' ', '-',$request["NombreYApellido"]).'-'.time();
+                $extension = $request->file('Balance')->extension();
+                $file = $request->file("Balance")->storeAs('public/precalificaciones/',$nombrebalance.'.'.$extension);                
+                $newPrecalificacion->balance = $nombrebalance.'.'.$extension;
+            }
+            if($request->hasFile("Nomina")) {
+                $nombrebalance = "Nomina-".str_replace(' ', '-',$request["NombreYApellido"]).'-'.time();
+                $extension = $request->file('Nomina')->extension();
+                $file = $request->file("Nomina")->storeAs('public/precalificaciones/',$nombrebalance.'.'.$extension);                
+                $newPrecalificacion->balance = $nombrebalance.'.'.$extension;
             }
             
-            if($request->file("Nomina")) {
-                $rutanomina = $request->file("Nomina")->store('precalificaciones/balancesynominas/', 'public');
-                $nombrenomina = basename($rutanomina);
-                $newPrecalificacion->nomina = $nombrenomina;
-            }
-
-
             $newPrecalificacion->save();
 
             $subject = "Contacto de precalificacion de Aval Rural";

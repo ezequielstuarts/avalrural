@@ -53,7 +53,7 @@ class Usercontroller extends Controller
         
         $user->save();      
 
-        return redirect('admin/users');
+        return redirect('admin/users')->with('mensaje', 'Usuario agregado.');;
 
     }
 

@@ -5,19 +5,18 @@
             <h5 class="text-secondary">Mensajes recibidos desde formulario de precalifiaciones.</h5>
         </div>
 
-        <div class="container">
-            @if (session('mensaje'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert" data-dismiss="alert">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <h4>{{ session('mensaje') }}</h4>
-            </div>
-            @endif
-        </div>
+        
 
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <h5 class="text-secondary"><b>{{$totalMensajes}}</b> Mensajes en la base de datos.</h5></div>
+                    <h5 class="text-secondary"><b>{{$totalMensajes}}</b> Mensajes en la base de datos.</h5>
+                    <a href="{{ route('precalificaciones.exportPdf')}}">
+                        <div class="btn btn-sm btn-outline-secondary descargar-pdf">
+                            <i class="fa fa-download" aria-hidden="true"></i>Descargar PDF
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -26,7 +25,7 @@
                 <button class="btn btn-outline-secondary">Volver</button>
             </a>
         </div>
-
+        
         <div class="container">
             <table class="table table-hover table-sprite">
                 <thead>

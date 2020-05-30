@@ -8,6 +8,7 @@ use App\Mensaje;
 use Barryvdh\DomPDF\Facade as PDF;
 
 
+
 class MensajesController extends Controller
 {
     /**
@@ -37,7 +38,7 @@ class MensajesController extends Controller
     }
 
     public function exportPdf() {
-        $mensajes = Mensaje::get();
+        $mensajes = Mensaje::orderBy('created_at', 'DESC')->get();
         $pdf = PDF::loadView('email.pdf-mensajes', compact('mensajes'));
         return $pdf->download('mensajes-recibidos-avalRural.pdf');
     }

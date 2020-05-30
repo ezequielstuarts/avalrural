@@ -54,8 +54,8 @@ class NoticiasController extends Controller
         $reglas = [
             "date" => "required",
             "title" => "required",
-            "img_preview" => "required|file",
-            "img_noticia" => "required|file",
+            "img_preview" => "required|image",
+            "img_noticia" => "required|image",
         ];
         $mensajes = [
             "required" => "Debe ingresar :attribute de la noticia.",
@@ -101,6 +101,8 @@ class NoticiasController extends Controller
     {
             $reglas = [
                 "title" => "required|string",
+                "img_preview" => "image",
+                "img_noticia" => "image",
             ];
             $mensajes = [
                 "string" => "El campo :attribute debe ser un nombre.",

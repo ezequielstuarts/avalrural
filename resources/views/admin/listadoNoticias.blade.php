@@ -24,15 +24,6 @@
 </div>
 
 <div class="container">
-    @if (session('mensaje'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert" data-dismiss="alert">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <h4>{{ session('mensaje') }}</h4>
-    </div>
-    @endif
-</div>
-
-<div class="container">
     <table class="table table-hover ">
         <thead>
             <tr class="background-aval"">

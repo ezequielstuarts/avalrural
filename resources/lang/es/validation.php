@@ -56,7 +56,7 @@ return [
         'string'  => 'El :attribute debe contener :value o más caracteres.',
         'array'   => 'El :attribute debe contener :value o más elementos.',
     ],
-    'image'                => 'El :attribute debe ser una imagen.',
+    'image'                => 'La imagen debe ser de tipo PNG, JPG, JPEG',
     'in'                   => 'El :attribute es inválido.',
     'in_array'             => 'El :attribute no existe en :other.',
     'integer'              => 'El :attribute debe ser un número entero.',

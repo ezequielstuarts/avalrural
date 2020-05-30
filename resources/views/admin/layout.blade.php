@@ -30,6 +30,16 @@
 <body>
    @include('admin.nav-bar')
    <div style="padding-top:100px;">
+        
+        <div class="container">
+            @if (session('mensaje'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert" data-dismiss="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <h4>{{ session('mensaje') }}</h4>
+            </div>
+            @endif
+        </div>
+    
         @yield('admin')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
         @yield('scripts')
