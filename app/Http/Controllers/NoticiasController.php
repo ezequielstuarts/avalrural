@@ -26,7 +26,7 @@ class NoticiasController extends Controller
             $noticia = Noticia::where('slug', $slug)->first();
             return view ("noticia", ['noticia' => $noticia]);
     }
-    
+
     public function show($slug)
     {
         $noticia = Noticia::where('slug', $slug)->first();
@@ -54,7 +54,7 @@ class NoticiasController extends Controller
         $reglas = [
             "date" => "required",
             "title" => "required",
-            "img_preview" => "required|image",
+            "img_miniature" => "required|image",
             "img_noticia" => "required|image",
         ];
         $mensajes = [
@@ -62,7 +62,7 @@ class NoticiasController extends Controller
         ];
 
         $this->validate($request, $reglas, $mensajes);
-        
+
         $carpeta = 'imagenes/img_noticias';
 
         $newNoticia = new Noticia();
@@ -75,12 +75,12 @@ class NoticiasController extends Controller
         $newNoticia->created_at = Carbon::now();
         $newNoticia->modified_by = (auth()->user()->name);
 
-        $rutaPreview = $request->file("img_preview")->store($carpeta, 'public');
+        $rutaPreview = $request->file("img_miniature")->store($carpeta, 'public');
         $nombrePreview = basename($rutaPreview);
         $rutaImg = $request->file("img_noticia")->store($carpeta, 'public');
         $nombreImagen = basename($rutaImg);
 
-        $newNoticia->img_preview = $nombrePreview;
+        $newNoticia->img_miniature = $nombrePreview;
         $newNoticia->img_noticia = $nombreImagen;
 
         $newNoticia->save();
@@ -93,20 +93,22 @@ class NoticiasController extends Controller
         $now = Carbon::now();
         $noticia = Noticia::find($id);
         // $dateNoticia = $noticia->date;
-        
+
         return view ("admin.edit", ['noticia' => $noticia, 'now' => $now]);
     }
 
     public function update(Request $request, $id)
     {
             $reglas = [
-                "title" => "required|string",
-                "img_preview" => "image",
+                "title" => "required|string|unique:noticias,title," .$this->noticias,
+                "slug" => "unique:noticias",
+                "img_miniature" => "image",
                 "img_noticia" => "image",
             ];
             $mensajes = [
                 "string" => "El campo :attribute debe ser un nombre.",
                 "required" => "El campo :attribute es necesario.",
+                "unique" => "Este título de :attribute ya existe, elija otro",
             ];
 
             $this->validate($request, $reglas, $mensajes);
@@ -114,13 +116,13 @@ class NoticiasController extends Controller
             $noticia = Noticia::find($id);
             $diff = array_diff($request->toArray(), $noticia->toArray());
 
-            if ($request->has('img_preview')) {
+            if ($request->has('img_miniature')) {
 
-                $basename_preview = basename($request->file("img_preview")->store('public/imagenes/img_noticias/'));
+                $basename_preview = basename($request->file("img_miniature")->store('public/imagenes/img_noticias/'));
 
-                $img_preview = $noticia['img_preview'];
-                Storage::delete('public/imagenes/img_noticias/'.$img_preview);
-                $diff["img_preview"] = $basename_preview;
+                $img_miniature = $noticia['img_miniature'];
+                Storage::delete('public/imagenes/img_noticias/'.$img_miniature);
+                $diff["img_miniature"] = $basename_preview;
             }
             if ($request->has('img_noticia')) {
                 $basename_img = basename($request->file("img_noticia")->store('public/imagenes/img_noticias'));

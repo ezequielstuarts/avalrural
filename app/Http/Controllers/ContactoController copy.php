@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Storage;
 use App\Mensaje;
 use Mail;
 use App\Rules\Captcha;
-use App\Mail\MensajeDeContacto;
 
 
 
@@ -25,7 +24,6 @@ class ContactoController extends Controller
 
     public function enviar_contacto(Request $request)
     {
-
         $messages = [
             "string" => "El :attribute debe ser un nombre.",
             "required" => "Debe complear el campo :attribute.",
@@ -54,9 +52,7 @@ class ContactoController extends Controller
         if($Validator->fails()) {
             $response = $Validator->messages();
         } else {
-
-            $mensaje = $request->all();
-
+            
             $newMail = new Mensaje();
             $newMail->apellido = $request["apellido"];
             $newMail->nombre = $request["nombre"];
@@ -66,12 +62,24 @@ class ContactoController extends Controller
             $newMail->telefono = $request["telefono"];
             $newMail->email = $request["email"];
             $newMail->consulta = $request["consulta"];
-            $newMail->save();
-            Mail::to('e.stuarts@mas54.com')->queue(new MensajeDeContacto($mensaje));
 
+            $newMail->save();
+
+
+            $subject = "Mensaje desde el fomulario de contacto de Aval Rural";
+            $for = "elzeke55@gmail.com";
+            Mail::send('email.formulario_de_contacto',$request->all(),
+            function($msj) use($subject,$for){
+                $msj->from("elzeke55@gmail.com","Menaje desde el fomulario de contacto de Aval Rural");
+                $msj->subject($subject);
+                $msj->to($for);
+            });
+            
             $response = ['success' => 'Hemos enviado tu mnensaje'];
         }
         return response()->json($response,200);
+
+        
     }
 
 }

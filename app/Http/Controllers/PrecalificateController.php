@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 Use App\Precalificacion;
 use Mail;
 use Barryvdh\DomPDF\Facade as PDF;
+use App\Mail\MensajePrecalificate;
+
 
 
 class PrecalificateController extends Controller
@@ -50,7 +52,7 @@ class PrecalificateController extends Controller
             "required" => "El campo :attribute es necesario.",
             "numeric" => "El :attribute debe ser numerico.",
         ];
-        
+
         $Validator = Validator::make(
             $request->all(),
             [
@@ -72,7 +74,7 @@ class PrecalificateController extends Controller
         if($Validator->fails()) {
             $response = $Validator->messages();
         } else {
-            
+
             $newPrecalificacion = new Precalificacion();
             $newPrecalificacion->nombre_y_apellido = $request["NombreYApellido"];
             $newPrecalificacion->email = $request["Email"];
@@ -83,31 +85,26 @@ class PrecalificateController extends Controller
             $newPrecalificacion->rubro = $request["Rubro"];
             $newPrecalificacion->codigo_afip = $request["AFIP"];
             $newPrecalificacion->actividad = $request["Actividad"];
-            
+
             if($request->hasFile("Balance")) {
                 $nombrebalance = "Balance-".str_replace(' ', '-',$request["NombreYApellido"]).'-'.time();
                 $extension = $request->file('Balance')->extension();
-                $file = $request->file("Balance")->storeAs('public/precalificaciones/',$nombrebalance.'.'.$extension);                
+                $file = $request->file("Balance")->storeAs('public/precalificaciones',$nombrebalance.'.'.$extension);
                 $newPrecalificacion->balance = $nombrebalance.'.'.$extension;
             }
             if($request->hasFile("Nomina")) {
                 $nombrenomina = "Nomina-".str_replace(' ', '-',$request["NombreYApellido"]).'-'.time();
                 $extension = $request->file('Nomina')->extension();
-                $file = $request->file("Nomina")->storeAs('public/precalificaciones/',$nombrenomina.'.'.$extension);                
+                $file2 = $request->file("Nomina")->storeAs('public/precalificaciones',$nombrenomina.'.'.$extension);
                 $newPrecalificacion->nomina = $nombrenomina.'.'.$extension;
             }
-            
-            $newPrecalificacion->save();
 
-            $subject = "Contacto de precalificacion de Aval Rural";
-            $for = "elzeke55@gmail.com";
-            Mail::send('email.formulario_de_precalificaciones',$request->all(),
-            function($msj) use($subject,$for){
-                $msj->from("elzeke55@gmail.com","Mensaje desde el fomulario de precalificaciones");
-                $msj->subject($subject);
-                $msj->to($for);
-            });
-            
+            $newPrecalificacion->save();
+            $mensaje = $request->all();
+
+            // return new MensajePrecalificate($mensaje,$patch);
+            Mail::to('e.stuarts@mas54.com')->send(new MensajePrecalificate($mensaje));
+
             $response = ['success' => 'Hemos enviado tu mnensaje'];
         }
         return response()->json($response,200);
@@ -130,7 +127,7 @@ class PrecalificateController extends Controller
         }
 
         $mensaje->delete();
-        
+
         return redirect('admin/precalificaciones')->with('mensaje', 'Mensaje Eliminado');
     }
 }

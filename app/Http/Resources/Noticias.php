@@ -20,7 +20,7 @@ class Noticias extends JsonResource
             'subtitle' => $this->subtitle,
             'content' => $this->content,
             'date' => $this->date,
-            'img_preview' => $this->img_preview,
+            'img_miniature' => $this->img_miniature,
             'img_noticia' => $this->img_noticia,
             'created_at' => $this->created_at,
             'updated_at'. 'id' => $this->updated_at,

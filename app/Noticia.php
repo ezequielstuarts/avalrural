@@ -9,9 +9,9 @@ class Noticia extends Model
     public $table = "noticias";
     public $primarykey = "id";
     //public $timestamps = "";
-    protected $fillable = ['title', 'subtitle', 'content', 'date', 'img_preview', 'img_noticia', 'created_at', 'updated_at'. 'id', 'modified_by', 'slug'];
-    
-    
+    protected $fillable = ['title', 'subtitle', 'content', 'date', 'img_miniature', 'img_noticia', 'created_at', 'updated_at'. 'id', 'modified_by', 'slug'];
+
+
     public function getRouteKeyName()
     {
         return 'slug';

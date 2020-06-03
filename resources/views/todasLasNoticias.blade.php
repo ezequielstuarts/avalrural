@@ -29,8 +29,8 @@
                                         <div class="content">
                                             <div class="content_inner">
                                                 <div class="foto_noticia">
-                                                    @if (!empty($noticia->img_preview))
-                                                        <img src="/storage/imagenes/img_noticias/{{$noticia->img_preview}}"/>
+                                                    @if (!empty($noticia->img_miniature))
+                                                        <img src="/storage/imagenes/img_noticias/{{$noticia->img_miniature}}"/>
                                                     @else
                                                         <img src="../img/noimg.png" class="card-img-top">
                                                     @endif

@@ -14,8 +14,8 @@
                         <li class="buildify_tm_minibox">
                             <div class="inner">
                                 <div class="image_news">
-                                    @if (!empty($noticia->img_preview))
-                                        <img src="storage/imagenes/img_noticias/{{$noticia->img_preview}}"/>
+                                    @if (!empty($noticia->img_miniature))
+                                        <img src="storage/imagenes/img_noticias/{{$noticia->img_miniature}}"/>
                                     @else
                                         <img src="/img/noimg.png" class="card-img-top">
                                     @endif

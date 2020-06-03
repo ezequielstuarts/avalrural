@@ -17,11 +17,11 @@ class CreateTableNoticias extends Migration
             $table->increments('id')->unique();
             $table->timestamps();
             $table->datetime('date');
-            $table->char('title', 255);
+            $table->char('title', 255)->unique();
             $table->char('subtitle', 255)->nullable();
             $table->text('content')->nullable();
             $table->string('modified_by')->nullable();
-            $table->char('img_preview', 255);
+            $table->char('img_miniature', 255);
             $table->char('img_noticia', 255);
             $table->string('slug', 255)->unique();
             $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('PUBLISHED');

@@ -43,11 +43,11 @@
             <input type="text" class="form-control" id="title" name="title" value="{{$noticia->title}}">
             <p class="text-danger pl-1 pt-1">{{ $errors->first('title') }}</p>
         </div>
-        
+
         <div class="form-group slug-cont">
             <label for="title"><b>URL amigable</b></label>
             <input type="text" class="slug" id="slug" value="{{$noticia->slug}}" disabled>
-        </div> 
+        </div>
 
         <div class="form-group">
             <label for="subtitle"><b>Subtitulo</b></label>
@@ -59,17 +59,18 @@
 
         <div class="form-group">
             <div class="row">
-                <div class="col-7">
-                    <label for="img_preview"><b>Imagen Preview</b> <span style="color:red;">800 x 600 px</span></label>
-                    <p>Nombre de la imagen actual:
-                    <span class="badge badge-info"> {{$noticia->img_preview}}</span></p>
-                    <input type="file" class="form-control-file" id="img_preview" name="img_preview">
-                    <p class="text-danger pl-1 pt-1">{{ $errors->first('img_preview') }}</p>
+                <div class="col-8">
+                    <p><b>Imágen Miniatura</b> <span style="color:red;">Recomendado 800 x 600 px</span></p>
+                    <div class="custom-file">
+                        <input type="file" name="img_miniature" class="custom-file-input" id="validatedCustomMini">
+                        <label id="nombre_img_miniature" class="custom-file-label" for="validatedCustomMini"> {{$noticia->img_miniature}} </label>
+                        <p class="text-danger pl-1 pt-1">{{ $errors->first('img_miniature') }}</p>
+                    </div>
                 </div>
-                <div class="col-5">
+                <div class="col-4">
                     @if (!empty($noticia->img_noticia))
-                    <a href="/storage/imagenes/img_noticias/{{$noticia->img_preview}}" target="blanc">
-                        <img class="img-responsive" style="border:solid 1px; width:150px ;float:right;" src="/storage/imagenes/img_noticias/{{$noticia->img_preview}}"></a>
+                    <a href="/storage/imagenes/img_noticias/{{$noticia->img_miniature}}" target="blanc">
+                        <img class="img-responsive" style="border:solid 1px; width:150px ;float:right;" src="/storage/imagenes/img_noticias/{{$noticia->img_miniature}}"></a>
                     @else
                         <img style="width:200px" src="/img/noimg.png" class="card-img-top">
                     @endif
@@ -79,14 +80,15 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-7">
-                    <label for="img_noticia"><b>Imagen Completa</b></label>
-                    <p>Nombre de la imagen actual:
-                        <span class="badge badge-info"> {{$noticia->img_noticia}}</span></p>
-                    <input type="file" class="form-control-file" id="img_noticia" name="img_noticia">
-                    <p class="text-danger pl-1 pt-1">{{ $errors->first('img_noticia') }}</p>
+                <div class="col-8">
+                    <p><b>Imágen Completa</b></p>
+                    <div class="custom-file">
+                        <input type="file" name="img_noticia" class="custom-file-input" id="validatedCustomFull">
+                        <label id="nombre_img_full" class="custom-file-label" for="validatedCustomFull"> {{$noticia->img_noticia}} </label>
+                        <p class="text-danger pl-1 pt-1">{{ $errors->first('img_noticia') }}</p>
+                    </div>
                 </div>
-                <div class="col-5">
+                <div class="col-4">
                     @if (!empty($noticia->img_noticia))
                     <a href="/storage/imagenes/img_noticias/{{$noticia->img_noticia}}" target="blanc">
                         <img class="img-responsive" style="border:solid 1px; width:150px ;float:right;" src="/storage/imagenes/img_noticias/{{$noticia->img_noticia}}"></a>
@@ -114,6 +116,7 @@
 
     @section('scripts')
         <!-- Datepicker Files -->
+
         <script src="{{asset('/vendor/datepicker/bootstrap-datepicker.min.js')}}"></script>
         <!-- Languaje -->
         <script src="{{asset('/vendor/datepicker/bootstrap-datepicker.es.min.js')}}"></script>
@@ -144,6 +147,7 @@
             CKEDITOR.config.width = 'auto';
             CKEDITOR.replace('content');
         </script>
+        <script src="{{asset('js/boton_archivo.js')}}"></script>
     @endsection
 
 @endsection

@@ -42,9 +42,9 @@
         </div>
 
         <div class="form-group">
-            <label for="img_preview"><b>Imagen Preview</b> <span style="color:red;">800 x 600 px</span></label>
-            <input type="file" class="form-control-file" id="img_preview" name="img_preview">
-            <p class="text-danger pl-1 pt-1">{{ $errors->first('img_preview') }}</p>
+            <label for="img_miniature"><b>Imágen Miniatura</b> <span style="color:red;">800 x 600 px</span></label>
+            <input type="file" class="form-control-file" id="img_miniature" name="img_miniature">
+            <p class="text-danger pl-1 pt-1">{{ $errors->first('img_miniature') }}</p>
         </div>
         <div class="form-group">
             <label for="img_noticia"><b>Imagen completa</b></label>
