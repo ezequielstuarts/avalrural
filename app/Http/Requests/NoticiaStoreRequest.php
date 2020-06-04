@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class NoticiaRequest extends FormRequest
+class NoticiaStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,11 @@ class NoticiaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'date' => 'required',
+            'title' => 'required|unique:noticias,title',
+            'img_miniature' => 'required|image|mimes:jpg,jpeg,png',
+            'img_noticia' => 'required|image|mimes:jpg,jpeg,png',
         ];
     }
 }
+

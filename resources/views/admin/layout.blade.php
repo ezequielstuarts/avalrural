@@ -26,11 +26,22 @@
     <link href="{{ asset('css/admin-style.css') }}" rel="stylesheet">
     @yield('scripts-headers')
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168566676-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-168566676-1');
+    </script>
+
+
 </head>
 <body>
    @include('admin.nav-bar')
    <div style="padding-top:100px;">
-        
+
         <div class="container">
             @if (session('mensaje'))
             <div class="alert alert-success alert-dismissible fade show" role="alert" data-dismiss="alert">
@@ -39,7 +50,7 @@
             </div>
             @endif
         </div>
-    
+
         @yield('admin')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
         @yield('scripts')

@@ -7,6 +7,8 @@ use App\Noticia;
 use App\NoticiaHide;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use App\Http\Requests\NoticiaStoreRequest;
+use App\Http\Requests\NoticiaUpdateRequest;
 
 class NoticiasController extends Controller
 {
@@ -48,22 +50,8 @@ class NoticiasController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(NoticiaStoreRequest $request)
     {
-
-        $reglas = [
-            "date" => "required",
-            "title" => "required",
-            "img_miniature" => "required|image",
-            "img_noticia" => "required|image",
-        ];
-        $mensajes = [
-            "required" => "Debe ingresar :attribute de la noticia.",
-        ];
-
-        $this->validate($request, $reglas, $mensajes);
-
-        $carpeta = 'imagenes/img_noticias';
 
         $newNoticia = new Noticia();
         $newNoticia->title = $request["title"];
@@ -75,6 +63,7 @@ class NoticiasController extends Controller
         $newNoticia->created_at = Carbon::now();
         $newNoticia->modified_by = (auth()->user()->name);
 
+        $carpeta = 'imagenes/img_noticias';
         $rutaPreview = $request->file("img_miniature")->store($carpeta, 'public');
         $nombrePreview = basename($rutaPreview);
         $rutaImg = $request->file("img_noticia")->store($carpeta, 'public');
@@ -84,7 +73,9 @@ class NoticiasController extends Controller
         $newNoticia->img_noticia = $nombreImagen;
 
         $newNoticia->save();
-        return redirect()->route('admin.noticias');
+        $noticias = Noticia::all();
+        $last = $noticias->last();
+        return redirect()->route('admin.noticias.show', $last->slug);
 
     }
 
@@ -97,22 +88,8 @@ class NoticiasController extends Controller
         return view ("admin.edit", ['noticia' => $noticia, 'now' => $now]);
     }
 
-    public function update(Request $request, $id)
+    public function update(NoticiaUpdateRequest $request, $id)
     {
-            $reglas = [
-                "title" => "required|string|unique:noticias,title," .$this->noticias,
-                "slug" => "unique:noticias",
-                "img_miniature" => "image",
-                "img_noticia" => "image",
-            ];
-            $mensajes = [
-                "string" => "El campo :attribute debe ser un nombre.",
-                "required" => "El campo :attribute es necesario.",
-                "unique" => "Este título de :attribute ya existe, elija otro",
-            ];
-
-            $this->validate($request, $reglas, $mensajes);
-
             $noticia = Noticia::find($id);
             $diff = array_diff($request->toArray(), $noticia->toArray());
 

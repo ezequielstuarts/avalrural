@@ -44,11 +44,6 @@
             <p class="text-danger pl-1 pt-1">{{ $errors->first('title') }}</p>
         </div>
 
-        <div class="form-group slug-cont">
-            <label for="title"><b>URL amigable</b></label>
-            <input type="text" class="slug" id="slug" value="{{$noticia->slug}}" disabled>
-        </div>
-
         <div class="form-group">
             <label for="subtitle"><b>Subtitulo</b></label>
             <input type="text" class="form-control disabled" id="subtitle" name="subtitle" value="{{$noticia->subtitle}}">
@@ -128,15 +123,6 @@
                 language: "es",
                 autoclose: true,
                 todayHighlight: true
-            });
-        </script>
-
-        <script src=" {{asset('vendor/stringToSlug/jquery.stringToSlug.js')}} "></script>
-        <script>
-            $("#title, #slug").stringToSlug({
-                callback: function(text){
-                    $("#slug").val(text);
-                }
             });
         </script>
 

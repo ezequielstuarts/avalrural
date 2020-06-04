@@ -67,6 +67,10 @@ tr.shown td.details-control {
     font-weight: 600;
 }
 
+.card-title a {
+    color: rgb(61, 61, 61)!important;
+}
+
 .boton-nueva-noticia a {
     float: right;
     padding: 13px 15px;

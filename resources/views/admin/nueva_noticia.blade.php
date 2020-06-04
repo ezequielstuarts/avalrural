@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{asset('/vendor/datepicker/bootstrap-datepicker.standalone.css')}}">
     @endsection
 
+
     <div class="container text-right">
         <h5>{{ $date->isoFormat('dddd, Do MMMM YYYY') }}</h5>
     </div>
@@ -18,7 +19,7 @@
         <div class="form-group">
             <label for="date"><b>Fecha</b></label>
             <div class="input-group date">
-                <input type="text" class="form-control datepicker" name="date">
+                <input type="text" class="form-control datepicker" name="date" value="{{old("date")}}">
                 <div class="input-group-append">
                     <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
                 </div>
@@ -32,24 +33,35 @@
             <p class="text-danger pl-1 pt-1">{{ $errors->first('title') }}</p>
         </div>
         <div class="form-group">
-            <label for="title"><b>URL amigable</b></label>
-            <input type="text" class="form-control" id="slug" value="">
-        </div>
-        <div class="form-group">
             <label for="subtitle"><b>Subtitulo</b></label>
-            <input class="form-control" id="subtitle" rows="3" name="subtitle" value="{{old("subtitle")}}"></input>
-
+            <input class="form-control" id="subtitle" rows="3" name="subtitle" value="{{old("subtitle")}}">
         </div>
 
         <div class="form-group">
-            <label for="img_miniature"><b>Imágen Miniatura</b> <span style="color:red;">800 x 600 px</span></label>
-            <input type="file" class="form-control-file" id="img_miniature" name="img_miniature">
-            <p class="text-danger pl-1 pt-1">{{ $errors->first('img_miniature') }}</p>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><b>Imágen Miniatura</b> <span style="color:red;">Recomendado 800 x 600 px</span></p>
+                    <div class="custom-file">
+                        <input type="file" name="img_miniature" class="custom-file-input" id="validatedCustomMini">
+                        <label id="nombre_img_miniature" class="custom-file-label" for="validatedCustomMini">Elija una imagen recomendamos 800 x 600.</label>
+                        <p class="text-danger pl-1 pt-1">{{ $errors->first('img_miniature') }}</p>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <p><b>Imágen Completa</b></p>
+                    <div class="custom-file">
+                        <input type="file" name="img_noticia" class="custom-file-input" id="validatedCustomFull">
+                        <label id="nombre_img_full" class="custom-file-label" for="validatedCustomFull">Elija una imagen</label>
+                        <p class="text-danger pl-1 pt-1">{{ $errors->first('img_noticia') }}</p>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
         <div class="form-group">
-            <label for="img_noticia"><b>Imagen completa</b></label>
-            <input type="file" class="form-control-file" id="img_noticia" name="img_noticia">
-            <p class="text-danger pl-1 pt-1">{{ $errors->first('img_noticia') }}</p>
+
         </div>
 
 
@@ -86,15 +98,6 @@
             });
         </script>
 
-        <script src=" {{asset('vendor/stringToSlug/jquery.stringToSlug.js')}} "></script>
-        <script>
-            $("#title, #slug").stringToSlug({
-                callback: function(text){
-                    $("#slug").val(text);
-                }
-            });
-        </script>
-
         {{-- CKEDITOR --}}
         <script src=" {{asset('vendor/ckeditor/ckeditor.js')}} "></script>
         <script>
@@ -102,5 +105,6 @@
             CKEDITOR.config.width = 'auto';
             CKEDITOR.replace('content');
         </script>
+         <script src="{{asset('js/boton_archivo.js')}}"></script>
     @endsection
 @endsection

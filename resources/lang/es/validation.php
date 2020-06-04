@@ -113,7 +113,7 @@ return [
     'starts_with'          => 'El :attribute debe comenzar con uno de los siguientes valores: :values',
     'string'               => 'El :attribute debe ser una cadena de caracteres.',
     'timezone'             => 'El :attribute debe ser una zona horaria válida.',
-    'unique'               => 'El valor del :attribute ya está en uso.',
+    'unique'               => 'El valor del :attribute ya está en uso, por favor, elija otro.',
     'uploaded'             => 'El :attribute no se pudo subir.',
     'url'                  => 'El formato del :attribute es inválido.',
     'uuid'                 => 'El :attribute debe ser un UUID válido.',
@@ -151,7 +151,7 @@ return [
         'last_name' => 'apellido',
         'date' => 'fecha',
         "title" => 'titulo',
-        "img_miniature" => 'imagen preview',
+        "img_miniature" => 'imagen miniatura',
         "img_noticia" => 'imagen completa'
     ],
 
