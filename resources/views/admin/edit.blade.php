@@ -46,7 +46,7 @@
 
         <div class="form-group">
             <label for="subtitle"><b>Subtitulo</b></label>
-            <input type="text" class="form-control disabled" id="subtitle" name="subtitle" value="{{$noticia->subtitle}}">
+            <input type="text" class="form-control" id="subtitle" name="subtitle" value="{{$noticia->subtitle}}">
         </div>
 
         <hr>

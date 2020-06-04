@@ -5,11 +5,11 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <b>{{ $noticia->title}}</b>
+                    <b>Ver: </b>{{ $noticia->title}}
                     <a href=" {{ route('admin.noticias') }} " class="btn btn-sm btn-info float-right">Volver a listado</a>
-                    
+
                     <a href="{{ route('admin.noticias.edit', $noticia->id) }}" class="float-right btn btn-sm btn-outline-secondary mr-3">Editar</a>
-                    
+
                 </div>
                 <div class="card-body row">
                     <div class="col-md-8">
@@ -17,9 +17,13 @@
                         <hr>
                         <p class="mt-3"><b>Titulo:</b> {{ $noticia->title}} </p>
                         <hr>
-                        <p class="mt-3"><b>Subtitulo:</b> {{ $noticia->subtitle}} </p>
-                        <hr>
-                        <p class="mt-3"><b>Contenido:</b> {!! $noticia->content !!} </p>
+                        @if ($noticia->subtitle != NULL)
+                            <p class="mt-3"><b>Subtitulo:</b> {{ $noticia->subtitle}} </p>
+                            <hr>
+                        @endif
+                        @if ($noticia->content != NULL)
+                            <p class="mt-3"><b>Contenido:</b> {!! $noticia->content !!} </p>
+                        @endif
                     </div>
                     <div class="col-md-4">
                         @if (!empty($noticia->img_noticia))

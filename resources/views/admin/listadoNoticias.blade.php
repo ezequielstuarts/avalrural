@@ -41,8 +41,10 @@
             <tr>
                 <td width="130px">{{date('d-m-Y', strtotime($noticia->date))}}</td>
                 <td><b style="font-size:18px;">{{$noticia->title}}</b>
+                    @if ($noticia->subtitle != NULL)
                     <hr>
                     <p class="text-secondary" style="font-size:12px;"><b>Subtitulo: </b>{{$noticia->subtitle}}</p>
+                    @endif
                 </td>
                 <td>
                     @if (!empty($noticia->img_noticia))
@@ -51,15 +53,15 @@
                         <img style="width:100px" src="/img/noimg.png" class="card-img-top">
                     @endif
                 </td>
-                
+
                 <td width="5px">
                     <a href="{{ route('admin.noticias.show', $noticia->slug) }}" class="btn btn-sm btn-outline-primary">Ver</a>
                 </td>
-                
+
                 <td width="5px">
                     <a href="{{ route('admin.noticias.edit', $noticia->id) }}" class="btn btn-sm btn-outline-success">Editar</a>
                 </td>
-                
+
                 <td width="5px">
                     <a href="{{ route('admin.noticias.hide', $noticia->id) }}" class="btn btn-sm btn-outline-info" onclick="return confirm('Seguro queres ocultar esta noticia?')">Ocultar</a>
                 </td>

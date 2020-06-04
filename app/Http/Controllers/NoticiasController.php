@@ -93,13 +93,14 @@ class NoticiasController extends Controller
             $noticia = Noticia::find($id);
             $diff = array_diff($request->toArray(), $noticia->toArray());
 
+
             if ($request->has('img_miniature')) {
 
-                $basename_preview = basename($request->file("img_miniature")->store('public/imagenes/img_noticias/'));
+                $basename_miniature = basename($request->file("img_miniature")->store('public/imagenes/img_noticias/'));
 
                 $img_miniature = $noticia['img_miniature'];
                 Storage::delete('public/imagenes/img_noticias/'.$img_miniature);
-                $diff["img_miniature"] = $basename_preview;
+                $diff["img_miniature"] = $basename_miniature;
             }
             if ($request->has('img_noticia')) {
                 $basename_img = basename($request->file("img_noticia")->store('public/imagenes/img_noticias'));

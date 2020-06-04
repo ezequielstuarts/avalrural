@@ -31,10 +31,10 @@ class NoticiasHideController extends Controller
     {
         $id = $formulario['id'];
         $noticia = Noticia::find($id);
-        if ($noticia->$img_miniature){
+        if ($noticia->img_miniature){
             Storage::delete('public/imagenes/img_noticias/'.$noticia->img_miniature);
         }
-        if ($noticia->$$img_noticia){
+        if ($noticia->img_noticia){
             Storage::delete('public/imagenes/img_noticias/'.$noticia->img_noticia);
         }
         $noticia->delete();
