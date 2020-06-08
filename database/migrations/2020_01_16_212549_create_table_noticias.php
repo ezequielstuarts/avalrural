@@ -23,7 +23,7 @@ class CreateTableNoticias extends Migration
             $table->string('modified_by')->nullable();
             $table->char('img_miniature', 255);
             $table->char('img_noticia', 255);
-            $table->string('slug', 255)->unique();
+            $table->string('slug', 255)->unique()->nulleable();
             $table->enum('status', ['PUBLISHED', 'DRAFT'])->default('PUBLISHED');
         });
     }
