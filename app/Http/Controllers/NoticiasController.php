@@ -12,6 +12,8 @@ use App\Http\Requests\NoticiaUpdateRequest;
 
 class NoticiasController extends Controller
 {
+    private $carpeta = 'public/imagenes/img_noticias/';
+
     public function __construct()
     {
         Carbon::setlocale('es');
@@ -63,7 +65,7 @@ class NoticiasController extends Controller
         $newNoticia->created_at = Carbon::now();
         $newNoticia->modified_by = (auth()->user()->name);
 
-        $carpeta = 'imagenes/img_noticias';
+
         $rutaPreview = $request->file("img_miniature")->store($carpeta, 'public');
         $nombrePreview = basename($rutaPreview);
         $rutaImg = $request->file("img_noticia")->store($carpeta, 'public');
