@@ -12,39 +12,39 @@
                         <ul class="vert_nav">
                             <li><a href="/">Home</a></li>
                             <li class="active1">
-                                <a href="sobre_aval">Sobre Aval Rural SGR</a>
+                                <a href="/sobre_aval">Sobre Aval Rural SGR</a>
                                 <div class="inside_menu">
                                     <ul>
-                                        <li><a href="sobre_aval">Quiénes Somos</a></li>
-                                        <li><a href="noticias">Noticias</a></li>
+                                        <li><a href="/sobre_aval">Quiénes Somos</a></li>
+                                        <li><a href="/noticias">Noticias</a></li>
                                     </ul>
                                 </div>
                             </li>
                             <li class="active1">
-                                <a href="productos">Productos</a>
+                                <a href="/productos">Productos</a>
                                 <div class="inside_menu">
                                     <ul>
-                                        <li><a href="cheques">Cheques</a></li>
-                                            <li><a href="pagares">Pagarés</a></li>
-                                            <li><a href="bancos">Bancos</a></li>
-                                            <li><a href="obligaciones">Obligaciones Negociables Simples</a></li>
-                                            <li><a href="fideicomisos">Fideicomisos Financieros</a></li>
-                                            <li><a href="garantias">Garantías Comerciales</a></li>
+                                        <li><a href="/cheques">Cheques</a></li>
+                                            <li><a href="/pagares">Pagarés</a></li>
+                                            <li><a href="/bancos">Bancos</a></li>
+                                            <li><a href="/obligaciones">Obligaciones Negociables Simples</a></li>
+                                            <li><a href="/fideicomisos">Fideicomisos Financieros</a></li>
+                                            <li><a href="/garantias">Garantías Comerciales</a></li>
                                         </ul>
                                 </div>
                             </li>
-                            <li><a href="que-es-una-sgr">¿Qué es una SGR?</a></li>
+                            <li><a href="/que-es-una-sgr">¿Qué es una SGR?</a></li>
                             <li>
-                                <a href="requisitos">Obtener un aval</a>
+                                <a href="/requisitos">Obtener un aval</a>
                                 {{-- <div class="inside_menu">
                                         <ul>
-                                            <li><a href="requisitos">Requisitos para asociarse</a>	</li>
-                                            <li><a href="como-obtener">¿Cómo obtener un aval?</a></li>
+                                            <li><a href="/requisitos">Requisitos para asociarse</a>	</li>
+                                            <li><a href="/como-obtener">¿Cómo obtener un aval?</a></li>
                                         </ul>
                                     </div> --}}
                             </li>
-                            <li><a href="faq">Preguntas frecuentes</a></li>
-                            <li><a href="contacto">Contacto</a></li>
+                            <li><a href="/faq">Preguntas frecuentes</a></li>
+                            <li><a href="/contacto">Contacto</a></li>
                         </ul>
                     </div>
                 </div>

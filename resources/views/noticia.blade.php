@@ -21,7 +21,7 @@
                         </div>
                         <div class="service_type_list">
                             <ul>
-                                <li><a href="/quienes_somos">¿Quiénes somos?</a></li>
+                                <li><a href="/sobre_aval">¿Quiénes somos?</a></li>
                                 <li class="activado"><a href="/noticias"><p>Noticias</p></a></li>
                             </ul>
                         </div>
