@@ -23,7 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // Route::post('/precalificaciones/{id}', 'ApiController@show_precalificacion_byid');
 
 Route::get('getNoticias', 'ApiController@getNoticias');
-Route::get('getNoticia/{id}', 'ApiController@getNoticia');
+Route::get('getNoticias/{id}', 'ApiController@getNoticia');
 
 // Route::post('getPrecalificaciones', 'ApiController@getPrecalificaciones');
 // Route::post('getPrecalificacion/{id}', 'ApiController@getPrecalificacion');
