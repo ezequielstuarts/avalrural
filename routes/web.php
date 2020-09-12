@@ -43,16 +43,16 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('admin/noticias/nueva_noticia', "NoticiasController@create")->name('admin.noticias.nueva_noticia');
 
     Route::post('admin/noticias/nueva_noticia', "NoticiasController@store")->name('admin.noticias.nueva_noticia');
-    
+
     Route::get('admin/noticias/ver/{id}', "NoticiasController@show")->name('admin.noticias.show');
 
     // Route::post('admin/noticias/destroy', "NoticiasController@destroy")->name('admin.noticias.destroy');
     Route::post('admin/noticiasHide/destroy', "NoticiasHideController@destroy")->name('admin.noticiasHide.destroy');
-    
+
     Route::get('admin/noticiasHide', "NoticiasHideController@index")->name('admin.noticiasHide');
-        
+
     Route::get('admin/noticias/hide/{id}', "NoticiasController@hide")->name('admin.noticias.hide');
-    
+
     Route::get('admin/noticiasHide/visible/{id}', "NoticiasHideController@visible")->name('admin.noticiasHide.visible');
 
     Route::get('admin/noticias/edit/{slug}', "NoticiasController@edit")->name('admin.noticias.edit');
@@ -60,18 +60,18 @@ Route::group(['middleware' => 'auth'], function ()
     Route::patch('admin/noticias/update/{id}', "NoticiasController@update")->name('admin.noticias.update');;
 
     Route::get('admin/mensajes', "MensajesController@index")->name('admin.mensajes');
-    
+
     Route::get('admin/mensajes/{id}', "MensajesController@show")->name('admin.mensajes.show');
-    
+
     Route::get('mensajes/exportPdf', "MensajesController@exportPdf")->name('mensajes.exportPdf');
-    
+
     Route::get('admin/precalificaciones', "PrecalificateController@index")->name('admin.precalificaciones');
     Route::get('precalificaciones/exportPdf', "PrecalificateController@exportPdf")->name('precalificaciones.exportPdf');
 
     Route::get('admin/precalificaciones/{id}', "PrecalificateController@show")->name('admin.precalificaciones.show');
 
     Route::post('admin/mensajes/destroy/{id}', "MensajesController@destroy")->name('admin.mensajes.destroy');
-    
+
     Route::post('admin/precalificaciones/destroy/{id}', "PrecalificateController@destroy")->name('admin.precalificate.destroy');
 
     Route::get('admin/register', 'Auth\RegisterController@showRegistrationForm')->name('admin.register');
@@ -89,7 +89,7 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('admin/users/edit_user/{id}', 'UserController@edit')->name('admin.users.edit_user');
 
     Route::patch('admin/users/edit_user/{id}', "UserController@update")->name('admin.users.edit_user');
-    
+
 });
 
 Route::get('/init', function () {
