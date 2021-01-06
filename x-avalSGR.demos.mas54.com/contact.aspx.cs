@@ -2,6 +2,7 @@ using System;
 using System.Web;
 using System.Web.UI.HtmlControls;
 using System.Net.Mail;
+using System.Net;
 
 public partial class contact : System.Web.UI.Page
 {
@@ -35,39 +36,50 @@ public partial class contact : System.Web.UI.Page
 			Contenido = Contenido + "<font face='verdana' size='2'>E-mail: " + Request.Form["Email"] + "<br>";
 			Contenido = Contenido + "<font face='verdana' size='2'>Consulta: " + Request.Form["Consulta"] + "<br>";
 
-			MailMessage emailMessage = new MailMessage();
-			emailMessage.BodyEncoding = System.Text.Encoding.UTF8;
-			emailMessage.IsBodyHtml = true;
-			emailMessage.Priority = MailPriority.Normal;
+          
+            SmtpClient smtp = new SmtpClient();
 
-			emailMessage.From = new MailAddress(MAILCONF_REMITENTE);
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new NetworkCredential(MAILCONF_SMTP_USERNAME, MAILCONF_SMTP_PASSWORD);
+            
+            MailMessage emailMessage = new MailMessage();
+            emailMessage.BodyEncoding = System.Text.Encoding.UTF8;
+            emailMessage.IsBodyHtml = true;
+            emailMessage.Priority = MailPriority.Normal;
 
-			emailMessage.To.Add(new MailAddress(MAILCONF_DESTINATARIO_1));
-			if (MAILCONF_DESTINATARIO_2 != "")
-				emailMessage.To.Add(new MailAddress(MAILCONF_DESTINATARIO_2));
-			if (MAILCONF_DESTINATARIO_3 != "")
-				emailMessage.To.Add(new MailAddress(MAILCONF_DESTINATARIO_3));
+            emailMessage.From = new MailAddress(MAILCONF_REMITENTE);
 
-			emailMessage.Subject = MAILCONF_ASUNTO;
+            emailMessage.To.Add(new MailAddress(MAILCONF_DESTINATARIO_1));
+            if (MAILCONF_DESTINATARIO_2 != "")
+                emailMessage.To.Add(new MailAddress(MAILCONF_DESTINATARIO_2));
+            if (MAILCONF_DESTINATARIO_3 != "")
+                emailMessage.To.Add(new MailAddress(MAILCONF_DESTINATARIO_3));
 
-			emailMessage.Body = Contenido;
+            emailMessage.Subject = MAILCONF_ASUNTO;
 
-			SmtpClient MailClient = new SmtpClient(MAILCONF_SMTP_SERVER, int.Parse(MAILCONF_SMTP_PORT));
+            emailMessage.Body = Contenido;
 
-			if (MAILCONF_SMTP_SSL != "")
-				MailClient.EnableSsl = true;
+            smtp.Send(emailMessage);
+            //SmtpClient MailClient = new SmtpClient(MAILCONF_SMTP_SERVER, int.Parse(MAILCONF_SMTP_PORT));
 
-			if (MAILCONF_SMTP_USERNAME != "" && MAILCONF_SMTP_PASSWORD != "")
-				MailClient.Credentials = new System.Net.NetworkCredential(MAILCONF_SMTP_USERNAME, MAILCONF_SMTP_PASSWORD);
+            //if (MAILCONF_SMTP_SSL != "")
+            //    MailClient.EnableSsl = true;
 
-			//xxx
-			System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Ssl3 | System.Net.SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+            //if (MAILCONF_SMTP_USERNAME != "" && MAILCONF_SMTP_PASSWORD != "")
+            //    MailClient.Credentials = new System.Net.NetworkCredential(MAILCONF_SMTP_USERNAME, MAILCONF_SMTP_PASSWORD);
 
-			MailClient.Send(emailMessage);
-			
-			retorno.Text = "Consulta enviada exitosamente.";
+            //xxx
+            //System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Ssl3 | System.Net.SecurityProtocolType.Tls;// | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
-		}
+            //MailClient.Send(emailMessage);
+
+            retorno.Text = "Consulta enviada exitosamente.";
+
+        }
 		catch (Exception ex)
 		{
 			string error = ex.ToString();

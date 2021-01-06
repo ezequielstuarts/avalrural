@@ -25,6 +25,40 @@
 /*------------------------------------------------------------------*/
 /*	01) BUILDIFY BASE
 /*------------------------------------------------------------------*/
+.requisitos {
+	line-height: 30px;
+}
+.container-text {
+	/*background-color: red;*/
+	width: 100%;
+	height: auto;
+	z-index: 1002;
+	position: absolute;
+}
+.title-slider {
+	text-align: center;
+	position: relative;
+	top: 30vh;
+	z-index: 1000;
+	/*left: 10vw;*/
+	/*top: 30%;*/
+}
+.title-slider p {
+	color: #FFF;
+	font-weight: 100;
+	position: relative;
+	text-align: center;
+	width: 100%;
+	margin: auto;
+	font-size: 40px;
+}
+
+
+
+.title-slider span {
+	background-color: #7dba57;
+	padding: 5px 10px;
+}
 .desarrollado{
 	font-family: 'Lato', sans-serif;
 	cursor: pointer;
@@ -163,6 +197,7 @@ a{text-decoration: none;}
 .no-li{list-style: none!important; padding-left: 0!important; margin-left: 15px!important;}
 ol {margin-left: 15px;}
 .items{padding-left: 18px;}
+/*.items-ol{padding-left: 18px;}*/
 
 
 .cuadro{
@@ -505,6 +540,9 @@ body{
 	background-color: none!important;
 	text-decoration: none!important;
 	-webkit-transition: all .3s ease;-moz-transition: all .3s ease;-ms-transition: all .3s ease;-o-transition: all .3s ease;transition: all .3s ease;
+}
+span.azul {
+	color: #3972f5;
 }
 /*------------------------------------------------------------------*/ 
 /*	02) BUILDIFY SKELETON
@@ -1268,7 +1306,7 @@ strong{color: #777;}
 	right: 0px;
 	background-color: rgba(0,0,0,.3);
 }
-.buildify_tm_articles_wrap .article_inner .article_image.first{background-image: url(..//img/slider/1.jpg);}
+/*.buildify_tm_articles_wrap .article_inner .article_image.first{background-image: url(..//img/slider/1.jpg);}
 .buildify_tm_articles_wrap .article_inner .article_image.second{background-image: url(..//img/slider/2.jpg);}
 .buildify_tm_articles_wrap .article_inner .article_image.third{background-image: url(..//img/slider/3.jpg);}
 .buildify_tm_articles_wrap .article_inner .article_image.fourth{background-image: url(..//img/slider/4.jpg);}
@@ -1278,7 +1316,20 @@ strong{color: #777;}
 	left: 203px;
 	bottom: auto;
 	width: auto;
+}*/
+
+.buildify_tm_articles_wrap .article_inner .article_image.first{background-image: url(..//img/slider/1_mobile_.jpg);}
+.buildify_tm_articles_wrap .article_inner .article_image.second{background-image: url(..//img/slider/2_mobile_.jpg);}
+.buildify_tm_articles_wrap .article_inner .article_image.third{background-image: url(..//img/slider/3_mobile_.jpg);}
+.buildify_tm_articles_wrap .article_inner .article_image.fourth{background-image: url(..//img/slider/4_mobile_.jpg);}
+.my_swiper_pagination{
+	position: absolute;
+	top: 83px;
+	left: 203px;
+	bottom: auto;
+	width: auto;
 }
+
 .my_swiper_pagination .current{
 	color: #fff;
 	font-size: 24px;
@@ -1379,7 +1430,7 @@ strong{color: #777;}
 			box-sizing: border-box; /* Opera/IE 8+ */
 }
 .list_inner_productos{min-height: 176px; text-align: center; cursor: pointer;}
-.container_productos{margin-top: 100px;}
+.container_productos{margin-top: 50px;}
 .buildify_tm_short_service_list .buildify_tm_list_wrap ul.buildify_list > li{min-height: 450px;}
 .buildify_tm_short_service_list .buildify_tm_list_wrap ul.buildify_list > li .list_inner{min-height: 450px;}
 .buildify_tm_short_service_list li.trailer .list_inner{min-height:450px !important;}
@@ -4197,6 +4248,7 @@ iframe{ width: 2216px;height: 300px; }*/
 	.buildify_tm_build_pattern{width: 140px;}
 
 
+
 	/*.buildify_tm_blog_wrap .content .blog_definition p{display: none;}*/
 }
 @media (max-width: 1200px) {
@@ -4204,11 +4256,17 @@ iframe{ width: 2216px;height: 300px; }*/
 	.buildify_tm_contact_wrap .inner_wrap .row textarea{width: 400px /*!important-*/;}
 	.buildify_tm_blog_wrap .buildify_tm_list_wrap ul.buildify_list > li{width: 100%;}
 	.buildify_tm_blog_wrap .content .blog_definition p{display: block;}
-	.buildify_tm_articles_wrap .article_inner .article_image.first{background-image: url(..//img/slider/1_mobile.jpg);}
-	.buildify_tm_articles_wrap .article_inner .article_image.second{background-image: url(..//img/slider/2_mobile.jpg);}
-	.buildify_tm_articles_wrap .article_inner .article_image.third{background-image: url(..//img/slider/3_mobile.jpg);}
-	.buildify_tm_articles_wrap .article_inner .article_image.fourth{background-image: url(..//img/slider/4_mobile.jpg);}
+	/*.buildify_tm_articles_wrap .article_inner .article_image.first{background-image: url(..//img/slider/1_mobile_.jpg);}
+	.buildify_tm_articles_wrap .article_inner .article_image.second{background-image: url(..//img/slider/2_mobile_.jpg);}
+	.buildify_tm_articles_wrap .article_inner .article_image.third{background-image: url(..//img/slider/3_mobile_.jpg);}
+	.buildify_tm_articles_wrap .article_inner .article_image.fourth{background-image: url(..//img/slider/4_mobile_.jpg);}*/
 	.popup-contenedor .row{width: 100%!important;}
+	/*.title-slider p {color: brown}*/
+	.title-slider p {font-size: 30px;}
+	
+
+
+
 }
 @media (max-width: 1040px) {
 	.buildify_tm_content_gris{margin-top: 0px;}
@@ -4225,9 +4283,15 @@ iframe{ width: 2216px;height: 300px; }*/
 	.buildify_tm_list_wrap[data-column="4"] ul.buildify_list > li{width: 33.3333%;}
 	.buildify_tm_list_wrap[data-column="5"] ul.buildify_list > li{width: 33.3333%;}
 	.buildify_tm_blog_wrap .buildify_tm_list_wrap ul.buildify_list > li{width: 100%;}
+	/*.title-slider p {color: pink}*/
+	
+
+
+
 }
 
 @media (max-width: 768px) {
+
 	.buildify_tm_connection .send_msg{display: none;}
 	.buildify_tm_connection .phone_numb_in{padding-right: 20px !important;padding-left: 0px !important;}
 	.buildify_tm_connection .phone_numb img{display: none;}
@@ -4282,6 +4346,8 @@ iframe{ width: 2216px;height: 300px; }*/
 	.buildify_tm_contact_wrap .rightbox{width: 100%;padding-left: 0px;}
 	.popup-contenedor-legales {	margin:5% auto;	padding:50px 50px;	width:70%;}
 	.popup-contenedor {	margin:5% auto;	padding:30px 40px;	width:70%;}
+	/*.title-slider p {color: green}*/
+	.title-slider p {font-size: 22px;line-height: 38px;}
 }
 
 @media (max-width: 480px) {
@@ -4331,9 +4397,14 @@ iframe{ width: 2216px;height: 300px; }*/
 	.buildify_tm_team_member_wrap .about_team .name{font-size: 16px;}
 	.buildify_tm_contact_wrap .leftbox .subtitle p{font-size: 15px;}
 	.buildify_tm_contact_wrap .rightbox_inner .in{padding: 42px 20px 44px 20px;}
+	/*.title-slider p {color: orange}*/
+	.title-slider p {font-size: 15px;}
+	.title-slider {top: 20vh;}
+	.title-slider p {line-height: 30px;}
 }
 @media (max-width: 360px) {
 
 	.buildify_tm_connection .phone_numb_in{padding-right: 20px;}
 	.buildify_tm_connection .phone_numb p{font-size: 13px;}
+	/*.title-slider p {color: red}*/
 }

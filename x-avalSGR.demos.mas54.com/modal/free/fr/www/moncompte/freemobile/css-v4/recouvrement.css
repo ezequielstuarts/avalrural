@@ -1,0 +1,27 @@
+@charset "utf-8";
+.warn { border: 2px solid #c00000; width: 700px; min-height: 100px; margin-left: auto; margin-right: auto; margin-bottom: 10px; }
+.warn img { margin: 20px; display: inline-block; vertical-align: top; width: 35px; }
+.warn p { margin: 20px; display: inline-block; vertical-align: top; width: 580px; }
+
+#div_payment { width: 650px; margin: auto; margin-top: 20px; }
+
+#linkRegul { padding-top: 15px; text-align: center; font-weight: bold; }
+
+#tblImpayes { width: 650px; margin: 15px auto; text-align: left; }
+#tblImpayes caption { text-align: left; font-size: 14px; font-style: italic; }
+#tblImpayes th { background-color: #F9F9F9; }
+#tblImpayes th:last-child, #tblImpayes td:last-child { text-align: center; width: 120px; }
+#tblImpayes td { line-height: 27px; vertical-align: middle; }
+#tblImpayes .btn { padding: 4px 7px; outline: none; }
+
+#formRecouvrement .titre { margin: 20px 16px 0 15px; padding-bottom: 4px; border-bottom: 1px solid #999999; }
+#formRecouvrement .desc { padding: 15px; }
+
+.divBarring .step { width: 100%; height: 42px; border: 1px solid #DCDCDC; margin-bottom: 3px; -khtml-user-select: none; -webkit-user-select: none; -moz-user-select: -moz-none; -ms-user-select: none; user-select: none; }
+.divBarring .step .left { float: left; width: 50%; height: 100%; -webkit-border-radius: 5px 0px 0px 5px; -moz-border-radius: 5px 0px 0px 5px; -ms-border-radius: 5px 0px 0px 5px; -o-border-radius: 5px 0px 0px 5px; border-radius: 5px 0px 0px 5px; }
+.divBarring .step .left .number { background-color: #C00000; color: #FFFFFF; font-size: 26px; width: 32px; height: 32px; margin: 5px 0px 0px 8px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -ms-border-radius: 18px; -o-border-radius: 18px; border-radius: 18px; }
+.divBarring .step .left .number p { text-align: center; margin: auto; vertical-align: top; }
+.divBarring .step .left .contentStep { font-size: 15px; margin-left: 8px; vertical-align: top; margin-top: 11px; }
+.divBarring .step .right { float: left; width: 50%; height: 100%; -webkit-border-radius: 0px 5px 5px 0px; -moz-border-radius: 0px 5px 5px 0px; -ms-border-radius: 0px 5px 5px 0px; -o-border-radius: 0px 5px 5px 0px; border-radius: 0px 5px 5px 0px; }
+.divBarring .step .right .contentStep { text-align: right; margin: 8px 10px 0px 0px !important; font-size: 15px; }
+.divBarring .step.disabled { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20); opacity: 0.2; }
