@@ -62,7 +62,7 @@
                 </td>
                 <td>
                     <div class="form-group btn-group">
-                        <a href="{{route('admin.noticias.edit', $noticia->slug)}}" class="btn btn-warning">Editar</a>
+                        <a href="{{route('admin.noticias.edit', $noticia->id)}}" class="btn btn-warning">Editar</a>
                     </div>
                     <div class="form-group btn-group">
                         <form action="{{url('admin/noticias/hide', $noticia->id)}}" method="post">

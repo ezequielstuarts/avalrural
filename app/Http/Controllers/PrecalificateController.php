@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\Mensajerecibido;
+use App\ContactPrecalificate;
+use App\Http\Requests\PrecalificateStoreRequest;
+use App\Jobs\SendPrecalificateEmailClient;
 use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Mail;
 Use App\Precalificacion;
-use Mail;
+
+// use Mail;
 
 class PrecalificateController extends Controller
 {
@@ -38,47 +41,52 @@ class PrecalificateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PrecalificateStoreRequest $request)
     {
-        // $reglas = [
-        //     'NombreYApellido' => 'required',
-        //     'Email' => 'required',
-        //     'Telefono' => 'required',
-        //     'Celular' => 'required',
-        //     'Empresa' => 'required',
-        //     'CUIT' => 'required',
-        //     'Rubro' => 'required',
-        // ];
-        // $mensajes = [
-        //     "required" => "El campo :attribute es necesario.",
-        // ];
+        $newPrecalificacion = new ContactPrecalificate();
 
-
-        // $this->validate($request, $reglas, $mensajes);
-        $data = array (
-        "NombreYApellido" => $request['NombreYApellido'],
-        "Email" => $request['Email'],
-        "Telefono" => $request['Telefono'],
-        "Celular" => $request['Celular'],
-        "Empresa" => $request['Empresa'],
-        "CUIT" => $request['CUIT'],
-        "Rubro" => $request['Rubro'],
-        "AFIP" => $request['AFIP'],
-        "Balance" => $request['Balance'],
-        "Nomina" => $request['Nomina'],
-        "Actividad" => $request['Actividad'],
-        "Acepta" => $request['Acepta'],
-        );
+        $newPrecalificacion->nombre_y_apellido = $request["nombre"];
+        $newPrecalificacion->email = $request["email"];
+        $newPrecalificacion->telefono = $request["telefono"];
+        $newPrecalificacion->celular = $request["celular"];
+        $newPrecalificacion->empresa = $request["empresa"];
+        $newPrecalificacion->cuit = $request["cuit"];
+        $newPrecalificacion->rubro = $request["rubro"];
+        $newPrecalificacion->codigo_afip = $request["afip"];
+        $newPrecalificacion->actividad = $request["actividad"];
+        $files = [];
         
-        $subject = "Asunto del correo";
-        $for = "elzeke55@gmail.com";
-        // dd($request->all());
+        if ($request->has("balance")) {
+            $rutabalance = $request->file("balance")->store('nominas_y_balances/');
+            $nombrebalance = basename($rutabalance);
+            $newPrecalificacion->balance = $nombrebalance;
+            $enviarNomina = storage_path('app/nominas_y_balances/'.$nombrebalance);
+            array_push($files, $enviarNomina);
+        }
+        if ($request->has("nomina")) {
+            $rutanomina = $request->file("nomina")->store('nominas_y_balances/');
+            $nombrenomina = basename($rutanomina);
+            $newPrecalificacion->nomina = $nombrenomina;
+            $enviarBalance = storage_path('app/nominas_y_balances/'.$nombrenomina);
+            array_push($files, $enviarBalance);
+        }
+
+        $newPrecalificacion->save();
+
+        $subject = "Nueva Precalificacion recibida";
+        $for = "e.stuarts@mas54.com";
+        $client = $request["email"];
         Mail::send('email.formulario_de_precalificaciones',$request->all(),
-        function($msj) use($subject,$for){
-            $msj->from("elzeke55@gmail.com","Mensaje desde el fomulario de precalificate de Aval Rural");
+        function($msj) use($subject,$files,$for,$client){
+            $msj->from("e.stuarts@mas54.com","Mensaje desde el fomulario de precalificate de Aval Rural");
             $msj->subject($subject);
+            foreach ($files as $file){
+                $msj->attach($file);
+            }
             $msj->to($for);
+            $msj->to($client);
         });
+        SendPrecalificateEmailClient::dispatch($request, $request->email);
         return view('enviado');
         // return redirect()->route('index')->with('mensaje', 'Hemos enviado su email');
     }

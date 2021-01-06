@@ -7,7 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <p><b>NombreYApellido:</b> {{$nombre}} </p>
+    <h3>Recibimos sus datos para precalificaciones, le adjuntamos una copia.</h3>
+    {{-- <p><b>NombreYApellido:</b> {{$nombre}} </p>
     <p><b>Email:</b> {{$email}} </p>
     <p><b>Telefono:</b> {{$telefono}} </p>
     <p><b>Celular:</b> {{$celular}} </p>
@@ -15,7 +16,7 @@
     <p><b>CUIT:</b> {{$cuit}} </p>
     <p><b>Rubro:</b> {{$rubro}} </p>
     <p><b>Código AFIP:</b> {{$afip}} </p>
-    <p><b>Actividad:</b> {{$actividad}} </p>
+    <p><b>Actividad:</b> {{$actividad}} </p> --}}
     {{-- <p><b>ID Mail: </b>{{$newEmail->id}} </p> --}}
 </body>
 </html>

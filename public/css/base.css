@@ -202,7 +202,7 @@ input[type="color"]:focus,
 
 
 input[type="submit"]{
-	padding: 13px 15px;
+	/* padding: 13px 15px; */
 	height: 40px;
 	line-height: 1;
 	text-transform: uppercase;
@@ -221,6 +221,7 @@ input[type="submit"]{
 	     -o-transition: all .3s ease;
 	        transition: all .3s ease;
 }
+
 input[type="submit"]:hover{
 	background:#444;
 }

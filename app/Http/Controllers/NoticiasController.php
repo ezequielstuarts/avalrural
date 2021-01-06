@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NoticiaStoreRequest;
+use App\Http\Requests\NoticiaUpdateRequest;
 use Illuminate\Http\Request;
 use App\Noticia;
 use App\NoticiaHide;
@@ -42,26 +44,11 @@ class NoticiasController extends Controller
     }
 
 
-    public function store(Request $request)
-    {
-
-        $reglas = [
-            "date" => "required",
-            "title" => "required",
-            "img_preview" => "required|file",
-            "img_noticia" => "required|file",
-        ];
-        $mensajes = [
-            "required" => "Debe ingresar :attribute de la noticia.",
-        ];
-
-        $this->validate($request, $reglas, $mensajes);
-        
+    public function store(NoticiaStoreRequest $request)
+    {   
         $carpeta = 'img_noticias';
-
         $rutaPreview = $request->file("img_preview")->store('imagenes/'.$carpeta, 'public');
         $nombrePreview = basename($rutaPreview);
-
 
         $rutaImg = $request->file("img_noticia")->store('imagenes/'.$carpeta, 'public');
         $nombreImagen = basename($rutaImg);
@@ -81,26 +68,17 @@ class NoticiasController extends Controller
 
     }
 
-    public function edit($slug)
+    public function edit($id)
     {
         $date = Carbon::now();
-        $noticia = Noticia::where('slug', $slug)->first();
+        $noticia = Noticia::where('id', $id)->first();
         return view ("admin.edit", ['noticia' => $noticia, 'date' => $date]);
     }
 
-    public function update(Request $request, $id)
+    public function update(NoticiaUpdateRequest $request, $id)
     {
-            $reglas = [
-                "title" => "required|string",
-            ];
-            $mensajes = [
-                "string" => "El campo :attribute debe ser un nombre.",
-                "required" => "El campo :attribute es necesario.",
-            ];
-
-            $this->validate($request, $reglas, $mensajes);
-
             $noticia = Noticia::find($id);
+
             $diff = array_diff($request->toArray(), $noticia->toArray());
 
             if ($request->has('img_preview')) {

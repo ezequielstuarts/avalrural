@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\SendNewUserEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
@@ -51,8 +52,8 @@ class Usercontroller extends Controller
             $user->rol = 1;
         }        
         
-        $user->save();      
-
+        $user->save();
+        SendNewUserEmail::dispatch($user);
         return redirect('admin/users');
 
     }

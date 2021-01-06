@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ContactEmail;
 use App\ContactPrecalificate;
+use App\Jobs\SendContactEmail;
 use Mail;
 
 class ContactoController extends Controller
@@ -36,29 +37,28 @@ class ContactoController extends Controller
 
         $this->validate($request, $reglas, $mensajes);
 
-        $newMail = new ContactEmail();
+        $newEmail = new ContactEmail();
 
-        $newMail->apellido = $request["apellido"];
-        $newMail->nombre = $request["nombre"];
-        $newMail->empresa = $request["empresa"];
-        $newMail->cuit = $request["cuit"];
-        $newMail->localidad = $request["localidad"];
-        $newMail->telefono = $request["telefono"];
-        $newMail->email = $request["email"];
-        $newMail->consulta = $request["consulta"];
+        $newEmail->apellido = $request["apellido"];
+        $newEmail->nombre = $request["nombre"];
+        $newEmail->empresa = $request["empresa"];
+        $newEmail->cuit = $request["cuit"];
+        $newEmail->localidad = $request["localidad"];
+        $newEmail->telefono = $request["telefono"];
+        $newEmail->email = $request["email"];
+        $newEmail->consulta = $request["consulta"];
 
-        $newMail->save();
-
-
-        $subject = "Asunto del correo";
-        $for = "elzeke55@gmail.com";
-        // dd($request->all());
-        Mail::send('email.formulario_de_contacto',$request->all(),
-        function($msj) use($subject,$for){
-            $msj->from("elzeke55@gmail.com","Mensaje desde el fomulario de contacto de Aval Rural");
-            $msj->subject($subject);
-            $msj->to($for);
-        });
+        $newEmail->save();
+        SendContactEmail::dispatch($newEmail);
+        // $subject = "Asunto del correo";
+        // $for = "elzeke55@gmail.com";
+        // // dd($request->all());
+        // Mail::send('email.formulario_de_contacto',$request->all(),
+        // function($msj) use($subject,$for){
+        //     $msj->from("elzeke55@gmail.com","Mensaje desde el fomulario de contacto de Aval Rural");
+        //     $msj->subject($subject);
+        //     $msj->to($for);
+        // });
 
         return view('enviado');
     }

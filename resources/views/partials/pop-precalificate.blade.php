@@ -4,49 +4,49 @@
 		<div class="get_in_touch_wrap">
 			<div class="inner_wrap">
                 <form class="contact_form" id="precalif_form" enctype="multipart/form-data" method="post" action="{{ route('precalificacion') }}">
-                    @csrf
+                    <meta name="csrf-token" content="{{ csrf_token() }}">
 					<div class="empty_notice"><span>Por favor, complete los datos obligatorios.</span></div>
 
                     <div class="row"><!-- <label><span></span></label> -->
-                        <input id="NombreYApellido" name="NombreYApellido" type="text" placeholder="Nombre y Apellido" />
-                        <div id="error_nombreyapellido" class="error_disable error">
+                        <input id="nombre" name="nombre" type="text" placeholder="Nombre y Apellido" />
+                        <div id="error_nombre" class="error_disable error">
                             <p>Debe introducir un Nombre y Apellido</p>
                         </div>
                     </div>
                     <p class="p-error"></p>
 
                     <div class="row">
-                        <input id="Email" name="Email" type="email" placeholder="E-mail"  />
+                        <input id="email" name="email" type="email" placeholder="E-mail"  />
                         <div id="error_email" class="error_disable error">
                             <p>Debe introducir un Email</p>
                         </div>
                     </div>
 					<div class="row">
-                        <input id="Telefono" name="Telefono" type="number" placeholder="Teléfono"  />
+                        <input id="telefono" name="telefono" type="number" placeholder="Teléfono"  />
                         <div id="error_telefono" class="error_disable error">
                             <p>Debe introducir un Telefono</p>
                         </div>
                     </div>
 					<div class="row">
-                        <input id="Celular" name="Celular" type="number" placeholder="Celular"  />
+                        <input id="celular" name="celular" type="number" placeholder="Celular"  />
                         <div id="error_celular" class="error_disable error">
                             <p>Debe introducir un Celular</p>
                         </div>
                     </div>
 					<div class="row">
-                        <input id="Empresa" name="Empresa" type="text" placeholder="Empresa"  />
+                        <input id="empresa" name="empresa" type="text" placeholder="Empresa"  />
                         <div id="error_empresa" class="error_disable error">
                             <p>Debe introducir su empresa</p>
                         </div>
                     </div>
 					<div class="row">
-                        <input id="CUIT" name="CUIT" type="number" placeholder="CUIT"  />
+                        <input id="cuit" name="cuit" type="number" placeholder="CUIT"  />
                         <div id="error_cuit" class="error_disable error">
                             <p>Debe introducir un CUIT</p>
                         </div>
                     </div>
 					<div class="row">
-						<select id="Rubro" name="Rubro"  >
+						<select id="rubro" name="rubro"  >
 							<option value="">Seleccione</option>
 							<option value="Agro">Agro</option>
 							<option value="Comercio">Comercio</option>
@@ -61,7 +61,7 @@
 					</div>
 
 					<div class="row">
-                        <input id="AFIP" name="AFIP" type="text" placeholder="Código de Afip - Pega aquí el link"  />
+                        <input id="afip" name="afip" type="text" placeholder="Código de Afip - Pega aquí el link"  />
                         <div id="error_afip" class="error_disable error">
                             <p>Debe introducir un codigo AFIP</p>
                         </div>
@@ -72,28 +72,31 @@
 
 					<div class="row adjunto">
 						<label>Último Balance (Adjuntar)</label>
-						<input type="file" name="Balance" />
+						<input type="file" name="balance" />
 						<label>Nómina de accionistas (Adjuntar)</label>
-						<input type="file" name="Nomina" />
+						<input type="file" name="nomina" />
 					</div>
 					<div class="row">
-                        <textarea id="Actividad" name="Actividad" placeholder="Describí brevemente tu actividad."  ></textarea>
+                        <textarea id="actividad" name="actividad" placeholder="Describí brevemente tu actividad."  ></textarea>
                         <div id="error_actividad" class="error_disable error">
                             <p>Debe introducir un Actividad</p>
                         </div>
 					</div>
 					<div class="row margen">
 						<div class="row">
-							<div class="g-recaptcha" data-sitekey="6Le45mcUAAAAAPJ3V-7KKSD7ILhwVeh2zX7ehAhY"></div>
+							<div class="g-recaptcha" data-sitekey="6Lci9B8aAAAAAO_bzUBocypLGXdS4yqB37iaW3BL"></div>
 							<script src='https://www.google.com/recaptcha/api.js'></script>
 						</div>
 						<div class="row50-enviar">
-							<!--a id="send_message" href="#">Enviar</a-->
-							<input type="submit" value="Enviar" style="background-color: #7dba57" />
+							<p class="complete-campos" style="font-size: 11px;color: red;"></p>
+							<input type="submit" value="Enviar" style="background-color: #7dba57" id="BtnEnviarPrecalificacion">
+							<input value="ENVIANDO ..." style="background-color: #7dba57;
+							display: none;text-align: center;color: #fff;font-weight: 700;" id="BtnEnviando">
 							<div style="color: red; margin-top: 10px;"></div>
 						</div>
 						<div class="row50-terminos">
-							<label><input id="Acepta" name="Acepta" type="checkbox" value="SI"  style="width: 12px !important; height: 12px !important;" /> Acepto Políticas de privacidad</label>
+							<p class="acepte-terminos" style="font-size: 11px;color: red;"></p>
+							<label><input id="acepta" name="acepta" type="checkbox" value="SI"  style="width: 12px !important; height: 12px !important;" /> Acepto Políticas de privacidad</label>
 						</div>
 					</div>
 				</form>

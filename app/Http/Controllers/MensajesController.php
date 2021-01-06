@@ -20,9 +20,9 @@ class MensajesController extends Controller
         return view ("email.mensajes", ['mensajes' => $mensajes, 'totalMensajes' => $totalMensajes]);
     }
 
-    public function destroy(Request $formulario)
+    public function destroy(Request $request)
     {
-        $id = $formulario['id'];
+        $id = $request['id'];
         $mensaje = Mensaje::find($id);
         $mensaje->delete();
         return redirect('admin/mensajes')->with('mensaje', 'Mensaje Eliminado');   
