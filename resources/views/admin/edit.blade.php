@@ -3,11 +3,11 @@
 
     <!-- Datepicker Files -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <link rel="stylesheet" href="../../css/css-date/bootstrap-datepicker3.css">
-    <link rel="stylesheet" href="../../css/css-date/bootstrap-datepicker.standalone.css">
-    <script src="../../js/js-date/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href=" {{asset('css/css-date/bootstrap-datepicker3.css')}}">
+    <link rel="stylesheet" href=" {{asset('css/css-date/bootstrap-datepicker.standalone.css')}} ">
+    <script src=" {{asset('js/js-date/bootstrap-datepicker.min.js')}} "></script>
     <!-- Languaje -->
-    <script src="../../js/locales-date/bootstrap-datepicker.es.min.js"></script>
+    <script src=" {{asset('js/locales-date/bootstrap-datepicker.es.min.js')}} "></script>
     <!-- End Datepicker Files -->
 
     {{-- summernote --}}

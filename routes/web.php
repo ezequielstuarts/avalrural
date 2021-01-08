@@ -54,7 +54,7 @@ Route::group(['middleware' => 'auth'], function ()
     
     Route::post('admin/noticiasHide/visible/{id}', "NoticiasHideController@visible");
 
-    Route::get('admin/noticias/edit/{slug}', "NoticiasController@edit")->name('admin.noticias.edit');
+    Route::get('admin/noticias/edit/{id}', "NoticiasController@edit")->name('admin.noticias.edit');
 
     Route::patch('admin/noticias/update/{id}', "NoticiasController@update")->name('admin.noticias.update');;
 
