@@ -10,26 +10,38 @@
     <title>{{ config('', 'Panel de Administracion') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome/css/all.css')}}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin-style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="{{asset('css/toastr.css')}}">
+    @yield('styles')
 
 </head>
 <body>
    @include('admin.nav-bar')
    <div style="padding-top:100px;">
+    <div>
+
         @yield('admin')
         @yield('scripts')
+    </div>
    </div>
+
+   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+   <script src="{{asset('js/sweetalert2@9.js')}}"></script>
+   <script src="{{asset('js/toastr.min.js')}}"></script>
+   <script src="{{asset('js/app.js')}}"></script>
+
 </body>
 </html>
 

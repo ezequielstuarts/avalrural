@@ -1,8 +1,10 @@
 @extends('admin.layout')
 @section('admin')
+    <div class="container mb-5" id="app">
+        <mensajes-component></mensajes-component>
+    </div>
 
-
-
+{{--
 <div class="container">
     <h5 class="text-secondary">Mensajes recibidos desde formulario de contacto.</h5>
 </div>
@@ -31,7 +33,7 @@
 
 
 <div class="container">
-    
+
     <table class="table table-hover table-sprite">
         <thead>
             <tr>
@@ -54,9 +56,9 @@
                 <td width="130px">{{date('d-m-Y', strtotime($mensaje->created_at))}}</td>
 
                 <td>{{$mensaje->nombre}} {{$mensaje->apellido}} </td>
-                
+
                 <td>{{ $mensaje->consulta}}</td>
-                
+
                 <td>{{$mensaje->empresa}}</td>
                 <td>{{$mensaje->cuit}}</td>
                 <td>{{$mensaje->localidad}}</td>
@@ -93,7 +95,7 @@
     function ver() {
         console.log('ver');
     }
-</script>
+</script> --}}
 
 
 

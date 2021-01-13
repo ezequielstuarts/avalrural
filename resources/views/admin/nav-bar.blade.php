@@ -19,11 +19,11 @@
                   <li class="nav-item {{ Request::is( 'admin/noticias') ? 'activado' : '' }}">
                     <a class="nav-link" href="{{ URL::to('admin/noticias') }}"><i class="fas fa-newspaper"></i>Listado de noticias</a>
                   </li>
-      
+
                   <li class="nav-item {{ Request::is( 'admin/mensajes') ? 'activado' : '' }}">
                     <a class="nav-link" href="{{ URL::to('admin/mensajes') }}"><i class="fas fa-envelope"></i>Mensajes</a>
                   </li>
-      
+
                   <li class="nav-item {{ Request::is( 'admin/precalificaciones') ? 'activado' : '' }}">
                     <a class="nav-link" href="{{ URL::to('admin/precalificaciones') }}"><i class="fas fa-clipboard-check"></i>Precalificaciones</a>
                   </li>
@@ -53,15 +53,3 @@
       </div>
   </nav>
 </div>
-
-
-
-            <!-- <li class="nav-item">
-              <a class="nav-link" href="api/getNoticias">GetNoticias</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="api/getPrecalificaciones">getPrecalificaciones</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="api/getMensajes">getMensajes</a>
-            </li> -->

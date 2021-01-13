@@ -24,7 +24,10 @@ class Mensaje extends JsonResource
             'telefono' => $this->telefono,
             'email' => $this->email,
             'consulta' => $this->consulta,
-            'recibido' => $this->created_at,
+            'status' => $this->status,
+            'read' => $this->read,
+            'recibido' => $this->created_at->diffForHumans(),
+            'created_at' => $this->created_at->format('d-m-Y')
         ];
     }
 }

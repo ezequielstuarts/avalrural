@@ -15,7 +15,9 @@ $factory->define(App\Mensaje::class, function (Faker $faker) {
         'localidad' => $localidad,
         'telefono' => $faker->phoneNumber,
         'email' => $faker->safeEmail,
-        'consulta' => $faker->text(10,100)
+        'consulta' => $faker->text,
+        'status' => $faker->randomElement(['0', '0']),
+        'read' => $faker->randomElement(['0', '0'])
     ];
 });
 

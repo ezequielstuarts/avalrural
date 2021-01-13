@@ -23,6 +23,9 @@ class CreateContactMailsTable extends Migration
             $table->char('telefono', 40)->nullable();
             $table->char('email', 255)->nullable();
             $table->char('consulta', 255)->nullable();
+            $table->boolean('enviado')->default(0)->nullable();
+            $table->boolean('status')->default(0)->nullable();
+            $table->boolean('read')->default(0)->nullable();
             $table->timestamps();
         });
     }
