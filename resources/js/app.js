@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('mensajes-component', require('./components/MensajesComponent.vue').default);
+Vue.component('mensajes-modal-component', require('./components/MensajeModalComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

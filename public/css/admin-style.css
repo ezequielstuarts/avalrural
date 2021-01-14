@@ -89,3 +89,17 @@ nav .fas {
 .mensaje-sweet {
     text-align: left;
 }
+
+.modals-mensajes p {
+    font-size: 18px;
+    margin-bottom: 0px;
+}
+
+.modal-title {
+    font-size: 20px;
+}
+
+.modal-header {
+    background-color: rgb(247, 247, 247);
+    border-top: rgb(35, 209, 0) solid 3px;
+}

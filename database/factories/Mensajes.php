@@ -11,13 +11,16 @@ $factory->define(App\Mensaje::class, function (Faker $faker) {
         'apellido' => $faker->lastName(),
         'nombre' => $faker->firstName(),
         'empresa' => $localidad,
-        'cuit' => rand(1,100),
+        'cuit' => $faker->ean8,
         'localidad' => $localidad,
         'telefono' => $faker->phoneNumber,
         'email' => $faker->safeEmail,
         'consulta' => $faker->text,
-        'status' => $faker->randomElement(['0', '0']),
-        'read' => $faker->randomElement(['0', '0'])
+        'status' => 0,
+        'read' => 0,
+        // 'status' => $faker->randomElement(['0', '0']),
+        // 'read' => $faker->randomElement(['0', '0']),
+        'created_at' => $faker->datetime()
     ];
 });
 

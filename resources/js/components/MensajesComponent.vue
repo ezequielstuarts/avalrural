@@ -1,5 +1,9 @@
 <template>
 <div>
+
+
+
+    <mensajes-modal-component :mensaje="currentMessage"></mensajes-modal-component>
     <div v-if="loader_datatables" class="container loader_datatables mx-auto mt-4 text-center">
         <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
     </div>
@@ -14,7 +18,7 @@
             </div>
             <hr>
         </div>
-        <table class="table table-hover table-striped" id="myTable">
+        <table class="table table-hover table-striped" id="mensajes_table">
             <thead>
                 <tr class="tr-background">
                     <th>Estado</th>
@@ -38,7 +42,8 @@
                 <td v-else><b>{{mensaje.email}}</b></td>
 
                 <th>
-                    <a @submit.prevent class="btn btn-primary btn-sm" v-bind:id="'msg' + mensaje.id" @click="leer(mensaje)"><i class="fas fa-eye"></i></a>
+                    <button @click="verMensaje(mensaje)" type="button" class="btn btn-primary"><i class="fas fa-eye"></i></button>
+                    <!-- <a @submit.prevent class="btn btn-primary btn-sm" v-bind:id="'msg' + mensaje.id" @click="leer(mensaje)"><i class="fas fa-eye"></i></a> -->
                 </th>
                 <th>
                     <small v-if="mensaje.status">Respondido</small>
@@ -66,6 +71,7 @@
                 cargando: false,
                 totalMensajes: 0,
                 mensajesNoLeidos: 0,
+                currentMessage: null,
             }
         },
         mounted() {
@@ -74,7 +80,20 @@
         methods: {
             dTable() {
                 $(document).ready( function () {
-                $('#myTable').DataTable();
+                $('#mensajes_table').DataTable({
+                    "language": {
+                        "lengthMenu": "Mostrar _MENU_ resultados",
+                        "zeroRecords": "No hay resultados con esa búsqueda",
+                        "info": "Página _PAGE_ de _PAGES_",
+                        "infoEmpty": "No hay resultados con esa búsqueda",
+                        "infoFiltered": "(filtrado entre _MAX_ registros)",
+                        "search": "Buscar"
+                    },
+                    "order": [[ 1, "desc" ]],
+                    "scrollY":        "400px",
+                    "scrollCollapse": true,
+
+                });
                 });
             },
             getMensajes: function() {
@@ -132,6 +151,10 @@
                     this.getMensajes();
                 })
                 .catch(error => toastr.error('Sucedio algun error</b>!'))
+            },
+            verMensaje(mensaje) {
+                this.currentMessage = mensaje;
+                $('#mensajeModalComponent').modal('show');
             }
         }
     }

@@ -3,25 +3,23 @@
 Route::redirect('/', 'index');
 Route::get('', "IndexController@index")->name('index');
 
-// Route::get('sobre_aval', function () {return view ("quienes_somos");});
-// Route::get('productos', function () {return view ("productos/cheques");});
-// Route::get('cheques', function () {return view ("productos/cheques");});
-// Route::get('pagares', function () {return view ("productos/pagares");});
-// Route::get('bancos', function () {return view ("productos/bancos");});
-// Route::get('obligaciones', function () {return view ("productos/obligaciones");});
-// Route::get('fideicomisos', function () {return view ("productos/fideicomisos");});
-// Route::get('garantias', function () {return view ("productos/garantias");});
-// Route::get('que-es-una-sgr', function () {return view ("que-es");});
-// Route::get('faq', function () {return view ("faq");});
-// Route::get('pertenecer', function () {return view ("pertenecer/pertenecer");});
-// Route::get('requisitos', function () {return view ("pertenecer/requisitos");});
-
-
-// Route::get('noticias', "NoticiasController@index")->name('noticias');
-// Route::get('noticias/{slug}', "NoticiasController@verNoticia")->name('ver.noticia');
-// Route::get('contacto', "ContactoController@index")->name('contacto');
-// Route::post('enviar_contacto', "ContactoController@enviar_contacto")->name('enviar_contacto');
-// Route::post('precalificacion', "PrecalificateController@store")->name('precalificacion');
+Route::get('sobre_aval', function () {return view ("quienes_somos");});
+Route::get('productos', function () {return view ("productos/cheques");});
+Route::get('cheques', function () {return view ("productos/cheques");});
+Route::get('pagares', function () {return view ("productos/pagares");});
+Route::get('bancos', function () {return view ("productos/bancos");});
+Route::get('obligaciones', function () {return view ("productos/obligaciones");});
+Route::get('fideicomisos', function () {return view ("productos/fideicomisos");});
+Route::get('garantias', function () {return view ("productos/garantias");});
+Route::get('que-es-una-sgr', function () {return view ("que-es");});
+Route::get('faq', function () {return view ("faq");});
+Route::get('pertenecer', function () {return view ("pertenecer/pertenecer");});
+Route::get('requisitos', function () {return view ("pertenecer/requisitos");});
+Route::get('noticias', "NoticiasController@index")->name('noticias');
+Route::get('noticias/{slug}', "NoticiasController@verNoticia")->name('ver.noticia');
+Route::get('contacto', "ContactoController@index")->name('contacto');
+Route::post('enviar_contacto', "ContactoController@enviar_contacto")->name('enviar_contacto');
+Route::post('precalificacion', "PrecalificateController@store")->name('precalificacion');
 
 
 // ADMIN
