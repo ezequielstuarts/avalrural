@@ -18,7 +18,7 @@
             </div>
             <hr>
         </div>
-        <table class="table table-hover table-striped" id="mensajes_table">
+        <table class="table table-hover table-striped" id="mensajesTable">
             <thead>
                 <tr class="tr-background">
                     <th>Estado</th>
@@ -36,13 +36,13 @@
                 <td v-else><b><i class="fas fa-envelope" title="No Leído"></i></b></td>
                 <td v-if="mensaje.read">{{mensaje.created_at}}</td>
                 <td v-else><b>{{mensaje.created_at}}</b></td>
-                <td v-if="mensaje.read">{{mensaje.apellido}}, {{mensaje.nombre}}</td>
+                <td v-if="mensaje.read">{{mensaje.nombre}}, {{mensaje.apellido}}</td>
                 <td v-else><b>{{mensaje.apellido}}, {{mensaje.nombre}}</b></td>
                 <td v-if="mensaje.read">{{mensaje.email}}</td>
                 <td v-else><b>{{mensaje.email}}</b></td>
 
                 <th>
-                    <button @click="verMensaje(mensaje)" type="button" class="btn btn-primary"><i class="fas fa-eye"></i></button>
+                    <button @click="verMensaje(mensaje)" type="button" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></button>
                     <!-- <a @submit.prevent class="btn btn-primary btn-sm" v-bind:id="'msg' + mensaje.id" @click="leer(mensaje)"><i class="fas fa-eye"></i></a> -->
                 </th>
                 <th>
@@ -66,7 +66,6 @@
     export default {
         data() {
             return {
-                mensajes: null,
                 loader_datatables: true,
                 cargando: false,
                 totalMensajes: 0,
@@ -80,20 +79,19 @@
         methods: {
             dTable() {
                 $(document).ready( function () {
-                $('#mensajes_table').DataTable({
-                    "language": {
-                        "lengthMenu": "Mostrar _MENU_ resultados",
-                        "zeroRecords": "No hay resultados con esa búsqueda",
-                        "info": "Página _PAGE_ de _PAGES_",
-                        "infoEmpty": "No hay resultados con esa búsqueda",
-                        "infoFiltered": "(filtrado entre _MAX_ registros)",
-                        "search": "Buscar"
-                    },
-                    "order": [[ 1, "desc" ]],
-                    "scrollY":        "400px",
-                    "scrollCollapse": true,
-
-                });
+                    $('#mensajesTable').DataTable({
+                        "language": {
+                            "lengthMenu": "Mostrar _MENU_ resultados",
+                            "zeroRecords": "No hay resultados con esa búsqueda",
+                            "info": "Página _PAGE_ de _PAGES_",
+                            "infoEmpty": "No hay resultados con esa búsqueda",
+                            "infoFiltered": "(filtrado entre _MAX_ registros)",
+                            "search": "Buscar"
+                        },
+                        "order": [[ 1, "desc" ]],
+                        "scrollY":        "400px",
+                        "scrollCollapse": true,
+                    });
                 });
             },
             getMensajes: function() {
@@ -123,23 +121,6 @@
                 }
                 })
             },
-            leer(mensaje) {
-                Swal.fire({
-                width: 800,
-                title: '<h4>Mensaje Recibido el '+mensaje.created_at+'</h4>',
-                html:'<hr/><div class="mensaje-sweet"><p> <b>De: </b>'+mensaje.nombre+', '+mensaje.apellido+ '<b> - Email: </b>'+mensaje.email+'<p> <b>Localidad: </b>'+mensaje.localidad+' - '+'<b>Teléfono: </b>'+mensaje.telefono+'</p><p><b>Empresa: </b>'+mensaje.empresa+' - <b>CUIT: </b>'+mensaje.cuit+'</p>'+'<hr/><p><b>Consulta: </b>'+mensaje.consulta+'</p></div>',
-                focusConfirm: true,
-                 showClass: {
-                        popup: 'animate__animated animate__fadeInDown'
-                    },
-                    hideClass: {
-                        popup: 'animate__animated animate__fadeOutUp'
-                    }
-                });
-                if (!mensaje.read) {
-                    this.read(mensaje);
-                }
-            },
             read(mensaje) {
                 axios.post(`/mensajes/read/${mensaje.id}`).then(response => {
                     this.getMensajes();
@@ -154,6 +135,7 @@
             },
             verMensaje(mensaje) {
                 this.currentMessage = mensaje;
+                this.read(this.currentMessage);
                 $('#mensajeModalComponent').modal('show');
             }
         }

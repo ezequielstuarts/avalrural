@@ -32,8 +32,8 @@
                 currentMessage: null,
                 };
         },
-        mounted() {
-        },
+        // mounted() {
+        // },
         computed: {
             date: function() {
                 if (this.mensaje) {
@@ -82,10 +82,12 @@
             },
         },
         methods: {
-            verMensaje(mensaje) {
-                this.currentMessage = mensaje;
-                $('#mensajeModalComponent').modal('show');
-            }
         }
     }
 </script>
+
+<style>
+.modal-dialog {
+    min-width: 85;
+}
+</style>
